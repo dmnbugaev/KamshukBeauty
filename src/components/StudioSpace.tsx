@@ -18,7 +18,7 @@ export default function StudioSpace() {
             Наша студия
           </h2>
           <p className="body text-lg text-[#424242]">
-            Современное пространство, созданное для вашего комфорта и релаксации
+            Современное пространство, созданное для вашего комфорта и отдыха
           </p>
         </div>
 
@@ -49,8 +49,8 @@ export default function StudioSpace() {
           <div className="bg-[#FAFAFA] px-12 py-10">
             <p className="headline text-2xl text-[#1A1A1A] mb-4">Адрес студии</p>
             <p className="body text-base text-[#424242] mb-6">
-              Москва, Коммунарка<br />
-              ул. Александры Монаховой д.43/1, здание SoiSoul, 1 этаж
+              г. Москва, Коммунарка<br />
+              ул. Александры Монаховой д.43/1,<br /> здание SoiSoul, 1 этаж
             </p>
             <p className="label text-xs text-[#D81B60]">
               Ежедневно: 10:00 - 22:00

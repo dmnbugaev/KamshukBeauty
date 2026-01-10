@@ -49,7 +49,7 @@ export default function ContactInfo() {
         {/* Address */}
         <div className="text-center max-w-2xl mx-auto">
           <p className="body text-base text-[#424242]">
-            Москва, Коммунарка, ул. Александры Монаховой д.43/1<br />
+            г. Москва, Коммунарка, ул. Александры Монаховой д.43/1<br />
             Здание SoiSoul, 1 этаж
           </p>
         </div>

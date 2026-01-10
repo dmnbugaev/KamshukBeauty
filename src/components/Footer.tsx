@@ -21,7 +21,7 @@ export default function Footer() {
                   +7 (977) 107-50-05
                 </a>
                 <p className="body text-sm text-white/70">
-                  Москва, Коммунарка<br />
+                  г. Москва, Коммунарка<br />
                   ул. Монаховой 43/1
                 </p>
               </div>
@@ -46,7 +46,7 @@ export default function Footer() {
                 Политика конфиденциальности
               </a>
               <a href="./pdfs/2_5301192397315675243.pdf" target='blank_' className="body text-xs text-white/50 hover:text-white transition-colors">
-                Согласие на обработку данных
+                Согласие на обработку персональных данных
               </a>
             </div>
           </div>

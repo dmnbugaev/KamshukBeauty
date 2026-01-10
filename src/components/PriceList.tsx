@@ -1,6 +1,14 @@
 import React from 'react';
 
-const prices = [
+interface PriceSection {
+  category: string;
+  items: Array<{
+    name: string;
+    price: string;
+  }>;
+}
+
+const prices: PriceSection[] = [
   {
     category: 'Маникюр & Педикюр',
     items: [
@@ -39,9 +47,18 @@ const prices = [
   },
 ];
 
+// Функция для создания ID из названия категории
+const getCategoryId = (category: string): string => {
+  return category
+    .toLowerCase()
+    .replace(/[^a-zа-яё0-9]/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '');
+};
+
 export default function PriceList() {
   return (
-    <section className="py-32">
+    <section id="price-list" className="py-32">
       <div className="container px-6 lg:px-12">
         <div className="max-w-3xl mb-20">
           <p className="label text-xs text-[#D81B60] mb-4">Цены</p>
@@ -54,21 +71,24 @@ export default function PriceList() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-12 lg:gap-16">
-          {prices.map((section, idx) => (
-            <div key={idx}>
-              <h3 className="headline text-2xl text-[#1A1A1A] mb-8 pb-4 border-b border-[#F5F5F5]">
-                {section.category}
-              </h3>
-              <div className="space-y-6">
-                {section.items.map((item, i) => (
-                  <div key={i} className="flex justify-between items-baseline">
-                    <span className="body text-base text-[#2E2E2E]">{item.name}</span>
-                    <span className="label text-xs text-[#D81B60] ml-4">{item.price}</span>
-                  </div>
-                ))}
+          {prices.map((section, idx) => {
+            const categoryId = getCategoryId(section.category);
+            return (
+              <div key={idx} id={categoryId}>
+                <h3 className="headline text-2xl text-[#1A1A1A] mb-8 pb-4 border-b border-[#F5F5F5]">
+                  {section.category}
+                </h3>
+                <div className="space-y-6">
+                  {section.items.map((item, i) => (
+                    <div key={i} className="flex justify-between items-baseline">
+                      <span className="body text-base text-[#2E2E2E]">{item.name}</span>
+                      <span className="label text-xs text-[#D81B60] ml-4">{item.price}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         <div className="text-center mt-20">

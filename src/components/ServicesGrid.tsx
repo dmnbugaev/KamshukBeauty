@@ -1,34 +1,46 @@
 import React from 'react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 
-const services = [
+interface Service {
+  title: string;
+  description: string;
+  image: string;
+  price: string;
+  link: string;
+}
+
+const services: Service[] = [
   {
-    title: 'Ногтевой сервис.',
+    title: 'Ногтевой сервис',
     description: 'Комплексный уход за ногтями с использованием премиальных материалов',
     image: './images/4_foto/manik.jpg',
     price: 'от 1400₽',
+    link: '#маникюр-педикюр', // Якорная ссылка на раздел
   },
   {
     title: 'Ресницы & Брови',
     description: 'Наращивание, ламинирование и архитектура для выразительного взгляда',
     image: './images/4_foto/resnici_i_brovi.jpg',
     price: 'от 1500₽',
+    link: '#ресницы-брови', // Якорная ссылка на раздел
   },
   {
     title: 'Макияж',
     description: 'Дневной, вечерний и свадебный макияж от профессионального визажиста',
     image: './images/4_foto/make.jpg',
     price: 'от 3500₽',
+    link: '#макияж', // Якорная ссылка на раздел
   },
   {
     title: 'Обучение',
     description: 'Подробное обучение от профессионалов',
     image: './images/4_foto/obychenie.jpg',
     price: '',
+    link: '/services/training', // Обычная ссылка
   },
 ];
 
-export default function ServicesGrid() {
+export default function ServicesGrid(): JSX.Element {
   return (
     <section id="services" className="py-32">
       <div className="container px-6 lg:px-12">
@@ -44,18 +56,34 @@ export default function ServicesGrid() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
-          {services.map((service, idx) => (
-            <div key={idx} className="group cursor-pointer">
-              <div className="aspect-[4/3] bg-[#F5F5F5] mb-6 overflow-hidden">
+          {services.map((service, index) => (
+            <div key={index} className="group">
+              <a 
+                href={service.link}
+                className="block aspect-[4/3] bg-[#F5F5F5] mb-6 overflow-hidden focus:outline-none focus:ring-2 focus:ring-[#D81B60] focus:ring-offset-2"
+                aria-label={`Перейти к услуге: ${service.title}`}
+                onClick={(e) => {
+                  // Для якорных ссылок можно добавить плавную прокрутку
+                  if (service.link.startsWith('#')) {
+                    e.preventDefault();
+                    const element = document.querySelector(service.link);
+                    if (element) {
+                      element.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }
+                }}
+              >
                 <ImageWithFallback
                   src={service.image}
                   alt={service.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
-              </div>
+              </a>
               <div className="flex justify-between items-start mb-3">
                 <h3 className="headline text-3xl text-[#1A1A1A]">{service.title}</h3>
-                <span className="label text-xs text-[#D81B60]">{service.price}</span>
+                {service.price && (
+                  <span className="label text-xs text-[#D81B60]">{service.price}</span>
+                )}
               </div>
               <p className="body text-base text-[#424242]">{service.description}</p>
             </div>
