@@ -36,7 +36,7 @@ const services: Service[] = [
     description: 'Подробное обучение от профессионалов',
     image: './images/4_foto/obychenie.jpg',
     price: '',
-    link: '/services/training', // Обычная ссылка
+    link: '/training', // Обычная ссылка
   },
 ];
 
