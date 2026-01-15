@@ -148,7 +148,7 @@ export default function Training() {
               прочего).
             </p>
             <p className="headline text-xl text-[#D81B60] italic">
-              Знания + опыт + желание + трудолюбие = успех
+              Желание + знания + опыт + трудолюбие + умение делиться внутренним светом с людьми + удача = успех
             </p>
             <p className="headline text-2xl text-[#1A1A1A]">
               Наша цель — ваш успех в профессии
@@ -286,7 +286,7 @@ export default function Training() {
                 )}
                 <div className="mb-6">
                   <h4 className="headline text-2xl text-[#D81B60] mb-1">
-                    "Эксперт, {pkg.title}-мастер ногтевого
+                    "{pkg.title}-мастер ногтевого
                     сервиса"
                   </h4>
                 </div>
@@ -334,7 +334,7 @@ export default function Training() {
         {/* После обучения вас ждёт */}
         <div className="mb-20">
           <h3 className="headline text-4xl text-[#1A1A1A] mb-12 text-center">
-            После обучения вас ждёт
+            После обучения вас ждут
           </h3>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto">
             {afterTraining.map((item, idx) => (
@@ -368,7 +368,7 @@ export default function Training() {
               href="tel:+79771075005"
               className="inline-block px-10 py-4 bg-[#D81B60] text-white label text-xs hover:bg-[#AD1457] transition-all text-center"
             >
-              Позвонить: <br> +7 (977) 107-50-05
+              Позвонить: <br /> +7 (977) 107-50-05
             </a>
             <a
               href="https://wa.me/message/GAZGRNJFGZWUC1"

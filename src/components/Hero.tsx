@@ -36,12 +36,12 @@ export default function Hero() {
                 <p className="body text-sm text-[#757575]">Лет опыта</p>
               </div>
               <div>
-                <div className="headline text-3xl text-[#D81B60] mb-1">1000+</div>
-                <p className="body text-sm text-[#757575]">Клиентов</p>
-              </div>
-              <div>
                 <div className="headline text-3xl text-[#D81B60] mb-1">15%</div>
                 <p className="body text-sm text-[#757575]">Скидка</p>
+              </div>
+              <div>
+                <div className="headline text-3xl text-[#D81B60] mb-1">1000+</div>
+                <p className="body text-sm text-[#757575]">Довольных гостей</p>
               </div>
             </div>
           </div>
