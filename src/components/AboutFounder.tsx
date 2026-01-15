@@ -47,7 +47,7 @@ export default function AboutFounder() {
               </div>
               <div className="border-l-2 border-[#D81B60] pl-6">
                 <div className="headline text-4xl text-[#D81B60] mb-2">1000+</div>
-                <p className="body text-sm text-[#757575]">Довольных клиентов</p>
+                <p className="body text-sm text-[#757575]">Довольных гостей</p>
               </div>
             </div>
           </div>

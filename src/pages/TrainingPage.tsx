@@ -157,16 +157,27 @@ export default function Training() {
         </div>
 
         {/* Image - Простая замена */}
-        <div className="aspect-[21/9] bg-[#F5F5F5] overflow-hidden mb-32">
+        <div className="aspect-[9/16] md:aspect-[21/9] bg-[#F5F5F5] overflow-hidden mb-32">
           <div className="w-full h-full flex items-center justify-center bg-gradient-to-r from-pink-50 to-rose-50">
-            <div className="text-center">
-              <div className="text-6xl mb-4">💅</div>
-              <p className="text-lg text-gray-600">
-                Обучение маникюру
-              </p>
-              <p className="text-sm text-gray-500 mt-2">
-                Школа-студия красоты Анастасии Камшук
-              </p>
+            <div className="text-center w-full h-full">
+              <picture className="w-full h-full flex items-center justify-center">
+                {/* Для мобильных устройств (вертикальное фото) */}
+                <source 
+                  media="(max-width: 767px)"
+                  srcSet="/images/obuch1.jpg"
+                />
+                {/* Для планшетов и десктопов (горизонтальное фото) */}
+                <source 
+                  media="(min-width: 768px)"
+                  srcSet="/images/obuch.png"
+                />
+                {/* Фолбэк изображение (десктопная версия) */}
+                <img 
+                  src="/images/obuch.png"
+                  alt="Обучение маникюру"
+                  className="w-full h-full object-cover md:object-contain"
+                />
+              </picture>
             </div>
           </div>
         </div>
@@ -357,7 +368,7 @@ export default function Training() {
               href="tel:+79771075005"
               className="inline-block px-10 py-4 bg-[#D81B60] text-white label text-xs hover:bg-[#AD1457] transition-all text-center"
             >
-              Позвонить: +7 (977) 107-50-05
+              Позвонить: <br> +7 (977) 107-50-05
             </a>
             <a
               href="https://wa.me/message/GAZGRNJFGZWUC1"
