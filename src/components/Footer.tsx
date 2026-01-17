@@ -23,7 +23,7 @@ export default function Footer() {
                 <p className="body text-sm text-white/70">
                   г. Москва, Коммунарка<br />
                   ул. Александры Монаховой 43/1 <br />
-                  Здание SoiSoul 1 этаж
+                  Здание SoiSoul, 1 этаж
                 </p>
               </div>
             </div>
