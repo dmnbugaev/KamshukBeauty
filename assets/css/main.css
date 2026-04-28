@@ -1,0 +1,400 @@
+/* ===== ЦВЕТОВЫЕ ПЕРЕМЕННЫЕ ===== */
+:root {
+  /* Розовые */
+  --pink-deep: #C2185B;
+  --pink-main: #E91E8C;
+  --pink-soft: #F48DB4;
+  --pink-light: #F9C5DA;
+  --pink-pale: #FDE8F2;
+  --pink-ultra: #FFF4F9;
+
+  /* Золотые (из логотипа) */
+  --gold-dark: #8B6914;
+  --gold-main: #C8A441;
+  --gold-mid: #D4B54A;
+  --gold-light: #E8CE7A;
+  --gold-pale: #FBF3D9;
+
+  /* Небесно-голубые (фон логотипа) */
+  --sky-deep: #4BACC8;
+  --sky-main: #7ECFDE;
+  --sky-soft: #B4E4F0;
+  --sky-light: #D6F2FA;
+  --sky-pale: #EEF9FC;
+
+  /* Нейтральные */
+  --warm-50: #FFFCFA;
+  --warm-100: #FFF8F4;
+  --text-dark: #1A100C;
+  --text-mid: #4A3830;
+  --text-light: #8A7A74;
+
+  /* Тёмный фон */
+  --luxury-dark: #1A0D2E;
+  --luxury-mid: #0D1829;
+}
+
+/* ===== БАЗОВЫЕ СТИЛИ ===== */
+*, *::before, *::after {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'Manrope', sans-serif;
+  color: var(--text-dark);
+  background: #FFFCFA;
+  letter-spacing: -0.01em;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 110px;
+}
+
+/* ===== ВЫДЕЛЕНИЕ ===== */
+::selection {
+  background: var(--gold-main);
+  color: var(--luxury-dark);
+}
+
+/* ===== СКРОЛЛБАР ===== */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--gold-pale); }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, var(--gold-main), var(--pink-main));
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--gold-dark); }
+
+/* ===== КОНТЕЙНЕР ===== */
+.container {
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+/* ===== ФОКУС ===== */
+*:focus-visible {
+  outline: 2px solid var(--gold-main);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ===== ТИПОГРАФИКА ===== */
+.display {
+  font-family: 'Unbounded', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+
+.headline {
+  font-family: 'Unbounded', sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.body {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 400;
+  letter-spacing: -0.005em;
+  line-height: 1.75;
+}
+
+.label {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.quote-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500;
+  font-style: italic;
+  line-height: 1.4;
+}
+
+/* ===== ЗОЛОТОЙ ТЕКСТ ===== */
+.text-gold {
+  background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold-main) 40%, var(--gold-light) 60%, var(--gold-main) 80%, var(--gold-dark) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gold-shimmer {
+  background: linear-gradient(90deg, var(--gold-dark), var(--gold-light), var(--gold-main), var(--gold-light), var(--gold-dark));
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: goldShimmer 4s ease infinite;
+}
+
+.text-pink {
+  color: var(--pink-main);
+}
+
+/* ===== GLASSMORPHISM ===== */
+.glass {
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.glass-pink {
+  background: rgba(253, 232, 242, 0.55);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(233, 30, 140, 0.12);
+}
+
+.glass-gold {
+  background: rgba(251, 243, 217, 0.5);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(200, 164, 65, 0.25);
+}
+
+.glass-sky {
+  background: rgba(214, 242, 250, 0.5);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(126, 207, 222, 0.3);
+}
+
+.glass-dark {
+  background: rgba(26, 13, 46, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(200, 164, 65, 0.15);
+}
+
+.glass-white {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+/* ===== КНОПКИ ===== */
+.btn-gold {
+  background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold-main) 50%, var(--gold-mid) 100%);
+  color: #fff;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  padding: 1rem 2.5rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(200, 164, 65, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-gold::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.btn-gold:hover::before {
+  left: 100%;
+}
+
+.btn-gold:hover {
+  box-shadow: 0 6px 30px rgba(200, 164, 65, 0.5);
+  transform: translateY(-2px);
+}
+
+.btn-pink {
+  background: linear-gradient(135deg, var(--pink-deep) 0%, var(--pink-main) 100%);
+  color: #fff;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  padding: 1rem 2.5rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(233, 30, 140, 0.25);
+}
+
+.btn-pink:hover {
+  box-shadow: 0 6px 30px rgba(233, 30, 140, 0.4);
+  transform: translateY(-2px);
+}
+
+.btn-outline-gold {
+  border: 1.5px solid var(--gold-main);
+  color: var(--gold-dark);
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  padding: 1rem 2.5rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  background: transparent;
+}
+
+.btn-outline-gold:hover {
+  background: var(--gold-pale);
+  box-shadow: 0 4px 20px rgba(200, 164, 65, 0.2);
+  transform: translateY(-2px);
+}
+
+/* ===== ЗОЛОТОЙ РАЗДЕЛИТЕЛЬ ===== */
+.gold-divider {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold-main), var(--gold-light));
+  border-radius: 2px;
+}
+
+/* ===== ДЕКОРАТИВНЫЕ МЕТКИ ===== */
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-main);
+}
+
+.section-label::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 1.5px;
+  background: var(--gold-main);
+}
+
+/* ===== КАРТОЧКИ ===== */
+.card-luxury {
+  background: white;
+  border-radius: 20px;
+  border: 1px solid rgba(200, 164, 65, 0.12);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-luxury:hover {
+  border-color: rgba(200, 164, 65, 0.35);
+  box-shadow: 0 12px 48px rgba(200, 164, 65, 0.12), 0 4px 16px rgba(0,0,0,0.06);
+  transform: translateY(-4px);
+}
+
+/* ===== АНИМАЦИИ ===== */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(32px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.94); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes goldShimmer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes pulseGold {
+  0%, 100% { box-shadow: 0 0 20px rgba(200,164,65,0.2); }
+  50% { box-shadow: 0 0 60px rgba(200,164,65,0.5); }
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 0; transform: scale(0); }
+  50% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes rotateSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-fade-in { animation: fadeIn 0.7s ease-out; }
+.animate-slide-up { animation: slideUp 0.8s ease-out both; }
+.animate-scale-in { animation: scaleIn 0.7s ease-out both; }
+.animate-float { animation: float 6s ease-in-out infinite; }
+.animate-pulse-gold { animation: pulseGold 2.5s ease-in-out infinite; }
+
+/* ===== ПЕРЕХОДЫ СТРАНИЦ ===== */
+.page-enter-active,
+.page-leave-active {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.page-enter-from {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.page-leave-to {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+/* ===== ИЗОБРАЖЕНИЯ ===== */
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* ===== QR-КОДЫ ===== */
+.qr-code-wrapper svg {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+}
+
+/* ===== ЗОЛОТАЯ ЛИНИЯ АКЦЕНТА ===== */
+.border-gold { border-color: var(--gold-main); }
+.border-gold-light { border-color: rgba(200, 164, 65, 0.25); }
+
+/* ===== ВЕРТИКАЛЬНАЯ МЕТКА ===== */
+.vertical-label {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+}
+
+/* ===== SOUND WAVE DIVIDER ===== */
+.wave-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-main), var(--pink-soft), var(--gold-main), transparent);
+  opacity: 0.4;
+}
+
+/* ===== BACKDROP для модальных окон ===== */
+.backdrop-luxury {
+  background: rgba(13, 6, 24, 0.6);
+  backdrop-filter: blur(8px);
+}
