@@ -19,29 +19,29 @@ const handleSubmit = () => {
 </script>
 
 <template>
-  <section id="book" class="py-28 bg-[#FFFCFA]">
+  <section id="book" class="py-28 bg-white">
     <div class="container px-6 lg:px-12">
       <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center max-w-[1320px] mx-auto">
 
         <!-- Левая часть — форма -->
         <div>
           <div class="section-label mb-6">Запись</div>
-          <h2 class="display text-4xl lg:text-5xl text-[#1A100C] mb-4">
-            Готовы<br /><span class="text-gold">преобразиться?</span>
+          <h2 class="display text-4xl lg:text-5xl text-[#1A1A2E] mb-4">
+            Готовы<br /><span class="text-pink-shimmer">преобразиться?</span>
           </h2>
-          <p class="body text-lg text-[#8A7A74] mb-10">
+          <p class="body text-lg text-[#B08898] mb-10">
             Запишитесь на процедуру онлайн или оставьте заявку
             на обратный звонок
           </p>
 
-          <!-- Акция -->
-          <div
-            class="rounded-2xl px-8 py-6 mb-8"
-            style="background: linear-gradient(135deg, rgba(200,164,65,0.1), rgba(126,207,222,0.1)); border: 1.5px solid rgba(200,164,65,0.2)"
-          >
-            <p class="label text-[11px] text-[#8B6914] mb-2">Специальное предложение</p>
-            <p class="headline text-4xl text-gold mb-2">−15%</p>
-            <p class="body text-sm text-[#5C4A44]">
+          <!-- Акция — iOS glass стиль -->
+          <div class="glass-pink rounded-2xl px-8 py-6 mb-8">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="ios-icon ios-pink" style="width:48px; height:48px; border-radius:14px; font-size:1.375rem">🎀</div>
+              <p class="label text-[11px] text-[#C2185B]">Специальное предложение</p>
+            </div>
+            <p class="headline text-4xl text-[#E91E8C] mb-2">−15%</p>
+            <p class="body text-sm text-[#6B4F5A]">
               Скидка на все услуги при первом визите
             </p>
           </div>
@@ -51,7 +51,7 @@ const handleSubmit = () => {
             href="https://n1407035.yclients.com/company/1274992/personal/select-services?o="
             target="_blank"
             rel="noopener noreferrer"
-            class="btn-gold inline-block w-full text-center mb-10"
+            class="btn-pink inline-block w-full text-center mb-10"
           >
             Записаться онлайн
           </a>
@@ -59,35 +59,38 @@ const handleSubmit = () => {
           <!-- Контакты -->
           <div class="flex flex-col sm:flex-row gap-6 mb-10">
             <div>
-              <p class="label text-[10px] text-[#8A7A74] mb-1">Телефон</p>
-              <a href="tel:+79771075005" class="headline text-lg text-[#1A100C] hover:text-[#C8A441] transition-colors">
+              <p class="label text-[10px] text-[#B08898] mb-1">Телефон</p>
+              <a href="tel:+79771075005" class="headline text-lg text-[#1A1A2E] hover:text-[#E91E8C] transition-colors">
                 +7 (977) 107-50-05
               </a>
             </div>
             <div>
-              <p class="label text-[10px] text-[#8A7A74] mb-1">Режим работы</p>
-              <p class="headline text-lg text-[#1A100C]">Ежедневно: 10:00 — 22:00</p>
+              <p class="label text-[10px] text-[#B08898] mb-1">Режим работы</p>
+              <p class="headline text-lg text-[#1A1A2E]">Ежедневно: 10:00 — 22:00</p>
             </div>
           </div>
 
           <!-- Форма обратного звонка -->
           <div
             class="rounded-3xl p-7 lg:p-8"
-            style="border: 1.5px solid rgba(200,164,65,0.2); background: rgba(251,243,217,0.15)"
+            style="border: 1.5px solid rgba(233,30,140,0.12); background: rgba(255,240,250,0.4)"
           >
-            <h3 class="headline text-lg text-[#1A100C] mb-6">Заказать обратный звонок</h3>
+            <h3 class="headline text-lg text-[#1A1A2E] mb-6">Заказать обратный звонок</h3>
 
             <!-- Успех -->
-            <div v-if="submitted" class="glass-gold rounded-2xl p-8 text-center">
-              <div class="text-4xl mb-3">✓</div>
-              <p class="headline text-base text-[#8B6914] mb-2">Заявка принята!</p>
-              <p class="body text-sm text-[#5C4A44]">Мы свяжемся с вами в ближайшее время.</p>
+            <div v-if="submitted" class="glass-pink rounded-2xl p-8 text-center">
+              <div
+                class="ios-icon ios-pink mx-auto mb-3"
+                style="font-size: 1.5rem; width: 56px; height: 56px; border-radius: 18px"
+              >✓</div>
+              <p class="headline text-base text-[#C2185B] mb-2">Заявка принята!</p>
+              <p class="body text-sm text-[#6B4F5A]">Мы свяжемся с вами в ближайшее время.</p>
             </div>
 
             <!-- Форма -->
             <form v-else class="space-y-4" novalidate @submit.prevent="handleSubmit">
               <div>
-                <label for="callback-name" class="label text-[10px] text-[#8A7A74] mb-2 block">
+                <label for="callback-name" class="label text-[10px] text-[#B08898] mb-2 block">
                   Ваше имя
                 </label>
                 <input
@@ -96,14 +99,14 @@ const handleSubmit = () => {
                   type="text"
                   required
                   placeholder="Анастасия"
-                  class="w-full px-5 py-3.5 rounded-xl body text-sm text-[#1A100C] bg-white transition-all duration-300"
-                  style="border: 1.5px solid rgba(200,164,65,0.2); outline: none"
-                  @focus="($event.target as HTMLInputElement).style.borderColor = '#C8A441'"
-                  @blur="($event.target as HTMLInputElement).style.borderColor = 'rgba(200,164,65,0.2)'"
+                  class="w-full px-5 py-3.5 rounded-xl body text-sm text-[#1A1A2E] bg-white transition-all duration-300"
+                  style="border: 1.5px solid rgba(233,30,140,0.15); outline: none"
+                  @focus="($event.target as HTMLInputElement).style.borderColor = '#E91E8C'"
+                  @blur="($event.target as HTMLInputElement).style.borderColor = 'rgba(233,30,140,0.15)'"
                 />
               </div>
               <div>
-                <label for="callback-phone" class="label text-[10px] text-[#8A7A74] mb-2 block">
+                <label for="callback-phone" class="label text-[10px] text-[#B08898] mb-2 block">
                   Номер телефона
                 </label>
                 <input
@@ -112,10 +115,10 @@ const handleSubmit = () => {
                   type="tel"
                   required
                   placeholder="+7 (___) ___-__-__"
-                  class="w-full px-5 py-3.5 rounded-xl body text-sm text-[#1A100C] bg-white transition-all duration-300"
-                  style="border: 1.5px solid rgba(200,164,65,0.2); outline: none"
-                  @focus="($event.target as HTMLInputElement).style.borderColor = '#C8A441'"
-                  @blur="($event.target as HTMLInputElement).style.borderColor = 'rgba(200,164,65,0.2)'"
+                  class="w-full px-5 py-3.5 rounded-xl body text-sm text-[#1A1A2E] bg-white transition-all duration-300"
+                  style="border: 1.5px solid rgba(233,30,140,0.15); outline: none"
+                  @focus="($event.target as HTMLInputElement).style.borderColor = '#E91E8C'"
+                  @blur="($event.target as HTMLInputElement).style.borderColor = 'rgba(233,30,140,0.15)'"
                 />
               </div>
 
@@ -126,12 +129,12 @@ const handleSubmit = () => {
                   v-model="form.pdConsent"
                   type="checkbox"
                   class="mt-1 w-4 h-4 shrink-0 cursor-pointer rounded"
-                  style="accent-color: #C8A441"
+                  style="accent-color: #E91E8C"
                 />
-                <label for="pd-consent" class="body text-xs text-[#8A7A74] cursor-pointer leading-relaxed">
+                <label for="pd-consent" class="body text-xs text-[#B08898] cursor-pointer leading-relaxed">
                   Я даю согласие на обработку моих персональных данных
                   в соответствии с Федеральным законом № 152‑ФЗ «О персональных данных».
-                  <NuxtLink to="/privacy" class="text-[#C8A441] hover:underline">
+                  <NuxtLink to="/privacy" class="text-[#E91E8C] hover:underline">
                     Политика конфиденциальности
                   </NuxtLink>
                 </label>
@@ -141,7 +144,7 @@ const handleSubmit = () => {
 
               <button
                 type="submit"
-                class="w-full btn-gold mt-2"
+                class="w-full btn-pink mt-2"
               >
                 Отправить заявку
               </button>
@@ -155,9 +158,10 @@ const handleSubmit = () => {
             <!-- Декоративная рамка -->
             <div
               class="absolute -top-4 -right-4 bottom-10 left-10 rounded-3xl"
-              style="border: 1.5px solid rgba(126,207,222,0.25)"
+              style="border: 1.5px solid rgba(233,30,140,0.15)"
             />
-            <div class="aspect-[3/4] overflow-hidden rounded-3xl shadow-luxury">
+            <div class="aspect-[3/4] overflow-hidden rounded-3xl"
+              style="box-shadow: 0 24px 80px rgba(233,30,140,0.12), 0 8px 32px rgba(0,0,0,0.08)">
               <img
                 src="/images/book.jpg"
                 alt="Запись в Камшук Бьюти"

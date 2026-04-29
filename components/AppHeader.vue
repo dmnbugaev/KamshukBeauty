@@ -29,7 +29,7 @@ const closeMenu = () => { menuOpen.value = false }
     :class="[
       'fixed top-0 left-0 right-0 z-50 transition-all duration-500',
       scrolled
-        ? 'glass-white shadow-[0_2px_32px_rgba(200,164,65,0.1)]'
+        ? 'glass-white shadow-[0_2px_24px_rgba(233,30,140,0.08)]'
         : 'bg-transparent',
     ]"
   >
@@ -46,13 +46,13 @@ const closeMenu = () => { menuOpen.value = false }
             <img
               src="/images/logo.jpg"
               alt="Логотип Камшук Бьюти"
-              class="h-14 w-14 rounded-full object-cover shadow-sky ring-2 ring-[#7ECFDE]/40 group-hover:ring-[#C8A441]/60 transition-all duration-300"
+              class="h-14 w-14 rounded-full object-cover shadow-[0_4px_20px_rgba(233,30,140,0.25)] ring-2 ring-[#E91E8C]/25 group-hover:ring-[#E91E8C]/50 transition-all duration-300"
             />
-            <div class="absolute inset-0 rounded-full bg-[#C8A441]/0 group-hover:bg-[#C8A441]/10 transition-all duration-300" />
+            <div class="absolute inset-0 rounded-full bg-[#E91E8C]/0 group-hover:bg-[#E91E8C]/5 transition-all duration-300" />
           </div>
           <div class="hidden sm:block">
-            <p class="headline text-base text-gold leading-none">Камшук Бьюти</p>
-            <p class="body text-[10px] text-[#8A7A74] tracking-widest mt-0.5">Студия красоты · Москва</p>
+            <p class="headline text-base text-pink-gradient leading-none">Камшук Бьюти</p>
+            <p class="body text-[10px] text-[#B08898] tracking-widest mt-0.5">Студия красоты · Москва</p>
           </div>
         </NuxtLink>
 
@@ -61,18 +61,18 @@ const closeMenu = () => { menuOpen.value = false }
           <template v-for="link in links" :key="link.href">
             <NuxtLink
               :to="link.href"
-              class="nav-link label text-[11px] text-[#4A3830] hover:text-[#C8A441] transition-colors duration-300 relative group"
+              class="label text-[11px] text-[#6B4F5A] hover:text-[#E91E8C] transition-colors duration-300 relative group"
             >
               {{ link.label }}
-              <span class="absolute -bottom-0.5 left-0 w-0 h-px bg-[#C8A441] group-hover:w-full transition-all duration-300" />
+              <span class="absolute -bottom-0.5 left-0 w-0 h-px bg-gradient-to-r from-[#E91E8C] to-[#F48DB4] group-hover:w-full transition-all duration-300" />
             </NuxtLink>
           </template>
           <NuxtLink
             to="/obuchenie"
-            class="nav-link label text-[11px] text-[#4A3830] hover:text-[#C8A441] transition-colors duration-300 relative group"
+            class="label text-[11px] text-[#6B4F5A] hover:text-[#E91E8C] transition-colors duration-300 relative group"
           >
             Обучение
-            <span class="absolute -bottom-0.5 left-0 w-0 h-px bg-[#C8A441] group-hover:w-full transition-all duration-300" />
+            <span class="absolute -bottom-0.5 left-0 w-0 h-px bg-gradient-to-r from-[#E91E8C] to-[#F48DB4] group-hover:w-full transition-all duration-300" />
           </NuxtLink>
         </div>
 
@@ -81,14 +81,14 @@ const closeMenu = () => { menuOpen.value = false }
           href="https://n1407035.yclients.com/company/1274992/personal/select-services?o="
           target="_blank"
           rel="noopener noreferrer"
-          class="hidden lg:block btn-gold"
+          class="hidden lg:block btn-pink"
         >
           Записаться
         </a>
 
         <!-- Бургер -->
         <button
-          class="lg:hidden relative w-10 h-10 flex items-center justify-center text-[#C8A441]"
+          class="lg:hidden relative w-10 h-10 flex items-center justify-center text-[#E91E8C]"
           :aria-label="menuOpen ? 'Закрыть меню' : 'Открыть меню'"
           :aria-expanded="menuOpen"
           @click="menuOpen = !menuOpen"
@@ -126,16 +126,16 @@ const closeMenu = () => { menuOpen.value = false }
       <div
         v-if="menuOpen"
         class="lg:hidden fixed inset-0 z-40 flex flex-col"
-        style="background: linear-gradient(160deg, #F5FDFF 0%, #FFF4F9 100%)"
+        style="background: linear-gradient(160deg, #FFFFFF 0%, #FFF4F9 100%)"
       >
         <!-- Шапка мобильного меню -->
-        <div class="flex items-center justify-between h-20 px-6 border-b border-[#C8A441]/15">
+        <div class="flex items-center justify-between h-20 px-6 border-b border-[#E91E8C]/10">
           <NuxtLink to="/" class="flex items-center gap-3" @click="closeMenu">
-            <img src="/images/logo.jpg" alt="Логотип" class="h-12 w-12 rounded-full object-cover ring-2 ring-[#7ECFDE]/40" />
-            <span class="headline text-base text-gold">Камшук Бьюти</span>
+            <img src="/images/logo.jpg" alt="Логотип" class="h-12 w-12 rounded-full object-cover ring-2 ring-[#E91E8C]/25" />
+            <span class="headline text-base text-pink-gradient">Камшук Бьюти</span>
           </NuxtLink>
           <button
-            class="w-10 h-10 flex items-center justify-center text-[#C8A441] rounded-full hover:bg-[#FBF3D9] transition-colors"
+            class="w-10 h-10 flex items-center justify-center text-[#E91E8C] rounded-full hover:bg-[#FDE8F2] transition-colors"
             aria-label="Закрыть меню"
             @click="closeMenu"
           >
@@ -152,21 +152,21 @@ const closeMenu = () => { menuOpen.value = false }
               v-for="link in links"
               :key="link.href"
               :to="link.href"
-              class="flex items-center gap-4 py-4 border-b border-[#C8A441]/10 group"
+              class="flex items-center gap-4 py-4 border-b border-[#E91E8C]/10 group"
               @click="closeMenu"
             >
-              <span class="w-1.5 h-1.5 rounded-full bg-[#C8A441] opacity-0 group-hover:opacity-100 transition-opacity" />
-              <span class="headline text-xl text-[#2E201C] group-hover:text-[#C8A441] transition-colors">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#E91E8C] opacity-0 group-hover:opacity-100 transition-opacity" />
+              <span class="headline text-xl text-[#1A1A2E] group-hover:text-[#E91E8C] transition-colors">
                 {{ link.label }}
               </span>
             </NuxtLink>
             <NuxtLink
               to="/obuchenie"
-              class="flex items-center gap-4 py-4 border-b border-[#C8A441]/10 group"
+              class="flex items-center gap-4 py-4 border-b border-[#E91E8C]/10 group"
               @click="closeMenu"
             >
-              <span class="w-1.5 h-1.5 rounded-full bg-[#C8A441] opacity-0 group-hover:opacity-100 transition-opacity" />
-              <span class="headline text-xl text-[#2E201C] group-hover:text-[#C8A441] transition-colors">Обучение</span>
+              <span class="w-1.5 h-1.5 rounded-full bg-[#E91E8C] opacity-0 group-hover:opacity-100 transition-opacity" />
+              <span class="headline text-xl text-[#1A1A2E] group-hover:text-[#E91E8C] transition-colors">Обучение</span>
             </NuxtLink>
           </div>
 
@@ -174,13 +174,13 @@ const closeMenu = () => { menuOpen.value = false }
             href="https://n1407035.yclients.com/company/1274992/personal/select-services?o="
             target="_blank"
             rel="noopener noreferrer"
-            class="block btn-gold text-center"
+            class="block btn-pink text-center"
             @click="closeMenu"
           >
             Записаться онлайн
           </a>
 
-          <p class="body text-xs text-[#8A7A74] text-center mt-8">
+          <p class="body text-xs text-[#B08898] text-center mt-8">
             г. Москва, Коммунарка · Ежедневно 10:00–22:00
           </p>
         </div>

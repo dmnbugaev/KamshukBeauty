@@ -31,24 +31,19 @@ onUnmounted(() => { if (timer) clearInterval(timer) })
 </script>
 
 <template>
-  <section class="py-28 relative overflow-hidden">
-    <!-- Градиентный фон -->
-    <div
-      class="absolute inset-0"
-      style="background: linear-gradient(135deg, #EEF9FC 0%, #FFFCFA 50%, #FFF4F9 100%)"
-    />
-    <!-- Декоративные пятна -->
+  <section class="py-28 relative overflow-hidden bg-white">
+    <!-- Лёгкие розовые пятна -->
     <div class="absolute top-20 left-10 w-40 h-40 rounded-full blur-3xl opacity-50"
-      style="background: rgba(126,207,222,0.4)" />
-    <div class="absolute bottom-20 right-10 w-48 h-48 rounded-full blur-3xl opacity-40"
-      style="background: rgba(200,164,65,0.2)" />
+      style="background: rgba(244,141,180,0.3)" />
+    <div class="absolute bottom-20 right-10 w-48 h-48 rounded-full blur-3xl opacity-35"
+      style="background: rgba(233,30,140,0.12)" />
 
     <div class="container px-6 lg:px-12 relative z-10">
 
       <!-- Заголовок -->
       <div class="text-center mb-16">
         <div class="section-label justify-center mb-5">Отзывы</div>
-        <h2 class="display text-4xl lg:text-5xl text-[#1A100C]">Говорят наши гости</h2>
+        <h2 class="display text-4xl lg:text-5xl text-[#1A1A2E]">Говорят наши гости</h2>
       </div>
 
       <!-- Карточка отзыва -->
@@ -56,7 +51,7 @@ onUnmounted(() => { if (timer) clearInterval(timer) })
         <!-- Навигация -->
         <div class="relative">
           <button
-            class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 lg:-translate-x-14 w-11 h-11 rounded-full glass-gold flex items-center justify-center text-[#8B6914] hover:shadow-gold transition-all duration-300 hover:scale-110 z-10"
+            class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 lg:-translate-x-14 w-11 h-11 rounded-full glass-pink flex items-center justify-center text-[#C2185B] hover:shadow-[0_4px_20px_rgba(233,30,140,0.25)] transition-all duration-300 hover:scale-110 z-10"
             aria-label="Предыдущий отзыв"
             @click="prev(); resetTimer()"
           >
@@ -65,7 +60,7 @@ onUnmounted(() => { if (timer) clearInterval(timer) })
             </svg>
           </button>
           <button
-            class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 lg:translate-x-14 w-11 h-11 rounded-full glass-gold flex items-center justify-center text-[#8B6914] hover:shadow-gold transition-all duration-300 hover:scale-110 z-10"
+            class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 lg:translate-x-14 w-11 h-11 rounded-full glass-pink flex items-center justify-center text-[#C2185B] hover:shadow-[0_4px_20px_rgba(233,30,140,0.25)] transition-all duration-300 hover:scale-110 z-10"
             aria-label="Следующий отзыв"
             @click="next(); resetTimer()"
           >
@@ -77,23 +72,20 @@ onUnmounted(() => { if (timer) clearInterval(timer) })
           <!-- Содержимое отзыва -->
           <Transition name="testimonial" mode="out-in">
             <div :key="current" class="text-center px-6 lg:px-20 py-12">
-              <!-- Большие кавычки -->
-              <div class="text-6xl leading-none text-[#C8A441] opacity-30 font-serif mb-6 select-none">"</div>
-
               <!-- Звёзды -->
               <div class="flex justify-center gap-1 mb-8">
-                <span v-for="i in 5" :key="i" class="text-[#C8A441] text-lg">★</span>
+                <span v-for="i in 5" :key="i" class="text-[#E91E8C] text-lg">★</span>
               </div>
 
-              <blockquote class="quote-text text-xl lg:text-2xl text-[#2E201C] leading-relaxed mb-10">
+              <blockquote class="quote-text text-xl lg:text-2xl text-[#1A1A2E] leading-relaxed mb-10">
                 {{ testimonials[current].text }}
               </blockquote>
 
               <!-- Автор -->
               <div class="flex items-center justify-center gap-3">
-                <div class="w-10 h-px bg-[#C8A441]/40" />
-                <p class="label text-[11px] text-[#C8A441]">{{ testimonials[current].author }}</p>
-                <div class="w-10 h-px bg-[#C8A441]/40" />
+                <div class="w-10 h-px bg-[#E91E8C]/35" />
+                <p class="label text-[11px] text-[#E91E8C]">{{ testimonials[current].author }}</p>
+                <div class="w-10 h-px bg-[#E91E8C]/35" />
               </div>
             </div>
           </Transition>
@@ -107,8 +99,8 @@ onUnmounted(() => { if (timer) clearInterval(timer) })
             :class="[
               'transition-all duration-300 rounded-full',
               idx === current
-                ? 'w-8 h-2 bg-[#C8A441]'
-                : 'w-2 h-2 bg-[#C8A441]/25 hover:bg-[#C8A441]/50',
+                ? 'w-8 h-2 bg-[#E91E8C]'
+                : 'w-2 h-2 bg-[#E91E8C]/20 hover:bg-[#E91E8C]/45',
             ]"
             :aria-label="`Отзыв ${idx + 1}`"
             @click="current = idx; resetTimer()"

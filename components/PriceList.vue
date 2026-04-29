@@ -4,6 +4,7 @@ const prices = [
     id: 'маникюр-педикюр',
     category: 'Маникюр & Педикюр',
     icon: '💅',
+    iconClass: 'ios-pink',
     items: [
       { name: 'Маникюр без покрытия', price: '1 400 ₽' },
       { name: 'Маникюр комплекс', price: '2 700 ₽' },
@@ -15,6 +16,7 @@ const prices = [
     id: 'ресницы-брови',
     category: 'Ресницы & Брови',
     icon: '👁',
+    iconClass: 'ios-rose',
     items: [
       { name: 'Наращивание ресниц', price: '3 300 ₽' },
       { name: 'Ламинирование ресниц', price: '3 000 ₽' },
@@ -26,6 +28,7 @@ const prices = [
     id: 'макияж',
     category: 'Макияж',
     icon: '✨',
+    iconClass: 'ios-blush',
     items: [
       { name: 'Дневной', price: '3 500 ₽' },
       { name: 'Вечерний', price: '5 000 ₽' },
@@ -37,6 +40,7 @@ const prices = [
     id: 'перманентный-макияж',
     category: 'Перманентный макияж',
     icon: '🎨',
+    iconClass: 'ios-gold',
     items: [
       { name: 'Пудровые брови', price: '14 000 ₽' },
       { name: 'Напыление губ', price: '12 000 ₽' },
@@ -49,42 +53,42 @@ const prices = [
 
 <template>
   <section id="price-list" class="py-28 relative overflow-hidden">
-    <!-- Тёмный фон -->
+    <!-- Нежный розовый фон -->
     <div
       class="absolute inset-0"
-      style="background: linear-gradient(160deg, #1A0D2E 0%, #0D1829 50%, #1A0D2E 100%)"
+      style="background: linear-gradient(160deg, #FFF4F9 0%, #FFFFFF 50%, #FFF0F5 100%)"
     />
-    <!-- Декоративные блики -->
-    <div class="absolute top-0 left-1/3 w-[500px] h-[500px] rounded-full blur-3xl opacity-10"
-      style="background: radial-gradient(circle, #7ECFDE, transparent)" />
-    <div class="absolute bottom-0 right-1/4 w-[400px] h-[400px] rounded-full blur-3xl opacity-10"
-      style="background: radial-gradient(circle, #C8A441, transparent)" />
+    <!-- Декоративные пятна -->
+    <div class="absolute top-0 left-1/3 w-[500px] h-[500px] rounded-full blur-3xl opacity-30"
+      style="background: radial-gradient(circle, rgba(244,141,180,0.5), transparent)" />
+    <div class="absolute bottom-0 right-1/4 w-[400px] h-[400px] rounded-full blur-3xl opacity-20"
+      style="background: radial-gradient(circle, rgba(233,30,140,0.2), transparent)" />
 
     <div class="container px-6 lg:px-12 relative z-10">
 
       <!-- Заголовок -->
       <div class="max-w-xl mb-20">
-        <div class="section-label mb-5" style="color: #C8A441">Цены</div>
-        <h2 class="display text-4xl lg:text-5xl text-white mb-4">Прайс-лист</h2>
-        <p class="body text-[#B4E4F0]">
+        <div class="section-label mb-5">Цены</div>
+        <h2 class="display text-4xl lg:text-5xl text-[#1A1A2E] mb-4">Прайс-лист</h2>
+        <p class="body text-[#B08898]">
           Прозрачное ценообразование без скрытых доплат
         </p>
       </div>
 
-      <!-- Карточки цен -->
+      <!-- Карточки цен — iOS glass стиль -->
       <div class="grid md:grid-cols-2 gap-6 lg:gap-8">
         <div
           v-for="section in prices"
           :key="section.id"
           :id="section.id"
-          class="rounded-2xl p-7 lg:p-9 transition-all duration-400 group"
-          style="background: rgba(255,255,255,0.04); border: 1px solid rgba(200,164,65,0.15); backdrop-filter: blur(10px)"
+          class="rounded-3xl p-7 lg:p-9 transition-all duration-400 group card-luxury"
         >
           <!-- Заголовок категории -->
-          <div class="flex items-center gap-3 mb-8 pb-5"
-            style="border-bottom: 1px solid rgba(200,164,65,0.15)">
-            <span class="text-2xl">{{ section.icon }}</span>
-            <h3 class="headline text-lg text-white">{{ section.category }}</h3>
+          <div class="flex items-center gap-4 mb-8 pb-5 border-b border-[#E91E8C]/10">
+            <div :class="['ios-icon', section.iconClass]" style="width:52px; height:52px; border-radius:16px; font-size:1.5rem">
+              {{ section.icon }}
+            </div>
+            <h3 class="headline text-lg text-[#1A1A2E]">{{ section.category }}</h3>
           </div>
 
           <!-- Позиции -->
@@ -94,10 +98,10 @@ const prices = [
               :key="i"
               class="flex justify-between items-baseline group/item"
             >
-              <span class="body text-sm text-[#B4E4F0]/80 group-hover/item:text-white transition-colors">
+              <span class="body text-sm text-[#6B4F5A] group-hover/item:text-[#1A1A2E] transition-colors">
                 {{ item.name }}
               </span>
-              <span class="label text-sm text-gold ml-4 shrink-0">
+              <span class="label text-sm text-[#E91E8C] ml-4 shrink-0">
                 {{ item.price }}
               </span>
             </div>
@@ -111,11 +115,11 @@ const prices = [
           href="https://n1407035.yclients.com/company/1274992/personal/select-services?o="
           target="_blank"
           rel="noopener noreferrer"
-          class="btn-gold inline-block"
+          class="btn-pink inline-block"
         >
           Записаться онлайн
         </a>
-        <p class="body text-xs text-[#7ECFDE]/60 mt-4">
+        <p class="body text-xs text-[#B08898] mt-4">
           Скидка 15% при первом визите
         </p>
       </div>

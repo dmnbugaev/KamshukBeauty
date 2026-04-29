@@ -19,16 +19,16 @@ const filtered = computed(() =>
 </script>
 
 <template>
-  <section id="work" class="py-28" style="background: linear-gradient(180deg, #FFFCFA 0%, #EEF9FC 100%)">
+  <section id="work" class="py-28" style="background: linear-gradient(180deg, #FFFFFF 0%, #FFF4F9 100%)">
     <div class="container px-6 lg:px-12">
 
       <!-- Заголовок -->
       <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16">
         <div>
           <div class="section-label mb-5">Портфолио</div>
-          <h2 class="display text-4xl lg:text-5xl text-[#1A100C]">Наши работы</h2>
+          <h2 class="display text-4xl lg:text-5xl text-[#1A1A2E]">Наши работы</h2>
         </div>
-        <!-- Фильтры -->
+        <!-- Фильтры — iOS pill style -->
         <div class="flex flex-wrap gap-2">
           <button
             v-for="cat in categories"
@@ -36,10 +36,10 @@ const filtered = computed(() =>
             :class="[
               'label text-[11px] px-5 py-2.5 rounded-full transition-all duration-300',
               active === cat
-                ? 'text-white shadow-gold'
-                : 'bg-white text-[#5C4A44] hover:border-[#C8A441] border border-[#E8D8D0] hover:text-[#C8A441]',
+                ? 'text-white shadow-[0_4px_20px_rgba(233,30,140,0.3)]'
+                : 'bg-white text-[#6B4F5A] hover:border-[#E91E8C] border border-[#F9C5DA] hover:text-[#E91E8C]',
             ]"
-            :style="active === cat ? 'background: linear-gradient(135deg, #8B6914, #C8A441)' : ''"
+            :style="active === cat ? 'background: linear-gradient(135deg, #C2185B, #E91E8C)' : ''"
             @click="active = cat"
           >
             {{ cat }}
@@ -53,21 +53,21 @@ const filtered = computed(() =>
           <div
             v-for="work in filtered"
             :key="work.id"
-            class="aspect-square overflow-hidden group cursor-pointer rounded-2xl relative"
+            class="aspect-square overflow-hidden group cursor-pointer rounded-3xl relative"
           >
             <img
               :src="work.image"
               :alt="`Работа: ${work.category}`"
               class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
             />
-            <!-- Золотой оверлей -->
+            <!-- Розовый оверлей -->
             <div
-              class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-400 rounded-2xl"
-              style="background: linear-gradient(to bottom, transparent 40%, rgba(200,164,65,0.5) 100%)"
+              class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-400 rounded-3xl"
+              style="background: linear-gradient(to bottom, transparent 30%, rgba(194,24,91,0.55) 100%)"
             />
-            <!-- Категория -->
+            <!-- Категория — iOS стиль -->
             <div class="absolute bottom-3 left-3 opacity-0 group-hover:opacity-100 transition-all duration-400 translate-y-2 group-hover:translate-y-0">
-              <span class="label text-[10px] text-white glass px-3 py-1 rounded-full">
+              <span class="label text-[10px] text-white glass-pink px-3 py-1.5 rounded-full" style="border-color: rgba(255,255,255,0.3)">
                 {{ work.category }}
               </span>
             </div>

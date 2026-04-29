@@ -8,22 +8,23 @@ const images = [
 </script>
 
 <template>
-  <section class="py-28 bg-[#FFFCFA]">
+  <section class="py-28 bg-white">
     <div class="container px-6 lg:px-12">
 
       <!-- Заголовок -->
       <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16">
         <div>
           <div class="section-label mb-5">Пространство</div>
-          <h2 class="display text-4xl lg:text-5xl text-[#1A100C]">Наша студия</h2>
+          <h2 class="display text-4xl lg:text-5xl text-[#1A1A2E]">Наша студия</h2>
         </div>
-        <p class="body text-base text-[#8A7A74] max-w-xs lg:text-right">
+        <p class="body text-base text-[#B08898] max-w-xs lg:text-right">
           Современное пространство, созданное для вашего комфорта и отдыха
         </p>
       </div>
 
       <!-- Главное фото -->
-      <div class="relative aspect-[21/9] overflow-hidden rounded-3xl shadow-luxury mb-4">
+      <div class="relative aspect-[21/9] overflow-hidden rounded-3xl mb-4"
+        style="box-shadow: 0 24px 80px rgba(233,30,140,0.12), 0 8px 32px rgba(0,0,0,0.08)">
         <img
           src="/images/studio/1.jpg"
           alt="Студия красоты Камшук Бьюти — главный зал"
@@ -31,10 +32,10 @@ const images = [
         />
         <div
           class="absolute inset-0 rounded-3xl"
-          style="background: linear-gradient(to right, rgba(26,13,46,0.3) 0%, transparent 50%)"
+          style="background: linear-gradient(to right, rgba(194,24,91,0.25) 0%, transparent 50%)"
         />
         <div class="absolute bottom-8 left-8">
-          <p class="label text-[11px] text-[#C8A441] mb-1">Камшук Бьюти</p>
+          <p class="label text-[11px] text-[#F9C5DA] mb-1">Камшук Бьюти</p>
           <p class="headline text-2xl text-white">Студия красоты</p>
         </div>
       </div>
@@ -44,41 +45,44 @@ const images = [
         <div
           v-for="(item, idx) in images"
           :key="idx"
-          class="aspect-square overflow-hidden group rounded-2xl relative cursor-pointer"
+          class="aspect-square overflow-hidden group rounded-3xl relative cursor-pointer"
         >
           <img
             :src="item.image"
             :alt="item.title"
             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
           />
-          <!-- Оверлей -->
+          <!-- Розовый оверлей -->
           <div
-            class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"
-            style="background: linear-gradient(to top, rgba(26,13,46,0.75) 0%, transparent 60%)"
+            class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-3xl"
+            style="background: linear-gradient(to top, rgba(194,24,91,0.7) 0%, transparent 60%)"
           />
           <!-- Название -->
           <div class="absolute bottom-0 left-0 right-0 p-4 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
-            <span class="label text-[11px] text-[#C8A441] block mb-0.5">Студия</span>
+            <span class="label text-[11px] text-[#F9C5DA] block mb-0.5">Студия</span>
             <span class="headline text-base text-white">{{ item.title }}</span>
           </div>
         </div>
       </div>
 
-      <!-- Адрес -->
+      <!-- Адрес — iOS glass card -->
       <div class="max-w-2xl mx-auto">
         <div
-          class="rounded-3xl p-8 lg:p-12 text-center"
-          style="background: linear-gradient(135deg, rgba(200,164,65,0.08), rgba(126,207,222,0.08)); border: 1.5px solid rgba(200,164,65,0.2)"
+          class="rounded-3xl p-8 lg:p-12 text-center glass-pink"
         >
-          <div class="text-4xl mb-6">📍</div>
-          <p class="headline text-xl text-[#1A100C] mb-3">Адрес студии</p>
-          <p class="body text-base text-[#5C4A44] mb-6 leading-relaxed">
+          <!-- iOS иконка адреса -->
+          <div
+            class="ios-icon mx-auto mb-6"
+            style="background: linear-gradient(145deg, #F48DB4, #E91E8C); box-shadow: 0 6px 24px rgba(233,30,140,0.35), inset 0 1px 0 rgba(255,255,255,0.5)"
+          >📍</div>
+          <p class="headline text-xl text-[#1A1A2E] mb-3">Адрес студии</p>
+          <p class="body text-base text-[#6B4F5A] mb-6 leading-relaxed">
             г. Москва, Коммунарка<br />
             ул. Александры Монаховой д. 43/1,<br />
             здание SoiSoul, 1 этаж
           </p>
-          <div class="gold-divider mx-auto mb-5" />
-          <p class="label text-[11px] text-[#C8A441]">Ежедневно: 10:00 — 22:00</p>
+          <div class="pink-divider mx-auto mb-5" />
+          <p class="label text-[11px] text-[#E91E8C]">Ежедневно: 10:00 — 22:00</p>
         </div>
       </div>
 

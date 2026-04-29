@@ -1,14 +1,15 @@
 /* ===== ЦВЕТОВЫЕ ПЕРЕМЕННЫЕ ===== */
 :root {
-  /* Розовые */
+  /* Розовые — основная палитра */
   --pink-deep: #C2185B;
   --pink-main: #E91E8C;
   --pink-soft: #F48DB4;
   --pink-light: #F9C5DA;
   --pink-pale: #FDE8F2;
   --pink-ultra: #FFF4F9;
+  --pink-blush: #FFF0F5;
 
-  /* Золотые (из логотипа) */
+  /* Золотые (из логотипа — вторичный акцент) */
   --gold-dark: #8B6914;
   --gold-main: #C8A441;
   --gold-mid: #D4B54A;
@@ -19,19 +20,14 @@
   --sky-deep: #4BACC8;
   --sky-main: #7ECFDE;
   --sky-soft: #B4E4F0;
-  --sky-light: #D6F2FA;
   --sky-pale: #EEF9FC;
 
   /* Нейтральные */
-  --warm-50: #FFFCFA;
-  --warm-100: #FFF8F4;
-  --text-dark: #1A100C;
-  --text-mid: #4A3830;
-  --text-light: #8A7A74;
-
-  /* Тёмный фон */
-  --luxury-dark: #1A0D2E;
-  --luxury-mid: #0D1829;
+  --bg: #FFFFFF;
+  --bg-soft: #FFF8FC;
+  --text-dark: #1A1A2E;
+  --text-mid: #6B4F5A;
+  --text-light: #B08898;
 }
 
 /* ===== БАЗОВЫЕ СТИЛИ ===== */
@@ -43,7 +39,7 @@
 body {
   font-family: 'Manrope', sans-serif;
   color: var(--text-dark);
-  background: #FFFCFA;
+  background: #FFFFFF;
   letter-spacing: -0.01em;
 }
 
@@ -54,18 +50,18 @@ html {
 
 /* ===== ВЫДЕЛЕНИЕ ===== */
 ::selection {
-  background: var(--gold-main);
-  color: var(--luxury-dark);
+  background: var(--pink-main);
+  color: #fff;
 }
 
 /* ===== СКРОЛЛБАР ===== */
 ::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: var(--gold-pale); }
+::-webkit-scrollbar-track { background: var(--pink-ultra); }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, var(--gold-main), var(--pink-main));
+  background: linear-gradient(to bottom, var(--pink-main), var(--pink-soft));
   border-radius: 6px;
 }
-::-webkit-scrollbar-thumb:hover { background: var(--gold-dark); }
+::-webkit-scrollbar-thumb:hover { background: var(--pink-deep); }
 
 /* ===== КОНТЕЙНЕР ===== */
 .container {
@@ -75,7 +71,7 @@ html {
 
 /* ===== ФОКУС ===== */
 *:focus-visible {
-  outline: 2px solid var(--gold-main);
+  outline: 2px solid var(--pink-main);
   outline-offset: 3px;
   border-radius: 4px;
 }
@@ -116,7 +112,28 @@ html {
   line-height: 1.4;
 }
 
-/* ===== ЗОЛОТОЙ ТЕКСТ ===== */
+/* ===== РОЗОВЫЙ ТЕКСТ (основной) ===== */
+.text-pink {
+  color: var(--pink-main);
+}
+
+.text-pink-gradient {
+  background: linear-gradient(135deg, var(--pink-deep) 0%, var(--pink-main) 50%, var(--pink-soft) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-pink-shimmer {
+  background: linear-gradient(90deg, var(--pink-deep), var(--pink-soft), var(--pink-main), var(--pink-soft), var(--pink-deep));
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: pinkShimmer 4s ease infinite;
+}
+
+/* ===== ЗОЛОТОЙ ТЕКСТ (вторичный) ===== */
 .text-gold {
   background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold-main) 40%, var(--gold-light) 60%, var(--gold-main) 80%, var(--gold-dark) 100%);
   background-size: 200% auto;
@@ -134,27 +151,32 @@ html {
   animation: goldShimmer 4s ease infinite;
 }
 
-.text-pink {
-  color: var(--pink-main);
-}
-
 /* ===== GLASSMORPHISM ===== */
 .glass {
-  background: rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.45);
 }
 
 .glass-pink {
-  background: rgba(253, 232, 242, 0.55);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(233, 30, 140, 0.12);
+  background: rgba(255, 240, 250, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(233, 30, 140, 0.15);
+  box-shadow: 0 4px 24px rgba(233, 30, 140, 0.08), inset 0 1px 0 rgba(255,255,255,0.7);
+}
+
+.glass-pink-strong {
+  background: rgba(253, 232, 242, 0.85);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(233, 30, 140, 0.2);
+  box-shadow: 0 8px 32px rgba(233, 30, 140, 0.12), inset 0 1px 0 rgba(255,255,255,0.8);
 }
 
 .glass-gold {
-  background: rgba(251, 243, 217, 0.5);
+  background: rgba(251, 243, 217, 0.6);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(200, 164, 65, 0.25);
@@ -167,21 +189,93 @@ html {
   border: 1px solid rgba(126, 207, 222, 0.3);
 }
 
-.glass-dark {
-  background: rgba(26, 13, 46, 0.75);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(200, 164, 65, 0.15);
+.glass-white {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 2px 20px rgba(233, 30, 140, 0.06);
 }
 
-.glass-white {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.6);
+/* ===== iOS СТЕКЛЯННЫЕ ИКОНКИ ===== */
+.ios-icon {
+  width: 68px;
+  height: 68px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.875rem;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.ios-icon::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 55%;
+  background: linear-gradient(180deg, rgba(255,255,255,0.45) 0%, transparent 100%);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.ios-pink {
+  background: linear-gradient(145deg, #F48DB4 0%, #E91E8C 100%);
+  box-shadow: 0 6px 24px rgba(233, 30, 140, 0.35), inset 0 1px 0 rgba(255,255,255,0.5);
+}
+
+.ios-rose {
+  background: linear-gradient(145deg, #FCB8D4 0%, #C2185B 100%);
+  box-shadow: 0 6px 24px rgba(194, 24, 91, 0.35), inset 0 1px 0 rgba(255,255,255,0.5);
+}
+
+.ios-blush {
+  background: linear-gradient(145deg, #FDE4EF 0%, #F48DB4 100%);
+  box-shadow: 0 6px 24px rgba(244, 141, 180, 0.45), inset 0 1px 0 rgba(255,255,255,0.7);
+}
+
+.ios-gold {
+  background: linear-gradient(145deg, #E8CE7A 0%, #C8A441 100%);
+  box-shadow: 0 6px 24px rgba(200, 164, 65, 0.4), inset 0 1px 0 rgba(255,255,255,0.5);
 }
 
 /* ===== КНОПКИ ===== */
+/* Розовая — основная */
+.btn-pink {
+  background: linear-gradient(135deg, var(--pink-deep) 0%, var(--pink-main) 60%, #F06292 100%);
+  color: #fff;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  padding: 1rem 2.5rem;
+  border-radius: 100px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(233, 30, 140, 0.3), inset 0 1px 0 rgba(255,255,255,0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-pink::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+  transition: left 0.5s ease;
+}
+
+.btn-pink:hover::before { left: 100%; }
+
+.btn-pink:hover {
+  box-shadow: 0 8px 32px rgba(233, 30, 140, 0.45);
+  transform: translateY(-2px);
+}
+
+/* Золотая — вторичная */
 .btn-gold {
   background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold-main) 50%, var(--gold-mid) 100%);
   color: #fff;
@@ -191,7 +285,7 @@ html {
   text-transform: uppercase;
   font-size: 0.75rem;
   padding: 1rem 2.5rem;
-  border-radius: 4px;
+  border-radius: 100px;
   transition: all 0.3s ease;
   box-shadow: 0 4px 20px rgba(200, 164, 65, 0.3);
   position: relative;
@@ -207,31 +301,30 @@ html {
   transition: left 0.5s ease;
 }
 
-.btn-gold:hover::before {
-  left: 100%;
-}
-
+.btn-gold:hover::before { left: 100%; }
 .btn-gold:hover {
   box-shadow: 0 6px 30px rgba(200, 164, 65, 0.5);
   transform: translateY(-2px);
 }
 
-.btn-pink {
-  background: linear-gradient(135deg, var(--pink-deep) 0%, var(--pink-main) 100%);
-  color: #fff;
+/* Outline розовая */
+.btn-outline-pink {
+  border: 1.5px solid var(--pink-main);
+  color: var(--pink-deep);
   font-family: 'Manrope', sans-serif;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   font-size: 0.75rem;
   padding: 1rem 2.5rem;
-  border-radius: 4px;
+  border-radius: 100px;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 20px rgba(233, 30, 140, 0.25);
+  background: transparent;
 }
 
-.btn-pink:hover {
-  box-shadow: 0 6px 30px rgba(233, 30, 140, 0.4);
+.btn-outline-pink:hover {
+  background: var(--pink-pale);
+  box-shadow: 0 4px 20px rgba(233, 30, 140, 0.15);
   transform: translateY(-2px);
 }
 
@@ -244,7 +337,7 @@ html {
   text-transform: uppercase;
   font-size: 0.75rem;
   padding: 1rem 2.5rem;
-  border-radius: 4px;
+  border-radius: 100px;
   transition: all 0.3s ease;
   background: transparent;
 }
@@ -255,7 +348,14 @@ html {
   transform: translateY(-2px);
 }
 
-/* ===== ЗОЛОТОЙ РАЗДЕЛИТЕЛЬ ===== */
+/* ===== РАЗДЕЛИТЕЛИ ===== */
+.pink-divider {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--pink-main), var(--pink-soft));
+  border-radius: 2px;
+}
+
 .gold-divider {
   width: 60px;
   height: 2px;
@@ -273,7 +373,7 @@ html {
   font-size: 0.7rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--gold-main);
+  color: var(--pink-main);
 }
 
 .section-label::before {
@@ -281,20 +381,34 @@ html {
   display: block;
   width: 24px;
   height: 1.5px;
-  background: var(--gold-main);
+  background: linear-gradient(90deg, var(--pink-main), var(--pink-soft));
 }
 
 /* ===== КАРТОЧКИ ===== */
 .card-luxury {
   background: white;
-  border-radius: 20px;
-  border: 1px solid rgba(200, 164, 65, 0.12);
+  border-radius: 24px;
+  border: 1px solid rgba(233, 30, 140, 0.08);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card-luxury:hover {
-  border-color: rgba(200, 164, 65, 0.35);
-  box-shadow: 0 12px 48px rgba(200, 164, 65, 0.12), 0 4px 16px rgba(0,0,0,0.06);
+  border-color: rgba(233, 30, 140, 0.2);
+  box-shadow: 0 16px 56px rgba(233, 30, 140, 0.1), 0 4px 16px rgba(0,0,0,0.05);
+  transform: translateY(-6px);
+}
+
+/* Розовая карточка */
+.card-pink {
+  background: linear-gradient(135deg, #FFF0F5 0%, #FFF8FC 100%);
+  border-radius: 24px;
+  border: 1px solid rgba(233, 30, 140, 0.12);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-pink:hover {
+  border-color: rgba(233, 30, 140, 0.25);
+  box-shadow: 0 12px 40px rgba(233, 30, 140, 0.12);
   transform: translateY(-4px);
 }
 
@@ -319,20 +433,26 @@ html {
   50% { transform: translateY(-12px); }
 }
 
+@keyframes pinkShimmer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 @keyframes goldShimmer {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
+@keyframes pulsePink {
+  0%, 100% { box-shadow: 0 0 20px rgba(233,30,140,0.2); }
+  50% { box-shadow: 0 0 60px rgba(233,30,140,0.5); }
+}
+
 @keyframes pulseGold {
   0%, 100% { box-shadow: 0 0 20px rgba(200,164,65,0.2); }
   50% { box-shadow: 0 0 60px rgba(200,164,65,0.5); }
-}
-
-@keyframes sparkle {
-  0%, 100% { opacity: 0; transform: scale(0); }
-  50% { opacity: 1; transform: scale(1); }
 }
 
 @keyframes rotateSlow {
@@ -344,6 +464,7 @@ html {
 .animate-slide-up { animation: slideUp 0.8s ease-out both; }
 .animate-scale-in { animation: scaleIn 0.7s ease-out both; }
 .animate-float { animation: float 6s ease-in-out infinite; }
+.animate-pulse-pink { animation: pulsePink 2.5s ease-in-out infinite; }
 .animate-pulse-gold { animation: pulseGold 2.5s ease-in-out infinite; }
 
 /* ===== ПЕРЕХОДЫ СТРАНИЦ ===== */
@@ -375,26 +496,19 @@ img {
   border-radius: 8px;
 }
 
-/* ===== ЗОЛОТАЯ ЛИНИЯ АКЦЕНТА ===== */
-.border-gold { border-color: var(--gold-main); }
-.border-gold-light { border-color: rgba(200, 164, 65, 0.25); }
+/* ===== ДЕКОРАТИВНЫЕ ЛИНИИ ===== */
+.border-pink-light { border-color: rgba(233, 30, 140, 0.15); }
+.border-gold-light { border-color: rgba(200, 164, 65, 0.2); }
 
-/* ===== ВЕРТИКАЛЬНАЯ МЕТКА ===== */
-.vertical-label {
-  writing-mode: vertical-rl;
-  text-orientation: mixed;
-  transform: rotate(180deg);
-}
-
-/* ===== SOUND WAVE DIVIDER ===== */
+/* ===== ВОЛНОВОЙ РАЗДЕЛИТЕЛЬ ===== */
 .wave-divider {
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--gold-main), var(--pink-soft), var(--gold-main), transparent);
-  opacity: 0.4;
+  background: linear-gradient(90deg, transparent, var(--pink-soft), var(--pink-main), var(--pink-soft), transparent);
+  opacity: 0.35;
 }
 
 /* ===== BACKDROP для модальных окон ===== */
 .backdrop-luxury {
-  background: rgba(13, 6, 24, 0.6);
+  background: rgba(194, 24, 91, 0.15);
   backdrop-filter: blur(8px);
 }

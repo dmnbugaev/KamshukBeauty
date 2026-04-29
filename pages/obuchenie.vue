@@ -278,15 +278,15 @@ const afterTraining = ['Сертификаты', 'Трудоустройство
         </div>
 
         <!-- CTA -->
-        <div class="max-w-3xl mx-auto text-center glass-pink px-12 py-16 rounded-2xl">
-          <h3 class="headline text-2xl text-[#1A1A1A] mb-6">Готовы начать обучение?</h3>
-          <p class="body text-base text-[#424242] mb-8">
+        <div class="max-w-3xl mx-auto text-center glass-pink px-12 py-16 rounded-3xl">
+          <h3 class="headline text-2xl text-[#1A1A2E] mb-6">Готовы начать обучение?</h3>
+          <p class="body text-base text-[#6B4F5A] mb-8">
             Свяжитесь с нами для уточнения деталей, расписания и записи на курс
           </p>
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="tel:+79771075005"
-              class="inline-block px-10 py-4 bg-[#D81B60] text-white label text-xs hover:bg-[#AD1457] transition-all text-center rounded-sm hover:-translate-y-0.5 duration-300 hover:shadow-lg hover:shadow-rose-200"
+              class="btn-pink inline-block text-center"
             >
               Позвонить: +7 (977) 107-50-05
             </a>
@@ -294,7 +294,7 @@ const afterTraining = ['Сертификаты', 'Трудоустройство
               href="https://wa.me/message/GAZGRNJFGZWUC1"
               target="_blank"
               rel="noopener noreferrer"
-              class="inline-block px-10 py-4 border border-[#D81B60] text-[#D81B60] label text-xs hover:bg-white transition-all text-center rounded-sm hover:-translate-y-0.5 duration-300"
+              class="btn-outline-pink inline-block text-center"
             >
               Написать в WhatsApp
             </a>
