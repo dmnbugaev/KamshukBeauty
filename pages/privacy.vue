@@ -156,10 +156,22 @@ useHead({
           </section>
         </div>
 
-        <div class="mt-12 pt-8 border-t border-[#F5F5F5]">
+        <div class="mt-12 pt-8 border-t border-[#F5F5F5] flex flex-col sm:flex-row gap-4 items-start">
+          <!-- Скачать PDF -->
+          <a
+            href="/pdfs/2_5298629869503023510.pdf"
+            download="Политика_конфиденциальности_Камшук_Бьюти.pdf"
+            class="inline-flex items-center gap-2 px-6 py-3 rounded-xl label text-[11px] text-white transition-all duration-300 hover:scale-105"
+            style="background: linear-gradient(135deg, #E91E8C, #C2185B); box-shadow: 0 4px 16px rgba(233,30,140,0.3)"
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            Скачать документ (PDF)
+          </a>
           <NuxtLink
             to="/"
-            class="inline-block px-8 py-3 border border-[#D81B60] text-[#D81B60] label text-xs hover:bg-[#FCE4EC] transition-all rounded-sm"
+            class="inline-flex items-center gap-2 px-6 py-3 border border-[#D81B60] text-[#D81B60] label text-xs hover:bg-[#FCE4EC] transition-all rounded-xl"
           >
             ← На главную
           </NuxtLink>

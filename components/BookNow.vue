@@ -134,9 +134,9 @@ const handleSubmit = () => {
                 <label for="pd-consent" class="body text-xs text-[#B08898] cursor-pointer leading-relaxed">
                   Я даю согласие на обработку моих персональных данных
                   в соответствии с Федеральным законом № 152‑ФЗ «О персональных данных».
-                  <NuxtLink to="/privacy" class="text-[#E91E8C] hover:underline">
-                    Политика конфиденциальности
-                  </NuxtLink>
+                  <NuxtLink to="/privacy" class="text-[#E91E8C] hover:underline">Политика конфиденциальности</NuxtLink>
+                  ·
+                  <NuxtLink to="/terms" class="text-[#E91E8C] hover:underline">Согласие на обработку ПД</NuxtLink>
                 </label>
               </div>
 

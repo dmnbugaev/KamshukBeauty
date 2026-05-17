@@ -7,6 +7,8 @@
     <AppFooter />
     <ClientOnly>
       <CookieBanner />
+      <WelcomePopup />
+      <MessengerFloat />
     </ClientOnly>
   </div>
 </template>

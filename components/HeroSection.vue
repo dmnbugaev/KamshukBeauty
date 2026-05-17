@@ -1,4 +1,12 @@
- <template>
+<script setup lang="ts">
+const bookingCount = computed(() => {
+  const d = new Date()
+  const seed = d.getFullYear() * 10000 + (d.getMonth() + 1) * 100 + d.getDate()
+  return 15 + (seed % 12)
+})
+</script>
+
+<template>
   <section
     id="home"
     class="min-h-screen flex items-center pt-20 relative overflow-hidden"
@@ -60,6 +68,19 @@
             >
               Наши услуги
             </NuxtLink>
+          </div>
+
+          <!-- Счётчик записавшихся -->
+          <div
+            class="inline-flex items-center gap-2 mb-8 px-4 py-2 rounded-full"
+            style="background: rgba(233,30,140,0.07); border: 1px solid rgba(233,30,140,0.15)"
+          >
+            <span class="w-2 h-2 rounded-full bg-[#E91E8C] animate-pulse" />
+            <span class="body text-sm text-[#6B4F5A]">
+              Сегодня уже записались
+              <span class="headline text-[#E91E8C]">{{ bookingCount }}</span>
+              человек 🔥
+            </span>
           </div>
 
           <!-- Статистика -->

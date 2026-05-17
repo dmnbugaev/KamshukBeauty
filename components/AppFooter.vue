@@ -172,7 +172,7 @@ const socialLinks = [
             Политика конфиденциальности
           </NuxtLink>
           <NuxtLink to="/terms" class="body text-xs text-[#B08898] hover:text-[#E91E8C] transition-colors">
-            Пользовательское соглашение
+            Согласие на обработку ПД
           </NuxtLink>
         </div>
       </div>
