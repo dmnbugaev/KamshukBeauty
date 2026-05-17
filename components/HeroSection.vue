@@ -39,8 +39,9 @@
           </h1>
 
           <p class="body text-lg lg:text-xl text-[#6B4F5A] mb-10 max-w-md leading-relaxed">
-            Премиальная студия красоты — место, где каждый гость
-            чувствует заботу и безупречный сервис
+            Маникюр, брови, ресницы и макияж — результат, который
+            держится. Работаем ежедневно с 10:00 до 22:00.
+            Первый визит со скидкой&nbsp;<span class="text-[#E91E8C] font-semibold">−15%</span>
           </p>
 
           <!-- Кнопки -->
@@ -62,7 +63,7 @@
           </div>
 
           <!-- Статистика -->
-          <div class="grid grid-cols-3 gap-6">
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-6">
             <div class="text-center sm:text-left">
               <div class="headline text-4xl text-pink-gradient mb-1">9+</div>
               <p class="body text-sm text-[#B08898]">лет опыта</p>
@@ -74,6 +75,13 @@
             <div class="text-center sm:text-left">
               <div class="headline text-4xl text-pink-gradient mb-1">−15%</div>
               <p class="body text-sm text-[#B08898]">при первом визите</p>
+            </div>
+            <div class="text-center sm:text-left">
+              <div class="flex items-center justify-center sm:justify-start gap-1 mb-1">
+                <span class="text-[#E91E8C] text-lg leading-none">★</span>
+                <span class="headline text-xl text-pink-gradient">Яндекс</span>
+              </div>
+              <p class="body text-sm text-[#B08898]">Хорошее место 2026</p>
             </div>
           </div>
         </div>

@@ -1,9 +1,9 @@
 <script setup lang="ts">
 const images = [
-  { image: '/images/studio/4.jpg', title: 'Главный зал' },
-  { image: '/images/studio/2.jpg', title: 'Процедурная' },
-  { image: '/images/studio/3.jpg', title: 'Ресепшн' },
-  { image: '/images/studio/5.jpg', title: 'Зона отдыха' },
+  { image: '/images/new_foto/20260511_234339.jpg', title: 'Рабочее место' },
+  { image: '/images/new_foto/20260511_233301.jpg', title: 'Процедурная' },
+  { image: '/images/new_foto/20260425_075215.jpg', title: 'Вход в студию' },
+  { image: '/images/new_foto/20260511_233725.jpg', title: 'Зона отдыха' },
 ]
 </script>
 
@@ -18,7 +18,7 @@ const images = [
           <h2 class="display text-4xl lg:text-5xl text-[#1A1A2E]">Наша студия</h2>
         </div>
         <p class="body text-base text-[#B08898] max-w-xs lg:text-right">
-          Современное пространство, созданное для вашего комфорта и отдыха
+          Уютное пространство с душой — здание SoiSoul, Коммунарка. Отмечены Яндекс Картами как «Хорошее место 2026»
         </p>
       </div>
 
@@ -26,7 +26,7 @@ const images = [
       <div class="relative aspect-[21/9] overflow-hidden rounded-3xl mb-4"
         style="box-shadow: 0 24px 80px rgba(233,30,140,0.12), 0 8px 32px rgba(0,0,0,0.08)">
         <img
-          src="/images/studio/1.jpg"
+          src="/images/new_foto/20260511_232100.jpg"
           alt="Студия красоты Камшук Бьюти — главный зал"
           class="w-full h-full object-cover hover:scale-105 transition-transform duration-1000"
         />
