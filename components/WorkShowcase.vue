@@ -59,6 +59,9 @@ const filtered = computed(() =>
               :src="work.image"
               :alt="`Работа: ${work.category}`"
               class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              loading="lazy"
+              width="400"
+              height="400"
             />
             <!-- Розовый оверлей -->
             <div

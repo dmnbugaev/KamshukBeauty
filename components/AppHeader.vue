@@ -6,6 +6,7 @@ const links = [
   { label: 'Услуги', href: '/#services' },
   { label: 'Работы', href: '/#work' },
   { label: 'О нас', href: '/#about' },
+  { label: 'Блог', href: '/blog' },
   { label: 'Контакты', href: '/#contact' },
 ]
 

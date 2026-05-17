@@ -38,7 +38,7 @@ const socialLinks = [
       <div class="wave-divider opacity-50" />
 
       <!-- Верхний блок -->
-      <div class="grid md:grid-cols-3 gap-12 py-16 border-b border-[#E91E8C]/10">
+      <div class="grid md:grid-cols-4 gap-12 py-16 border-b border-[#E91E8C]/10">
 
         <!-- О студии + логотип -->
         <div>
@@ -83,6 +83,21 @@ const socialLinks = [
               </svg>
             </a>
           </div>
+        </div>
+
+        <!-- Навигация -->
+        <div>
+          <h4 class="label text-[10px] text-[#E91E8C] mb-5">Услуги</h4>
+          <div class="space-y-2">
+            <NuxtLink to="/manikyur" class="body text-sm text-[#6B4F5A] hover:text-[#E91E8C] transition-colors block">Маникюр</NuxtLink>
+            <NuxtLink to="/pedikyur" class="body text-sm text-[#6B4F5A] hover:text-[#E91E8C] transition-colors block">Педикюр</NuxtLink>
+            <NuxtLink to="/naraschivanie-resnic" class="body text-sm text-[#6B4F5A] hover:text-[#E91E8C] transition-colors block">Наращивание ресниц</NuxtLink>
+            <NuxtLink to="/brovi" class="body text-sm text-[#6B4F5A] hover:text-[#E91E8C] transition-colors block">Брови</NuxtLink>
+            <NuxtLink to="/makiyazh" class="body text-sm text-[#6B4F5A] hover:text-[#E91E8C] transition-colors block">Макияж</NuxtLink>
+            <NuxtLink to="/obuchenie" class="body text-sm text-[#6B4F5A] hover:text-[#E91E8C] transition-colors block">Обучение</NuxtLink>
+          </div>
+          <h4 class="label text-[10px] text-[#E91E8C] mt-6 mb-3">Статьи</h4>
+          <NuxtLink to="/blog" class="body text-sm text-[#6B4F5A] hover:text-[#E91E8C] transition-colors block">Блог о красоте</NuxtLink>
         </div>
 
         <!-- Контакты -->

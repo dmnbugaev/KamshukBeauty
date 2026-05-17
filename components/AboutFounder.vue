@@ -24,6 +24,9 @@
                 src="/images/anastasiya.jpg"
                 alt="Анастасия Камшук — основатель студии Камшук Бьюти"
                 class="w-full h-full object-cover"
+                loading="lazy"
+                width="540"
+                height="720"
               />
               <!-- Градиент снизу -->
               <div

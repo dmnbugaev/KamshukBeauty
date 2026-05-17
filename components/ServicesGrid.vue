@@ -8,7 +8,7 @@ const services = [
     tag: 'Популярно',
     icon: '💅',
     iconClass: 'ios-pink',
-    href: '/#маникюр-педикюр',
+    href: '/manikyur',
   },
   {
     title: 'Ресницы & Брови',
@@ -18,7 +18,7 @@ const services = [
     tag: '',
     icon: '✨',
     iconClass: 'ios-rose',
-    href: '/#ресницы-брови',
+    href: '/naraschivanie-resnic',
   },
   {
     title: 'Макияж',
@@ -28,7 +28,7 @@ const services = [
     tag: '',
     icon: '💄',
     iconClass: 'ios-blush',
-    href: '/#макияж',
+    href: '/makiyazh',
   },
   {
     title: 'Обучение',
@@ -76,6 +76,9 @@ const services = [
               :src="service.image"
               :alt="service.title"
               class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              loading="lazy"
+              width="600"
+              height="450"
             />
             <!-- iOS иконка -->
             <div class="absolute top-4 left-4">

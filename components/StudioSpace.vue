@@ -29,6 +29,9 @@ const images = [
           src="/images/new_foto/20260511_232100.jpg"
           alt="Студия красоты Камшук Бьюти — главный зал"
           class="w-full h-full object-cover hover:scale-105 transition-transform duration-1000"
+          loading="lazy"
+          width="1400"
+          height="600"
         />
         <div
           class="absolute inset-0 rounded-3xl"
@@ -51,6 +54,9 @@ const images = [
             :src="item.image"
             :alt="item.title"
             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+            loading="lazy"
+            width="400"
+            height="400"
           />
           <!-- Розовый оверлей -->
           <div

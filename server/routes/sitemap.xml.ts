@@ -3,7 +3,18 @@ export default defineEventHandler((event) => {
 
   const pages = [
     { url: '/', priority: '1.0', changefreq: 'weekly' },
-    { url: '/obuchenie', priority: '0.9', changefreq: 'monthly' },
+    { url: '/manikyur', priority: '0.9', changefreq: 'monthly' },
+    { url: '/pedikyur', priority: '0.9', changefreq: 'monthly' },
+    { url: '/naraschivanie-resnic', priority: '0.9', changefreq: 'monthly' },
+    { url: '/brovi', priority: '0.9', changefreq: 'monthly' },
+    { url: '/makiyazh', priority: '0.9', changefreq: 'monthly' },
+    { url: '/obuchenie', priority: '0.8', changefreq: 'monthly' },
+    { url: '/blog', priority: '0.8', changefreq: 'weekly' },
+    { url: '/blog/skolko-derzhitsya-gel-lak', priority: '0.7', changefreq: 'monthly' },
+    { url: '/blog/naraschivanie-resnic-vidy-i-uhod', priority: '0.7', changefreq: 'monthly' },
+    { url: '/blog/arkhitektura-brovej', priority: '0.7', changefreq: 'monthly' },
+    { url: '/blog/uhod-za-nogtami-doma', priority: '0.7', changefreq: 'monthly' },
+    { url: '/blog/permanentnyj-makiyazh-brovej', priority: '0.7', changefreq: 'monthly' },
     { url: '/privacy', priority: '0.3', changefreq: 'yearly' },
     { url: '/terms', priority: '0.3', changefreq: 'yearly' },
   ]
