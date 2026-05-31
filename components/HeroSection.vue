@@ -47,7 +47,7 @@ const bookingCount = computed(() => {
           </h1>
 
           <p class="body text-lg lg:text-xl text-[#6B4F5A] mb-10 max-w-md leading-relaxed">
-            Маникюр, брови, ресницы и макияж — результат, который
+            Маникюр, педикюр, брови, ресницы и макияж — результат, который
             держится. Работаем ежедневно с 10:00 до 22:00.
             Первый визит со скидкой&nbsp;<span class="text-[#E91E8C] font-semibold">−15%</span>
           </p>
@@ -104,6 +104,12 @@ const bookingCount = computed(() => {
               </div>
               <p class="body text-sm text-[#B08898]">Хорошее место 2026</p>
             </div>
+          </div>
+
+          <!-- Доверие -->
+          <div class="flex items-center gap-2 mt-6">
+            <span class="text-[#E91E8C] text-sm leading-none">✓</span>
+            <p class="body text-sm text-[#B08898]">В Камшук Бьюти работают только высококвалифицированные специалисты</p>
           </div>
         </div>
 

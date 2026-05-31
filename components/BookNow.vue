@@ -1,21 +1,4 @@
 <script setup lang="ts">
-const form = reactive({
-  name: '',
-  phone: '',
-  pdConsent: false,
-})
-
-const submitted = ref(false)
-const error = ref('')
-
-const handleSubmit = () => {
-  if (!form.pdConsent) {
-    error.value = 'Необходимо дать согласие на обработку персональных данных'
-    return
-  }
-  error.value = ''
-  submitted.value = true
-}
 </script>
 
 <template>
@@ -70,85 +53,52 @@ const handleSubmit = () => {
             </div>
           </div>
 
-          <!-- Форма обратного звонка -->
+          <!-- Наши каналы -->
           <div
             class="rounded-3xl p-7 lg:p-8"
             style="border: 1.5px solid rgba(233,30,140,0.12); background: rgba(255,240,250,0.4)"
           >
-            <h3 class="headline text-lg text-[#1A1A2E] mb-6">Заказать обратный звонок</h3>
-
-            <!-- Успех -->
-            <div v-if="submitted" class="glass-pink rounded-2xl p-8 text-center">
-              <div
-                class="ios-icon ios-pink mx-auto mb-3"
-                style="font-size: 1.5rem; width: 56px; height: 56px; border-radius: 18px"
-              >✓</div>
-              <p class="headline text-base text-[#C2185B] mb-2">Заявка принята!</p>
-              <p class="body text-sm text-[#6B4F5A]">Мы свяжемся с вами в ближайшее время.</p>
-            </div>
-
-            <!-- Форма -->
-            <form v-else class="space-y-4" novalidate @submit.prevent="handleSubmit">
-              <div>
-                <label for="callback-name" class="label text-[10px] text-[#B08898] mb-2 block">
-                  Ваше имя
-                </label>
-                <input
-                  id="callback-name"
-                  v-model="form.name"
-                  type="text"
-                  required
-                  placeholder="Анастасия"
-                  class="w-full px-5 py-3.5 rounded-xl body text-sm text-[#1A1A2E] bg-white transition-all duration-300"
-                  style="border: 1.5px solid rgba(233,30,140,0.15); outline: none"
-                  @focus="($event.target as HTMLInputElement).style.borderColor = '#E91E8C'"
-                  @blur="($event.target as HTMLInputElement).style.borderColor = 'rgba(233,30,140,0.15)'"
-                />
-              </div>
-              <div>
-                <label for="callback-phone" class="label text-[10px] text-[#B08898] mb-2 block">
-                  Номер телефона
-                </label>
-                <input
-                  id="callback-phone"
-                  v-model="form.phone"
-                  type="tel"
-                  required
-                  placeholder="+7 (___) ___-__-__"
-                  class="w-full px-5 py-3.5 rounded-xl body text-sm text-[#1A1A2E] bg-white transition-all duration-300"
-                  style="border: 1.5px solid rgba(233,30,140,0.15); outline: none"
-                  @focus="($event.target as HTMLInputElement).style.borderColor = '#E91E8C'"
-                  @blur="($event.target as HTMLInputElement).style.borderColor = 'rgba(233,30,140,0.15)'"
-                />
-              </div>
-
-              <!-- Согласие на ПД -->
-              <div class="flex items-start gap-3 pt-1">
-                <input
-                  id="pd-consent"
-                  v-model="form.pdConsent"
-                  type="checkbox"
-                  class="mt-1 w-4 h-4 shrink-0 cursor-pointer rounded"
-                  style="accent-color: #E91E8C"
-                />
-                <label for="pd-consent" class="body text-xs text-[#B08898] cursor-pointer leading-relaxed">
-                  Я даю согласие на обработку моих персональных данных
-                  в соответствии с Федеральным законом № 152‑ФЗ «О персональных данных».
-                  <NuxtLink to="/privacy" class="text-[#E91E8C] hover:underline">Политика конфиденциальности</NuxtLink>
-                  ·
-                  <NuxtLink to="/terms" class="text-[#E91E8C] hover:underline">Согласие на обработку ПД</NuxtLink>
-                </label>
-              </div>
-
-              <p v-if="error" class="body text-xs text-red-500 pt-1">{{ error }}</p>
-
-              <button
-                type="submit"
-                class="w-full btn-pink mt-2"
+            <h3 class="headline text-lg text-[#1A1A2E] mb-2">Наши каналы</h3>
+            <p class="body text-sm text-[#B08898] mb-6">Акции, вдохновение и работы мастеров — подписывайтесь, чтобы не пропустить</p>
+            <div class="flex flex-col gap-3">
+              <a
+                href="https://t.me/offi_nesquik"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex items-center gap-4 px-5 py-4 rounded-2xl text-white transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
+                style="background: linear-gradient(135deg, #229ED9, #1A7FBF); box-shadow: 0 6px 20px rgba(34,158,217,0.3)"
               >
-                Отправить заявку
-              </button>
-            </form>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="shrink-0">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8l-1.7 8.02c-.12.56-.44.7-.9.44l-2.5-1.84-1.2 1.16c-.13.13-.25.25-.51.25l.18-2.56 4.65-4.2c.2-.18-.04-.28-.31-.1L7.16 14.6l-2.46-.77c-.53-.17-.54-.53.12-.78l9.62-3.71c.44-.16.83.1.2.46z"/>
+                </svg>
+                <div class="min-w-0">
+                  <p class="label text-[10px] opacity-80 mb-0.5">Telegram-канал</p>
+                  <p class="headline text-sm">Подписаться</p>
+                </div>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-auto shrink-0 opacity-70">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </a>
+
+              <a
+                href="https://max.ru/u/f9LHodD0cOJhZWcjFtzBOFNlcS0w2RVemO55MmCDgD_nHgsPEPAhlJp3i2M"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex items-center gap-4 px-5 py-4 rounded-2xl text-white transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
+                style="background: linear-gradient(135deg, #E91E8C, #C2185B); box-shadow: 0 6px 20px rgba(233,30,140,0.3)"
+              >
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="shrink-0">
+                  <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/>
+                </svg>
+                <div class="min-w-0">
+                  <p class="label text-[10px] opacity-80 mb-0.5">MAX</p>
+                  <p class="headline text-sm">Подписаться</p>
+                </div>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-auto shrink-0 opacity-70">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </a>
+            </div>
           </div>
         </div>
 

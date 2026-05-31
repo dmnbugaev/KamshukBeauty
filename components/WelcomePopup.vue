@@ -65,11 +65,12 @@ const close = () => {
 
             <div class="pink-divider mx-auto mb-6" />
 
-            <p class="body text-sm text-[#6B4F5A] mb-8 leading-relaxed">
+            <p class="body text-sm text-[#6B4F5A] mb-4 leading-relaxed">
               Маникюр, ресницы, брови, макияж — любая услуга
               по сниженной цене при первом посещении.
               Работаем ежедневно&nbsp;10:00–22:00.
             </p>
+            <p class="body text-xs text-[#B08898] mb-8 opacity-70">* Не суммируется с другими предложениями</p>
 
             <!-- CTA -->
             <a

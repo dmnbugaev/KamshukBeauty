@@ -42,10 +42,10 @@ const prices = [
     icon: '🎨',
     iconClass: 'ios-gold',
     items: [
-      { name: 'Пудровые брови', price: '14 000 ₽' },
-      { name: 'Напыление губ', price: '12 000 ₽' },
-      { name: 'Стрелка', price: '11 000 ₽' },
-      { name: 'Мушка', price: '5 000 ₽' },
+      { name: 'Пудровые брови', price: '16 000 ₽' },
+      { name: 'Напыление губ', price: '16 000 ₽' },
+      { name: 'Стрелка', price: '16 000 ₽' },
+      { name: 'Межресничка', price: '12 000 ₽' },
     ],
   },
 ]

@@ -18,7 +18,7 @@ const images = [
           <h2 class="display text-4xl lg:text-5xl text-[#1A1A2E]">Наша студия</h2>
         </div>
         <p class="body text-base text-[#B08898] max-w-xs lg:text-right">
-          Уютное пространство с душой — здание SoiSoul, Коммунарка. Отмечены Яндекс Картами как «Хорошее место 2026»
+          Уютное пространство с душой — здание SoiSoul, Коммунарка.
         </p>
       </div>
 
