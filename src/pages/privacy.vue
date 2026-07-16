@@ -10,11 +10,11 @@ useHead({
 
 <template>
   <div class="pt-32 pb-20">
-    <div class="container px-6 lg:px-12">
+    <div class="container px-5 sm:px-6 lg:px-12">
       <article class="max-w-3xl mx-auto prose-custom">
         <header class="mb-12">
           <p class="label text-xs text-[#D81B60] mb-4">Документы</p>
-          <h1 class="display text-4xl lg:text-5xl text-[#1A1A1A] mb-4">
+          <h1 class="display text-[1.65rem] leading-tight sm:text-4xl lg:text-5xl text-[#1A1A1A] mb-4">
             Политика конфиденциальности
           </h1>
           <p class="body text-sm text-[#757575]">

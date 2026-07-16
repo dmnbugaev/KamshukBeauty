@@ -10,6 +10,8 @@ withDefaults(defineProps<{
   align: 'right',
   note: '',
 })
+
+const keepTogether = (value: string) => value.replace(/\s+/g, '\u00A0')
 </script>
 
 <template>
@@ -25,7 +27,7 @@ withDefaults(defineProps<{
         size === 'lg' ? 'text-sm' : 'text-[11px]',
       ]"
     >
-      {{ oldPrice }}
+      {{ keepTogether(oldPrice) }}
     </span>
     <span
       :class="[
@@ -33,7 +35,7 @@ withDefaults(defineProps<{
         size === 'lg' ? 'text-3xl headline text-pink-gradient' : size === 'sm' ? 'text-xs' : 'text-sm',
       ]"
     >
-      {{ newPrice }}
+      {{ keepTogether(newPrice) }}
     </span>
     <span v-if="note" class="body text-[10px] text-[#B08898] leading-tight">
       {{ note }}

@@ -27,9 +27,9 @@ const socialLinks = [
     style="background: linear-gradient(160deg, #FFF4F9 0%, #FFFFFF 50%, #FFF0F5 100%)"
   >
     <!-- Декоративные розовые пятна -->
-    <div class="absolute top-0 right-1/4 w-80 h-80 rounded-full blur-3xl opacity-30"
+    <div class="absolute top-0 right-1/4 w-80 h-80 rounded-full blur-3xl opacity-30 pointer-events-none"
       style="background: radial-gradient(circle, rgba(244,141,180,0.5), transparent)" />
-    <div class="absolute bottom-0 left-1/4 w-60 h-60 rounded-full blur-3xl opacity-20"
+    <div class="absolute bottom-0 left-1/4 w-60 h-60 rounded-full blur-3xl opacity-20 pointer-events-none"
       style="background: radial-gradient(circle, rgba(233,30,140,0.25), transparent)" />
 
     <div class="container px-6 lg:px-12 relative z-10">

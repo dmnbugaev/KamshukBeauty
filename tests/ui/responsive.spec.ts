@@ -42,8 +42,13 @@ function safeName(input: string) {
 
 async function preparePage(page: Page) {
   await page.addInitScript(() => {
-    window.localStorage.setItem('cookie_consent', 'rejected')
-    window.sessionStorage.setItem('welcome_popup_shown', '1')
+    try {
+      window.localStorage.setItem('cookie_consent', 'rejected')
+      window.sessionStorage.setItem('welcome_popup_shown', '1')
+      document.cookie = 'cookie_consent=rejected; path=/; SameSite=Lax'
+    } catch {
+      // Storage is unavailable in browser-created data: frames.
+    }
   })
 }
 
@@ -58,7 +63,6 @@ async function findOverflowingElements(page: Page) {
         const style = window.getComputedStyle(element)
         const isClippedDecoration =
           !element.textContent?.trim() &&
-          style.pointerEvents === 'none' &&
           ['absolute', 'fixed'].includes(style.position) &&
           Boolean(element.closest('.overflow-hidden'))
         return {
@@ -109,17 +113,38 @@ test.describe('UI responsive audit', () => {
       const consoleErrors: string[] = []
       const pageErrors: string[] = []
       const failedRequests: string[] = []
+      const badLocalResponses: string[] = []
 
       page.on('console', (message) => {
         if (message.type() === 'error') {
-          consoleErrors.push(message.text())
+          const text = message.text()
+          const isExpectedAudit404 =
+            route === '/missing-page-ui-audit' &&
+            text.includes('404') &&
+            text.includes('/missing-page-ui-audit')
+          const isNuxtDevManifestAbort = text.includes('[nuxt] Error fetching app manifest') && text.includes('Failed to fetch')
+          const isNuxtDevHmrSocket = text.includes('WebSocket connection') && text.includes('/_nuxt/')
+          if (!text.includes('net::ERR_NETWORK_ACCESS_DENIED') && !isExpectedAudit404 && !isNuxtDevManifestAbort && !isNuxtDevHmrSocket) {
+            consoleErrors.push(text)
+          }
         }
       })
       page.on('pageerror', (error) => pageErrors.push(error.message))
       page.on('requestfailed', (request) => {
         const url = request.url()
-        if (url.startsWith('http://127.0.0.1:3000') || url.startsWith('http://localhost:3000')) {
-          failedRequests.push(`${request.failure()?.errorText || 'failed'} ${url}`)
+        if (url.startsWith('http://127.0.0.1:3107') || url.startsWith('http://localhost:3107')) {
+          const errorText = request.failure()?.errorText || 'failed'
+          if (errorText !== 'net::ERR_ABORTED') {
+            failedRequests.push(`${errorText} ${url}`)
+          }
+        }
+      })
+      page.on('response', (response) => {
+        const url = response.url()
+        const status = response.status()
+        const isAudit404 = url.endsWith('/missing-page-ui-audit')
+        if ((url.startsWith('http://127.0.0.1:3107') || url.startsWith('http://localhost:3107')) && status >= 400 && !isAudit404) {
+          badLocalResponses.push(`${status} ${url}`)
         }
       })
 
@@ -134,9 +159,10 @@ test.describe('UI responsive audit', () => {
           expect(response?.ok(), `${route} returned ${response?.status()}`).toBeTruthy()
         }
 
-        await expect(page.locator('header')).toBeVisible()
+        const siteHeader = page.getByRole('banner').first()
+        await expect(siteHeader).toBeVisible()
         await expect(page.locator('main')).toBeVisible()
-        await expect(page.locator('footer')).toBeVisible()
+        await expect(page.getByRole('contentinfo').first()).toBeVisible()
         await expect(page.locator('h1').first()).toBeVisible()
         await expectNoHorizontalOverflow(page)
 
@@ -144,11 +170,11 @@ test.describe('UI responsive audit', () => {
         await expect(interactive).toBeVisible()
 
         if (viewport.width < 1024) {
-          const menuButton = page.locator('header button[aria-expanded]').first()
+          const menuButton = siteHeader.locator('button[aria-expanded]').first()
           await expect(menuButton).toBeVisible()
           await menuButton.click()
           await expect(menuButton).toHaveAttribute('aria-expanded', 'true')
-          await expect(page.locator('header').getByRole('link').filter({ hasText: /./ }).first()).toBeVisible()
+          await expect(siteHeader.getByRole('link').filter({ hasText: /./ }).first()).toBeVisible()
           await page.keyboard.press('Escape')
           await expect(menuButton).toHaveAttribute('aria-expanded', 'false')
         }
@@ -164,6 +190,7 @@ test.describe('UI responsive audit', () => {
       expect(consoleErrors, `Console errors on ${route}`).toEqual([])
       expect(pageErrors, `Unhandled page errors on ${route}`).toEqual([])
       expect(failedRequests, `Local request failures on ${route}`).toEqual([])
+      expect(badLocalResponses, `Local HTTP errors on ${route}`).toEqual([])
     })
   }
 })

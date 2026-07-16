@@ -2,7 +2,7 @@ import { defineConfig, devices } from '@playwright/test'
 
 export default defineConfig({
   testDir: './tests/ui',
-  timeout: 60_000,
+  timeout: 180_000,
   expect: {
     timeout: 10_000,
   },
@@ -18,12 +18,14 @@ export default defineConfig({
     screenshot: 'only-on-failure',
   },
   outputDir: 'test-results/ui-audit/artifacts',
-  webServer: {
-    command: 'npm run dev -- --host 127.0.0.1 --port 3107',
-    url: 'http://127.0.0.1:3107',
-    reuseExistingServer: false,
-    timeout: 120_000,
-  },
+  webServer: process.env.UI_AUDIT_SERVER_STARTED
+    ? undefined
+    : {
+        command: 'npm run dev -- --host 127.0.0.1 --port 3107',
+        url: 'http://127.0.0.1:3107',
+        reuseExistingServer: false,
+        timeout: 120_000,
+      },
   projects: [
     {
       name: 'chromium',

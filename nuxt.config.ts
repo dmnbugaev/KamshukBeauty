@@ -5,7 +5,7 @@ export default defineNuxtConfig({
     public: '../public',
   },
 
-  devtools: { enabled: true },
+  devtools: { enabled: false },
 
   modules: ['@nuxtjs/tailwindcss'],
 

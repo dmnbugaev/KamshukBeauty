@@ -41,7 +41,7 @@ const bookingCount = computed(() => {
           <div class="section-label mb-8">Студия красоты · Москва</div>
 
           <!-- Заголовок -->
-          <h1 class="display mb-6" style="font-size: clamp(3rem, 7vw, 5.5rem)">
+          <h1 class="display mb-6" style="font-size: clamp(2.35rem, 12vw, 5.5rem)">
             <span class="block text-[#1A1A2E]">Камшук</span>
             <span class="block text-pink-shimmer" style="line-height:1.1">Бьюти</span>
           </h1>
@@ -123,20 +123,20 @@ const bookingCount = computed(() => {
 
           <!-- Внешнее кольцо (вращается) -->
           <div
-            class="absolute w-[420px] h-[420px] lg:w-[520px] lg:h-[520px] rounded-full pointer-events-none"
+            class="absolute w-[min(100%,420px)] aspect-square lg:w-[520px] rounded-full pointer-events-none"
             style="border: 1.5px dashed rgba(233,30,140,0.18); animation: rotateSlow 30s linear infinite"
           />
 
           <!-- Среднее кольцо -->
           <div
-            class="absolute w-[360px] h-[360px] lg:w-[450px] lg:h-[450px] rounded-full pointer-events-none"
+            class="absolute w-[min(100%,360px)] aspect-square lg:w-[450px] rounded-full pointer-events-none"
             style="border: 1px solid rgba(244,141,180,0.25)"
           />
 
           <!-- Сам логотип -->
           <div class="relative z-10">
             <div
-              class="w-[300px] h-[300px] lg:w-[390px] lg:h-[390px] rounded-full overflow-hidden animate-float"
+              class="w-[min(100%,300px)] aspect-square lg:w-[390px] rounded-full overflow-hidden animate-float"
               style="box-shadow: 0 0 70px rgba(233,30,140,0.25), 0 0 30px rgba(244,141,180,0.2), 0 24px 80px rgba(0,0,0,0.1); ring: 3px solid rgba(233,30,140,0.2)"
             >
               <img
