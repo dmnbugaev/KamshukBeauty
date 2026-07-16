@@ -12,8 +12,18 @@ const links = [
 
 onMounted(() => {
   const handleScroll = () => { scrolled.value = window.scrollY > 30 }
+  const handleKeydown = (event: KeyboardEvent) => {
+    if (event.key === 'Escape') {
+      closeMenu()
+    }
+  }
   window.addEventListener('scroll', handleScroll, { passive: true })
-  onUnmounted(() => window.removeEventListener('scroll', handleScroll))
+  window.addEventListener('keydown', handleKeydown)
+  onUnmounted(() => {
+    window.removeEventListener('scroll', handleScroll)
+    window.removeEventListener('keydown', handleKeydown)
+    document.body.style.overflow = ''
+  })
 })
 
 watch(menuOpen, (val) => {
@@ -92,6 +102,7 @@ const closeMenu = () => { menuOpen.value = false }
           class="lg:hidden relative w-10 h-10 flex items-center justify-center text-[#E91E8C]"
           :aria-label="menuOpen ? 'Закрыть меню' : 'Открыть меню'"
           :aria-expanded="menuOpen"
+          aria-controls="mobile-menu"
           @click="menuOpen = !menuOpen"
         >
           <span class="sr-only">{{ menuOpen ? 'Закрыть' : 'Меню' }}</span>
@@ -126,8 +137,10 @@ const closeMenu = () => { menuOpen.value = false }
     <Transition name="mobile-menu">
       <div
         v-if="menuOpen"
+        id="mobile-menu"
         class="lg:hidden fixed inset-0 z-40 flex flex-col"
         style="background: linear-gradient(160deg, #FFFFFF 0%, #FFF4F9 100%)"
+        @click.self="closeMenu"
       >
         <!-- Шапка мобильного меню -->
         <div class="flex items-center justify-between h-20 px-6 border-b border-[#E91E8C]/10">

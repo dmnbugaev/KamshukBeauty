@@ -4,7 +4,7 @@ useHead({
   meta: [
     {
       name: 'description',
-      content: 'Школа-студия Анастасии Камшук. Курсы мастера маникюра (3 дня, 35 000 ₽) и смарт педикюра (2 дня, 28 000 ₽). Обучение с нуля, сертификат, набор в подарок.',
+      content: 'Школа-студия Анастасии Камшук. Весь июль обучение со скидкой 10 000 ₽: курс мастера маникюра 25 000 ₽ вместо 35 000 ₽, смарт педикюра 18 000 ₽ вместо 28 000 ₽.',
     },
     {
       property: 'og:title',
@@ -31,8 +31,8 @@ useHead({
           '@type': 'OfferCatalog',
           name: 'Курсы обучения',
           itemListElement: [
-            { '@type': 'Offer', itemOffered: { '@type': 'Course', name: 'Мастер маникюра', timeRequired: 'P3D' }, price: '35000', priceCurrency: 'RUB' },
-            { '@type': 'Offer', itemOffered: { '@type': 'Course', name: 'Мастер педикюра', timeRequired: 'P2D' }, price: '28000', priceCurrency: 'RUB' },
+            { '@type': 'Offer', itemOffered: { '@type': 'Course', name: 'Мастер маникюра', timeRequired: 'P3D' }, price: '25000', priceCurrency: 'RUB' },
+            { '@type': 'Offer', itemOffered: { '@type': 'Course', name: 'Мастер педикюра', timeRequired: 'P2D' }, price: '18000', priceCurrency: 'RUB' },
           ],
         },
       }),
@@ -70,22 +70,28 @@ const pedikurProgram = [
 const packages = [
   {
     title: 'Эксперт',
+    displayTitle: 'Мастер ногтевого сервиса',
     duration: '5 дней',
-    price: '50 000 ₽',
+    oldPrice: '50 000 ₽',
+    price: '40 000 ₽',
     includes: '3 дня маникюр + 2 дня педикюр',
     popular: false,
   },
   {
     title: 'Топ',
+    displayTitle: 'Топ-мастер ногтевого сервиса',
     duration: '7 дней',
-    price: '60 000 ₽',
+    oldPrice: '60 000 ₽',
+    price: '50 000 ₽',
     includes: '3 дня маникюр + 2 дня педикюр + 2 дня моделирование',
     popular: true,
   },
   {
     title: 'VIP',
+    displayTitle: 'VIP-мастер ногтевого сервиса',
     duration: '9 дней',
-    price: '70 000 ₽',
+    oldPrice: '70 000 ₽',
+    price: '60 000 ₽',
     includes: '3 дня маникюр + 2 дня педикюр + 2 дня моделирование + 2 дня верхние формы',
     popular: false,
   },
@@ -130,6 +136,9 @@ const afterTraining = ['Сертификаты', 'Трудоустройство
             <p class="headline text-2xl text-[#1A1A1A]">
               Наша цель — ваш успех в профессии
             </p>
+            <p class="inline-flex rounded-full bg-[#D81B60] px-5 py-2 label text-xs text-white">
+              Весь июль действует акция: скидка 10 000 ₽ на все программы обучения
+            </p>
           </div>
         </div>
 
@@ -153,7 +162,10 @@ const afterTraining = ['Сертификаты', 'Трудоустройство
           </h2>
           <div class="grid lg:grid-cols-2 gap-12">
             <div>
-              <h3 class="headline text-xl text-[#D81B60] mb-4">3 дня — 35 000 ₽</h3>
+              <h3 class="headline text-xl text-[#D81B60] mb-4">
+                3 дня —
+                <PromoPrice old-price="35 000 ₽" new-price="25 000 ₽" align="left" note="цена в июле" />
+              </h3>
               <p class="body text-base text-[#424242] mb-6">
                 На курсе вы научитесь работать профессиональными инструментами, выполнять
                 авторский «ровный срез» кутикулы, работать аппаратом, разберётесь, что такое
@@ -185,7 +197,10 @@ const afterTraining = ['Сертификаты', 'Трудоустройство
           </h2>
           <div class="grid lg:grid-cols-2 gap-12">
             <div>
-              <h3 class="headline text-xl text-[#D81B60] mb-4">2 дня — 28 000 ₽</h3>
+              <h3 class="headline text-xl text-[#D81B60] mb-4">
+                2 дня —
+                <PromoPrice old-price="28 000 ₽" new-price="18 000 ₽" align="left" note="цена в июле" />
+              </h3>
               <p class="body text-base text-[#424242]">
                 Аппаратный, COMBI и Смарт педикюр — современные техники ухода за стопами
                 с применением профессионального оборудования.
@@ -225,10 +240,12 @@ const afterTraining = ['Сертификаты', 'Трудоустройство
                 <span class="label text-xs">Популярный</span>
               </div>
               <h3 class="headline text-xl text-[#D81B60] mb-1">
-                «{{ pkg.title }}-мастер ногтевого сервиса»
+                «{{ pkg.displayTitle }}»
               </h3>
               <p class="label text-xs text-[#757575] mb-2">{{ pkg.duration }}</p>
-              <p class="headline text-3xl text-[#1A1A1A] mb-6">{{ pkg.price }}</p>
+              <p class="mb-6">
+                <PromoPrice :old-price="pkg.oldPrice" :new-price="pkg.price" size="lg" align="left" note="скидка 10 000 ₽ в июле" />
+              </p>
               <p class="body text-sm text-[#424242]">
                 Базовый курс {{ pkg.duration }} ({{ pkg.includes }})
               </p>
@@ -297,6 +314,14 @@ const afterTraining = ['Сертификаты', 'Трудоустройство
               class="btn-outline-pink inline-block text-center"
             >
               Написать <br> в WhatsApp
+            </a>
+            <a
+              href="https://t.me/Kamshuk_Anastasiya"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-outline-pink inline-block text-center"
+            >
+              Написать <br> в telegram
             </a>
           </div>
         </div>

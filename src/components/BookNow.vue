@@ -23,9 +23,9 @@
               <div class="ios-icon ios-pink" style="width:48px; height:48px; border-radius:14px; font-size:1.375rem">🎀</div>
               <p class="label text-[11px] text-[#C2185B]">Специальное предложение</p>
             </div>
-            <p class="headline text-4xl text-[#E91E8C] mb-2">−15%</p>
+            <p class="headline text-4xl text-[#E91E8C] mb-2">−30%</p>
             <p class="body text-sm text-[#6B4F5A]">
-              Скидка на все услуги при первом визите
+              Радужное предложение на все услуги до конца июля
             </p>
           </div>
 

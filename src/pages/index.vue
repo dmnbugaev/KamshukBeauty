@@ -4,7 +4,7 @@ useHead({
   meta: [
     {
       name: 'description',
-      content: 'Студия красоты Камшук Бьюти в Коммунарке (Москва, ул. Александры Монаховой 43/1). Маникюр от 1 400 ₽, смарт-педикюр, наращивание ресниц, архитектура бровей, макияж, перманентный макияж. Ежедневно 10:00–22:00. Скидка −15% при первом визите. Запись онлайн.',
+      content: 'Студия красоты Камшук Бьюти в Коммунарке (Москва, ул. Александры Монаховой 43/1). До конца июля Радужное предложение: скидка 30% на все услуги. Маникюр от 980 ₽. Ежедневно 10:00–22:00.',
     },
     {
       name: 'keywords',
@@ -24,7 +24,7 @@ useHead({
     },
     {
       property: 'og:description',
-      content: 'Маникюр от 1 400 ₽, педикюр, ресницы, брови, макияж в Коммунарке. Ежедневно 10:00–22:00. Скидка −15% при первом визите. Запись онлайн.',
+      content: 'Маникюр от 980 ₽, педикюр, ресницы, брови, макияж в Коммунарке. До конца июля Радужное предложение: скидка 30% на все услуги.',
     },
     {
       property: 'og:image',
@@ -36,7 +36,7 @@ useHead({
     { name: 'twitter:title', content: 'Камшук Бьюти — Студия красоты в Коммунарке' },
     {
       name: 'twitter:description',
-      content: 'Маникюр, педикюр, ресницы, брови, макияж в Москве (Коммунарка). Скидка −15% при первом визите.',
+      content: 'Маникюр, педикюр, ресницы, брови, макияж в Москве (Коммунарка). До конца июля скидка 30% на все услуги.',
     },
     {
       name: 'twitter:image',
@@ -108,15 +108,15 @@ useHead({
           '@type': 'OfferCatalog',
           name: 'Услуги студии красоты Камшук Бьюти',
           itemListElement: [
-            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Маникюр без покрытия', description: 'Классический маникюр без покрытия' }, price: '1400', priceCurrency: 'RUB' },
-            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Маникюр комплекс (гель-лак)', description: 'Маникюр с покрытием гель-лак' }, price: '2700', priceCurrency: 'RUB' },
-            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Смарт-педикюр', description: 'Педикюр с уходом и покрытием' }, price: '3500', priceCurrency: 'RUB' },
-            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Наращивание ресниц', description: 'Профессиональное наращивание ресниц' }, price: '3300', priceCurrency: 'RUB' },
-            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Ламинирование ресниц' }, price: '3000', priceCurrency: 'RUB' },
-            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Архитектура бровей' }, price: '1500', priceCurrency: 'RUB' },
-            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Дневной макияж' }, price: '3500', priceCurrency: 'RUB' },
-            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Свадебный макияж' }, price: '8000', priceCurrency: 'RUB' },
-            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Пудровые брови (перманентный макияж)' }, price: '14000', priceCurrency: 'RUB' },
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Маникюр без покрытия', description: 'Классический маникюр без покрытия' }, price: '980', priceCurrency: 'RUB' },
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Маникюр комплекс (гель-лак)', description: 'Маникюр с покрытием гель-лак' }, price: '1890', priceCurrency: 'RUB' },
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Смарт-педикюр', description: 'Педикюр с уходом и покрытием' }, price: '2450', priceCurrency: 'RUB' },
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Наращивание ресниц', description: 'Профессиональное наращивание ресниц' }, price: '2310', priceCurrency: 'RUB' },
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Ламинирование ресниц' }, price: '2100', priceCurrency: 'RUB' },
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Архитектура бровей' }, price: '1050', priceCurrency: 'RUB' },
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Дневной макияж' }, price: '2450', priceCurrency: 'RUB' },
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Свадебный макияж' }, price: '5600', priceCurrency: 'RUB' },
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Пудровые брови (перманентный макияж)' }, price: '11200', priceCurrency: 'RUB' },
           ],
         },
       }),
@@ -134,8 +134,8 @@ useHead({
           },
           {
             '@type': 'Question',
-            name: 'Есть ли скидка при первом визите?',
-            acceptedAnswer: { '@type': 'Answer', text: 'Да, скидка −15% на любую услугу при первом посещении студии.' },
+            name: 'Есть ли сейчас скидка?',
+            acceptedAnswer: { '@type': 'Answer', text: 'Да, до конца июля действует Радужное предложение: скидка 30% на все услуги студии.' },
           },
           {
             '@type': 'Question',

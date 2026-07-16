@@ -111,7 +111,7 @@ const tagColors: Record<string, string> = {
       <div class="container px-6 lg:px-12">
         <div class="max-w-2xl mx-auto text-center glass-pink rounded-3xl p-10">
           <h2 class="display text-2xl text-[#1A1A2E] mb-4">Готовы к преображению?</h2>
-          <p class="body text-sm text-[#6B4F5A] mb-6">Записывайтесь онлайн — скидка −15% при первом визите</p>
+          <p class="body text-sm text-[#6B4F5A] mb-6">Записывайтесь онлайн — до конца июля Радужное предложение −30%</p>
           <a href="https://n1407035.yclients.com/company/1274992/personal/select-services?o=" target="_blank" rel="noopener noreferrer" class="btn-pink inline-block">Записаться онлайн</a>
         </div>
       </div>

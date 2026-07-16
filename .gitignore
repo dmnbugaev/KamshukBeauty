@@ -33,3 +33,6 @@ pnpm-lock.yaml
 
 # Local files
 *.local
+.nuxt-dev*.log
+test-results/
+playwright-report/

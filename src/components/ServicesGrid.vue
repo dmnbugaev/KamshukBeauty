@@ -4,7 +4,8 @@ const services = [
     title: 'Ногтевой сервис',
     description: 'Маникюр и педикюр гель-лак, наращивание. Покрытие держится до следующего визита — гарантируем качество',
     image: '/images/4_foto/manik.jpg',
-    price: 'от 1 400 ₽',
+    oldPrice: 'от 1 400 ₽',
+    price: 'от 980 ₽',
     tag: 'Популярно',
     icon: '💅',
     iconClass: 'ios-pink',
@@ -14,7 +15,8 @@ const services = [
     title: 'Ресницы & Брови',
     description: 'Наращивание, ламинирование, коррекция бровей — выразительный взгляд без ежедневного макияжа',
     image: '/images/4_foto/resnici_i_brovi.jpg',
-    price: 'от 1 500 ₽',
+    oldPrice: 'от 1 500 ₽',
+    price: 'от 1 050 ₽',
     tag: '',
     icon: '✨',
     iconClass: 'ios-rose',
@@ -24,7 +26,8 @@ const services = [
     title: 'Макияж',
     description: 'Дневной, вечерний, свадебный. Подчеркнём вашу красоту для любого события — от деловой встречи до торжества',
     image: '/images/4_foto/make.jpg',
-    price: 'от 3 500 ₽',
+    oldPrice: 'от 3 500 ₽',
+    price: 'от 2 450 ₽',
     tag: '',
     icon: '💄',
     iconClass: 'ios-blush',
@@ -34,6 +37,7 @@ const services = [
     title: 'Обучение',
     description: 'Освойте профессию с нуля или повысьте квалификацию. 9-лет опыта в бьюти сфере. Мастера передают реальные техники, а не теорию',
     image: '/images/4_foto/obychenie.jpg',
+    oldPrice: '',
     price: 'Узнать стоимость',
     tag: 'Новые группы',
     icon: '🌸',
@@ -50,14 +54,14 @@ const services = [
       <!-- Заголовок секции -->
       <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-20">
         <div class="max-w-xl">
-          <div class="section-label mb-5">Услуги</div>
+          <div class="section-label mb-5">Радужное предложение</div>
           <h2 class="display text-4xl lg:text-5xl text-[#1A1A2E] leading-tight">
             Что мы<br />предлагаем
           </h2>
         </div>
         <p class="body text-base text-[#B08898] max-w-sm lg:text-right">
-          Каждая процедура — это искусство. Используем только
-          премиальные материалы, авторскую и проверенные техники
+          До конца июля действует скидка 30% на все услуги. Используем только
+          премиальные материалы, авторские и проверенные техники
         </p>
       </div>
 
@@ -114,7 +118,14 @@ const services = [
               <h3 class="headline text-xl text-[#1A1A2E] group-hover:text-[#E91E8C] transition-colors duration-300">
                 {{ service.title }}
               </h3>
-              <span class="label text-[11px] text-[#E91E8C] shrink-0 mt-1">{{ service.price }}</span>
+              <PromoPrice
+                v-if="service.oldPrice"
+                class="shrink-0 mt-1"
+                :old-price="service.oldPrice"
+                :new-price="service.price"
+                size="sm"
+              />
+              <span v-else class="label text-[11px] text-[#E91E8C] shrink-0 mt-1">{{ service.price }}</span>
             </div>
             <p class="body text-sm text-[#B08898]">{{ service.description }}</p>
 

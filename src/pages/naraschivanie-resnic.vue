@@ -1,11 +1,11 @@
 <script setup lang="ts">
 useHead({
-  title: 'Наращивание ресниц в Коммунарке — от 3 300 ₽ | Камшук Бьюти',
+  title: 'Наращивание ресниц в Коммунарке — от 2 310 ₽ | Камшук Бьюти',
   meta: [
-    { name: 'description', content: 'Наращивание и ламинирование ресниц в Коммунарке (Москва) от 3 300 ₽. Студия Камшук Бьюти. Классика, 2D, объёмное наращивание. Держится 3–4 недели. Запись онлайн. Ежедневно 10:00–22:00.' },
+    { name: 'description', content: 'Наращивание и ламинирование ресниц в Коммунарке (Москва) от 2 310 ₽ по Радужному предложению до конца июля. Запись онлайн. Ежедневно 10:00–22:00.' },
     { name: 'keywords', content: 'наращивание ресниц Коммунарка, ламинирование ресниц Коммунарка, ресницы Новая Москва, наращивание ресниц ТиНАО, объёмное наращивание ресниц Коммунарка' },
-    { property: 'og:title', content: 'Наращивание ресниц в Коммунарке — Камшук Бьюти от 3 300 ₽' },
-    { property: 'og:description', content: 'Наращивание ресниц классика, 2D, объём в Коммунарке. Держится 3–4 недели. Скидка −15% при первом визите.' },
+    { property: 'og:title', content: 'Наращивание ресниц в Коммунарке — Камшук Бьюти от 2 310 ₽' },
+    { property: 'og:description', content: 'Наращивание ресниц классика, 2D, объём в Коммунарке. До конца июля скидка 30% на все услуги.' },
     { property: 'og:image', content: 'https://kamshukbeauty.ru/images/4_foto/resnici_i_brovi.jpg' },
     { property: 'og:url', content: 'https://kamshukbeauty.ru/naraschivanie-resnic' },
   ],
@@ -21,8 +21,8 @@ useHead({
         provider: { '@type': 'BeautySalon', name: 'Камшук Бьюти', url: 'https://kamshukbeauty.ru' },
         areaServed: { '@type': 'City', name: 'Москва' },
         offers: [
-          { '@type': 'Offer', name: 'Наращивание ресниц', price: '3300', priceCurrency: 'RUB' },
-          { '@type': 'Offer', name: 'Ламинирование ресниц', price: '3000', priceCurrency: 'RUB' },
+          { '@type': 'Offer', name: 'Наращивание ресниц', price: '2310', priceCurrency: 'RUB' },
+          { '@type': 'Offer', name: 'Ламинирование ресниц', price: '2100', priceCurrency: 'RUB' },
         ],
       },
       {
@@ -38,10 +38,10 @@ useHead({
 })
 
 const prices = [
-  { name: 'Наращивание ресниц (классика)', price: '3 300 ₽', desc: 'Одна ресница на натуральную, естественный эффект' },
-  { name: 'Ламинирование ресниц', price: '3 000 ₽', desc: 'Укрепление, изгиб и объём без наращивания' },
-  { name: 'Снятие наращённых ресниц', price: '500 ₽', desc: 'Бережное снятие без повреждения натуральных ресниц' },
-  { name: 'Коррекция ресниц', price: 'от 1 500 ₽', desc: 'Заполнение отросших участков через 3–4 недели' },
+  { name: 'Наращивание ресниц (классика)', oldPrice: '3 300 ₽', price: '2 310 ₽', desc: 'Одна ресница на натуральную, естественный эффект' },
+  { name: 'Ламинирование ресниц', oldPrice: '3 000 ₽', price: '2 100 ₽', desc: 'Укрепление, изгиб и объём без наращивания' },
+  { name: 'Снятие наращённых ресниц', oldPrice: '500 ₽', price: '350 ₽', desc: 'Бережное снятие без повреждения натуральных ресниц' },
+  { name: 'Коррекция ресниц', oldPrice: 'от 1 500 ₽', price: 'от 1 050 ₽', desc: 'Заполнение отросших участков через 3–4 недели' },
 ]
 
 const faqs = [
@@ -62,7 +62,7 @@ const open = ref<number | null>(null)
         <Breadcrumb :items="[{ label: 'Наращивание ресниц в Коммунарке' }]" />
         <div class="grid lg:grid-cols-2 gap-12 items-center max-w-[1320px] mx-auto">
           <div>
-            <div class="section-label mb-6">Ресницы · Коммунарка</div>
+            <div class="section-label mb-6">Радужное предложение · скидка 30% до конца июля</div>
             <h1 class="display text-4xl lg:text-5xl text-[#1A1A2E] mb-6 leading-tight">
               Наращивание<br /><span class="text-pink-shimmer">ресниц</span><br />в Коммунарке
             </h1>
@@ -75,9 +75,9 @@ const open = ref<number | null>(null)
               <a href="tel:+79771075005" class="btn-outline-pink inline-block text-center">+7 (977) 107-50-05</a>
             </div>
             <div class="grid grid-cols-3 gap-6">
-              <div><div class="headline text-3xl text-pink-gradient mb-1">от 3 300 ₽</div><p class="body text-xs text-[#B08898]">стоимость</p></div>
+              <div><PromoPrice old-price="от 3 300 ₽" new-price="от 2 310 ₽" size="lg" align="left" /><p class="body text-xs text-[#B08898]">стоимость</p></div>
               <div><div class="headline text-3xl text-pink-gradient mb-1">3–4 нед.</div><p class="body text-xs text-[#B08898]">держится эффект</p></div>
-              <div><div class="headline text-3xl text-pink-gradient mb-1">−15%</div><p class="body text-xs text-[#B08898]">первый визит</p></div>
+              <div><div class="headline text-3xl text-pink-gradient mb-1">−30%</div><p class="body text-xs text-[#B08898]">до конца июля</p></div>
             </div>
           </div>
           <div class="relative">
@@ -85,8 +85,8 @@ const open = ref<number | null>(null)
               <img src="/images/4_foto/resnici_i_brovi.jpg" alt="Наращивание ресниц в Коммунарке — студия Камшук Бьюти" class="w-full h-full object-cover" width="600" height="450" loading="lazy" />
             </div>
             <div class="absolute -bottom-4 -left-4 glass-pink rounded-2xl px-5 py-3" style="box-shadow: 0 8px 32px rgba(233,30,140,0.2)">
-              <p class="label text-[10px] text-[#C2185B] mb-0.5">Первый визит</p>
-              <p class="headline text-2xl text-[#E91E8C]">−15%</p>
+              <p class="label text-[10px] text-[#C2185B] mb-0.5">Радужное предложение</p>
+              <p class="headline text-2xl text-[#E91E8C]">−30%</p>
             </div>
           </div>
         </div>
@@ -100,7 +100,7 @@ const open = ref<number | null>(null)
           <div v-for="item in prices" :key="item.name" class="card-luxury rounded-2xl p-6">
             <div class="flex justify-between items-start mb-2">
               <h3 class="headline text-base text-[#1A1A2E]">{{ item.name }}</h3>
-              <span class="label text-sm text-[#E91E8C] ml-4 shrink-0">{{ item.price }}</span>
+              <PromoPrice class="ml-4 shrink-0" :old-price="item.oldPrice" :new-price="item.price" />
             </div>
             <p class="body text-xs text-[#B08898]">{{ item.desc }}</p>
           </div>

@@ -49,7 +49,7 @@ const bookingCount = computed(() => {
           <p class="body text-lg lg:text-xl text-[#6B4F5A] mb-10 max-w-md leading-relaxed">
             Маникюр, педикюр, брови, ресницы и макияж — результат, который
             держится. Работаем ежедневно с 10:00 до 22:00.
-            Первый визит со скидкой&nbsp;<span class="text-[#E91E8C] font-semibold">−15%</span>
+            До конца июля действует Радужное предложение:&nbsp;<span class="text-[#E91E8C] font-semibold">−30%</span>
           </p>
 
           <!-- Кнопки -->
@@ -94,8 +94,8 @@ const bookingCount = computed(() => {
               <p class="body text-sm text-[#B08898]">гостей</p>
             </div>
             <div class="text-center sm:text-left">
-              <div class="headline text-4xl text-pink-gradient mb-1">−15%</div>
-              <p class="body text-sm text-[#B08898]">при первом визите</p>
+              <div class="headline text-4xl text-pink-gradient mb-1">−30%</div>
+              <p class="body text-sm text-[#B08898]">до конца июля</p>
             </div>
             <div class="text-center sm:text-left">
               <div class="flex items-center justify-center sm:justify-start gap-1 mb-1">
@@ -151,8 +151,8 @@ const bookingCount = computed(() => {
               class="absolute -bottom-4 -right-4 glass-pink rounded-2xl px-5 py-3"
               style="box-shadow: 0 8px 32px rgba(233,30,140,0.2)"
             >
-              <p class="label text-[10px] text-[#C2185B] mb-0.5">Первый визит</p>
-              <p class="headline text-2xl text-[#E91E8C]">−15%</p>
+              <p class="label text-[10px] text-[#C2185B] mb-0.5">Радужное предложение</p>
+              <p class="headline text-2xl text-[#E91E8C]">−30%</p>
             </div>
 
             <!-- Бейдж звёзд — iOS стиль -->

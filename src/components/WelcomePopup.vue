@@ -57,20 +57,20 @@ const close = () => {
             </div>
 
             <!-- Заголовок -->
-            <p class="label text-[11px] text-[#E91E8C] mb-2">Специально для вас</p>
+            <p class="label text-[11px] text-[#E91E8C] mb-2">Радужное предложение</p>
             <h2 class="headline text-3xl text-[#1A1A2E] mb-2">
-              Скидка <span class="text-pink-shimmer">−15%</span>
+              Скидка <span class="text-pink-shimmer">−30%</span>
             </h2>
-            <p class="headline text-base text-[#B08898] mb-6">на первый визит в студию</p>
+            <p class="headline text-base text-[#B08898] mb-6">на все услуги до конца июля</p>
 
             <div class="pink-divider mx-auto mb-6" />
 
             <p class="body text-sm text-[#6B4F5A] mb-4 leading-relaxed">
               Маникюр, ресницы, брови, макияж — любая услуга
-              по сниженной цене при первом посещении.
+              по сниженной цене весь июль.
               Работаем ежедневно&nbsp;10:00–22:00.
             </p>
-            <p class="body text-xs text-[#B08898] mb-8 opacity-70">* Не суммируется с другими предложениями</p>
+            <p class="body text-xs text-[#B08898] mb-8 opacity-70">* Предложение действует до конца июля</p>
 
             <!-- CTA -->
             <a
