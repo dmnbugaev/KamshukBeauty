@@ -96,8 +96,8 @@ const yclientsUrl = 'https://n1407035.yclients.com/company/1274992/personal/sele
           <!-- Позиции -->
           <div class="space-y-5">
             <div
-              v-for="(item, i) in section.items"
-              :key="i"
+              v-for="item in section.items"
+              :key="item.name"
               class="flex flex-col gap-2 sm:flex-row sm:justify-between sm:items-baseline group/item"
             >
               <span class="body text-sm text-[#6B4F5A] group-hover/item:text-[#1A1A2E] transition-colors">

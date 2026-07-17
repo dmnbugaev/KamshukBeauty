@@ -9,7 +9,7 @@ const bookingCount = computed(() => {
 <template>
   <section
     id="home"
-    class="min-h-screen flex items-center pt-20 relative overflow-hidden"
+    class="min-h-[calc(100dvh-var(--header-height))] flex items-center relative overflow-hidden"
     style="background: radial-gradient(ellipse at 80% 20%, rgba(233,30,140,0.1) 0%, transparent 50%), radial-gradient(ellipse at 10% 80%, rgba(244,141,180,0.12) 0%, transparent 50%), radial-gradient(ellipse at 50% 100%, rgba(233,30,140,0.05) 0%, transparent 50%), #FFFFFF"
   >
     <!-- Декоративные орбиты -->

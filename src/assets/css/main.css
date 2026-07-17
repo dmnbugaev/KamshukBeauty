@@ -34,14 +34,41 @@
   --focus: #C2185B;
   --error: #B42318;
   --success: #0F7A4F;
-  --radius-sm: 12px;
-  --radius-md: 16px;
-  --radius-lg: 24px;
+  --font-family-heading: 'Unbounded', 'Manrope', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-family-body: 'Manrope', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-family-quote: 'Cormorant Garamond', Georgia, serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: clamp(1.5rem, 3vw, 2rem);
+  --font-size-3xl: clamp(1.875rem, 4vw, 2.75rem);
+  --font-size-4xl: clamp(2.25rem, 6vw, 4rem);
+  --line-height-tight: 1.15;
+  --line-height-normal: 1.6;
+  --line-height-relaxed: 1.75;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
   --shadow-sm: 0 2px 12px rgba(233, 30, 140, 0.06);
   --shadow-md: 0 10px 36px rgba(233, 30, 140, 0.12);
   --container-max: 1320px;
   --container-pad: clamp(16px, 4vw, 48px);
   --section-y: clamp(64px, 9vw, 112px);
+  --header-height: 80px;
 }
 
 /* ===== БАЗОВЫЕ СТИЛИ ===== */
@@ -53,20 +80,26 @@
 
 body {
   margin: 0;
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
   color: var(--text-dark);
   background: #FFFFFF;
   letter-spacing: 0;
   overflow-x: hidden;
-  overflow-wrap: break-word;
+  overflow-wrap: normal;
   word-break: normal;
   hyphens: none;
+  -webkit-hyphens: none;
+  -ms-hyphens: none;
 }
 
 body * {
-  overflow-wrap: break-word;
+  overflow-wrap: normal;
   word-break: normal;
   hyphens: none;
+  -webkit-hyphens: none;
+  -ms-hyphens: none;
 }
 
 .grid > *,
@@ -76,7 +109,19 @@ body * {
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 110px;
+  scroll-padding-top: calc(var(--header-height) + var(--space-5));
+  overflow-x: hidden;
+}
+
+.site-main {
+  padding-top: var(--header-height);
+}
+
+.break-anywhere,
+a[href^="http"],
+a[href^="mailto"],
+a[href^="tel"] {
+  overflow-wrap: anywhere;
 }
 
 /* ===== ВЫДЕЛЕНИЕ ===== */
@@ -112,35 +157,35 @@ html {
 
 /* ===== ТИПОГРАФИКА ===== */
 .display {
-  font-family: 'Unbounded', sans-serif;
-  font-weight: 700;
+  font-family: var(--font-family-heading);
+  font-weight: var(--font-weight-bold);
   letter-spacing: 0;
-  line-height: 1.05;
+  line-height: var(--line-height-tight);
 }
 
 .headline {
-  font-family: 'Unbounded', sans-serif;
-  font-weight: 600;
+  font-family: var(--font-family-heading);
+  font-weight: var(--font-weight-semibold);
   letter-spacing: 0;
-  line-height: 1.2;
+  line-height: 1.22;
 }
 
 .body {
-  font-family: 'Manrope', sans-serif;
-  font-weight: 400;
-  line-height: 1.75;
+  font-family: var(--font-family-body);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-relaxed);
 }
 
 .label {
-  font-family: 'Manrope', sans-serif;
-  font-weight: 700;
-  letter-spacing: 0.08em;
+  font-family: var(--font-family-body);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
 .quote-text {
-  font-family: 'Cormorant Garamond', serif;
-  font-weight: 500;
+  font-family: var(--font-family-quote);
+  font-weight: var(--font-weight-medium);
   font-style: italic;
   line-height: 1.4;
 }
@@ -279,9 +324,9 @@ html {
 .btn-pink {
   background: linear-gradient(135deg, var(--pink-deep) 0%, var(--pink-main) 60%, #F06292 100%);
   color: #fff;
-  font-family: 'Manrope', sans-serif;
-  font-weight: 700;
-  letter-spacing: 0.06em;
+  font-family: var(--font-family-body);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   font-size: 0.75rem;
   padding: 0.95rem 1.75rem;
@@ -318,9 +363,9 @@ html {
 .btn-gold {
   background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold-main) 50%, var(--gold-mid) 100%);
   color: #fff;
-  font-family: 'Manrope', sans-serif;
-  font-weight: 700;
-  letter-spacing: 0.06em;
+  font-family: var(--font-family-body);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   font-size: 0.75rem;
   padding: 0.95rem 1.75rem;
@@ -356,9 +401,9 @@ html {
 .btn-outline-pink {
   border: 1.5px solid var(--pink-main);
   color: var(--pink-deep);
-  font-family: 'Manrope', sans-serif;
-  font-weight: 700;
-  letter-spacing: 0.06em;
+  font-family: var(--font-family-body);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   font-size: 0.75rem;
   padding: 0.95rem 1.75rem;
@@ -382,9 +427,9 @@ html {
 .btn-outline-gold {
   border: 1.5px solid var(--gold-main);
   color: var(--gold-dark);
-  font-family: 'Manrope', sans-serif;
-  font-weight: 700;
-  letter-spacing: 0.06em;
+  font-family: var(--font-family-body);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   font-size: 0.75rem;
   padding: 0.95rem 1.75rem;
@@ -424,11 +469,11 @@ html {
 .section-label {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  font-family: 'Manrope', sans-serif;
-  font-weight: 700;
+  gap: var(--space-2);
+  font-family: var(--font-family-body);
+  font-weight: var(--font-weight-bold);
   font-size: 0.7rem;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--pink-main);
 }
@@ -617,6 +662,7 @@ iframe {
   :root {
     --container-pad: 16px;
     --section-y: 56px;
+    --header-height: 64px;
   }
 
   .container {

@@ -68,8 +68,8 @@ const services = [
       <!-- Сетка услуг -->
       <div class="grid md:grid-cols-2 gap-6 lg:gap-8">
         <NuxtLink
-          v-for="(service, index) in services"
-          :key="index"
+          v-for="service in services"
+          :key="service.href"
           :to="service.href"
           :aria-label="`Услуга: ${service.title}`"
           class="group card-luxury overflow-hidden block focus:outline-none"

@@ -80,8 +80,8 @@ const contacts = [
       <!-- Сетка контактов — iOS стиль -->
       <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-12">
         <a
-          v-for="(contact, idx) in contacts"
-          :key="idx"
+          v-for="contact in contacts"
+          :key="contact.href"
           :href="contact.href"
           :target="contact.external ? '_blank' : undefined"
           :rel="contact.external ? 'noopener noreferrer' : undefined"

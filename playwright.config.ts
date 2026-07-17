@@ -1,35 +1,46 @@
 import { defineConfig, devices } from '@playwright/test'
 
+const port = Number(process.env.PLAYWRIGHT_PORT || 3105)
+const baseURL = `http://127.0.0.1:${port}`
+
 export default defineConfig({
   testDir: './tests/ui',
-  timeout: 180_000,
+  timeout: 45_000,
   expect: {
-    timeout: 10_000,
+    timeout: 8_000,
   },
-  retries: 0,
-  reporter: [
-    ['list'],
-    ['html', { outputFolder: 'test-results/ui-audit/html-report', open: 'never' }],
-    ['json', { outputFile: 'test-results/ui-audit/results.json' }],
-  ],
+  fullyParallel: true,
+  retries: process.env.CI ? 2 : 0,
+  reporter: [['list'], ['html', { open: 'never' }]],
   use: {
-    baseURL: process.env.PLAYWRIGHT_BASE_URL || 'http://127.0.0.1:3107',
+    baseURL,
     trace: 'retain-on-failure',
     screenshot: 'only-on-failure',
   },
-  outputDir: 'test-results/ui-audit/artifacts',
-  webServer: process.env.UI_AUDIT_SERVER_STARTED
+  webServer: process.env.PLAYWRIGHT_NO_WEBSERVER
     ? undefined
     : {
-        command: 'npm run dev -- --host 127.0.0.1 --port 3107',
-        url: 'http://127.0.0.1:3107',
-        reuseExistingServer: false,
+        command: 'node .output/server/index.mjs',
+        url: baseURL,
+        env: {
+          HOST: '127.0.0.1',
+          PORT: String(port),
+        },
+        reuseExistingServer: !process.env.CI,
         timeout: 120_000,
       },
   projects: [
     {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
+    },
+    {
+      name: 'firefox',
+      use: { ...devices['Desktop Firefox'] },
+    },
+    {
+      name: 'webkit',
+      use: { ...devices['Desktop Safari'] },
     },
   ],
 })

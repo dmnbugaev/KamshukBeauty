@@ -60,7 +60,7 @@ const toggle = (i: number) => {
       <div class="max-w-3xl space-y-3">
         <div
           v-for="(faq, i) in faqs"
-          :key="i"
+          :key="faq.q"
           class="rounded-2xl overflow-hidden transition-all duration-300"
           :style="open === i
             ? 'border: 1.5px solid rgba(233,30,140,0.25); background: linear-gradient(135deg, #FFF4F9 0%, #FFFFFF 100%)'
@@ -70,6 +70,7 @@ const toggle = (i: number) => {
           <button
             class="w-full flex items-center justify-between gap-4 px-6 py-5 text-left"
             :aria-expanded="open === i"
+            :aria-controls="`faq-answer-${i}`"
             @click="toggle(i)"
           >
             <span class="headline text-base text-[#1A1A2E]">{{ faq.q }}</span>
@@ -92,7 +93,7 @@ const toggle = (i: number) => {
 
           <!-- Ответ -->
           <Transition name="faq">
-            <div v-if="open === i" class="px-6 pb-5">
+            <div v-if="open === i" :id="`faq-answer-${i}`" class="px-6 pb-5">
               <div class="pink-divider mb-4" />
               <p class="body text-sm text-[#6B4F5A] leading-relaxed">{{ faq.a }}</p>
             </div>

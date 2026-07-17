@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const props = defineProps<{
+defineProps<{
   items: { label: string; href?: string }[]
 }>()
 </script>
@@ -10,7 +10,7 @@ const props = defineProps<{
       <li>
         <NuxtLink to="/" class="hover:text-[#E91E8C] transition-colors">Главная</NuxtLink>
       </li>
-      <li v-for="(item, i) in items" :key="i" class="flex items-center gap-2">
+      <li v-for="item in items" :key="item.href || item.label" class="flex items-center gap-2">
         <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
           <path d="M9 18l6-6-6-6"/>
         </svg>
