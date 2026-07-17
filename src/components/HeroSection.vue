@@ -32,11 +32,11 @@ const bookingCount = computed(() => {
     <div class="absolute bottom-44 left-[18%] w-1 h-1 rounded-full bg-[#C2185B] opacity-30 animate-pulse" style="animation-delay:1.6s" />
     <div class="absolute top-44 right-[32%] w-1 h-1 rounded-full bg-[#E91E8C] opacity-40 animate-pulse" style="animation-delay:.4s" />
 
-    <div class="container py-16 lg:py-28 relative z-10">
-      <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center max-w-[1320px] mx-auto">
+    <div class="container hero-container py-16 lg:py-28 relative z-10">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center w-full max-w-[1320px] mx-auto">
 
         <!-- Левая часть — текст -->
-        <div class="animate-slide-up">
+        <div class="hero-copy animate-slide-up">
           <!-- Метка -->
           <div class="section-label mb-8">Студия красоты · Москва</div>
 
@@ -180,6 +180,35 @@ const bookingCount = computed(() => {
 </template>
 
 <style scoped>
+.hero-container {
+  padding-left: max(var(--container-pad), env(safe-area-inset-left));
+  padding-right: max(var(--container-pad), env(safe-area-inset-right));
+}
+
+.hero-copy {
+  width: 100%;
+  max-width: min(100%, 38rem);
+}
+
+@media (max-width: 1023px) {
+  .hero-container {
+    padding-left: max(22px, env(safe-area-inset-left));
+    padding-right: max(22px, env(safe-area-inset-right));
+  }
+
+  .hero-copy {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 359px) {
+  .hero-container {
+    padding-left: max(18px, env(safe-area-inset-left));
+    padding-right: max(18px, env(safe-area-inset-right));
+  }
+}
+
 @keyframes rotateSlow {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }

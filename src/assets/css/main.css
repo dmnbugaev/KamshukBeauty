@@ -66,7 +66,9 @@
   --shadow-sm: 0 2px 12px rgba(233, 30, 140, 0.06);
   --shadow-md: 0 10px 36px rgba(233, 30, 140, 0.12);
   --container-max: 1320px;
-  --container-pad: clamp(16px, 4vw, 48px);
+  --container-pad: clamp(20px, 5vw, 56px);
+  --page-gutter-left: max(var(--container-pad), env(safe-area-inset-left));
+  --page-gutter-right: max(var(--container-pad), env(safe-area-inset-right));
   --section-y: clamp(64px, 9vw, 112px);
   --header-height: 80px;
 }
@@ -144,8 +146,8 @@ a[href^="tel"] {
   width: 100%;
   max-width: var(--container-max);
   margin: 0 auto;
-  padding-left: var(--container-pad);
-  padding-right: var(--container-pad);
+  padding-left: var(--page-gutter-left);
+  padding-right: var(--page-gutter-right);
 }
 
 /* ===== ФОКУС ===== */
@@ -660,14 +662,14 @@ iframe {
 
 @media (max-width: 639px) {
   :root {
-    --container-pad: 16px;
+    --container-pad: 20px;
     --section-y: 56px;
     --header-height: 64px;
   }
 
   .container {
-    padding-left: 16px;
-    padding-right: 16px;
+    padding-left: var(--page-gutter-left);
+    padding-right: var(--page-gutter-right);
   }
 
   .display {
@@ -727,6 +729,12 @@ iframe {
   .headline.text-4xl,
   .headline.text-3xl {
     font-size: clamp(1.5rem, 7vw, 1.9rem);
+  }
+}
+
+@media (max-width: 359px) {
+  :root {
+    --container-pad: 18px;
   }
 }
 
