@@ -9,7 +9,7 @@ const images = [
 
 <template>
   <section class="py-28 bg-white">
-    <div class="container px-6 lg:px-12">
+    <div class="container">
 
       <!-- Заголовок -->
       <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16">
@@ -48,7 +48,7 @@ const images = [
         <div
           v-for="(item, idx) in images"
           :key="idx"
-          class="aspect-square overflow-hidden group rounded-3xl relative cursor-pointer"
+          class="aspect-square overflow-hidden group rounded-3xl relative"
         >
           <img
             :src="item.image"

@@ -1,7 +1,16 @@
 <script setup lang="ts">
 const expanded = ref(false)
+const root = ref<HTMLElement | null>(null)
 
 const messengers = [
+  {
+    name: 'ВКонтакте',
+    href: 'https://vk.com/kamshuk_beauty',
+    label: 'ВКонтакте',
+    color: '#4C75A3',
+    bg: 'linear-gradient(135deg, #4C75A3, #315D8A)',
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M15.07 2H8.93C3.33 2 2 3.33 2 8.93v6.14C2 20.67 3.33 22 8.93 22h6.14C20.67 22 22 20.67 22 15.07V8.93C22 3.33 20.67 2 15.07 2zm2.92 13.68h-1.6c-.6 0-.79-.48-1.88-1.58-1-.93-1.43-.93-1.57-.93-.17 0-.22.05-.22.29v1.44c0 .2-.07.29-.72.29-1.05 0-2.2-.64-3.05-1.84-1.25-1.73-1.58-3.02-1.58-3.28 0-.14.05-.26.29-.26h1.6c.21 0 .29.1.37.33.41 1.17 1.09 2.19 1.37 2.19.1 0 .15-.05.15-.32V9.73c-.03-.79-.46-1.56-.46-1.56-.1-.14.07-.25.22-.25h2.52c.17 0 .24.09.24.26v3.29c0 .17.08.24.12.24.1 0 .19-.07.38-.26.59-.66 1.01-1.67 1.01-1.67.06-.12.17-.24.38-.24h1.6c.48 0 .59.24.48.57-.2.91-2.15 3.08-2.15 3.08-.17.27-.24.39 0 .67.17.22.74.72 1.12 1.15.69.74 1.22 1.37 1.36 1.79.12.41-.1.62-.53.62z"/></svg>`,
+  },
   {
     name: 'MAX',
     href: 'https://max.ru/u/f9LHodD0cOJhZWcjFtzBOFNlcS0w2RVemO55MmCDgD_nHgsPEPAhlJp3i2M',
@@ -27,15 +36,41 @@ const messengers = [
     icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8l-1.7 8.02c-.12.56-.44.7-.9.44l-2.5-1.84-1.2 1.16c-.13.13-.25.25-.51.25l.18-2.56 4.65-4.2c.2-.18-.04-.28-.31-.1L7.16 14.6l-2.46-.77c-.53-.17-.54-.53.12-.78l9.62-3.71c.44-.16.83.1.2.46z"/></svg>`,
   },
 ]
+
+const close = () => {
+  expanded.value = false
+}
+
+const handleKeydown = (event: KeyboardEvent) => {
+  if (event.key === 'Escape') {
+    close()
+  }
+}
+
+const handlePointerDown = (event: PointerEvent) => {
+  if (expanded.value && root.value && !root.value.contains(event.target as Node)) {
+    close()
+  }
+}
+
+onMounted(() => {
+  window.addEventListener('keydown', handleKeydown)
+  window.addEventListener('pointerdown', handlePointerDown)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('keydown', handleKeydown)
+  window.removeEventListener('pointerdown', handlePointerDown)
+})
 </script>
 
 <template>
-  <div class="fixed bottom-6 right-5 z-50 flex flex-col items-end gap-3">
+  <div ref="root" class="fixed bottom-4 right-4 sm:bottom-6 sm:right-5 z-50 flex max-w-[calc(100vw-2rem)] flex-col items-end gap-3">
 
     <!-- Дополнительные мессенджеры (раскрываются вверх) -->
     <TransitionGroup name="messenger-list" tag="div" class="flex flex-col items-end gap-3">
       <a
-        v-for="m in expanded ? messengers.slice(1) : []"
+        v-for="m in expanded ? messengers : []"
         :key="m.name"
         :href="m.href"
         target="_blank"
@@ -49,7 +84,7 @@ const messengers = [
       </a>
     </TransitionGroup>
 
-    <!-- Главная кнопка MAX -->
+    <!-- Главная кнопка -->
     <div class="flex items-center gap-3">
       <!-- Метка -->
       <Transition name="label-fade">
@@ -66,6 +101,7 @@ const messengers = [
         class="w-14 h-14 rounded-full flex items-center justify-center text-white transition-all duration-300 hover:scale-110 active:scale-95"
         style="background: linear-gradient(135deg, #E91E8C, #C2185B); box-shadow: 0 8px 28px rgba(233,30,140,0.45)"
         :aria-label="expanded ? 'Закрыть' : 'Написать нам'"
+        :aria-expanded="expanded"
         @click="expanded = !expanded"
       >
         <Transition name="icon-switch" mode="out-in">

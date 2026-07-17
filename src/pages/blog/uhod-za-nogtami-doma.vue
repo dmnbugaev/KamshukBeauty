@@ -12,7 +12,7 @@ useHead({
   link: [{ rel: 'canonical', href: 'https://kamshukbeauty.ru/blog/uhod-za-nogtami-doma' }],
   script: [{
     type: 'application/ld+json',
-    children: JSON.stringify({
+    innerHTML: JSON.stringify({
       '@context': 'https://schema.org',
       '@type': 'Article',
       headline: '7 правил ухода за ногтями дома — советы мастера',
@@ -39,7 +39,7 @@ const tips = [
 <template>
   <div class="pt-20">
     <article class="py-20 bg-white">
-      <div class="container px-6 lg:px-12">
+      <div class="container">
         <div class="max-w-3xl mx-auto">
           <Breadcrumb :items="[{ label: 'Блог', href: '/blog' }, { label: 'Уход за ногтями дома' }]" />
 
@@ -76,7 +76,7 @@ const tips = [
             </div>
           </div>
 
-          <div class="mt-16 glass-pink rounded-3xl p-8 text-center">
+          <div class="mt-16 glass-pink rounded-3xl p-6 sm:p-8 text-center">
             <p class="headline text-xl text-[#1A1A2E] mb-2">Профессиональный маникюр в Коммунарке</p>
             <p class="body text-sm text-[#6B4F5A] mb-6">Мастер с 9-летним опытом · Радужное предложение −30% до конца июля</p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">

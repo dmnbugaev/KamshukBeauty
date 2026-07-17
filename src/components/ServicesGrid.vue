@@ -49,7 +49,7 @@ const services = [
 
 <template>
   <section id="services" class="py-28 bg-white">
-    <div class="container px-6 lg:px-12">
+    <div class="container">
 
       <!-- Заголовок секции -->
       <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-20">
@@ -114,18 +114,18 @@ const services = [
 
           <!-- Контент -->
           <div class="p-6 lg:p-8">
-            <div class="flex items-start justify-between gap-4 mb-3">
+            <div class="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between sm:gap-4 mb-3">
               <h3 class="headline text-xl text-[#1A1A2E] group-hover:text-[#E91E8C] transition-colors duration-300">
                 {{ service.title }}
               </h3>
               <PromoPrice
                 v-if="service.oldPrice"
-                class="shrink-0 mt-1"
+                class="shrink-0 sm:mt-1"
                 :old-price="service.oldPrice"
                 :new-price="service.price"
                 size="sm"
               />
-              <span v-else class="label text-[11px] text-[#E91E8C] shrink-0 mt-1">{{ service.price }}</span>
+              <span v-else class="label text-[11px] text-[#E91E8C] shrink-0 sm:mt-1">{{ service.price }}</span>
             </div>
             <p class="body text-sm text-[#B08898]">{{ service.description }}</p>
 

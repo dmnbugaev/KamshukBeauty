@@ -32,7 +32,7 @@ const bookingCount = computed(() => {
     <div class="absolute bottom-44 left-[18%] w-1 h-1 rounded-full bg-[#C2185B] opacity-30 animate-pulse" style="animation-delay:1.6s" />
     <div class="absolute top-44 right-[32%] w-1 h-1 rounded-full bg-[#E91E8C] opacity-40 animate-pulse" style="animation-delay:.4s" />
 
-    <div class="container px-6 lg:px-12 py-16 lg:py-28 relative z-10">
+    <div class="container py-16 lg:py-28 relative z-10">
       <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center max-w-[1320px] mx-auto">
 
         <!-- Левая часть — текст -->

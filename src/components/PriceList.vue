@@ -49,6 +49,8 @@ const prices = [
     ],
   },
 ]
+
+const yclientsUrl = 'https://n1407035.yclients.com/company/1274992/personal/select-services?o='
 </script>
 
 <template>
@@ -64,7 +66,7 @@ const prices = [
     <div class="absolute bottom-0 right-1/4 w-[400px] h-[400px] rounded-full blur-3xl opacity-20"
       style="background: radial-gradient(circle, rgba(233,30,140,0.2), transparent)" />
 
-    <div class="container px-6 lg:px-12 relative z-10">
+    <div class="container relative z-10">
 
       <!-- Заголовок -->
       <div class="max-w-xl mb-20">
@@ -96,21 +98,30 @@ const prices = [
             <div
               v-for="(item, i) in section.items"
               :key="i"
-              class="flex justify-between items-baseline group/item"
+              class="flex flex-col gap-2 sm:flex-row sm:justify-between sm:items-baseline group/item"
             >
               <span class="body text-sm text-[#6B4F5A] group-hover/item:text-[#1A1A2E] transition-colors">
                 {{ item.name }}
               </span>
-              <PromoPrice class="ml-4 shrink-0" :old-price="item.oldPrice" :new-price="item.price" />
+              <PromoPrice class="sm:ml-4 shrink-0" :old-price="item.oldPrice" :new-price="item.price" align="left" />
             </div>
           </div>
+
+          <a
+            :href="yclientsUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-outline-pink mt-8 w-full text-center"
+          >
+            Все услуги
+          </a>
         </div>
       </div>
 
       <!-- CTA -->
       <div class="text-center mt-16">
         <a
-          href="https://n1407035.yclients.com/company/1274992/personal/select-services?o="
+          :href="yclientsUrl"
           target="_blank"
           rel="noopener noreferrer"
           class="btn-pink inline-block"

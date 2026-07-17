@@ -13,6 +13,14 @@ useHead({
 
 const posts = [
   {
+    slug: 'kak-podgotovitsya-k-vizitu-v-studiyu',
+    title: 'Как подготовиться к визиту в студию красоты: чек-лист клиента',
+    excerpt: 'Что сделать перед маникюром, бровями, ресницами или макияжем, чтобы процедура прошла спокойно, а результат держался дольше.',
+    tag: 'Советы',
+    date: '18 июля 2026',
+    img: '/images/studio/1.jpg',
+  },
+  {
     slug: 'skolko-derzhitsya-gel-lak',
     title: 'Сколько держится гель-лак и от чего зависит результат',
     excerpt: 'Рассказываем, почему одним покрытие держится 4 недели, а другим — две, и как продлить срок носки.',
@@ -59,13 +67,14 @@ const tagColors: Record<string, string> = {
   'Ресницы': 'rgba(126,207,222,0.15)',
   'Брови': 'rgba(200,164,65,0.12)',
   'Перманент': 'rgba(244,141,180,0.15)',
+  'Советы': 'rgba(76,117,163,0.12)',
 }
 </script>
 
 <template>
   <div class="pt-20">
     <section class="py-20 bg-white">
-      <div class="container px-6 lg:px-12">
+      <div class="container">
         <Breadcrumb :items="[{ label: 'Блог' }]" />
 
         <div class="max-w-xl mb-16">
@@ -108,8 +117,8 @@ const tagColors: Record<string, string> = {
     </section>
 
     <section class="py-16" style="background: linear-gradient(160deg, #FFF4F9 0%, #FFFFFF 100%)">
-      <div class="container px-6 lg:px-12">
-        <div class="max-w-2xl mx-auto text-center glass-pink rounded-3xl p-10">
+      <div class="container">
+        <div class="max-w-2xl mx-auto text-center glass-pink rounded-3xl p-6 sm:p-10">
           <h2 class="display text-2xl text-[#1A1A2E] mb-4">Готовы к преображению?</h2>
           <p class="body text-sm text-[#6B4F5A] mb-6">Записывайтесь онлайн — до конца июля Радужное предложение −30%</p>
           <a href="https://n1407035.yclients.com/company/1274992/personal/select-services?o=" target="_blank" rel="noopener noreferrer" class="btn-pink inline-block">Записаться онлайн</a>

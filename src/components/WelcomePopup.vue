@@ -1,16 +1,35 @@
 <script setup lang="ts">
 const show = ref(false)
 
+const handleKeydown = (event: KeyboardEvent) => {
+  if (event.key === 'Escape' && show.value) {
+    close()
+  }
+}
+
 onMounted(() => {
+  window.addEventListener('keydown', handleKeydown)
+
   if (!sessionStorage.getItem('welcome_popup_shown')) {
     setTimeout(() => { show.value = true }, 10000)
   }
+})
+
+onUnmounted(() => {
+  window.removeEventListener('keydown', handleKeydown)
+  document.body.style.overflow = ''
 })
 
 const close = () => {
   show.value = false
   sessionStorage.setItem('welcome_popup_shown', '1')
 }
+
+watch(show, (value) => {
+  if (import.meta.client) {
+    document.body.style.overflow = value ? 'hidden' : ''
+  }
+})
 </script>
 
 <template>
@@ -20,6 +39,9 @@ const close = () => {
         v-if="show"
         class="fixed inset-0 z-[100] flex items-center justify-center p-4"
         style="background: rgba(26,26,46,0.55); backdrop-filter: blur(6px)"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="welcome-popup-title"
         @click.self="close"
       >
         <div
@@ -37,9 +59,10 @@ const close = () => {
 
           <!-- Кнопка закрыть -->
           <button
+            type="button"
             class="absolute top-4 right-4 z-10 w-9 h-9 rounded-full flex items-center justify-center text-[#B08898] hover:text-[#E91E8C] hover:bg-[#FDE8F2] transition-all duration-200"
             aria-label="Закрыть"
-            @click="close"
+            @click.stop="close"
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
               <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
@@ -58,7 +81,7 @@ const close = () => {
 
             <!-- Заголовок -->
             <p class="label text-[11px] text-[#E91E8C] mb-2">Радужное предложение</p>
-            <h2 class="headline text-3xl text-[#1A1A2E] mb-2">
+            <h2 id="welcome-popup-title" class="headline text-3xl text-[#1A1A2E] mb-2">
               Скидка <span class="text-pink-shimmer">−30%</span>
             </h2>
             <p class="headline text-base text-[#B08898] mb-6">на все услуги до конца июля</p>
@@ -84,8 +107,9 @@ const close = () => {
             </a>
 
             <button
+              type="button"
               class="body text-xs text-[#B08898] hover:text-[#E91E8C] transition-colors duration-200"
-              @click="close"
+              @click.stop="close"
             >
               Нет, спасибо
             </button>

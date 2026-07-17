@@ -36,12 +36,21 @@ const contacts = [
     color: '#4C75A3',
     bg: 'rgba(76,117,163,0.08)',
   },
+  {
+    label: 'MAX',
+    value: 'Написать сообщение',
+    href: 'https://max.ru/u/f9LHodD0cOJhZWcjFtzBOFNlcS0w2RVemO55MmCDgD_nHgsPEPAhlJp3i2M',
+    external: true,
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>`,
+    color: '#E91E8C',
+    bg: 'rgba(233,30,140,0.08)',
+  },
 ]
 </script>
 
 <template>
   <section id="contact" class="py-28 bg-white">
-    <div class="container px-6 lg:px-12">
+    <div class="container">
 
       <!-- Заголовок -->
       <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16">
@@ -69,7 +78,7 @@ const contacts = [
       </div>
 
       <!-- Сетка контактов — iOS стиль -->
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-12">
         <a
           v-for="(contact, idx) in contacts"
           :key="idx"

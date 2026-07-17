@@ -43,7 +43,7 @@ const toggle = (i: number) => {
 
 <template>
   <section class="py-28 bg-white">
-    <div class="container px-6 lg:px-12">
+    <div class="container">
 
       <!-- Заголовок -->
       <div class="max-w-xl mb-16">

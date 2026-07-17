@@ -13,7 +13,7 @@ useHead({
   link: [{ rel: 'canonical', href: 'https://kamshukbeauty.ru/blog/naraschivanie-resnic-vidy-i-uhod' }],
   script: [{
     type: 'application/ld+json',
-    children: JSON.stringify({
+    innerHTML: JSON.stringify({
       '@context': 'https://schema.org',
       '@type': 'Article',
       headline: 'Наращивание ресниц: виды техник и правила ухода',
@@ -30,7 +30,7 @@ useHead({
 <template>
   <div class="pt-20">
     <article class="py-20 bg-white">
-      <div class="container px-6 lg:px-12">
+      <div class="container">
         <div class="max-w-3xl mx-auto">
           <Breadcrumb :items="[{ label: 'Блог', href: '/blog' }, { label: 'Виды наращивания ресниц' }]" />
 
@@ -96,7 +96,7 @@ useHead({
             </section>
           </div>
 
-          <div class="mt-16 glass-pink rounded-3xl p-8 text-center">
+          <div class="mt-16 glass-pink rounded-3xl p-6 sm:p-8 text-center">
             <p class="headline text-xl text-[#1A1A2E] mb-2">Запишитесь на наращивание ресниц</p>
             <p class="body text-sm text-[#6B4F5A] mb-6">Коммунарка, ул. Монаховой 43/1 · Ежедневно 10:00–22:00 · Радужное предложение −30% до конца июля</p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">

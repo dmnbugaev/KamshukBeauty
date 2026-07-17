@@ -38,7 +38,7 @@ onUnmounted(() => { if (timer) clearInterval(timer) })
     <div class="absolute bottom-20 right-10 w-48 h-48 rounded-full blur-3xl opacity-35"
       style="background: rgba(233,30,140,0.12)" />
 
-    <div class="container px-6 lg:px-12 relative z-10">
+    <div class="container relative z-10">
 
       <!-- Заголовок -->
       <div class="text-center mb-16">
@@ -51,7 +51,7 @@ onUnmounted(() => { if (timer) clearInterval(timer) })
         <!-- Навигация -->
         <div class="relative">
           <button
-            class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 lg:-translate-x-14 w-11 h-11 rounded-full glass-pink flex items-center justify-center text-[#C2185B] hover:shadow-[0_4px_20px_rgba(233,30,140,0.25)] transition-all duration-300 hover:scale-110 z-10"
+            class="absolute left-0 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full glass-pink flex items-center justify-center text-[#C2185B] hover:shadow-[0_4px_20px_rgba(233,30,140,0.25)] transition-all duration-300 hover:scale-105 z-10 lg:-translate-x-14"
             aria-label="Предыдущий отзыв"
             @click="prev(); resetTimer()"
           >
@@ -60,7 +60,7 @@ onUnmounted(() => { if (timer) clearInterval(timer) })
             </svg>
           </button>
           <button
-            class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 lg:translate-x-14 w-11 h-11 rounded-full glass-pink flex items-center justify-center text-[#C2185B] hover:shadow-[0_4px_20px_rgba(233,30,140,0.25)] transition-all duration-300 hover:scale-110 z-10"
+            class="absolute right-0 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full glass-pink flex items-center justify-center text-[#C2185B] hover:shadow-[0_4px_20px_rgba(233,30,140,0.25)] transition-all duration-300 hover:scale-105 z-10 lg:translate-x-14"
             aria-label="Следующий отзыв"
             @click="next(); resetTimer()"
           >
@@ -71,7 +71,7 @@ onUnmounted(() => { if (timer) clearInterval(timer) })
 
           <!-- Содержимое отзыва -->
           <Transition name="testimonial" mode="out-in">
-            <div :key="current" class="text-center px-6 lg:px-20 py-12">
+            <div :key="current" class="text-center px-12 sm:px-14 lg:px-20 py-10 sm:py-12">
               <!-- Звёзды -->
               <div class="flex justify-center gap-1 mb-8">
                 <span v-for="i in 5" :key="i" class="text-[#E91E8C] text-lg">★</span>

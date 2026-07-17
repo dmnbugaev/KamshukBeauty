@@ -12,7 +12,7 @@ useHead({
   link: [{ rel: 'canonical', href: 'https://kamshukbeauty.ru/manikyur' }],
   script: [{
     type: 'application/ld+json',
-    children: JSON.stringify([
+    innerHTML: JSON.stringify([
       {
         '@context': 'https://schema.org',
         '@type': 'Service',
@@ -63,7 +63,7 @@ const open = ref<number | null>(null)
       class="py-20 relative overflow-hidden"
       style="background: radial-gradient(ellipse at 80% 20%, rgba(233,30,140,0.08) 0%, transparent 60%), #FFFFFF"
     >
-      <div class="container px-6 lg:px-12">
+      <div class="container">
         <Breadcrumb :items="[{ label: 'Маникюр в Коммунарке' }]" />
 
         <div class="grid lg:grid-cols-2 gap-12 items-center max-w-[1320px] mx-auto">
@@ -123,7 +123,7 @@ const open = ref<number | null>(null)
 
     <!-- Цены -->
     <section class="py-20" style="background: linear-gradient(160deg, #FFF4F9 0%, #FFFFFF 100%)">
-      <div class="container px-6 lg:px-12">
+      <div class="container">
         <div class="max-w-xl mb-12">
           <div class="section-label mb-4">Прайс-лист</div>
           <h2 class="display text-3xl lg:text-4xl text-[#1A1A2E]">Стоимость маникюра</h2>
@@ -133,9 +133,9 @@ const open = ref<number | null>(null)
             v-for="item in prices" :key="item.name"
             class="card-luxury rounded-2xl p-6"
           >
-            <div class="flex justify-between items-start mb-2">
+            <div class="flex flex-col gap-2 sm:flex-row sm:justify-between sm:items-start mb-2">
               <h3 class="headline text-base text-[#1A1A2E]">{{ item.name }}</h3>
-              <PromoPrice class="ml-4 shrink-0" :old-price="item.oldPrice" :new-price="item.price" />
+              <PromoPrice class="sm:ml-4 shrink-0" :old-price="item.oldPrice" :new-price="item.price" align="left" />
             </div>
             <p class="body text-xs text-[#B08898]">{{ item.desc }}</p>
           </div>
@@ -148,7 +148,7 @@ const open = ref<number | null>(null)
 
     <!-- Почему мы -->
     <section class="py-20 bg-white">
-      <div class="container px-6 lg:px-12">
+      <div class="container">
         <div class="max-w-xl mb-12">
           <div class="section-label mb-4">Наши преимущества</div>
           <h2 class="display text-3xl lg:text-4xl text-[#1A1A2E]">Почему выбирают нас</h2>
@@ -169,7 +169,7 @@ const open = ref<number | null>(null)
 
     <!-- FAQ -->
     <section class="py-20" style="background: linear-gradient(160deg, #FFF4F9 0%, #FFFFFF 100%)">
-      <div class="container px-6 lg:px-12">
+      <div class="container">
         <div class="max-w-xl mb-12">
           <div class="section-label mb-4">FAQ</div>
           <h2 class="display text-3xl lg:text-4xl text-[#1A1A2E]">Вопросы о маникюре</h2>
@@ -199,8 +199,8 @@ const open = ref<number | null>(null)
 
     <!-- CTA -->
     <section class="py-20 bg-white">
-      <div class="container px-6 lg:px-12">
-        <div class="max-w-2xl mx-auto text-center glass-pink rounded-3xl p-12">
+      <div class="container">
+        <div class="max-w-2xl mx-auto text-center glass-pink rounded-3xl p-6 sm:p-8 lg:p-12">
           <h2 class="display text-3xl text-[#1A1A2E] mb-4">Запишитесь на маникюр</h2>
           <p class="body text-base text-[#6B4F5A] mb-8">г. Москва, Коммунарка, ул. Александры Монаховой 43/1 · SoiSoul, 1 этаж · Ежедневно 10:00–22:00</p>
           <div class="flex flex-col sm:flex-row gap-4 justify-center">

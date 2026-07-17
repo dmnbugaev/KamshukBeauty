@@ -14,7 +14,7 @@ const handleError = () => clearError({ redirect: '/' })
       class="min-h-[70vh] pt-28 pb-20 flex items-center"
       style="background: radial-gradient(ellipse at 80% 20%, rgba(233,30,140,0.08) 0%, transparent 55%), #FFFFFF"
     >
-      <div class="container px-6 lg:px-12">
+      <div class="container">
         <div class="max-w-2xl mx-auto text-center">
           <p class="label text-[12px] text-[#E91E8C] mb-4">
             {{ error.statusCode || 500 }}

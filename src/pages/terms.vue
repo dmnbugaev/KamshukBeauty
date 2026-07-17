@@ -10,7 +10,7 @@ useHead({
 
 <template>
   <div class="pt-32 pb-20">
-    <div class="container px-5 sm:px-6 lg:px-12">
+    <div class="container">
       <article class="max-w-3xl mx-auto prose-custom">
         <header class="mb-12">
           <p class="label text-xs text-[#D81B60] mb-4">Документы</p>

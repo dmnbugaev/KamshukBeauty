@@ -11,7 +11,7 @@
     <div class="absolute bottom-0 right-1/4 w-80 h-80 rounded-full blur-3xl opacity-40"
       style="background: radial-gradient(circle, rgba(233,30,140,0.15), transparent)" />
 
-    <div class="container px-6 lg:px-12 relative z-10">
+    <div class="container relative z-10">
       <div class="max-w-4xl mx-auto text-center">
 
         <!-- Декоративная деталь -->

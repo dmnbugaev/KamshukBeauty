@@ -1,6 +1,6 @@
 <template>
   <section id="about" class="py-28 bg-white">
-    <div class="container px-6 lg:px-12">
+    <div class="container">
 
       <div class="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center max-w-[1320px] mx-auto">
 
@@ -9,7 +9,7 @@
           <div class="relative">
             <!-- Декоративная рамка -->
             <div
-              class="absolute -top-5 -left-5 right-10 bottom-10 rounded-3xl"
+              class="absolute -top-5 left-0 right-10 bottom-10 rounded-3xl sm:-left-5"
               style="border: 1.5px solid rgba(233,30,140,0.15)"
             />
             <!-- Декоративный блок позади фото -->

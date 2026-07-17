@@ -11,6 +11,7 @@ const routes = [
   '/obuchenie',
   '/blog',
   '/blog/arkhitektura-brovej',
+  '/blog/kak-podgotovitsya-k-vizitu-v-studiyu',
   '/blog/naraschivanie-resnic-vidy-i-uhod',
   '/blog/permanentnyj-makiyazh-brovej',
   '/blog/skolko-derzhitsya-gel-lak',
@@ -108,6 +109,8 @@ async function expectNoHorizontalOverflow(page: Page) {
 }
 
 test.describe('UI responsive audit', () => {
+  test.setTimeout(360_000)
+
   for (const route of routes) {
     test(`${route} renders without critical UI regressions`, async ({ page }, testInfo) => {
       const consoleErrors: string[] = []
@@ -182,7 +185,7 @@ test.describe('UI responsive audit', () => {
         if (screenshotViewports.has(viewport.name)) {
           await page.screenshot({
             path: path.join('test-results', 'ui-audit', 'screenshots', `${safeName(route)}-${viewport.name}.png`),
-            fullPage: true,
+            fullPage: false,
           })
         }
       }

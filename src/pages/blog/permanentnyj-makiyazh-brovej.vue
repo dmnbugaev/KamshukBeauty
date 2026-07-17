@@ -12,7 +12,7 @@ useHead({
   link: [{ rel: 'canonical', href: 'https://kamshukbeauty.ru/blog/permanentnyj-makiyazh-brovej' }],
   script: [{
     type: 'application/ld+json',
-    children: JSON.stringify({
+    innerHTML: JSON.stringify({
       '@context': 'https://schema.org',
       '@type': 'Article',
       headline: 'Перманентный макияж бровей: всё, что нужно знать до процедуры',
@@ -29,7 +29,7 @@ useHead({
 <template>
   <div class="pt-20">
     <article class="py-20 bg-white">
-      <div class="container px-6 lg:px-12">
+      <div class="container">
         <div class="max-w-3xl mx-auto">
           <Breadcrumb :items="[{ label: 'Блог', href: '/blog' }, { label: 'Перманентный макияж бровей' }]" />
 
@@ -105,7 +105,7 @@ useHead({
             </section>
           </div>
 
-          <div class="mt-16 glass-pink rounded-3xl p-8 text-center">
+          <div class="mt-16 glass-pink rounded-3xl p-6 sm:p-8 text-center">
             <p class="headline text-xl text-[#1A1A2E] mb-2">Запишитесь на перманентный макияж</p>
             <p class="body text-sm text-[#6B4F5A] mb-6">
               Пудровые брови

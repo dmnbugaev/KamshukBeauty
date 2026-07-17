@@ -20,7 +20,7 @@ const filtered = computed(() =>
 
 <template>
   <section id="work" class="py-28" style="background: linear-gradient(180deg, #FFFFFF 0%, #FFF4F9 100%)">
-    <div class="container px-6 lg:px-12">
+    <div class="container">
 
       <!-- Заголовок -->
       <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16">
@@ -53,7 +53,7 @@ const filtered = computed(() =>
           <div
             v-for="work in filtered"
             :key="work.id"
-            class="aspect-square overflow-hidden group cursor-pointer rounded-3xl relative"
+            class="aspect-square overflow-hidden group rounded-3xl relative"
           >
             <img
               :src="work.image"

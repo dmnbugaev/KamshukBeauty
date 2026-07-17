@@ -14,7 +14,7 @@ useHead({
   script: [
     {
       type: 'application/ld+json',
-      children: JSON.stringify({
+      innerHTML: JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'EducationalOrganization',
         name: 'Школа-студия красоты Камшук Бьюти',
@@ -107,222 +107,211 @@ const benefits = [
 ]
 
 const afterTraining = ['Сертификаты', 'Трудоустройство', 'Высокий доход', 'Удовольствие от работы']
+
+const contactLinks = [
+  { label: 'Позвонить', value: '+7 (977) 107-50-05', href: 'tel:+79771075005', className: 'btn-pink' },
+  { label: 'WhatsApp', value: 'Написать', href: 'https://wa.me/message/GAZGRNJFGZWUC1', className: 'btn-outline-pink' },
+  { label: 'Telegram', value: 'Написать', href: 'https://t.me/offi_nesquik', className: 'btn-outline-pink' },
+]
 </script>
 
 <template>
   <div class="pt-20">
-    <section id="obuchenie" class="py-32">
-      <div class="container px-6 lg:px-12">
-        <!-- Заголовок -->
-        <div class="max-w-4xl mb-20">
-          <p class="label text-xs text-[#D81B60] mb-4">Обучение</p>
-          <h1 class="display text-4xl lg:text-5xl text-[#1A1A1A] mb-8">
-            Школа-студия красоты<br />Анастасии Камшук
-          </h1>
-          <div class="space-y-6 body text-lg text-[#424242]">
-            <p>
-              Высококвалифицированный мастер маникюра всегда востребован. А суперский мастер всегда популярен и в ресурсе.
-              Спрос на данные услуги стремительно растёт. По статистике, около 95% женщин считают,
-              что маникюр необходим. Всё чаще к специалистам данного профиля обращаются мужчины.
+    <section id="obuchenie" class="py-20 lg:py-28 overflow-hidden" style="background: linear-gradient(160deg, #FFF8FC 0%, #FFFFFF 48%, #FFF4F9 100%)">
+      <div class="container">
+        <div class="grid lg:grid-cols-[1.05fr_0.95fr] gap-10 lg:gap-16 items-center">
+          <div>
+            <p class="section-label mb-5">Обучение</p>
+            <h1 class="display text-4xl lg:text-5xl text-[#1A1A2E] mb-6">
+              Школа-студия красоты Анастасии Камшук
+            </h1>
+            <p class="body text-lg text-[#6B4F5A] mb-6">
+              Практические курсы маникюра и smart-педикюра для тех, кто хочет уверенно выйти в профессию и работать на качественном уровне.
             </p>
-            <p>
-              За время обучения вы узнаете о современной и авторской технике создания быстрого
-              и качественного маникюра от Анастасии Камшук и сможете применять полученные знания
-              на практике.
-            </p>
-            <p class="headline text-lg text-[#D81B60] italic">
-              Желание + знания + опыт + трудолюбие + умение делиться внутренним светом с людьми + удача = успех
-            </p>
-            <p class="headline text-2xl text-[#1A1A1A]">
-              Наша цель — ваш успех в профессии
-            </p>
-            <p class="inline-flex rounded-full bg-[#D81B60] px-5 py-2 label text-xs text-white">
-              Весь июль действует акция: скидка 10 000 ₽ на все программы обучения
-            </p>
-          </div>
-        </div>
-
-        <!-- Фото -->
-        <div class="aspect-[9/16] md:aspect-[21/9] bg-[#F5F5F5] overflow-hidden mb-32 rounded-2xl shadow-xl">
-          <picture class="w-full h-full">
-            <source media="(max-width: 767px)" :srcset="'/images/obuch1.jpg'" />
-            <source media="(min-width: 768px)" :srcset="'/images/obuch.png'" />
-            <img
-              src="/images/obuch.png"
-              alt="Обучение маникюру в студии Камшук Бьюти"
-              class="w-full h-full object-cover md:object-contain"
-            />
-          </picture>
-        </div>
-
-        <!-- Программа маникюра -->
-        <div class="mb-32">
-          <h2 class="headline text-3xl text-[#1A1A1A] mb-6">
-            Программа курса «Мастер маникюра»
-          </h2>
-          <div class="grid lg:grid-cols-2 gap-12">
-            <div>
-              <h3 class="headline text-xl text-[#D81B60] mb-4">
-                3 дня —
-                <PromoPrice old-price="35 000 ₽" new-price="25 000 ₽" align="left" note="цена в июле" />
-              </h3>
-              <p class="body text-base text-[#424242] mb-6">
-                На курсе вы научитесь работать профессиональными инструментами, выполнять
-                авторский «ровный срез» кутикулы, работать аппаратом, разберётесь, что такое
-                выравнивание ногтевой пластины. Легко будете создавать идеальные блики,
-                выполнять покрытие гель-лаком «под кутикулу».
-              </p>
-              <p class="body text-base text-[#424242]">
-                Уже после окончания курса вы сможете приступить к работе в салоне красоты
-                или работать на себя.
-              </p>
+            <div class="inline-flex max-w-full rounded-full bg-[#D81B60] px-5 py-2 label text-[11px] text-white mb-8">
+              Скидка 10 000 ₽ на все программы обучения в июле
             </div>
-            <div class="grid gap-3">
-              <div
-                v-for="(item, idx) in manikurProgram"
-                :key="idx"
-                class="flex gap-4 glass-pink rounded-lg px-4 py-3"
-              >
-                <span class="label text-xs text-[#D81B60] shrink-0 w-6">{{ idx + 1 }}.</span>
-                <p class="body text-sm text-[#424242]">{{ item }}</p>
+            <div class="grid sm:grid-cols-3 gap-3 mb-8">
+              <div class="glass-pink rounded-2xl p-4">
+                <p class="headline text-2xl text-[#E91E8C]">5-9</p>
+                <p class="body text-xs text-[#6B4F5A] leading-snug">дней интенсивной практики</p>
+              </div>
+              <div class="glass-pink rounded-2xl p-4">
+                <p class="headline text-2xl text-[#E91E8C]">6+</p>
+                <p class="body text-xs text-[#6B4F5A] leading-snug">лет опыта инструктора</p>
+              </div>
+              <div class="glass-pink rounded-2xl p-4">
+                <p class="headline text-2xl text-[#E91E8C]">100%</p>
+                <p class="body text-xs text-[#6B4F5A] leading-snug">материалы включены</p>
               </div>
             </div>
-          </div>
-        </div>
-
-        <!-- Программа педикюра -->
-        <div class="mb-32">
-          <h2 class="headline text-3xl text-[#1A1A1A] mb-6">
-            Программа курса «Мастер педикюра»
-          </h2>
-          <div class="grid lg:grid-cols-2 gap-12">
-            <div>
-              <h3 class="headline text-xl text-[#D81B60] mb-4">
-                2 дня —
-                <PromoPrice old-price="28 000 ₽" new-price="18 000 ₽" align="left" note="цена в июле" />
-              </h3>
-              <p class="body text-base text-[#424242]">
-                Аппаратный, COMBI и Смарт педикюр — современные техники ухода за стопами
-                с применением профессионального оборудования.
-              </p>
-            </div>
-            <div class="grid gap-3">
-              <div
-                v-for="(item, idx) in pedikurProgram"
-                :key="idx"
-                class="flex gap-4 glass-pink rounded-lg px-4 py-3"
-              >
-                <span class="label text-xs text-[#D81B60] shrink-0 w-6">{{ idx + 1 }}.</span>
-                <p class="body text-sm text-[#424242]">{{ item }}</p>
-              </div>
+            <div class="flex flex-col sm:flex-row gap-3">
+              <a href="tel:+79771075005" class="btn-pink text-center">Узнать о курсе</a>
+              <a href="#programs" class="btn-outline-pink text-center">Смотреть программы</a>
             </div>
           </div>
-        </div>
 
-        <!-- Пакеты -->
-        <div class="mb-32">
-          <h2 class="headline text-3xl text-[#1A1A1A] mb-12">Пакетное предложение</h2>
-          <div class="grid md:grid-cols-3 gap-8">
-            <div
-              v-for="(pkg, idx) in packages"
-              :key="idx"
-              :class="[
-                'border-2 p-8 relative rounded-2xl transition-all duration-300',
-                pkg.popular
-                  ? 'border-[#D81B60] shadow-xl shadow-rose-100'
-                  : 'border-[#F5F5F5] hover:border-[#D81B60]/30',
-              ]"
-            >
-              <div
-                v-if="pkg.popular"
-                class="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#D81B60] text-white px-4 py-1 rounded-full"
-              >
-                <span class="label text-xs">Популярный</span>
-              </div>
-              <h3 class="headline text-xl text-[#D81B60] mb-1">
-                «{{ pkg.displayTitle }}»
-              </h3>
-              <p class="label text-xs text-[#757575] mb-2">{{ pkg.duration }}</p>
-              <p class="mb-6">
-                <PromoPrice :old-price="pkg.oldPrice" :new-price="pkg.price" size="lg" align="left" note="скидка 10 000 ₽ в июле" />
-              </p>
-              <p class="body text-sm text-[#424242]">
-                Базовый курс {{ pkg.duration }} ({{ pkg.includes }})
-              </p>
-            </div>
+          <div class="relative">
+            <div class="absolute -top-5 -right-5 bottom-8 left-8 rounded-3xl border border-[#E91E8C]/15" />
+            <picture class="relative block aspect-[4/5] md:aspect-[21/16] lg:aspect-[4/5] overflow-hidden rounded-3xl bg-white shadow-[0_24px_80px_rgba(233,30,140,0.12)]">
+              <source media="(max-width: 767px)" :srcset="'/images/obuch1.jpg'" />
+              <source media="(min-width: 768px)" :srcset="'/images/obuch.png'" />
+              <img
+                src="/images/obuch.png"
+                alt="Обучение маникюру в студии Камшук Бьюти"
+                class="w-full h-full object-cover"
+              />
+            </picture>
           </div>
         </div>
+      </div>
+    </section>
 
-        <!-- Что вы получаете -->
-        <div class="mb-32 bg-[#FAFAFA] px-8 lg:px-16 py-16 rounded-2xl">
-          <h2 class="headline text-3xl text-[#1A1A1A] mb-12 text-center">
-            Обучаясь у нас, вы получаете:
-          </h2>
-          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div
-              v-for="(benefit, idx) in benefits"
-              :key="idx"
-              class="flex gap-4 bg-white rounded-xl p-6 hover:shadow-md transition-all duration-300"
-            >
-              <div class="w-12 h-12 bg-[#FCE4EC] rounded-full flex items-center justify-center text-2xl shrink-0">
-                {{ benefit.icon }}
-              </div>
-              <div>
-                <h4 class="headline text-base text-[#1A1A1A] mb-2">
-                  {{ idx + 1 }}. {{ benefit.title }}
-                </h4>
-                <p class="body text-sm text-[#424242]">{{ benefit.text }}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- После обучения -->
-        <div class="mb-20">
-          <h2 class="headline text-3xl text-[#1A1A1A] mb-12 text-center">
-            После обучения вас ждут
-          </h2>
-          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto">
-            <div
-              v-for="(item, idx) in afterTraining"
-              :key="idx"
-              class="flex items-center gap-3 bg-white border border-[#F5F5F5] px-6 py-4 rounded-xl hover:border-[#D81B60]/30 hover:shadow-md transition-all duration-300"
-            >
-              <span class="text-[#D81B60] text-xl">✓</span>
-              <span class="body text-base text-[#1A1A1A]">{{ item }}</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- CTA -->
-        <div class="max-w-3xl mx-auto text-center glass-pink px-12 py-16 rounded-3xl">
-          <h3 class="headline text-2xl text-[#1A1A2E] mb-6">Готовы начать обучение?</h3>
-          <p class="body text-base text-[#6B4F5A] mb-8">
-            Свяжитесь с нами для уточнения деталей, расписания и записи на курс
+    <section id="programs" class="py-20 bg-white">
+      <div class="container">
+        <div class="max-w-2xl mb-12">
+          <p class="section-label mb-5">Программы</p>
+          <h2 class="display text-4xl lg:text-5xl text-[#1A1A2E] mb-4">Курсы обучения</h2>
+          <p class="body text-base text-[#B08898]">
+            Основной фокус — практика, постановка руки, стерилизация, работа с материалами и уверенное выполнение процедур на моделях.
           </p>
-          <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="tel:+79771075005"
-              class="btn-pink inline-block text-center"
-            >
-              Позвонить: <br> +7 (977) 107-50-05
-            </a>
-            <a
-              href="https://wa.me/message/GAZGRNJFGZWUC1"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn-outline-pink inline-block text-center"
-            >
-              Написать <br> в WhatsApp
-            </a>
-            <a
-              href="https://t.me/Kamshuk_Anastasiya"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn-outline-pink inline-block text-center"
-            >
-              Написать <br> в telegram
-            </a>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-6 lg:gap-8">
+          <div class="card-luxury rounded-3xl p-6 sm:p-8">
+            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-6">
+              <div>
+                <p class="label text-[10px] text-[#E91E8C] mb-2">3 дня</p>
+                <h3 class="headline text-2xl text-[#1A1A2E]">Мастер маникюра</h3>
+              </div>
+              <PromoPrice old-price="35 000 ₽" new-price="25 000 ₽" align="left" note="цена в июле" />
+            </div>
+            <p class="body text-sm text-[#6B4F5A] mb-6">
+              Авторский ровный срез, аппаратная техника, выравнивание ногтевой пластины, покрытие под кутикулу и работа с дизайнами.
+            </p>
+            <div class="grid gap-3 max-h-[520px] overflow-y-auto pr-1">
+              <div v-for="(item, idx) in manikurProgram" :key="idx" class="flex gap-3 rounded-2xl bg-[#FFF8FC] px-4 py-3">
+                <span class="label text-xs text-[#D81B60] shrink-0 w-6">{{ idx + 1 }}.</span>
+                <p class="body text-sm leading-relaxed text-[#424242]">{{ item }}</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-luxury rounded-3xl p-6 sm:p-8">
+            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-6">
+              <div>
+                <p class="label text-[10px] text-[#E91E8C] mb-2">2 дня</p>
+                <h3 class="headline text-2xl text-[#1A1A2E]">Мастер педикюра</h3>
+              </div>
+              <PromoPrice old-price="28 000 ₽" new-price="18 000 ₽" align="left" note="цена в июле" />
+            </div>
+            <p class="body text-sm text-[#6B4F5A] mb-6">
+              Современные техники ухода за стопами, аппаратный, COMBI и smart-педикюр с профессиональным оборудованием.
+            </p>
+            <div class="grid gap-3">
+              <div v-for="(item, idx) in pedikurProgram" :key="idx" class="flex gap-3 rounded-2xl bg-[#FFF8FC] px-4 py-3">
+                <span class="label text-xs text-[#D81B60] shrink-0 w-6">{{ idx + 1 }}.</span>
+                <p class="body text-sm leading-relaxed text-[#424242]">{{ item }}</p>
+              </div>
+            </div>
+            <div class="mt-8 rounded-2xl bg-[#FFF4F9] p-5">
+              <p class="headline text-lg text-[#1A1A2E] mb-2">После курса</p>
+              <p class="body text-sm text-[#6B4F5A]">
+                Вы сможете приступить к работе в салоне красоты или начать принимать клиентов самостоятельно.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20" style="background: linear-gradient(160deg, #FFF4F9 0%, #FFFFFF 100%)">
+      <div class="container">
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12">
+          <div>
+            <p class="section-label mb-5">Пакеты</p>
+            <h2 class="display text-4xl lg:text-5xl text-[#1A1A2E]">Пакетное предложение</h2>
+          </div>
+          <p class="body text-sm text-[#B08898] max-w-md lg:text-right">
+            Выберите глубину обучения: базовая профессия, усиление моделированием или расширенная VIP-программа.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
+          <div
+            v-for="pkg in packages"
+            :key="pkg.title"
+            :class="[
+              'relative rounded-3xl bg-white p-6 sm:p-8 transition-all duration-300',
+              pkg.popular
+                ? 'border-2 border-[#D81B60] shadow-[0_18px_60px_rgba(216,27,96,0.16)]'
+                : 'border border-[#E91E8C]/10 hover:border-[#D81B60]/30',
+            ]"
+          >
+            <div v-if="pkg.popular" class="absolute -top-4 left-6 rounded-full bg-[#D81B60] px-4 py-1 text-white">
+              <span class="label text-xs">Популярный</span>
+            </div>
+            <p class="label text-[10px] text-[#B08898] mb-2">{{ pkg.duration }}</p>
+            <h3 class="headline text-xl text-[#1A1A2E] mb-4">{{ pkg.displayTitle }}</h3>
+            <PromoPrice :old-price="pkg.oldPrice" :new-price="pkg.price" size="lg" align="left" note="скидка 10 000 ₽ в июле" />
+            <p class="body text-sm text-[#6B4F5A] mt-5">{{ pkg.includes }}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 bg-white">
+      <div class="container">
+        <div class="grid lg:grid-cols-[0.8fr_1.2fr] gap-10 lg:gap-16 items-start">
+          <div>
+            <p class="section-label mb-5">Преимущества</p>
+            <h2 class="display text-4xl lg:text-5xl text-[#1A1A2E] mb-5">Что вы получаете</h2>
+            <p class="body text-base text-[#B08898]">
+              Обучение построено вокруг практики и понятной системы: от постановки руки до портфолио и первых клиентов.
+            </p>
+          </div>
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div v-for="benefit in benefits" :key="benefit.title" class="flex gap-4 rounded-3xl border border-[#E91E8C]/10 bg-white p-5 transition-all duration-300 hover:shadow-md">
+              <div class="ios-icon ios-pink" style="width:48px;height:48px;border-radius:14px;font-size:1.25rem">{{ benefit.icon }}</div>
+              <div>
+                <h3 class="headline text-base text-[#1A1A2E] mb-2">{{ benefit.title }}</h3>
+                <p class="body text-sm leading-relaxed text-[#6B4F5A]">{{ benefit.text }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20" style="background: linear-gradient(160deg, #FFF8FC 0%, #FFFFFF 100%)">
+      <div class="container">
+        <div class="max-w-4xl mx-auto text-center">
+          <p class="section-label mb-5 justify-center">Результат</p>
+          <h2 class="display text-4xl lg:text-5xl text-[#1A1A2E] mb-10">После обучения вас ждут</h2>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+            <div v-for="item in afterTraining" :key="item" class="rounded-2xl bg-white px-5 py-5 shadow-[0_8px_28px_rgba(233,30,140,0.06)]">
+              <span class="mx-auto mb-3 flex h-9 w-9 items-center justify-center rounded-full bg-[#FDE8F2] text-[#D81B60]">✓</span>
+              <p class="headline text-base text-[#1A1A2E]">{{ item }}</p>
+            </div>
+          </div>
+
+          <div class="glass-pink rounded-3xl px-5 py-8 sm:px-8 lg:px-12 lg:py-12">
+            <h3 class="headline text-2xl text-[#1A1A2E] mb-4">Готовы начать обучение?</h3>
+            <p class="body text-base text-[#6B4F5A] mb-8 mx-auto">
+              Свяжитесь с нами, чтобы уточнить ближайшие даты, расписание, количество мест и формат записи на курс.
+            </p>
+            <div class="grid sm:grid-cols-3 gap-3">
+              <a
+                v-for="link in contactLinks"
+                :key="link.label"
+                :href="link.href"
+                :target="link.href.startsWith('http') ? '_blank' : undefined"
+                :rel="link.href.startsWith('http') ? 'noopener noreferrer' : undefined"
+                :class="[link.className, 'text-center']"
+              >
+                {{ link.label }}<span class="block text-[11px] opacity-80">{{ link.value }}</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
