@@ -78,6 +78,9 @@ const open = ref<number | null>(null)
               <div><div class="headline text-3xl text-pink-gradient mb-1">4–6 нед.</div><p class="body text-xs text-[#B08898]">держится укладка</p></div>
               <div><div class="headline text-3xl text-pink-gradient mb-1">−30%</div><p class="body text-xs text-[#B08898]">до конца июля</p></div>
             </div>
+            <p class="body text-xs text-[#B08898] mt-5">
+              * Предложение действует только на первый визит. Скидки и акции не суммируются.
+            </p>
           </div>
           <div class="relative">
             <div class="aspect-[4/3] overflow-hidden rounded-3xl" style="box-shadow: 0 24px 80px rgba(233,30,140,0.15)">

@@ -51,6 +51,9 @@ const bookingCount = computed(() => {
             держится. Работаем ежедневно с 10:00 до 22:00.
             До конца июля действует Радужное предложение:&nbsp;<span class="text-[#E91E8C] font-semibold">−30%</span>
           </p>
+          <p class="body text-xs text-[#B08898] -mt-6 mb-10 max-w-md">
+            * Предложение действует только на первый визит. Скидки и акции не суммируются.
+          </p>
 
           <!-- Кнопки -->
           <div class="flex flex-col sm:flex-row gap-4 mb-16">
