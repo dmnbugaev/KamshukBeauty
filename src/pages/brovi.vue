@@ -1,11 +1,11 @@
 <script setup lang="ts">
 useHead({
-  title: 'Брови в Коммунарке — архитектура и коррекция от 1 050 ₽ | Камшук Бьюти',
+  title: 'Брови в Коммунарке — архитектура от 1 500 ₽ | Камшук Бьюти',
   meta: [
-    { name: 'description', content: 'Архитектура бровей, коррекция и долговременная укладка в Коммунарке (Москва) от 1 050 ₽ по Радужному предложению до конца июля. Запись онлайн.' },
+    { name: 'description', content: 'Архитектура бровей, коррекция и долговременная укладка в Коммунарке (Москва) от 1 500 ₽. Скидка 20% на первый визит.' },
     { name: 'keywords', content: 'брови Коммунарка, архитектура бровей Коммунарка, коррекция бровей Коммунарка, долговременная укладка бровей Коммунарка, брови Новая Москва' },
-    { property: 'og:title', content: 'Брови в Коммунарке — архитектура от 1 050 ₽ | Камшук Бьюти' },
-    { property: 'og:description', content: 'Архитектура и коррекция бровей в Коммунарке. До конца июля скидка 30% на все услуги.' },
+    { property: 'og:title', content: 'Брови в Коммунарке — архитектура от 1 500 ₽ | Камшук Бьюти' },
+    { property: 'og:description', content: 'Архитектура и коррекция бровей в Коммунарке. Скидка 20% новым гостям.' },
     { property: 'og:image', content: 'https://kamshukbeauty.ru/images/4_foto/resnici_i_brovi.jpg' },
     { property: 'og:url', content: 'https://kamshukbeauty.ru/brovi' },
   ],
@@ -21,8 +21,8 @@ useHead({
         provider: { '@type': 'BeautySalon', name: 'Камшук Бьюти', url: 'https://kamshukbeauty.ru' },
         areaServed: { '@type': 'City', name: 'Москва' },
         offers: [
-          { '@type': 'Offer', name: 'Архитектура бровей', price: '1050', priceCurrency: 'RUB' },
-          { '@type': 'Offer', name: 'Долговременная укладка + оформление', price: '2800', priceCurrency: 'RUB' },
+          { '@type': 'Offer', name: 'Архитектура бровей', price: '1500', priceCurrency: 'RUB' },
+          { '@type': 'Offer', name: 'Долговременная укладка + оформление', price: '4000', priceCurrency: 'RUB' },
         ],
       },
       {
@@ -38,9 +38,9 @@ useHead({
 })
 
 const prices = [
-  { name: 'Архитектура бровей', oldPrice: '1 500 ₽', price: '1 050 ₽', desc: 'Форма, коррекция, окрашивание — идеальные брови' },
-  { name: 'Долговременная укладка + оформление', oldPrice: '4 000 ₽', price: '2 800 ₽', desc: 'Укладка держится 4–6 недель, брови всегда ухоженные' },
-  { name: 'Только коррекция', oldPrice: 'от 800 ₽', price: 'от 560 ₽', desc: 'Поддержание формы между основными процедурами' },
+  { name: 'Архитектура бровей', price: '1 500 ₽', desc: 'Форма, коррекция, окрашивание — идеальные брови' },
+  { name: 'Долговременная укладка + оформление', price: '4 000 ₽', desc: 'Укладка держится 4–6 недель, брови всегда ухоженные' },
+  { name: 'Только коррекция', price: 'от 800 ₽', desc: 'Поддержание формы между основными процедурами' },
 ]
 
 const faqs = [
@@ -60,7 +60,7 @@ const open = ref<number | null>(null)
         <Breadcrumb :items="[{ label: 'Брови в Коммунарке' }]" />
         <div class="grid lg:grid-cols-2 gap-12 items-center max-w-[1320px] mx-auto">
           <div>
-            <div class="section-label mb-6">Радужное предложение · скидка 30% до конца июля</div>
+            <div class="section-label mb-6">Скидка 20% на первый визит</div>
             <h1 class="display text-4xl lg:text-5xl text-[#1A1A2E] mb-6 leading-tight">
               Архитектура<br /><span class="text-pink-shimmer">бровей</span><br />в Коммунарке
             </h1>
@@ -74,9 +74,9 @@ const open = ref<number | null>(null)
               <a href="tel:+79771075005" class="btn-outline-pink inline-block text-center">+7 (977) 107-50-05</a>
             </div>
             <div class="grid grid-cols-3 gap-6">
-              <div><PromoPrice old-price="от 1 500 ₽" new-price="от 1 050 ₽" size="lg" align="left" /><p class="body text-xs text-[#B08898]">стоимость</p></div>
+              <div><div class="headline text-3xl text-pink-gradient mb-1">от 1 500 ₽</div><p class="body text-xs text-[#B08898]">стоимость</p></div>
               <div><div class="headline text-3xl text-pink-gradient mb-1">4–6 нед.</div><p class="body text-xs text-[#B08898]">держится укладка</p></div>
-              <div><div class="headline text-3xl text-pink-gradient mb-1">−30%</div><p class="body text-xs text-[#B08898]">до конца июля</p></div>
+              <div><div class="headline text-3xl text-pink-gradient mb-1">−20%</div><p class="body text-xs text-[#B08898]">первый визит</p></div>
             </div>
             <p class="body text-xs text-[#B08898] mt-5">
               * Предложение действует только на первый визит. Скидки и акции не суммируются.
@@ -98,7 +98,7 @@ const open = ref<number | null>(null)
           <div v-for="item in prices" :key="item.name" class="card-luxury rounded-2xl p-6">
             <div class="flex flex-col gap-2 sm:flex-row sm:justify-between sm:items-start mb-2">
               <h3 class="headline text-base text-[#1A1A2E]">{{ item.name }}</h3>
-              <PromoPrice class="sm:ml-4 shrink-0" :old-price="item.oldPrice" :new-price="item.price" align="left" />
+              <span class="label text-sm text-[#E91E8C] sm:ml-4 shrink-0">{{ item.price }}</span>
             </div>
             <p class="body text-xs text-[#B08898]">{{ item.desc }}</p>
           </div>

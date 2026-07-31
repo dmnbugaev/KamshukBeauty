@@ -44,7 +44,7 @@
 
         <!-- Контент -->
         <div class="lg:col-span-7">
-          <div class="section-label mb-6">Наш мастер</div>
+          <div class="section-label mb-6">Наша команда</div>
 
           <h2 class="display text-4xl lg:text-5xl text-[#1A1A2E] mb-4">
             Анастасия<br /><span class="text-pink-shimmer">Камшук</span>
@@ -58,11 +58,11 @@
 
           <div class="space-y-5 body text-base text-[#6B4F5A] mb-12 max-w-lg leading-loose">
             <p>
-              С 2016 года я помогаю девушкам чувствовать себя уверенно и красиво.
+              С 2016 года мы помогаем девушкам чувствовать себя уверенно и красиво.
               Студия Камшук Бьюти отмечена Яндекс Картами как «Хорошее место 2026».
             </p>
             <p>
-              Я убеждена: красота — это не маска, а состояние. Наша задача — раскрыть
+              Мы убеждены: красота — это не маска, а состояние. Наша задача — раскрыть
               вашу индивидуальность и сделать каждый визит маленьким праздником ✨
             </p>
           </div>
@@ -97,6 +97,29 @@
               <p class="body text-xs text-[#B08898]">{{ item.text }}</p>
             </div>
           </div>
+        </div>
+      </div>
+
+      <div class="mt-20">
+        <div class="max-w-2xl mb-10">
+          <p class="section-label mb-4">Наши мастера</p>
+          <h2 class="display text-3xl lg:text-4xl text-[#1A1A2E]">Познакомьтесь с командой</h2>
+        </div>
+        <div class="grid md:grid-cols-2 gap-6 max-w-5xl">
+          <article class="card-luxury rounded-3xl overflow-hidden bg-white">
+            <img src="/images/photo_2026-07-31_19-35-01.jpg" alt="Валерия — мастер ногтевого сервиса Камшук Бьюти" class="w-full aspect-[4/5] object-cover" loading="lazy" width="720" height="1280" />
+            <div class="p-6">
+              <h3 class="headline text-2xl text-[#1A1A2E] mb-2">Валерия</h3>
+              <p class="body text-sm text-[#B08898]">Мастер ногтевого сервиса</p>
+            </div>
+          </article>
+          <article class="card-luxury rounded-3xl overflow-hidden bg-white">
+            <img src="/images/photo_2026-07-31_19-34-26.jpg" alt="Ника — бровист-визажист и ламимейкер Камшук Бьюти" class="w-full aspect-[4/5] object-cover" loading="lazy" width="1280" height="1280" />
+            <div class="p-6">
+              <h3 class="headline text-2xl text-[#1A1A2E] mb-2">Ника</h3>
+              <p class="body text-sm text-[#B08898]">Бровист-визажист, ламимейкер</p>
+            </div>
+          </article>
         </div>
       </div>
 

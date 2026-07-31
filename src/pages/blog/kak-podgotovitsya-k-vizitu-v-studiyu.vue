@@ -5,7 +5,7 @@ useHead({
     { name: 'description', content: 'Чек-лист подготовки к маникюру, педикюру, бровям, ресницам и макияжу. Что сделать перед визитом в студию Камшук Бьюти, чтобы процедура прошла комфортно.' },
     { name: 'keywords', content: 'как подготовиться к маникюру, подготовка к наращиванию ресниц, подготовка к бровям, подготовка к макияжу, студия красоты Коммунарка' },
     { property: 'og:title', content: 'Как подготовиться к визиту в студию красоты' },
-    { property: 'og:description', content: 'Короткий чек-лист клиента перед процедурами в студии красоты.' },
+    { property: 'og:description', content: 'Короткий чек-лист гостя перед процедурами в студии красоты.' },
     { property: 'og:url', content: 'https://kamshukbeauty.ru/blog/kak-podgotovitsya-k-vizitu-v-studiyu' },
     { property: 'og:type', content: 'article' },
   ],
@@ -15,7 +15,7 @@ useHead({
     innerHTML: JSON.stringify({
       '@context': 'https://schema.org',
       '@type': 'Article',
-      headline: 'Как подготовиться к визиту в студию красоты: чек-лист клиента',
+      headline: 'Как подготовиться к визиту в студию красоты: чек-лист гостя',
       author: { '@type': 'Person', name: 'Анастасия Камшук' },
       publisher: { '@type': 'Organization', name: 'Камшук Бьюти', url: 'https://kamshukbeauty.ru' },
       datePublished: '2026-07-18',

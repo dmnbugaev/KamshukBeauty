@@ -260,6 +260,21 @@ test.describe('responsive layout', () => {
   }
 })
 
+test.describe('updated studio content', () => {
+  test('shows current offers, team and complete portfolio', async ({ page }) => {
+    await page.setViewportSize(desktopViewport)
+    await page.goto('/', { waitUntil: 'domcontentloaded' })
+
+    const offers = page.locator('#offers')
+    await expect(offers).toContainText('Скидка 20% на услуги студии при первом посещении')
+    await expect(offers).toContainText('5 визитов со скидкой 20%')
+    await expect(offers).toContainText('10-й маникюр или педикюр-комплекс в подарок')
+    await expect(page.locator('#about')).toContainText('Валерия')
+    await expect(page.locator('#about')).toContainText('Ника')
+    await expect(page.locator('#work img')).toHaveCount(31)
+  })
+})
+
 test.describe('navigation', () => {
   for (const route of internalRoutes) {
     test(`route ${route} opens without 404`, async ({ page }) => {

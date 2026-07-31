@@ -80,21 +80,20 @@ watch(show, (value) => {
             </div>
 
             <!-- Заголовок -->
-            <p class="label text-[11px] text-[#E91E8C] mb-2">Радужное предложение</p>
+            <p class="label text-[11px] text-[#E91E8C] mb-2">Для новых гостей</p>
             <h2 id="welcome-popup-title" class="headline text-3xl text-[#1A1A2E] mb-2">
-              Скидка <span class="text-pink-shimmer">−30%</span>
+              Скидка <span class="text-pink-shimmer">−20%</span>
             </h2>
-            <p class="headline text-base text-[#B08898] mb-6">на все услуги до конца июля</p>
+            <p class="headline text-base text-[#B08898] mb-6">на услуги при первом визите</p>
 
             <div class="pink-divider mx-auto mb-6" />
 
             <p class="body text-sm text-[#6B4F5A] mb-4 leading-relaxed">
-              Маникюр, ресницы, брови, макияж — любая услуга
-              по сниженной цене весь июль.
+              Выберите любимую услугу и познакомьтесь с Камшук Бьюти.
               Работаем ежедневно&nbsp;10:00–22:00.
             </p>
             <p class="body text-xs text-[#B08898] mb-8 opacity-70">
-              * Предложение действует до конца июля только на первый визит. Скидки и акции не суммируются.
+              * Скидки и предложения не суммируются.
             </p>
 
             <!-- CTA -->
@@ -108,9 +107,13 @@ watch(show, (value) => {
               Записаться со скидкой
             </a>
 
+            <a href="/#offers" class="body text-xs text-[#E91E8C] hover:text-[#C2185B] transition-colors duration-200" @click="close">
+              Смотреть все акции и предложения
+            </a>
+
             <button
               type="button"
-              class="body text-xs text-[#B08898] hover:text-[#E91E8C] transition-colors duration-200"
+              class="body block mx-auto mt-3 text-xs text-[#B08898] hover:text-[#E91E8C] transition-colors duration-200"
               @click.stop="close"
             >
               Нет, спасибо

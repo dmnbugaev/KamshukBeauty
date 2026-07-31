@@ -14,7 +14,7 @@ useHead({
 const posts = [
   {
     slug: 'kak-podgotovitsya-k-vizitu-v-studiyu',
-    title: 'Как подготовиться к визиту в студию красоты: чек-лист клиента',
+    title: 'Как подготовиться к визиту в студию красоты: чек-лист гостя',
     excerpt: 'Что сделать перед маникюром, бровями, ресницами или макияжем, чтобы процедура прошла спокойно, а результат держался дольше.',
     tag: 'Советы',
     date: '18 июля 2026',
@@ -120,7 +120,7 @@ const tagColors: Record<string, string> = {
       <div class="container">
         <div class="max-w-2xl mx-auto text-center glass-pink rounded-3xl p-6 sm:p-10">
           <h2 class="display text-2xl text-[#1A1A2E] mb-4">Готовы к преображению?</h2>
-          <p class="body text-sm text-[#6B4F5A] mb-6">Записывайтесь онлайн — до конца июля Радужное предложение −30%</p>
+          <p class="body text-sm text-[#6B4F5A] mb-6">Записывайтесь онлайн — новым гостям скидка 20% на первый визит</p>
           <a href="https://n1407035.yclients.com/company/1274992/personal/select-services?o=" target="_blank" rel="noopener noreferrer" class="btn-pink inline-block">Записаться онлайн</a>
         </div>
       </div>

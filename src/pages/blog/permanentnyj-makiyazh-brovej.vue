@@ -60,7 +60,7 @@ useHead({
               <h2 class="headline text-2xl text-[#1A1A2E] mb-4">Техники перманентного макияжа бровей</h2>
               <div class="grid md:grid-cols-2 gap-4">
                 <div v-for="t in [
-                  { name: 'Пудровые брови', desc: 'Имитируют эффект растушёванной тени. Мягкие, естественные, подходят любому типу кожи. Самая популярная техника.', oldPrice: '16 000 ₽', price: '11 200 ₽' },
+                  { name: 'Пудровые брови', desc: 'Имитируют эффект растушёванной тени. Мягкие, естественные, подходят любому типу кожи. Самая популярная техника.', oldPrice: '', price: '16 000 ₽' },
                   { name: 'Комбинированная техника', desc: 'Волосковые штрихи + пудровая растушёвка. Максимально натуральный и объёмный результат.', oldPrice: '', price: 'по запросу' },
                 ]" :key="t.name" class="glass-pink rounded-2xl p-5">
                   <div class="flex justify-between mb-2">
@@ -109,9 +109,8 @@ useHead({
             <p class="headline text-xl text-[#1A1A2E] mb-2">Запишитесь на перманентный макияж</p>
             <p class="body text-sm text-[#6B4F5A] mb-6">
               Пудровые брови
-              <span class="line-through text-[#B08898]">16 000 ₽</span>
-              <span class="label text-[#E91E8C]">11 200 ₽</span>
-              · Радужное предложение до конца июля
+              <span class="label text-[#E91E8C]">16 000 ₽</span>
+              · Скидка 20% новым гостям
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
               <a href="https://n1407035.yclients.com/company/1274992/personal/select-services?o=" target="_blank" rel="noopener noreferrer" class="btn-pink inline-block text-center">Записаться онлайн</a>

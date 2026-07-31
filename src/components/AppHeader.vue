@@ -16,6 +16,7 @@ let desktopQuery: MediaQueryList | null = null
 
 const links: HeaderLink[] = [
   { label: 'Услуги', href: '/#services', note: 'Маникюр, брови, ресницы, макияж' },
+  { label: 'Акции', href: '/#offers', note: 'Скидки, абонементы и подарки' },
   { label: 'Работы', href: '/#work', note: 'Портфолио мастеров' },
   { label: 'О нас', href: '/#about', note: 'Студия и команда' },
   { label: 'Обучение', href: '/obuchenie', note: 'Курсы для мастеров' },
@@ -287,7 +288,7 @@ watch(
               class="mobile-menu-cta"
             >
               <span>Записаться онлайн</span>
-              <span class="mobile-menu-cta__badge">−30%</span>
+              <span class="mobile-menu-cta__badge">−20%</span>
             </a>
             <a href="tel:+79771075005" class="mobile-menu-phone">
               +7 (977) 107-50-05

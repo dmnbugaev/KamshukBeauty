@@ -38,12 +38,21 @@ const contacts = [
   },
   {
     label: 'MAX',
-    value: 'Написать сообщение',
+    value: 'Написать в MAX',
     href: 'https://max.ru/u/f9LHodD0cOJhZWcjFtzBOFNlcS0w2RVemO55MmCDgD_nHgsPEPAhlJp3i2M',
     external: true,
     icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>`,
     color: '#E91E8C',
     bg: 'rgba(233,30,140,0.08)',
+  },
+  {
+    label: 'Канал в MAX',
+    value: 'Открыть канал',
+    href: 'https://max.ru/u/f9LHodD0cOJhZWcjFtzBOFNlcS0w2RVemO55MmCDgD_nHgsPEPAhlJp3i2M',
+    external: true,
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h11A2.5 2.5 0 0 1 20 6.5v7a2.5 2.5 0 0 1-2.5 2.5H9l-5 4V6.5Z"/><path d="M8 8h8M8 12h5"/></svg>`,
+    color: '#C2185B',
+    bg: 'rgba(194,24,91,0.08)',
   },
 ]
 </script>
@@ -78,7 +87,7 @@ const contacts = [
       </div>
 
       <!-- Сетка контактов — iOS стиль -->
-      <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-12">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4 mb-12">
         <a
           v-for="contact in contacts"
           :key="contact.href"

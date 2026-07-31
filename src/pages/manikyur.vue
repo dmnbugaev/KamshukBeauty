@@ -1,11 +1,11 @@
 <script setup lang="ts">
 useHead({
-  title: 'Маникюр в Коммунарке — от 980 ₽ | Камшук Бьюти',
+  title: 'Маникюр в Коммунарке — от 1 400 ₽ | Камшук Бьюти',
   meta: [
-    { name: 'description', content: 'Маникюр гель-лак в Коммунарке (Москва) от 980 ₽ по Радужному предложению до конца июля. Покрытие держится до 4 недель. Запись онлайн. Ежедневно 10:00–22:00.' },
+    { name: 'description', content: 'Маникюр и покрытие гель-лак в Коммунарке (Москва) от 1 400 ₽. Скидка 20% на первый визит. Запись онлайн. Ежедневно 10:00–22:00.' },
     { name: 'keywords', content: 'маникюр Коммунарка, маникюр гель-лак Коммунарка, маникюр Новая Москва, студия маникюра Коммунарка, маникюр ТиНАО, маникюр без выходных Москва' },
-    { property: 'og:title', content: 'Маникюр в Коммунарке — Камшук Бьюти от 980 ₽' },
-    { property: 'og:description', content: 'Маникюр гель-лак в Коммунарке. До конца июля Радужное предложение: скидка 30% на все услуги.' },
+    { property: 'og:title', content: 'Маникюр в Коммунарке — Камшук Бьюти от 1 400 ₽' },
+    { property: 'og:description', content: 'Маникюр и покрытие гель-лак в Коммунарке. Скидка 20% новым гостям на первый визит.' },
     { property: 'og:image', content: 'https://kamshukbeauty.ru/images/4_foto/manik.jpg' },
     { property: 'og:url', content: 'https://kamshukbeauty.ru/manikyur' },
   ],
@@ -21,9 +21,9 @@ useHead({
         provider: { '@type': 'BeautySalon', name: 'Камшук Бьюти', url: 'https://kamshukbeauty.ru' },
         areaServed: { '@type': 'City', name: 'Москва' },
         offers: [
-          { '@type': 'Offer', name: 'Маникюр без покрытия', price: '980', priceCurrency: 'RUB' },
-          { '@type': 'Offer', name: 'Маникюр комплекс (гель-лак)', price: '1890', priceCurrency: 'RUB' },
-          { '@type': 'Offer', name: 'Наращивание ногтей', price: '2800', priceCurrency: 'RUB' },
+          { '@type': 'Offer', name: 'Маникюр без покрытия', price: '1400', priceCurrency: 'RUB' },
+          { '@type': 'Offer', name: 'Маникюр комплекс (гель-лак)', price: '2700', priceCurrency: 'RUB' },
+          { '@type': 'Offer', name: 'Наращивание ногтей', price: '4000', priceCurrency: 'RUB' },
         ],
       },
       {
@@ -39,10 +39,10 @@ useHead({
 })
 
 const prices = [
-  { name: 'Маникюр без покрытия', oldPrice: '1 400 ₽', price: '980 ₽', desc: 'Обработка кутикулы, форма ногтей' },
-  { name: 'Маникюр комплекс (гель-лак)', oldPrice: '2 700 ₽', price: '1 890 ₽', desc: 'Маникюр + покрытие гель-лак, держится 3–4 недели' },
-  { name: 'Наращивание ногтей', oldPrice: '4 000 ₽', price: '2 800 ₽', desc: 'Гелевое моделирование, любая длина и форма' },
-  { name: 'Снятие покрытия', oldPrice: 'от 300 ₽', price: 'от 210 ₽', desc: 'Бережное снятие без повреждения пластины' },
+  { name: 'Маникюр без покрытия', price: '1 400 ₽', desc: 'Обработка кутикулы, форма ногтей' },
+  { name: 'Маникюр комплекс (гель-лак)', price: '2 700 ₽', desc: 'Маникюр + покрытие гель-лак, держится 3–4 недели' },
+  { name: 'Наращивание ногтей', price: '4 000 ₽', desc: 'Гелевое моделирование, любая длина и форма' },
+  { name: 'Снятие покрытия', price: 'от 300 ₽', desc: 'Бережное снятие без повреждения пластины' },
 ]
 
 const faqs = [
@@ -68,7 +68,7 @@ const open = ref<number | null>(null)
 
         <div class="grid lg:grid-cols-2 gap-12 items-center max-w-[1320px] mx-auto">
           <div>
-            <div class="section-label mb-6">Радужное предложение · скидка 30% до конца июля</div>
+            <div class="section-label mb-6">Скидка 20% на первый визит</div>
             <h1 class="display text-4xl lg:text-5xl text-[#1A1A2E] mb-6 leading-tight">
               Маникюр<br />
               <span class="text-pink-shimmer">в Коммунарке</span>
@@ -90,7 +90,7 @@ const open = ref<number | null>(null)
             </div>
             <div class="grid grid-cols-3 gap-6">
               <div class="text-center sm:text-left">
-                <PromoPrice old-price="от 1 400 ₽" new-price="от 980 ₽" size="lg" align="left" />
+                <div class="headline text-3xl text-pink-gradient mb-1">от 1 400 ₽</div>
                 <p class="body text-xs text-[#B08898]">стоимость</p>
               </div>
               <div class="text-center sm:text-left">
@@ -98,8 +98,8 @@ const open = ref<number | null>(null)
                 <p class="body text-xs text-[#B08898]">держится покрытие</p>
               </div>
               <div class="text-center sm:text-left">
-                <div class="headline text-3xl text-pink-gradient mb-1">−30%</div>
-                <p class="body text-xs text-[#B08898]">до конца июля</p>
+                <div class="headline text-3xl text-pink-gradient mb-1">−20%</div>
+                <p class="body text-xs text-[#B08898]">первый визит</p>
               </div>
             </div>
           </div>
@@ -113,8 +113,8 @@ const open = ref<number | null>(null)
               />
             </div>
             <div class="absolute -bottom-4 -left-4 glass-pink rounded-2xl px-5 py-3" style="box-shadow: 0 8px 32px rgba(233,30,140,0.2)">
-              <p class="label text-[10px] text-[#C2185B] mb-0.5">Радужное предложение</p>
-              <p class="headline text-2xl text-[#E91E8C]">−30%</p>
+              <p class="label text-[10px] text-[#C2185B] mb-0.5">Первый визит</p>
+              <p class="headline text-2xl text-[#E91E8C]">−20%</p>
             </div>
           </div>
         </div>
@@ -135,13 +135,13 @@ const open = ref<number | null>(null)
           >
             <div class="flex flex-col gap-2 sm:flex-row sm:justify-between sm:items-start mb-2">
               <h3 class="headline text-base text-[#1A1A2E]">{{ item.name }}</h3>
-              <PromoPrice class="sm:ml-4 shrink-0" :old-price="item.oldPrice" :new-price="item.price" align="left" />
+              <span class="label text-sm text-[#E91E8C] sm:ml-4 shrink-0">{{ item.price }}</span>
             </div>
             <p class="body text-xs text-[#B08898]">{{ item.desc }}</p>
           </div>
         </div>
         <p class="body text-xs text-[#B08898] mt-6">
-          * До конца июля действует Радужное предложение: скидка 30% на все услуги только на первый визит. Скидки и акции не суммируются. Стоимость уточняйте при записи.
+          * Скидки и предложения не суммируются. Стоимость уточняйте при записи.
         </p>
       </div>
     </section>

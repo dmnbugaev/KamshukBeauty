@@ -1,11 +1,11 @@
 <script setup lang="ts">
 useHead({
-  title: 'Макияж в Коммунарке — от 2 450 ₽ | Дневной, вечерний, свадебный | Камшук Бьюти',
+  title: 'Макияж в Коммунарке — от 3 500 ₽ | Дневной, вечерний, свадебный | Камшук Бьюти',
   meta: [
-    { name: 'description', content: 'Профессиональный макияж в Коммунарке (Москва) от 2 450 ₽ по Радужному предложению до конца июля. Дневной, вечерний, свадебный макияж.' },
+    { name: 'description', content: 'Профессиональный макияж в Коммунарке (Москва) от 3 500 ₽. Дневной, вечерний и свадебный макияж. Скидка 20% на первый визит.' },
     { name: 'keywords', content: 'макияж Коммунарка, свадебный макияж Коммунарка, вечерний макияж Коммунарка, визажист Коммунарка, макияж Новая Москва, визажист ТиНАО' },
-    { property: 'og:title', content: 'Макияж в Коммунарке — Камшук Бьюти от 2 450 ₽' },
-    { property: 'og:description', content: 'Дневной, вечерний, свадебный макияж в Коммунарке. До конца июля скидка 30% на все услуги.' },
+    { property: 'og:title', content: 'Макияж в Коммунарке — Камшук Бьюти от 3 500 ₽' },
+    { property: 'og:description', content: 'Дневной, вечерний и свадебный макияж в Коммунарке. Скидка 20% новым гостям.' },
     { property: 'og:image', content: 'https://kamshukbeauty.ru/images/4_foto/make.jpg' },
     { property: 'og:url', content: 'https://kamshukbeauty.ru/makiyazh' },
   ],
@@ -21,9 +21,9 @@ useHead({
         provider: { '@type': 'BeautySalon', name: 'Камшук Бьюти', url: 'https://kamshukbeauty.ru' },
         areaServed: { '@type': 'City', name: 'Москва' },
         offers: [
-          { '@type': 'Offer', name: 'Дневной макияж', price: '2450', priceCurrency: 'RUB' },
-          { '@type': 'Offer', name: 'Вечерний макияж', price: '3500', priceCurrency: 'RUB' },
-          { '@type': 'Offer', name: 'Свадебный макияж', price: '5600', priceCurrency: 'RUB' },
+          { '@type': 'Offer', name: 'Дневной макияж', price: '3500', priceCurrency: 'RUB' },
+          { '@type': 'Offer', name: 'Вечерний макияж', price: '5000', priceCurrency: 'RUB' },
+          { '@type': 'Offer', name: 'Свадебный макияж', price: '8000', priceCurrency: 'RUB' },
         ],
       },
       {
@@ -39,10 +39,10 @@ useHead({
 })
 
 const prices = [
-  { name: 'Дневной макияж', oldPrice: '3 500 ₽', price: '2 450 ₽', desc: 'Естественный образ для работы, встреч и повседневной жизни' },
-  { name: 'Вечерний макияж', oldPrice: '5 000 ₽', price: '3 500 ₽', desc: 'Яркий, выразительный образ для особых событий' },
-  { name: 'Свадебный макияж', oldPrice: '8 000 ₽', price: '5 600 ₽', desc: 'Стойкий макияж для самого важного дня, фотосъёмки' },
-  { name: 'Свадебный макияж + причёска', oldPrice: '14 000 ₽', price: '9 800 ₽', desc: 'Полный образ невесты от Камшук Бьюти' },
+  { name: 'Дневной макияж', price: '3 500 ₽', desc: 'Естественный образ для работы, встреч и повседневной жизни' },
+  { name: 'Вечерний макияж', price: '5 000 ₽', desc: 'Яркий, выразительный образ для особых событий' },
+  { name: 'Свадебный макияж', price: '8 000 ₽', desc: 'Стойкий макияж для самого важного дня, фотосъёмки' },
+  { name: 'Свадебный макияж + причёска', price: '14 000 ₽', desc: 'Полный образ невесты от Камшук Бьюти' },
 ]
 
 const faqs = [
@@ -62,7 +62,7 @@ const open = ref<number | null>(null)
         <Breadcrumb :items="[{ label: 'Макияж в Коммунарке' }]" />
         <div class="grid lg:grid-cols-2 gap-12 items-center max-w-[1320px] mx-auto">
           <div>
-            <div class="section-label mb-6">Радужное предложение · скидка 30% до конца июля</div>
+            <div class="section-label mb-6">Скидка 20% на первый визит</div>
             <h1 class="display text-4xl lg:text-5xl text-[#1A1A2E] mb-6 leading-tight">
               Макияж<br /><span class="text-pink-shimmer">в Коммунарке</span>
             </h1>
@@ -75,9 +75,9 @@ const open = ref<number | null>(null)
               <a href="tel:+79771075005" class="btn-outline-pink inline-block text-center">+7 (977) 107-50-05</a>
             </div>
             <div class="grid grid-cols-3 gap-6">
-              <div><PromoPrice old-price="от 3 500 ₽" new-price="от 2 450 ₽" size="lg" align="left" /><p class="body text-xs text-[#B08898]">стоимость</p></div>
+              <div><div class="headline text-3xl text-pink-gradient mb-1">от 3 500 ₽</div><p class="body text-xs text-[#B08898]">стоимость</p></div>
               <div><div class="headline text-3xl text-pink-gradient mb-1">8–12 ч.</div><p class="body text-xs text-[#B08898]">стойкость</p></div>
-              <div><div class="headline text-3xl text-pink-gradient mb-1">−30%</div><p class="body text-xs text-[#B08898]">до конца июля</p></div>
+              <div><div class="headline text-3xl text-pink-gradient mb-1">−20%</div><p class="body text-xs text-[#B08898]">первый визит</p></div>
             </div>
             <p class="body text-xs text-[#B08898] mt-5">
               * Предложение действует только на первый визит. Скидки и акции не суммируются.
@@ -88,8 +88,8 @@ const open = ref<number | null>(null)
               <img src="/images/4_foto/make.jpg" alt="Макияж в Коммунарке — студия Камшук Бьюти" class="w-full h-full object-cover" width="600" height="450" loading="lazy" />
             </div>
             <div class="absolute -bottom-4 -left-4 glass-pink rounded-2xl px-5 py-3" style="box-shadow: 0 8px 32px rgba(233,30,140,0.2)">
-              <p class="label text-[10px] text-[#C2185B] mb-0.5">Радужное предложение</p>
-              <p class="headline text-2xl text-[#E91E8C]">−30%</p>
+              <p class="label text-[10px] text-[#C2185B] mb-0.5">Первый визит</p>
+              <p class="headline text-2xl text-[#E91E8C]">−20%</p>
             </div>
           </div>
         </div>
@@ -103,7 +103,7 @@ const open = ref<number | null>(null)
           <div v-for="item in prices" :key="item.name" class="card-luxury rounded-2xl p-6">
             <div class="flex flex-col gap-2 sm:flex-row sm:justify-between sm:items-start mb-2">
               <h3 class="headline text-base text-[#1A1A2E]">{{ item.name }}</h3>
-              <PromoPrice class="sm:ml-4 shrink-0" :old-price="item.oldPrice" :new-price="item.price" align="left" />
+              <span class="label text-sm text-[#E91E8C] sm:ml-4 shrink-0">{{ item.price }}</span>
             </div>
             <p class="body text-xs text-[#B08898]">{{ item.desc }}</p>
           </div>

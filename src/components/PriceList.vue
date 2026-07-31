@@ -6,10 +6,10 @@ const prices = [
     icon: '💅',
     iconClass: 'ios-pink',
     items: [
-      { name: 'Маникюр без покрытия', oldPrice: '1 400 ₽', price: '980 ₽' },
-      { name: 'Маникюр комплекс', oldPrice: '2 700 ₽', price: '1 890 ₽' },
-      { name: 'Наращивание ногтей', oldPrice: '4 000 ₽', price: '2 800 ₽' },
-      { name: 'Умный педикюр', oldPrice: '3 100 ₽', price: '2 170 ₽' },
+      { name: 'Маникюр без покрытия', price: '1 400 ₽' },
+      { name: 'Маникюр комплекс', price: '2 700 ₽' },
+      { name: 'Наращивание ногтей', price: '4 000 ₽' },
+      { name: 'Умный педикюр', price: '3 500 ₽' },
     ],
   },
   {
@@ -18,10 +18,10 @@ const prices = [
     icon: '👁',
     iconClass: 'ios-rose',
     items: [
-      { name: 'Наращивание ресниц', oldPrice: '3 300 ₽', price: '2 310 ₽' },
-      { name: 'Ламинирование ресниц', oldPrice: '3 000 ₽', price: '2 100 ₽' },
-      { name: 'Архитектура бровей', oldPrice: '1 500 ₽', price: '1 050 ₽' },
-      { name: 'Долговременная укладка + оформление', oldPrice: '4 000 ₽', price: '2 800 ₽' },
+      { name: 'Наращивание ресниц', price: '3 300 ₽' },
+      { name: 'Ламинирование ресниц', price: '3 000 ₽' },
+      { name: 'Архитектура бровей', price: '1 500 ₽' },
+      { name: 'Долговременная укладка + оформление', price: '4 000 ₽' },
     ],
   },
   {
@@ -30,10 +30,10 @@ const prices = [
     icon: '✨',
     iconClass: 'ios-blush',
     items: [
-      { name: 'Дневной', oldPrice: '3 500 ₽', price: '2 450 ₽' },
-      { name: 'Вечерний', oldPrice: '5 000 ₽', price: '3 500 ₽' },
-      { name: 'Свадебный', oldPrice: '8 000 ₽', price: '5 600 ₽' },
-      { name: 'Свадебный + причёска', oldPrice: '14 000 ₽', price: '9 800 ₽' },
+      { name: 'Дневной', price: '3 500 ₽' },
+      { name: 'Вечерний', price: '5 000 ₽' },
+      { name: 'Свадебный', price: '8 000 ₽' },
+      { name: 'Свадебный + причёска', price: '14 000 ₽' },
     ],
   },
   {
@@ -42,10 +42,10 @@ const prices = [
     icon: '🎨',
     iconClass: 'ios-gold',
     items: [
-      { name: 'Пудровые брови', oldPrice: '16 000 ₽', price: '11 200 ₽' },
-      { name: 'Напыление губ', oldPrice: '16 000 ₽', price: '11 200 ₽' },
-      { name: 'Стрелка', oldPrice: '16 000 ₽', price: '11 200 ₽' },
-      { name: 'Межресничка', oldPrice: '12 000 ₽', price: '8 400 ₽' },
+      { name: 'Пудровые брови', price: '16 000 ₽' },
+      { name: 'Напыление губ', price: '16 000 ₽' },
+      { name: 'Стрелка', price: '16 000 ₽' },
+      { name: 'Межресничка', price: '12 000 ₽' },
     ],
   },
 ]
@@ -70,10 +70,10 @@ const yclientsUrl = 'https://n1407035.yclients.com/company/1274992/personal/sele
 
       <!-- Заголовок -->
       <div class="max-w-xl mb-20">
-        <div class="section-label mb-5">Радужное предложение</div>
+        <div class="section-label mb-5">Стоимость услуг</div>
         <h2 class="display text-4xl lg:text-5xl text-[#1A1A2E] mb-4">Прайс-лист</h2>
         <p class="body text-[#B08898]">
-          До конца июля скидка 30% на все услуги. Прозрачное ценообразование без скрытых доплат
+          Прозрачное ценообразование без скрытых доплат. Актуальные акции собраны в разделе предложений
         </p>
         <p class="body text-xs text-[#B08898] mt-3">
           * Предложение действует только на первый визит. Скидки и акции не суммируются.
@@ -106,7 +106,7 @@ const yclientsUrl = 'https://n1407035.yclients.com/company/1274992/personal/sele
               <span class="body text-sm text-[#6B4F5A] group-hover/item:text-[#1A1A2E] transition-colors">
                 {{ item.name }}
               </span>
-              <PromoPrice class="sm:ml-4 shrink-0" :old-price="item.oldPrice" :new-price="item.price" align="left" />
+              <span class="label text-sm text-[#E91E8C] sm:ml-4 shrink-0">{{ item.price }}</span>
             </div>
           </div>
 
@@ -132,7 +132,7 @@ const yclientsUrl = 'https://n1407035.yclients.com/company/1274992/personal/sele
           Записаться онлайн
         </a>
         <p class="body text-xs text-[#B08898] mt-4">
-          Радужное предложение действует до конца июля только на первый визит. Скидки и акции не суммируются.
+          Скидки и предложения не суммируются. Итоговую стоимость уточняйте при записи.
         </p>
       </div>
 

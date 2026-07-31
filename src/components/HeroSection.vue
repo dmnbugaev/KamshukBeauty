@@ -49,10 +49,10 @@ const bookingCount = computed(() => {
           <p class="body text-lg lg:text-xl text-[#6B4F5A] mb-10 max-w-md leading-relaxed">
             Маникюр, педикюр, брови, ресницы и макияж — результат, который
             держится. Работаем ежедневно с 10:00 до 22:00.
-            До конца июля действует Радужное предложение:&nbsp;<span class="text-[#E91E8C] font-semibold">−30%</span>
+            Новым гостям дарим <span class="text-[#E91E8C] font-semibold">скидку 20%</span> на первый визит.
           </p>
           <p class="body text-xs text-[#B08898] -mt-6 mb-10 max-w-md">
-            * Предложение действует только на первый визит. Скидки и акции не суммируются.
+            * Скидки и предложения не суммируются.
           </p>
 
           <!-- Кнопки -->
@@ -97,8 +97,8 @@ const bookingCount = computed(() => {
               <p class="body text-sm text-[#B08898]">гостей</p>
             </div>
             <div class="text-center sm:text-left">
-              <div class="headline text-4xl text-pink-gradient mb-1">−30%</div>
-              <p class="body text-sm text-[#B08898]">до конца июля</p>
+              <div class="headline text-4xl text-pink-gradient mb-1">−20%</div>
+              <p class="body text-sm text-[#B08898]">на первый визит</p>
             </div>
             <div class="text-center sm:text-left">
               <div class="flex items-center justify-center sm:justify-start gap-1 mb-1">
@@ -154,8 +154,8 @@ const bookingCount = computed(() => {
               class="absolute -bottom-4 -right-4 glass-pink rounded-2xl px-5 py-3"
               style="box-shadow: 0 8px 32px rgba(233,30,140,0.2)"
             >
-              <p class="label text-[10px] text-[#C2185B] mb-0.5">Радужное предложение</p>
-              <p class="headline text-2xl text-[#E91E8C]">−30%</p>
+              <p class="label text-[10px] text-[#C2185B] mb-0.5">Первый визит</p>
+              <p class="headline text-2xl text-[#E91E8C]">−20%</p>
             </div>
 
             <!-- Бейдж звёзд — iOS стиль -->

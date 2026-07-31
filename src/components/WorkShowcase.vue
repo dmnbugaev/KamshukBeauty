@@ -1,15 +1,12 @@
 <script setup lang="ts">
-const categories = ['Все', 'Маникюр', 'Ресницы', 'Макияж', 'Брови']
+const categories = ['Все', 'Маникюр', 'Педикюр', 'Ресницы', 'Макияж', 'Брови']
 
 const works = [
-  { id: 1, category: 'Маникюр', image: '/images/portfolio/nail_1.jpg' },
-  { id: 2, category: 'Ресницы', image: '/images/portfolio/r_1.jpg' },
-  { id: 3, category: 'Макияж', image: '/images/portfolio/make_2.jpg' },
-  { id: 4, category: 'Брови', image: '/images/portfolio/b_1.jpg' },
-  { id: 5, category: 'Маникюр', image: '/images/portfolio/nail_2.jpg' },
-  { id: 6, category: 'Макияж', image: '/images/portfolio/make_1.jpg' },
-  { id: 7, category: 'Маникюр', image: '/images/portfolio/nail_5.jpg' },
-  { id: 8, category: 'Маникюр', image: '/images/portfolio/nail_4.jpg' },
+  ...Array.from({ length: 19 }, (_, index) => ({ id: `nail-${index + 1}`, category: 'Маникюр', image: `/images/portfolio/nail_${index + 1}.jpg` })),
+  ...Array.from({ length: 4 }, (_, index) => ({ id: `ped-${index + 1}`, category: 'Педикюр', image: `/images/portfolio/ped_${index + 1}.jpg` })),
+  ...Array.from({ length: 5 }, (_, index) => ({ id: `lashes-${index + 1}`, category: 'Ресницы', image: `/images/portfolio/r_${index + 1}.jpg` })),
+  ...Array.from({ length: 2 }, (_, index) => ({ id: `makeup-${index + 1}`, category: 'Макияж', image: `/images/portfolio/make_${index + 1}.jpg` })),
+  { id: 'brows-1', category: 'Брови', image: '/images/portfolio/b_1.jpg' },
 ]
 
 const active = ref('Все')

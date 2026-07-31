@@ -1,11 +1,11 @@
 <script setup lang="ts">
 useHead({
-  title: 'Педикюр в Коммунарке — от 2 450 ₽ | Камшук Бьюти',
+  title: 'Педикюр в Коммунарке — от 3 200 ₽ | Камшук Бьюти',
   meta: [
-    { name: 'description', content: 'Смарт-педикюр и аппаратный педикюр в Коммунарке (Москва) от 2 450 ₽ по Радужному предложению до конца июля. Ежедневно 10:00–22:00. Запись онлайн.' },
+    { name: 'description', content: 'Смарт-педикюр и аппаратный педикюр в Коммунарке (Москва) от 3 200 ₽. Скидка 20% на первый визит. Ежедневно 10:00–22:00.' },
     { name: 'keywords', content: 'педикюр Коммунарка, смарт педикюр Коммунарка, аппаратный педикюр Коммунарка, педикюр Новая Москва, педикюр ТиНАО' },
-    { property: 'og:title', content: 'Педикюр в Коммунарке — Камшук Бьюти от 2 450 ₽' },
-    { property: 'og:description', content: 'Смарт-педикюр и аппаратный педикюр в Коммунарке. До конца июля скидка 30% на все услуги.' },
+    { property: 'og:title', content: 'Педикюр в Коммунарке — Камшук Бьюти от 3 200 ₽' },
+    { property: 'og:description', content: 'Смарт-педикюр и аппаратный педикюр в Коммунарке. Скидка 20% новым гостям на первый визит.' },
     { property: 'og:image', content: 'https://kamshukbeauty.ru/images/4_foto/manik.jpg' },
     { property: 'og:url', content: 'https://kamshukbeauty.ru/pedikyur' },
   ],
@@ -21,8 +21,8 @@ useHead({
         provider: { '@type': 'BeautySalon', name: 'Камшук Бьюти', url: 'https://kamshukbeauty.ru' },
         areaServed: { '@type': 'City', name: 'Москва' },
         offers: [
-          { '@type': 'Offer', name: 'Смарт-педикюр', price: '2450', priceCurrency: 'RUB' },
-          { '@type': 'Offer', name: 'Аппаратный педикюр', price: '2240', priceCurrency: 'RUB' },
+          { '@type': 'Offer', name: 'Смарт-педикюр', price: '3500', priceCurrency: 'RUB' },
+          { '@type': 'Offer', name: 'Аппаратный педикюр', price: '3200', priceCurrency: 'RUB' },
         ],
       },
       {
@@ -38,9 +38,9 @@ useHead({
 })
 
 const prices = [
-  { name: 'Смарт-педикюр', oldPrice: '3 500 ₽', price: '2 450 ₽', desc: 'Аппаратная обработка + покрытие гель-лак' },
-  { name: 'Аппаратный педикюр (без покрытия)', oldPrice: '3 200 ₽', price: '2 240 ₽', desc: 'Профессиональная обработка стоп и ногтей' },
-  { name: 'Комплекс маникюр + педикюр', oldPrice: 'от 6 000 ₽', price: 'от 4 200 ₽', desc: 'Ногти на руках и ногах за один визит' },
+  { name: 'Смарт-педикюр', price: '3 500 ₽', desc: 'Аппаратная обработка + покрытие гель-лак' },
+  { name: 'Аппаратный педикюр (без покрытия)', price: '3 200 ₽', desc: 'Профессиональная обработка стоп и ногтей' },
+  { name: 'Комплекс маникюр + педикюр', price: 'от 6 000 ₽', desc: 'Ногти на руках и ногах за один визит' },
 ]
 
 const faqs = [
@@ -60,7 +60,7 @@ const open = ref<number | null>(null)
         <Breadcrumb :items="[{ label: 'Педикюр в Коммунарке' }]" />
         <div class="grid lg:grid-cols-2 gap-12 items-center max-w-[1320px] mx-auto">
           <div>
-            <div class="section-label mb-6">Радужное предложение · скидка 30% до конца июля</div>
+            <div class="section-label mb-6">Скидка 20% на первый визит</div>
             <h1 class="display text-4xl lg:text-5xl text-[#1A1A2E] mb-6 leading-tight">
               Педикюр<br /><span class="text-pink-shimmer">в Коммунарке</span>
             </h1>
@@ -73,9 +73,9 @@ const open = ref<number | null>(null)
               <a href="tel:+79771075005" class="btn-outline-pink inline-block text-center">+7 (977) 107-50-05</a>
             </div>
             <div class="grid grid-cols-3 gap-6">
-              <div><PromoPrice old-price="от 3 500 ₽" new-price="от 2 450 ₽" size="lg" align="left" /><p class="body text-xs text-[#B08898]">стоимость</p></div>
+              <div><div class="headline text-3xl text-pink-gradient mb-1">от 3 200 ₽</div><p class="body text-xs text-[#B08898]">стоимость</p></div>
               <div><div class="headline text-3xl text-pink-gradient mb-1">4–6 нед.</div><p class="body text-xs text-[#B08898]">держится покрытие</p></div>
-              <div><div class="headline text-3xl text-pink-gradient mb-1">−30%</div><p class="body text-xs text-[#B08898]">до конца июля</p></div>
+              <div><div class="headline text-3xl text-pink-gradient mb-1">−20%</div><p class="body text-xs text-[#B08898]">первый визит</p></div>
             </div>
             <p class="body text-xs text-[#B08898] mt-5">
               * Предложение действует только на первый визит. Скидки и акции не суммируются.
@@ -97,7 +97,7 @@ const open = ref<number | null>(null)
           <div v-for="item in prices" :key="item.name" class="card-luxury rounded-2xl p-6">
             <div class="flex flex-col gap-2 sm:flex-row sm:justify-between sm:items-start mb-2">
               <h3 class="headline text-base text-[#1A1A2E]">{{ item.name }}</h3>
-              <PromoPrice class="sm:ml-4 shrink-0" :old-price="item.oldPrice" :new-price="item.price" align="left" />
+              <span class="label text-sm text-[#E91E8C] sm:ml-4 shrink-0">{{ item.price }}</span>
             </div>
             <p class="body text-xs text-[#B08898]">{{ item.desc }}</p>
           </div>

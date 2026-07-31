@@ -4,8 +4,8 @@ const services = [
     title: 'Ногтевой сервис',
     description: 'Маникюр и педикюр гель-лак, наращивание. Покрытие держится до следующего визита — гарантируем качество',
     image: '/images/4_foto/manik.jpg',
-    oldPrice: 'от 1 400 ₽',
-    price: 'от 980 ₽',
+    oldPrice: '',
+    price: 'от 1 400 ₽',
     tag: 'Популярно',
     icon: '💅',
     iconClass: 'ios-pink',
@@ -15,8 +15,8 @@ const services = [
     title: 'Ресницы & Брови',
     description: 'Наращивание, ламинирование, коррекция бровей — выразительный взгляд без ежедневного макияжа',
     image: '/images/4_foto/resnici_i_brovi.jpg',
-    oldPrice: 'от 1 500 ₽',
-    price: 'от 1 050 ₽',
+    oldPrice: '',
+    price: 'от 1 500 ₽',
     tag: '',
     icon: '✨',
     iconClass: 'ios-rose',
@@ -26,8 +26,8 @@ const services = [
     title: 'Макияж',
     description: 'Дневной, вечерний, свадебный. Подчеркнём вашу красоту для любого события — от деловой встречи до торжества',
     image: '/images/4_foto/make.jpg',
-    oldPrice: 'от 3 500 ₽',
-    price: 'от 2 450 ₽',
+    oldPrice: '',
+    price: 'от 3 500 ₽',
     tag: '',
     icon: '💄',
     iconClass: 'ios-blush',
@@ -54,17 +54,17 @@ const services = [
       <!-- Заголовок секции -->
       <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-20">
         <div class="max-w-xl">
-          <div class="section-label mb-5">Радужное предложение</div>
+          <div class="section-label mb-5">Наши услуги</div>
           <h2 class="display text-4xl lg:text-5xl text-[#1A1A2E] leading-tight">
             Что мы<br />предлагаем
           </h2>
         </div>
         <p class="body text-base text-[#B08898] max-w-sm lg:text-right">
-          До конца июля действует скидка 30% на все услуги. Используем только
+          Новым гостям дарим скидку 20% на первый визит. Используем только
           премиальные материалы, авторские и проверенные техники
         </p>
         <p class="body text-xs text-[#B08898] max-w-sm lg:text-right">
-          * Предложение действует только на первый визит. Скидки и акции не суммируются.
+          * Скидки и предложения не суммируются.
         </p>
       </div>
 

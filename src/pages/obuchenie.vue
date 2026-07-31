@@ -4,7 +4,7 @@ useHead({
   meta: [
     {
       name: 'description',
-      content: 'Школа-студия Анастасии Камшук. Весь июль обучение со скидкой 10 000 ₽: курс мастера маникюра 25 000 ₽ вместо 35 000 ₽, смарт педикюра 18 000 ₽ вместо 28 000 ₽.',
+      content: 'Школа-студия Анастасии Камшук. При записи в текущем месяце скидка 5 000 ₽: курс мастера маникюра 30 000 ₽ вместо 35 000 ₽, мастера педикюра 23 000 ₽ вместо 28 000 ₽.',
     },
     {
       property: 'og:title',
@@ -31,8 +31,8 @@ useHead({
           '@type': 'OfferCatalog',
           name: 'Курсы обучения',
           itemListElement: [
-            { '@type': 'Offer', itemOffered: { '@type': 'Course', name: 'Мастер маникюра', timeRequired: 'P3D' }, price: '25000', priceCurrency: 'RUB' },
-            { '@type': 'Offer', itemOffered: { '@type': 'Course', name: 'Мастер педикюра', timeRequired: 'P2D' }, price: '18000', priceCurrency: 'RUB' },
+            { '@type': 'Offer', itemOffered: { '@type': 'Course', name: 'Мастер маникюра', timeRequired: 'P3D' }, price: '30000', priceCurrency: 'RUB' },
+            { '@type': 'Offer', itemOffered: { '@type': 'Course', name: 'Мастер педикюра', timeRequired: 'P2D' }, price: '23000', priceCurrency: 'RUB' },
           ],
         },
       }),
@@ -73,7 +73,7 @@ const packages = [
     displayTitle: 'Мастер ногтевого сервиса',
     duration: '5 дней',
     oldPrice: '50 000 ₽',
-    price: '40 000 ₽',
+    price: '45 000 ₽',
     includes: '3 дня маникюр + 2 дня педикюр',
     popular: false,
   },
@@ -82,7 +82,7 @@ const packages = [
     displayTitle: 'Топ-мастер ногтевого сервиса',
     duration: '7 дней',
     oldPrice: '60 000 ₽',
-    price: '50 000 ₽',
+    price: '55 000 ₽',
     includes: '3 дня маникюр + 2 дня педикюр + 2 дня моделирование',
     popular: true,
   },
@@ -91,7 +91,7 @@ const packages = [
     displayTitle: 'VIP-мастер ногтевого сервиса',
     duration: '9 дней',
     oldPrice: '70 000 ₽',
-    price: '60 000 ₽',
+    price: '65 000 ₽',
     includes: '3 дня маникюр + 2 дня педикюр + 2 дня моделирование + 2 дня верхние формы',
     popular: false,
   },
@@ -119,7 +119,7 @@ const contactLinks = [
   <div class="pt-20">
     <section id="obuchenie" class="py-20 lg:py-28 overflow-hidden" style="background: linear-gradient(160deg, #FFF8FC 0%, #FFFFFF 48%, #FFF4F9 100%)">
       <div class="container">
-        <div class="grid lg:grid-cols-[1.05fr_0.95fr] gap-10 lg:gap-16 items-center">
+        <div class="max-w-4xl">
           <div>
             <p class="section-label mb-5">Обучение</p>
             <h1 class="display text-4xl lg:text-5xl text-[#1A1A2E] mb-6">
@@ -129,7 +129,7 @@ const contactLinks = [
               Практические курсы маникюра и smart-педикюра для тех, кто хочет уверенно выйти в профессию и работать на качественном уровне.
             </p>
             <div class="inline-flex max-w-full rounded-full bg-[#D81B60] px-5 py-2 label text-[11px] text-white mb-8">
-              Скидка 10 000 ₽ на все программы обучения в июле
+              Скидка 5 000 ₽ при записи в текущем месяце
             </div>
             <div class="grid sm:grid-cols-3 gap-3 mb-8">
               <div class="glass-pink rounded-2xl p-4">
@@ -151,18 +151,6 @@ const contactLinks = [
             </div>
           </div>
 
-          <div class="relative">
-            <div class="absolute -top-5 -right-5 bottom-8 left-8 rounded-3xl border border-[#E91E8C]/15" />
-            <picture class="relative block aspect-[4/5] md:aspect-[21/16] lg:aspect-[4/5] overflow-hidden rounded-3xl bg-white shadow-[0_24px_80px_rgba(233,30,140,0.12)]">
-              <source media="(max-width: 767px)" :srcset="'/images/obuch1.jpg'" />
-              <source media="(min-width: 768px)" :srcset="'/images/obuch.png'" />
-              <img
-                src="/images/obuch.png"
-                alt="Обучение маникюру в студии Камшук Бьюти"
-                class="w-full h-full object-cover"
-              />
-            </picture>
-          </div>
         </div>
       </div>
     </section>
@@ -184,7 +172,7 @@ const contactLinks = [
                 <p class="label text-[10px] text-[#E91E8C] mb-2">3 дня</p>
                 <h3 class="headline text-2xl text-[#1A1A2E]">Мастер маникюра</h3>
               </div>
-              <PromoPrice old-price="35 000 ₽" new-price="25 000 ₽" align="left" note="цена в июле" />
+              <PromoPrice old-price="35 000 ₽" new-price="30 000 ₽" align="left" note="при записи в текущем месяце" />
             </div>
             <p class="body text-sm text-[#6B4F5A] mb-6">
               Авторский ровный срез, аппаратная техника, выравнивание ногтевой пластины, покрытие под кутикулу и работа с дизайнами.
@@ -203,7 +191,7 @@ const contactLinks = [
                 <p class="label text-[10px] text-[#E91E8C] mb-2">2 дня</p>
                 <h3 class="headline text-2xl text-[#1A1A2E]">Мастер педикюра</h3>
               </div>
-              <PromoPrice old-price="28 000 ₽" new-price="18 000 ₽" align="left" note="цена в июле" />
+              <PromoPrice old-price="28 000 ₽" new-price="23 000 ₽" align="left" note="при записи в текущем месяце" />
             </div>
             <p class="body text-sm text-[#6B4F5A] mb-6">
               Современные техники ухода за стопами, аппаратный, COMBI и smart-педикюр с профессиональным оборудованием.
@@ -217,7 +205,7 @@ const contactLinks = [
             <div class="mt-8 rounded-2xl bg-[#FFF4F9] p-5">
               <p class="headline text-lg text-[#1A1A2E] mb-2">После курса</p>
               <p class="body text-sm text-[#6B4F5A]">
-                Вы сможете приступить к работе в салоне красоты или начать принимать клиентов самостоятельно.
+                Вы сможете приступить к работе в салоне красоты или начать принимать гостей самостоятельно.
               </p>
             </div>
           </div>
@@ -253,7 +241,7 @@ const contactLinks = [
             </div>
             <p class="label text-[10px] text-[#B08898] mb-2">{{ pkg.duration }}</p>
             <h3 class="headline text-xl text-[#1A1A2E] mb-4">{{ pkg.displayTitle }}</h3>
-            <PromoPrice :old-price="pkg.oldPrice" :new-price="pkg.price" size="lg" align="left" note="скидка 10 000 ₽ в июле" />
+            <PromoPrice :old-price="pkg.oldPrice" :new-price="pkg.price" size="lg" align="left" note="скидка 5 000 ₽ при записи в текущем месяце" />
             <p class="body text-sm text-[#6B4F5A] mt-5">{{ pkg.includes }}</p>
           </div>
         </div>
@@ -267,7 +255,7 @@ const contactLinks = [
             <p class="section-label mb-5">Преимущества</p>
             <h2 class="display text-4xl lg:text-5xl text-[#1A1A2E] mb-5">Что вы получаете</h2>
             <p class="body text-base text-[#B08898]">
-              Обучение построено вокруг практики и понятной системы: от постановки руки до портфолио и первых клиентов.
+              Обучение построено вокруг практики и понятной системы: от постановки руки до портфолио и первых гостей.
             </p>
           </div>
           <div class="grid sm:grid-cols-2 gap-4">
