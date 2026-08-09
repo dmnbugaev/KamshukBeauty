@@ -1,12 +1,15 @@
 <script setup lang="ts">
-const categories = ['Все', 'Маникюр', 'Педикюр', 'Ресницы', 'Макияж', 'Брови']
+const categories = ['Все', 'Маникюр', 'Педикюр', 'Ресницы', 'Макияж', 'Брови', 'Перманентный макияж']
 
 const works = [
   ...Array.from({ length: 19 }, (_, index) => ({ id: `nail-${index + 1}`, category: 'Маникюр', image: `/images/portfolio/nail_${index + 1}.jpg` })),
-  ...Array.from({ length: 4 }, (_, index) => ({ id: `ped-${index + 1}`, category: 'Педикюр', image: `/images/portfolio/ped_${index + 1}.jpg` })),
+  ...[1, 2, 4].map((index) => ({ id: `ped-${index}`, category: 'Педикюр', image: `/images/portfolio/ped_${index}.jpg` })),
   ...Array.from({ length: 5 }, (_, index) => ({ id: `lashes-${index + 1}`, category: 'Ресницы', image: `/images/portfolio/r_${index + 1}.jpg` })),
   ...Array.from({ length: 2 }, (_, index) => ({ id: `makeup-${index + 1}`, category: 'Макияж', image: `/images/portfolio/make_${index + 1}.jpg` })),
   { id: 'brows-1', category: 'Брови', image: '/images/portfolio/b_1.jpg' },
+  { id: 'permanent-lips', category: 'Перманентный макияж', image: '/images/new_foto/photo_2026-08-09_15-45-48.jpg' },
+  { id: 'permanent-eyes', category: 'Перманентный макияж', image: '/images/new_foto/photo_2026-08-09_15-45-51.jpg' },
+  { id: 'permanent-brows', category: 'Перманентный макияж', image: '/images/portfolio/b_1.jpg' },
 ]
 
 const active = ref('Все')

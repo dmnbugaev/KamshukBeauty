@@ -26,6 +26,7 @@ const internalRoutes = [
   '/naraschivanie-resnic',
   '/brovi',
   '/makiyazh',
+  '/permanentnyj-makiyazh',
   '/obuchenie',
   '/blog',
   '/privacy',
@@ -271,7 +272,25 @@ test.describe('updated studio content', () => {
     await expect(offers).toContainText('10-й маникюр или педикюр-комплекс в подарок')
     await expect(page.locator('#about')).toContainText('Валерия')
     await expect(page.locator('#about')).toContainText('Ника')
-    await expect(page.locator('#work img')).toHaveCount(31)
+    await expect(page.locator('#about')).toContainText('Оксана')
+    await expect(page.locator('#services')).toContainText('Перманентный макияж')
+    await expect(page.locator('#work')).toContainText('Перманентный макияж')
+    await expect(page.locator('#work img')).toHaveCount(33)
+
+    const permanentPrices = page.locator('#перманентный-макияж')
+    await expect(permanentPrices).toContainText('Стрелка')
+    await expect(permanentPrices).toContainText('Межресничка')
+    await expect(page.locator('#ресницы-брови')).not.toContainText('Стрелка')
+    await expect(page.locator('#ресницы-брови')).not.toContainText('Межресничка')
+  })
+
+  test('shows the updated pedicure training price and unique course message', async ({ page }) => {
+    await page.goto('/obuchenie', { waitUntil: 'domcontentloaded' })
+
+    await expect(page.getByText('Мастер педикюра', { exact: true })).toBeVisible()
+    await expect(page.getByText('25 000 ₽', { exact: true })).toBeVisible()
+    await expect(page.locator('main')).not.toContainText('23 000 ₽')
+    await expect(page.locator('main')).toContainText('мы раскрываем авторские техники и профессиональные приёмы')
   })
 })
 
@@ -291,7 +310,7 @@ test.describe('navigation', () => {
 })
 
 test.describe('accessibility', () => {
-  for (const route of ['/', '/blog', '/manikyur']) {
+  for (const route of ['/', '/blog', '/manikyur', '/permanentnyj-makiyazh']) {
     test(`has no critical axe violations on ${route}`, async ({ page }) => {
       await page.goto(route, { waitUntil: 'domcontentloaded' })
 

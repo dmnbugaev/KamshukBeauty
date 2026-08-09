@@ -105,7 +105,7 @@
           <p class="section-label mb-4">Наши мастера</p>
           <h2 class="display text-3xl lg:text-4xl text-[#1A1A2E]">Познакомьтесь с командой</h2>
         </div>
-        <div class="grid md:grid-cols-2 gap-6 max-w-5xl">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl">
           <article class="card-luxury rounded-3xl overflow-hidden bg-white">
             <img src="/images/photo_2026-07-31_19-35-01.jpg" alt="Валерия — мастер ногтевого сервиса Камшук Бьюти" class="w-full aspect-[4/5] object-cover" loading="lazy" width="720" height="1280" />
             <div class="p-6">
@@ -118,6 +118,13 @@
             <div class="p-6">
               <h3 class="headline text-2xl text-[#1A1A2E] mb-2">Ника</h3>
               <p class="body text-sm text-[#B08898]">Бровист-визажист, ламимейкер</p>
+            </div>
+          </article>
+          <article class="card-luxury rounded-3xl overflow-hidden bg-white">
+            <img src="/images/new_foto/photo_2026-08-09_15-45-52.jpg" alt="Оксана — мастер по перманентному макияжу Камшук Бьюти" class="w-full aspect-[4/5] object-cover" loading="lazy" width="960" height="1280" />
+            <div class="p-6">
+              <h3 class="headline text-2xl text-[#1A1A2E] mb-2">Оксана</h3>
+              <p class="body text-sm text-[#B08898]">Мастер по перманентному макияжу</p>
             </div>
           </article>
         </div>

@@ -4,7 +4,7 @@ useHead({
   meta: [
     {
       name: 'description',
-      content: 'Школа-студия Анастасии Камшук. При записи в текущем месяце скидка 5 000 ₽: курс мастера маникюра 30 000 ₽ вместо 35 000 ₽, мастера педикюра 23 000 ₽ вместо 28 000 ₽.',
+      content: 'Школа-студия Анастасии Камшук. Специальные цены при записи в текущем месяце: курс мастера маникюра 30 000 ₽ вместо 35 000 ₽, мастера педикюра 25 000 ₽ вместо 28 000 ₽.',
     },
     {
       property: 'og:title',
@@ -32,7 +32,7 @@ useHead({
           name: 'Курсы обучения',
           itemListElement: [
             { '@type': 'Offer', itemOffered: { '@type': 'Course', name: 'Мастер маникюра', timeRequired: 'P3D' }, price: '30000', priceCurrency: 'RUB' },
-            { '@type': 'Offer', itemOffered: { '@type': 'Course', name: 'Мастер педикюра', timeRequired: 'P2D' }, price: '23000', priceCurrency: 'RUB' },
+            { '@type': 'Offer', itemOffered: { '@type': 'Course', name: 'Мастер педикюра', timeRequired: 'P2D' }, price: '25000', priceCurrency: 'RUB' },
           ],
         },
       }),
@@ -128,8 +128,11 @@ const contactLinks = [
             <p class="body text-lg text-[#6B4F5A] mb-6">
               Практические курсы маникюра и smart-педикюра для тех, кто хочет уверенно выйти в профессию и работать на качественном уровне.
             </p>
+            <p class="body text-base text-[#6B4F5A] mb-6 max-w-3xl leading-relaxed">
+              Обучение в Камшук Бьюти даёт особенные знания: мы раскрываем авторские техники и профессиональные приёмы, которые невозможно получить где-либо ещё.
+            </p>
             <div class="inline-flex max-w-full rounded-full bg-[#D81B60] px-5 py-2 label text-[11px] text-white mb-8">
-              Скидка 5 000 ₽ при записи в текущем месяце
+              Специальные цены при записи в текущем месяце
             </div>
             <div class="grid sm:grid-cols-3 gap-3 mb-8">
               <div class="glass-pink rounded-2xl p-4">
@@ -191,7 +194,7 @@ const contactLinks = [
                 <p class="label text-[10px] text-[#E91E8C] mb-2">2 дня</p>
                 <h3 class="headline text-2xl text-[#1A1A2E]">Мастер педикюра</h3>
               </div>
-              <PromoPrice old-price="28 000 ₽" new-price="23 000 ₽" align="left" note="при записи в текущем месяце" />
+              <PromoPrice old-price="28 000 ₽" new-price="25 000 ₽" align="left" note="при записи в текущем месяце" />
             </div>
             <p class="body text-sm text-[#6B4F5A] mb-6">
               Современные техники ухода за стопами, аппаратный, COMBI и smart-педикюр с профессиональным оборудованием.
