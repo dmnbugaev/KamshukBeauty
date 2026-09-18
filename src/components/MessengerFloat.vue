@@ -1,6 +1,9 @@
 <script setup lang="ts">
 const expanded = ref(false)
 const root = ref<HTMLElement | null>(null)
+const toggleRef = ref<HTMLButtonElement | null>(null)
+const { decided } = useCookieConsent()
+const menuOpen = useState('mobile-menu-open', () => false)
 
 const messengers = [
   {
@@ -42,8 +45,9 @@ const close = () => {
 }
 
 const handleKeydown = (event: KeyboardEvent) => {
-  if (event.key === 'Escape') {
+  if (event.key === 'Escape' && expanded.value) {
     close()
+    toggleRef.value?.focus()
   }
 }
 
@@ -65,10 +69,10 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div ref="root" class="fixed bottom-4 right-4 sm:bottom-6 sm:right-5 z-50 flex max-w-[calc(100vw-2rem)] flex-col items-end gap-3">
+  <div v-if="decided && !menuOpen" ref="root" class="messenger-float fixed bottom-4 right-4 sm:bottom-6 sm:right-5 z-50 flex max-w-[calc(100vw-2rem)] flex-col items-end gap-3">
 
     <!-- Дополнительные мессенджеры (раскрываются вверх) -->
-    <TransitionGroup name="messenger-list" tag="div" class="flex flex-col items-end gap-3">
+    <TransitionGroup id="messenger-links" name="messenger-list" tag="div" class="flex flex-col items-end gap-3">
       <a
         v-for="m in expanded ? messengers : []"
         :key="m.name"
@@ -90,7 +94,7 @@ onUnmounted(() => {
       <Transition name="label-fade">
         <span
           v-if="!expanded"
-          class="label text-[11px] text-white px-3 py-1.5 rounded-full pointer-events-none"
+          class="hidden sm:block label text-[11px] text-white px-3 py-1.5 rounded-full pointer-events-none"
           style="background: rgba(26,26,46,0.7); backdrop-filter: blur(8px)"
         >
           Написать нам
@@ -98,6 +102,9 @@ onUnmounted(() => {
       </Transition>
 
       <button
+        ref="toggleRef"
+        type="button"
+        aria-controls="messenger-links"
         class="w-14 h-14 rounded-full flex items-center justify-center text-white transition-all duration-300 hover:scale-110 active:scale-95"
         style="background: linear-gradient(135deg, #E91E8C, #C2185B); box-shadow: 0 8px 28px rgba(233,30,140,0.45)"
         :aria-label="expanded ? 'Закрыть' : 'Написать нам'"
@@ -119,6 +126,15 @@ onUnmounted(() => {
 </template>
 
 <style scoped>
+.messenger-float {
+  bottom: max(16px, env(safe-area-inset-bottom));
+  max-height: calc(100dvh - var(--header-height) - 32px);
+  overflow-y: auto;
+  padding: 8px;
+  margin: -8px;
+  overscroll-behavior: contain;
+}
+
 .messenger-list-enter-active,
 .messenger-list-leave-active {
   transition: all 0.25s ease;

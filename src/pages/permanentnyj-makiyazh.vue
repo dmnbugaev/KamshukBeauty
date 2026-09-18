@@ -6,7 +6,7 @@ useHead({
     { name: 'keywords', content: 'перманентный макияж Коммунарка, пудровые брови Коммунарка, напыление губ Коммунарка, межресничка Коммунарка, перманентный макияж Новая Москва' },
     { property: 'og:title', content: 'Перманентный макияж в Коммунарке — Камшук Бьюти' },
     { property: 'og:description', content: 'Пудровые брови, напыление губ, стрелка и межресничка. Стойкий результат и бережная работа мастера.' },
-    { property: 'og:image', content: 'https://kamshukbeauty.ru/images/new_foto/photo_2026-08-09_15-45-48.jpg' },
+    { property: 'og:image', content: 'https://kamshukbeauty.ru/images/services/permanent-makeup/lips.jpg' },
     { property: 'og:url', content: 'https://kamshukbeauty.ru/permanentnyj-makiyazh' },
   ],
   link: [{ rel: 'canonical', href: 'https://kamshukbeauty.ru/permanentnyj-makiyazh' }],
@@ -57,7 +57,7 @@ const open = ref<number | null>(null)
 </script>
 
 <template>
-  <div class="pt-20">
+  <div class="service-page">
     <section class="py-20 relative overflow-hidden" style="background: radial-gradient(ellipse at 80% 20%, rgba(233,30,140,0.08) 0%, transparent 60%), #FFFFFF">
       <div class="container">
         <Breadcrumb :items="[{ label: 'Перманентный макияж' }]" />
@@ -75,16 +75,16 @@ const open = ref<number | null>(null)
               <a href="https://n1407035.yclients.com/company/1274992/personal/select-services?o=" target="_blank" rel="noopener noreferrer" class="btn-pink inline-block text-center">Записаться онлайн</a>
               <a href="tel:+79771075005" class="btn-outline-pink inline-block text-center">+7 (977) 107-50-05</a>
             </div>
-            <div class="grid grid-cols-3 gap-6">
-              <div><div class="headline text-3xl text-pink-gradient mb-1">от 12 000 ₽</div><p class="body text-xs text-[#B08898]">стоимость</p></div>
-              <div><div class="headline text-3xl text-pink-gradient mb-1">1–3 года</div><p class="body text-xs text-[#B08898]">держится эффект</p></div>
-              <div><div class="headline text-3xl text-pink-gradient mb-1">−20%</div><p class="body text-xs text-[#B08898]">первый визит</p></div>
+            <div class="service-stats grid grid-cols-3 gap-3 sm:gap-6">
+              <div><div class="headline text-3xl text-pink-gradient mb-1">от <span class="service-stat-price whitespace-nowrap">12 000 ₽</span></div><p class="body text-xs text-muted">стоимость</p></div>
+              <div><div class="headline text-3xl text-pink-gradient mb-1">1–3 года</div><p class="body text-xs text-muted">держится эффект</p></div>
+              <div><div class="headline text-3xl text-pink-gradient mb-1">−20%</div><p class="body text-xs text-muted">первый визит</p></div>
             </div>
-            <p class="body text-xs text-[#B08898] mt-5">* Предложение действует только на первый визит. Скидки и акции не суммируются.</p>
+            <p class="body text-xs text-muted mt-5">* Предложение действует только на первый визит. Скидки и акции не суммируются.</p>
           </div>
           <div class="relative">
             <div class="aspect-[4/3] overflow-hidden rounded-3xl" style="box-shadow: 0 24px 80px rgba(233,30,140,0.15)">
-              <img src="/images/new_foto/photo_2026-08-09_15-45-48.jpg" alt="Перманентный макияж губ в Камшук Бьюти" class="w-full h-full object-cover" width="960" height="1280" />
+              <img src="/images/services/permanent-makeup/lips.jpg" alt="Перманентный макияж губ в Камшук Бьюти" class="w-full h-full object-cover" width="960" height="1280" />
             </div>
           </div>
         </div>
@@ -98,9 +98,9 @@ const open = ref<number | null>(null)
           <div v-for="item in prices" :key="item.name" class="card-luxury rounded-2xl p-6">
             <div class="flex flex-col gap-2 sm:flex-row sm:justify-between sm:items-start mb-2">
               <h3 class="headline text-base text-[#1A1A2E]">{{ item.name }}</h3>
-              <span class="label text-sm text-[#E91E8C] sm:ml-4 shrink-0">{{ item.price }}</span>
+              <span class="label text-sm text-accent sm:ml-4 shrink-0">{{ item.price }}</span>
             </div>
-            <p class="body text-xs text-[#B08898]">{{ item.desc }}</p>
+            <p class="body text-xs text-muted">{{ item.desc }}</p>
           </div>
         </div>
       </div>
@@ -110,7 +110,7 @@ const open = ref<number | null>(null)
       <div class="container">
         <div class="grid lg:grid-cols-2 gap-12 items-center max-w-[1120px] mx-auto">
           <div class="aspect-square overflow-hidden rounded-3xl" style="box-shadow: 0 24px 80px rgba(233,30,140,0.12)">
-            <img src="/images/new_foto/photo_2026-08-09_15-45-51.jpg" alt="Перманентный макияж глаз — стрелка и межресничка" class="w-full h-full object-cover" width="960" height="1280" loading="lazy" />
+            <img src="/images/services/permanent-makeup/eyes.jpg" alt="Перманентный макияж глаз — стрелка и межресничка" class="w-full h-full object-cover" width="960" height="1280" loading="lazy" />
           </div>
           <div>
             <div class="section-label mb-5">Индивидуальный результат</div>
@@ -129,13 +129,13 @@ const open = ref<number | null>(null)
         <div class="max-w-xl mb-12"><div class="section-label mb-4">FAQ</div><h2 class="display text-3xl lg:text-4xl text-[#1A1A2E]">Вопросы о перманентном макияже</h2></div>
         <div class="max-w-3xl space-y-3">
           <div v-for="(faq, i) in faqs" :key="i" class="rounded-2xl overflow-hidden transition-all duration-300" :style="open === i ? 'border:1.5px solid rgba(233,30,140,0.25);background:linear-gradient(135deg,#FFF4F9,#FFF)' : 'border:1.5px solid rgba(233,30,140,0.1);background:#FFF'">
-            <button class="w-full flex items-center justify-between gap-4 px-6 py-5 text-left" @click="open = open === i ? null : i">
+            <button type="button" :aria-expanded="open === i" :aria-controls="`service-faq-${i}`" class="w-full flex items-center justify-between gap-4 px-6 py-5 text-left" @click="open = open === i ? null : i">
               <span class="headline text-base text-[#1A1A2E]">{{ faq.q }}</span>
               <span class="shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300" :style="open === i ? 'background:linear-gradient(135deg,#E91E8C,#C2185B);transform:rotate(45deg)' : 'background:rgba(233,30,140,0.08)'">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" :stroke="open === i ? '#fff' : '#E91E8C'" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
               </span>
             </button>
-            <Transition name="faq"><div v-if="open === i" class="px-6 pb-5"><div class="pink-divider mb-4"/><p class="body text-sm text-[#6B4F5A] leading-relaxed">{{ faq.a }}</p></div></Transition>
+            <Transition name="faq"><div v-show="open === i" :id="`service-faq-${i}`" class="px-6 pb-5"><div class="pink-divider mb-4"/><p class="body text-sm text-[#6B4F5A] leading-relaxed">{{ faq.a }}</p></div></Transition>
           </div>
         </div>
       </div>
@@ -157,7 +157,6 @@ const open = ref<number | null>(null)
 </template>
 
 <style scoped>
-.faq-enter-active,.faq-leave-active{transition:all .3s ease;overflow:hidden}
-.faq-enter-from,.faq-leave-to{opacity:0;max-height:0}
-.faq-enter-to,.faq-leave-from{opacity:1;max-height:200px}
+.faq-enter-active,.faq-leave-active{transition:opacity .2s ease}
+.faq-enter-from,.faq-leave-to{opacity:0}
 </style>

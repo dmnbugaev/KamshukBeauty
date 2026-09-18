@@ -17,7 +17,7 @@
         <!-- Декоративная деталь -->
         <div class="flex items-center justify-center gap-4 mb-10">
           <div class="w-12 h-px" style="background: linear-gradient(to right, transparent, #E91E8C)" />
-          <span class="text-[#E91E8C] text-xl">✦</span>
+          <span class="text-accent text-xl">✦</span>
           <div class="w-12 h-px" style="background: linear-gradient(to left, transparent, #E91E8C)" />
         </div>
 
@@ -42,7 +42,7 @@
         <!-- Автор -->
         <div class="flex items-center justify-center gap-3">
           <div class="w-8 h-px bg-[#E91E8C]/40" />
-          <p class="label text-[11px] text-[#B08898]">Анастасия Камшук</p>
+          <p class="label text-[11px] text-muted">Анастасия Камшук</p>
           <div class="w-8 h-px bg-[#E91E8C]/40" />
         </div>
 

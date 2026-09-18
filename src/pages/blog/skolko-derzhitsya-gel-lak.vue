@@ -6,7 +6,7 @@ useHead({
     { name: 'keywords', content: 'сколько держится гель-лак, почему отходит гель-лак, маникюр гель-лак срок, как продлить маникюр' },
     { property: 'og:title', content: 'Сколько держится гель-лак? Разбираем по полочкам' },
     { property: 'og:description', content: 'Всё о сроке носки гель-лака: норма, причины скалывания и советы по уходу от мастера.' },
-    { property: 'og:image', content: 'https://kamshukbeauty.ru/images/4_foto/manik.jpg' },
+    { property: 'og:image', content: 'https://kamshukbeauty.ru/images/services/manicure.jpg' },
     { property: 'og:url', content: 'https://kamshukbeauty.ru/blog/skolko-derzhitsya-gel-lak' },
     { property: 'og:type', content: 'article' },
   ],
@@ -21,7 +21,7 @@ useHead({
       author: { '@type': 'Person', name: 'Анастасия Камшук' },
       publisher: { '@type': 'Organization', name: 'Камшук Бьюти', url: 'https://kamshukbeauty.ru' },
       datePublished: '2026-05-12',
-      image: 'https://kamshukbeauty.ru/images/4_foto/manik.jpg',
+      image: 'https://kamshukbeauty.ru/images/services/manicure.jpg',
       mainEntityOfPage: 'https://kamshukbeauty.ru/blog/skolko-derzhitsya-gel-lak',
     }),
   }],
@@ -29,7 +29,7 @@ useHead({
 </script>
 
 <template>
-  <div class="pt-20">
+  <div>
     <article class="py-20 bg-white">
       <div class="container">
         <div class="max-w-3xl mx-auto">
@@ -37,8 +37,8 @@ useHead({
 
           <header class="mb-12">
             <div class="flex items-center gap-3 mb-6">
-              <span class="label text-[10px] px-3 py-1 rounded-full text-[#E91E8C]" style="background: rgba(233,30,140,0.08)">Маникюр</span>
-              <span class="body text-xs text-[#B08898]">12 мая 2026 · Анастасия Камшук</span>
+              <span class="label text-[10px] px-3 py-1 rounded-full text-accent" style="background: rgba(233,30,140,0.08)">Маникюр</span>
+              <span class="body text-xs text-muted">12 мая 2026 · Анастасия Камшук</span>
             </div>
             <h1 class="display text-4xl lg:text-5xl text-[#1A1A2E] mb-6 leading-tight">
               Сколько держится гель-лак и от чего зависит результат
@@ -49,7 +49,7 @@ useHead({
           </header>
 
           <div class="aspect-[16/9] overflow-hidden rounded-3xl mb-12" style="box-shadow: 0 16px 60px rgba(233,30,140,0.1)">
-            <img src="/images/4_foto/manik.jpg" alt="Маникюр гель-лак — Камшук Бьюти" class="w-full h-full object-cover" width="900" height="506" />
+            <img src="/images/services/manicure.jpg" alt="Маникюр гель-лак — Камшук Бьюти" class="w-full h-full object-cover" width="900" height="506" />
           </div>
 
           <div class="prose-beauty space-y-8 body text-base text-[#424242] leading-relaxed">
@@ -63,19 +63,19 @@ useHead({
               <h2 class="headline text-2xl text-[#1A1A2E] mb-4">Почему гель-лак может отходить раньше срока</h2>
               <div class="space-y-4">
                 <div class="glass-pink rounded-2xl p-5">
-                  <h3 class="headline text-base text-[#E91E8C] mb-2">1. Обезжиривание и подготовка ногтя</h3>
+                  <h3 class="headline text-base text-accent mb-2">1. Обезжиривание и подготовка ногтя</h3>
                   <p class="body text-sm text-[#6B4F5A]">Это самый частый виновник. Если ноготь перед нанесением не обезжирен должным образом или на нём остались следы масла, адгезия покрытия снижается в разы. Не используйте крем для рук за 2–3 часа до маникюра.</p>
                 </div>
                 <div class="glass-pink rounded-2xl p-5">
-                  <h3 class="headline text-base text-[#E91E8C] mb-2">2. Слишком тонкая или ослабленная пластина</h3>
+                  <h3 class="headline text-base text-accent mb-2">2. Слишком тонкая или ослабленная пластина</h3>
                   <p class="body text-sm text-[#6B4F5A]">Тонкие, слоящиеся ногти хуже держат любое покрытие. В этом случае мастер наносит укрепляющую базу — она выравнивает пластину и создаёт надёжную основу.</p>
                 </div>
                 <div class="glass-pink rounded-2xl p-5">
-                  <h3 class="headline text-base text-[#E91E8C] mb-2">3. Контакт с водой и бытовой химией</h3>
+                  <h3 class="headline text-base text-accent mb-2">3. Контакт с водой и бытовой химией</h3>
                   <p class="body text-sm text-[#6B4F5A]">Мытьё посуды без перчаток, длительные ванны, контакт с щёлочью — всё это ускоряет износ покрытия. Надевайте перчатки при работе с водой и моющими средствами.</p>
                 </div>
                 <div class="glass-pink rounded-2xl p-5">
-                  <h3 class="headline text-base text-[#E91E8C] mb-2">4. Качество материалов</h3>
+                  <h3 class="headline text-base text-accent mb-2">4. Качество материалов</h3>
                   <p class="body text-sm text-[#6B4F5A]">Бюджетные гель-лаки менее устойчивы. В нашей студии мы используем только сертифицированные профессиональные материалы, которые обеспечивают стойкий результат.</p>
                 </div>
               </div>
@@ -91,7 +91,7 @@ useHead({
                   'Избегайте длительного контакта с горячей водой.',
                   'Приходите на коррекцию вовремя — не затягивайте с визитом дольше 4 недель.',
                 ]" :key="i" class="flex gap-4 p-4 rounded-xl" style="background: rgba(233,30,140,0.04); border: 1px solid rgba(233,30,140,0.1)">
-                  <span class="headline text-lg text-[#E91E8C] shrink-0">{{ i + 1 }}.</span>
+                  <span class="headline text-lg text-accent shrink-0">{{ i + 1 }}.</span>
                   <p class="body text-sm text-[#424242]">{{ tip }}</p>
                 </li>
               </ol>
@@ -113,7 +113,7 @@ useHead({
           </div>
 
           <div class="mt-10 pt-8 border-t border-[#F5F5F5]">
-            <NuxtLink to="/blog" class="body text-sm text-[#E91E8C] hover:underline">← Все статьи блога</NuxtLink>
+            <NuxtLink to="/blog" class="body text-sm text-accent hover:underline">← Все статьи блога</NuxtLink>
           </div>
         </div>
       </div>

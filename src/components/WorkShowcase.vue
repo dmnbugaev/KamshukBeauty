@@ -2,14 +2,13 @@
 const categories = ['Все', 'Маникюр', 'Педикюр', 'Ресницы', 'Макияж', 'Брови', 'Перманентный макияж']
 
 const works = [
-  ...Array.from({ length: 19 }, (_, index) => ({ id: `nail-${index + 1}`, category: 'Маникюр', image: `/images/portfolio/nail_${index + 1}.jpg` })),
-  ...[1, 2, 4].map((index) => ({ id: `ped-${index}`, category: 'Педикюр', image: `/images/portfolio/ped_${index}.jpg` })),
-  ...Array.from({ length: 5 }, (_, index) => ({ id: `lashes-${index + 1}`, category: 'Ресницы', image: `/images/portfolio/r_${index + 1}.jpg` })),
-  ...Array.from({ length: 2 }, (_, index) => ({ id: `makeup-${index + 1}`, category: 'Макияж', image: `/images/portfolio/make_${index + 1}.jpg` })),
-  { id: 'brows-1', category: 'Брови', image: '/images/portfolio/b_1.jpg' },
-  { id: 'permanent-lips', category: 'Перманентный макияж', image: '/images/new_foto/photo_2026-08-09_15-45-48.jpg' },
-  { id: 'permanent-eyes', category: 'Перманентный макияж', image: '/images/new_foto/photo_2026-08-09_15-45-51.jpg' },
-  { id: 'permanent-brows', category: 'Перманентный макияж', image: '/images/portfolio/b_1.jpg' },
+  ...Array.from({ length: 19 }, (_, index) => ({ id: `nail-${index + 1}`, category: 'Маникюр', image: `/images/portfolio/manicure/nail_${index + 1}.jpg` })),
+  ...[1, 2, 4].map((index) => ({ id: `ped-${index}`, category: 'Педикюр', image: `/images/portfolio/pedicure/ped_${index}.jpg` })),
+  ...Array.from({ length: 5 }, (_, index) => ({ id: `lashes-${index + 1}`, category: 'Ресницы', image: `/images/portfolio/lashes/r_${index + 1}.jpg` })),
+  ...Array.from({ length: 2 }, (_, index) => ({ id: `makeup-${index + 1}`, category: 'Макияж', image: `/images/portfolio/makeup/make_${index + 1}.jpg` })),
+  { id: 'brows-1', category: 'Брови', image: '/images/portfolio/brows/b_1.jpg' },
+  { id: 'permanent-brows', category: 'Перманентный макияж', image: '/images/portfolio/permanent-makeup/brows.jpg' },
+  { id: 'permanent-lips', category: 'Перманентный макияж', image: '/images/portfolio/permanent-makeup/lips.jpg' },
 ]
 
 const active = ref('Все')
@@ -23,7 +22,7 @@ const filtered = computed(() =>
     <div class="container">
 
       <!-- Заголовок -->
-      <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16">
+      <div class="flex flex-col gap-8 mb-16">
         <div>
           <div class="section-label mb-5">Портфолио</div>
           <h2 class="display text-4xl lg:text-5xl text-[#1A1A2E]">Наши работы</h2>
@@ -33,11 +32,14 @@ const filtered = computed(() =>
           <button
             v-for="cat in categories"
             :key="cat"
+            type="button"
+            :aria-pressed="active === cat"
+            aria-controls="portfolio-grid"
             :class="[
-              'label text-[11px] px-5 py-2.5 rounded-full transition-all duration-300',
+              'label min-h-11 text-[11px] px-5 py-2.5 rounded-full transition-all duration-300',
               active === cat
                 ? 'text-white shadow-[0_4px_20px_rgba(233,30,140,0.3)]'
-                : 'bg-white text-[#6B4F5A] hover:border-[#E91E8C] border border-[#F9C5DA] hover:text-[#E91E8C]',
+                : 'bg-white text-[#6B4F5A] hover:border-[#E91E8C] border border-[#F9C5DA] hover:text-accent',
             ]"
             :style="active === cat ? 'background: linear-gradient(135deg, #C2185B, #E91E8C)' : ''"
             @click="active = cat"
@@ -48,7 +50,7 @@ const filtered = computed(() =>
       </div>
 
       <!-- Сетка работ -->
-      <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4">
+      <div id="portfolio-grid" class="relative grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4">
         <TransitionGroup name="portfolio" tag="div" class="contents">
           <div
             v-for="work in filtered"
@@ -69,8 +71,8 @@ const filtered = computed(() =>
               style="background: linear-gradient(to bottom, transparent 30%, rgba(194,24,91,0.55) 100%)"
             />
             <!-- Категория — iOS стиль -->
-            <div class="absolute bottom-3 left-3 opacity-0 group-hover:opacity-100 transition-all duration-400 translate-y-2 group-hover:translate-y-0">
-              <span class="label text-[10px] text-white glass-pink px-3 py-1.5 rounded-full" style="border-color: rgba(255,255,255,0.3)">
+            <div class="absolute bottom-3 left-3 right-3 opacity-0 group-hover:opacity-100 transition-all duration-400 translate-y-2 group-hover:translate-y-0">
+              <span class="label inline-block max-w-full text-[10px] text-[#C2185B] glass-pink px-3 py-1.5 rounded-2xl" style="border-color: rgba(255,255,255,0.3)">
                 {{ work.category }}
               </span>
             </div>
@@ -94,6 +96,6 @@ const filtered = computed(() =>
   transform: scale(0.9);
 }
 .portfolio-leave-active {
-  position: absolute;
+  display: none;
 }
 </style>

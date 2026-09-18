@@ -143,6 +143,7 @@ test.describe('header', () => {
     const errors = collectConsoleErrors(page)
     await page.setViewportSize(desktopViewport)
     await page.goto('/', { waitUntil: 'domcontentloaded' })
+    await page.locator('dialog.welcome-dialog').waitFor({ state: 'attached' })
 
     await expect(getHeader(page)).toBeVisible()
     await expect(page.getByRole('link', { name: /камшук бьюти/i }).first()).toBeVisible()
@@ -158,6 +159,7 @@ test.describe('header', () => {
     const errors = collectConsoleErrors(page)
     await page.setViewportSize(mobileViewport)
     await page.goto('/', { waitUntil: 'domcontentloaded' })
+    await page.locator('dialog.welcome-dialog').waitFor({ state: 'attached' })
 
     await expect(getHeader(page)).toBeVisible()
     await expect(getBurgerButton(page)).toBeVisible()
@@ -173,6 +175,7 @@ test.describe('burger menu', () => {
   test.beforeEach(async ({ page }) => {
     await page.setViewportSize(mobileViewport)
     await page.goto('/', { waitUntil: 'domcontentloaded' })
+    await page.locator('dialog.welcome-dialog').waitFor({ state: 'attached' })
   })
 
   test('opens and closes with button, Escape and link click', async ({ page }) => {
@@ -241,6 +244,7 @@ test.describe('responsive layout', () => {
       const errors = collectConsoleErrors(page)
       await page.setViewportSize({ width, height })
       await page.goto('/', { waitUntil: 'domcontentloaded' })
+      await page.locator('dialog.welcome-dialog').waitFor({ state: 'attached' })
 
       await expectNoHorizontalOverflow(page)
       await expect(page.locator('img').first()).toBeVisible()
@@ -265,6 +269,7 @@ test.describe('updated studio content', () => {
   test('shows current offers, team and complete portfolio', async ({ page }) => {
     await page.setViewportSize(desktopViewport)
     await page.goto('/', { waitUntil: 'domcontentloaded' })
+    await page.locator('dialog.welcome-dialog').waitFor({ state: 'attached' })
 
     const offers = page.locator('#offers')
     await expect(offers).toContainText('Скидка 20% на услуги студии при первом посещении')
@@ -275,7 +280,7 @@ test.describe('updated studio content', () => {
     await expect(page.locator('#about')).toContainText('Оксана')
     await expect(page.locator('#services')).toContainText('Перманентный макияж')
     await expect(page.locator('#work')).toContainText('Перманентный макияж')
-    await expect(page.locator('#work img')).toHaveCount(33)
+    await expect(page.locator('#work img')).toHaveCount(32)
 
     const permanentPrices = page.locator('#перманентный-макияж')
     await expect(permanentPrices).toContainText('Стрелка')
@@ -286,6 +291,7 @@ test.describe('updated studio content', () => {
 
   test('shows the updated pedicure training price and unique course message', async ({ page }) => {
     await page.goto('/obuchenie', { waitUntil: 'domcontentloaded' })
+    await page.locator('dialog.welcome-dialog').waitFor({ state: 'attached' })
 
     await expect(page.getByText('Мастер педикюра', { exact: true })).toBeVisible()
     await expect(page.getByText('25 000 ₽', { exact: true })).toBeVisible()
@@ -299,6 +305,7 @@ test.describe('navigation', () => {
     test(`route ${route} opens without 404`, async ({ page }) => {
       const errors = collectConsoleErrors(page)
       const response = await page.goto(route, { waitUntil: 'domcontentloaded' })
+      await page.locator('dialog.welcome-dialog').waitFor({ state: 'attached' })
 
       expect(response?.status()).toBeLessThan(400)
       await expect(page.locator('main')).toBeVisible()
@@ -313,6 +320,7 @@ test.describe('accessibility', () => {
   for (const route of ['/', '/blog', '/manikyur', '/permanentnyj-makiyazh']) {
     test(`has no critical axe violations on ${route}`, async ({ page }) => {
       await page.goto(route, { waitUntil: 'domcontentloaded' })
+      await page.locator('dialog.welcome-dialog').waitFor({ state: 'attached' })
 
       const results = await new AxeBuilder({ page })
         .withTags(['wcag2a', 'wcag2aa'])
@@ -329,6 +337,7 @@ test.describe('visual states', () => {
     test(`captures ${state.name}`, async ({ page }, testInfo) => {
       await page.setViewportSize(state.viewport)
       await page.goto(state.path, { waitUntil: 'domcontentloaded' })
+      await page.locator('dialog.welcome-dialog').waitFor({ state: 'attached' })
 
       if (state.openMenu) {
         await getBurgerButton(page).click()

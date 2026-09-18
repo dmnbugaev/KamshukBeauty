@@ -72,10 +72,10 @@ const yclientsUrl = 'https://n1407035.yclients.com/company/1274992/personal/sele
       <div class="max-w-xl mb-20">
         <div class="section-label mb-5">Стоимость услуг</div>
         <h2 class="display text-4xl lg:text-5xl text-[#1A1A2E] mb-4">Прайс-лист</h2>
-        <p class="body text-[#B08898]">
+        <p class="body text-muted">
           Прозрачное ценообразование без скрытых доплат. Актуальные акции собраны в разделе предложений
         </p>
-        <p class="body text-xs text-[#B08898] mt-3">
+        <p class="body text-xs text-muted mt-3">
           * Предложение действует только на первый визит. Скидки и акции не суммируются.
         </p>
       </div>
@@ -89,7 +89,7 @@ const yclientsUrl = 'https://n1407035.yclients.com/company/1274992/personal/sele
           class="rounded-3xl p-7 lg:p-9 transition-all duration-400 group card-luxury"
         >
           <!-- Заголовок категории -->
-          <div class="flex items-center gap-4 mb-8 pb-5 border-b border-[#E91E8C]/10">
+          <div class="flex flex-col items-start sm:flex-row sm:items-center gap-4 mb-8 pb-5 border-b border-[#E91E8C]/10">
             <div :class="['ios-icon', section.iconClass]" style="width:52px; height:52px; border-radius:16px; font-size:1.5rem">
               {{ section.icon }}
             </div>
@@ -106,7 +106,7 @@ const yclientsUrl = 'https://n1407035.yclients.com/company/1274992/personal/sele
               <span class="body text-sm text-[#6B4F5A] group-hover/item:text-[#1A1A2E] transition-colors">
                 {{ item.name }}
               </span>
-              <span class="label text-sm text-[#E91E8C] sm:ml-4 shrink-0">{{ item.price }}</span>
+              <span class="label text-sm text-accent sm:ml-4 shrink-0">{{ item.price }}</span>
             </div>
           </div>
 
@@ -131,7 +131,7 @@ const yclientsUrl = 'https://n1407035.yclients.com/company/1274992/personal/sele
         >
           Записаться онлайн
         </a>
-        <p class="body text-xs text-[#B08898] mt-4">
+        <p class="body text-xs text-muted mt-4">
           Скидки и предложения не суммируются. Итоговую стоимость уточняйте при записи.
         </p>
       </div>

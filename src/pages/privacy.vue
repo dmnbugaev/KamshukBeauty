@@ -9,12 +9,12 @@ useHead({
 </script>
 
 <template>
-  <div class="pt-32 pb-20">
+  <div class="py-14 sm:py-20">
     <div class="container">
       <article class="max-w-3xl mx-auto prose-custom">
         <header class="mb-12">
           <p class="label text-xs text-[#D81B60] mb-4">Документы</p>
-          <h1 class="display text-[1.65rem] leading-tight sm:text-4xl lg:text-5xl text-[#1A1A1A] mb-4">
+          <h1 class="legal-title display leading-tight text-[#1A1A1A] mb-4">
             Политика конфиденциальности
           </h1>
           <p class="body text-sm text-[#757575]">
@@ -183,5 +183,7 @@ useHead({
 
 <style scoped>
 .prose-custom h2 { margin-bottom: 1rem; }
+.prose-custom { container-type: inline-size; }
+.legal-title { font-size: clamp(1rem, 5.8cqi, 2.5rem); }
 .prose-custom p + p { margin-top: 0.75rem; }
 </style>

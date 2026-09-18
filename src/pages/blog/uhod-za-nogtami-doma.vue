@@ -19,7 +19,7 @@ useHead({
       author: { '@type': 'Person', name: 'Анастасия Камшук' },
       publisher: { '@type': 'Organization', name: 'Камшук Бьюти', url: 'https://kamshukbeauty.ru' },
       datePublished: '2026-04-20',
-      image: 'https://kamshukbeauty.ru/images/new_foto/20260511_232100.jpg',
+      image: 'https://kamshukbeauty.ru/images/studio/main.jpg',
       mainEntityOfPage: 'https://kamshukbeauty.ru/blog/uhod-za-nogtami-doma',
     }),
   }],
@@ -37,7 +37,7 @@ const tips = [
 </script>
 
 <template>
-  <div class="pt-20">
+  <div>
     <article class="py-20 bg-white">
       <div class="container">
         <div class="max-w-3xl mx-auto">
@@ -45,8 +45,8 @@ const tips = [
 
           <header class="mb-12">
             <div class="flex items-center gap-3 mb-6">
-              <span class="label text-[10px] px-3 py-1 rounded-full text-[#E91E8C]" style="background: rgba(233,30,140,0.08)">Маникюр</span>
-              <span class="body text-xs text-[#B08898]">20 апреля 2026 · Анастасия Камшук</span>
+              <span class="label text-[10px] px-3 py-1 rounded-full text-accent" style="background: rgba(233,30,140,0.08)">Маникюр</span>
+              <span class="body text-xs text-muted">20 апреля 2026 · Анастасия Камшук</span>
             </div>
             <h1 class="display text-4xl lg:text-5xl text-[#1A1A2E] mb-6 leading-tight">
               7 правил ухода за ногтями дома — советы мастера
@@ -57,7 +57,7 @@ const tips = [
           </header>
 
           <div class="aspect-[16/9] overflow-hidden rounded-3xl mb-12" style="box-shadow: 0 16px 60px rgba(233,30,140,0.1)">
-            <img src="/images/new_foto/20260511_232100.jpg" alt="Студия Камшук Бьюти — уход за ногтями" class="w-full h-full object-cover" width="900" height="506" loading="lazy" />
+            <img src="/images/studio/main.jpg" alt="Студия Камшук Бьюти — уход за ногтями" class="w-full h-full object-cover" width="900" height="506" loading="lazy" />
           </div>
 
           <div class="space-y-4">
@@ -86,7 +86,7 @@ const tips = [
           </div>
 
           <div class="mt-10 pt-8 border-t border-[#F5F5F5]">
-            <NuxtLink to="/blog" class="body text-sm text-[#E91E8C] hover:underline">← Все статьи блога</NuxtLink>
+            <NuxtLink to="/blog" class="body text-sm text-accent hover:underline">← Все статьи блога</NuxtLink>
           </div>
         </div>
       </div>

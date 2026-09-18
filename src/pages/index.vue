@@ -28,7 +28,7 @@ useHead({
     },
     {
       property: 'og:image',
-      content: 'https://kamshukbeauty.ru/images/new_foto/20260511_232100.jpg',
+      content: 'https://kamshukbeauty.ru/images/studio/main.jpg',
     },
     { property: 'og:url', content: 'https://kamshukbeauty.ru' },
     { property: 'og:locale', content: 'ru_RU' },
@@ -40,7 +40,7 @@ useHead({
     },
     {
       name: 'twitter:image',
-      content: 'https://kamshukbeauty.ru/images/new_foto/20260511_232100.jpg',
+      content: 'https://kamshukbeauty.ru/images/studio/main.jpg',
     },
   ],
   link: [
@@ -83,9 +83,9 @@ useHead({
         currenciesAccepted: 'RUB',
         paymentAccepted: 'Cash, Credit Card',
         image: [
-          'https://kamshukbeauty.ru/images/new_foto/20260511_232100.jpg',
-          'https://kamshukbeauty.ru/images/new_foto/20260511_233301.jpg',
-          'https://kamshukbeauty.ru/images/logo.jpg',
+          'https://kamshukbeauty.ru/images/studio/main.jpg',
+          'https://kamshukbeauty.ru/images/studio/treatment-room.jpg',
+          'https://kamshukbeauty.ru/images/brand/logo.jpg',
         ],
         founder: {
           '@type': 'Person',

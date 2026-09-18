@@ -19,7 +19,7 @@ useHead({
       author: { '@type': 'Person', name: 'Анастасия Камшук' },
       publisher: { '@type': 'Organization', name: 'Камшук Бьюти', url: 'https://kamshukbeauty.ru' },
       datePublished: '2026-04-14',
-      image: 'https://kamshukbeauty.ru/images/4_foto/make.jpg',
+      image: 'https://kamshukbeauty.ru/images/services/makeup.jpg',
       mainEntityOfPage: 'https://kamshukbeauty.ru/blog/permanentnyj-makiyazh-brovej',
     }),
   }],
@@ -27,7 +27,7 @@ useHead({
 </script>
 
 <template>
-  <div class="pt-20">
+  <div>
     <article class="py-20 bg-white">
       <div class="container">
         <div class="max-w-3xl mx-auto">
@@ -35,8 +35,8 @@ useHead({
 
           <header class="mb-12">
             <div class="flex items-center gap-3 mb-6">
-              <span class="label text-[10px] px-3 py-1 rounded-full text-[#E91E8C]" style="background: rgba(244,141,180,0.15)">Перманент</span>
-              <span class="body text-xs text-[#B08898]">14 апреля 2026 · Анастасия Камшук</span>
+              <span class="label text-[10px] px-3 py-1 rounded-full text-accent" style="background: rgba(244,141,180,0.15)">Перманент</span>
+              <span class="body text-xs text-muted">14 апреля 2026 · Анастасия Камшук</span>
             </div>
             <h1 class="display text-4xl lg:text-5xl text-[#1A1A2E] mb-6 leading-tight">
               Перманентный макияж бровей: всё, что нужно знать до процедуры
@@ -47,7 +47,7 @@ useHead({
           </header>
 
           <div class="aspect-[16/9] overflow-hidden rounded-3xl mb-12" style="box-shadow: 0 16px 60px rgba(233,30,140,0.1)">
-            <img src="/images/4_foto/make.jpg" alt="Перманентный макияж — Камшук Бьюти" class="w-full h-full object-cover" width="900" height="506" loading="lazy" />
+            <img src="/images/services/makeup.jpg" alt="Перманентный макияж — Камшук Бьюти" class="w-full h-full object-cover" width="900" height="506" loading="lazy" />
           </div>
 
           <div class="space-y-8 body text-base text-[#424242] leading-relaxed">
@@ -66,7 +66,7 @@ useHead({
                   <div class="flex justify-between mb-2">
                     <h3 class="headline text-base text-[#1A1A2E]">{{ t.name }}</h3>
                     <PromoPrice v-if="t.oldPrice" :old-price="t.oldPrice" :new-price="t.price" size="sm" />
-                    <span v-else class="label text-[10px] text-[#E91E8C]">{{ t.price }}</span>
+                    <span v-else class="label text-[10px] text-accent">{{ t.price }}</span>
                   </div>
                   <p class="body text-sm text-[#6B4F5A]">{{ t.desc }}</p>
                 </div>
@@ -83,7 +83,7 @@ useHead({
                   'Работа аппаратом: введение пигмента по контуру. Занимает 1,5–2 часа.',
                   'Первичная обработка и рекомендации по уходу.',
                 ]" :key="i" class="flex gap-4 p-4 rounded-xl" style="background: rgba(233,30,140,0.04); border: 1px solid rgba(233,30,140,0.1)">
-                  <span class="headline text-lg text-[#E91E8C] shrink-0">{{ i + 1 }}.</span>
+                  <span class="headline text-lg text-accent shrink-0">{{ i + 1 }}.</span>
                   <p class="body text-sm text-[#424242]">{{ s }}</p>
                 </li>
               </ol>
@@ -98,7 +98,7 @@ useHead({
               <h2 class="headline text-2xl text-[#1A1A2E] mb-4">Противопоказания</h2>
               <ul class="space-y-1">
                 <li v-for="c in ['Беременность и кормление грудью', 'Диабет', 'Склонность к келоидным рубцам', 'Приём разжижающих кровь препаратов', 'Обострение кожных заболеваний']" :key="c" class="flex gap-2 body text-sm text-[#424242]">
-                  <span class="text-[#E91E8C]">—</span> {{ c }}
+                  <span class="text-accent">—</span> {{ c }}
                 </li>
               </ul>
               <p class="mt-4">При любых сомнениях проконсультируйтесь с врачом перед процедурой.</p>
@@ -109,7 +109,7 @@ useHead({
             <p class="headline text-xl text-[#1A1A2E] mb-2">Запишитесь на перманентный макияж</p>
             <p class="body text-sm text-[#6B4F5A] mb-6">
               Пудровые брови
-              <span class="label text-[#E91E8C]">16 000 ₽</span>
+              <span class="label text-accent">16 000 ₽</span>
               · Скидка 20% новым гостям
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
@@ -119,7 +119,7 @@ useHead({
           </div>
 
           <div class="mt-10 pt-8 border-t border-[#F5F5F5]">
-            <NuxtLink to="/blog" class="body text-sm text-[#E91E8C] hover:underline">← Все статьи блога</NuxtLink>
+            <NuxtLink to="/blog" class="body text-sm text-accent hover:underline">← Все статьи блога</NuxtLink>
           </div>
         </div>
       </div>

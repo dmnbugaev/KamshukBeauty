@@ -1,47 +1,66 @@
 <script setup lang="ts">
-const show = ref(false)
-
-const handleKeydown = (event: KeyboardEvent) => {
-  if (event.key === 'Escape' && show.value) {
-    close()
-  }
-}
+const dialogRef = ref<HTMLDialogElement | null>(null)
+const ready = ref(false)
+const dismissed = ref(false)
+const { decided } = useCookieConsent()
+const menuOpen = useState('mobile-menu-open', () => false)
+let timer: ReturnType<typeof setTimeout> | undefined
+let previousOverflow = ''
 
 onMounted(() => {
-  window.addEventListener('keydown', handleKeydown)
-
-  if (!sessionStorage.getItem('welcome_popup_shown')) {
-    setTimeout(() => { show.value = true }, 10000)
+  dismissed.value = !!sessionStorage.getItem('welcome_popup_shown')
+  if (!dismissed.value) {
+    timer = setTimeout(() => { ready.value = true }, 10000)
   }
 })
 
-onUnmounted(() => {
-  window.removeEventListener('keydown', handleKeydown)
-  document.body.style.overflow = ''
+onBeforeUnmount(() => {
+  clearTimeout(timer)
+  if (dialogRef.value?.open) {
+    dialogRef.value.close()
+    document.body.style.overflow = previousOverflow
+  }
 })
 
 const close = () => {
-  show.value = false
+  dismissed.value = true
+  dialogRef.value?.close()
+  document.body.style.overflow = previousOverflow
   sessionStorage.setItem('welcome_popup_shown', '1')
 }
 
-watch(show, (value) => {
-  if (import.meta.client) {
-    document.body.style.overflow = value ? 'hidden' : ''
+const trapFocus = (event: KeyboardEvent) => {
+  const controls = dialogRef.value?.querySelectorAll<HTMLElement>('a[href], button:not([disabled])')
+  if (!controls?.length) return
+  const first = controls[0]
+  const last = controls[controls.length - 1]
+  if (event.shiftKey && document.activeElement === first) {
+    event.preventDefault()
+    last.focus()
+  } else if (!event.shiftKey && document.activeElement === last) {
+    event.preventDefault()
+    first.focus()
   }
+}
+
+watch([ready, decided, menuOpen], async () => {
+  if (!import.meta.client || !ready.value || !decided.value || menuOpen.value || dismissed.value) return
+  await nextTick()
+  if (!dialogRef.value || dialogRef.value.open) return
+  previousOverflow = document.body.style.overflow
+  dialogRef.value.showModal()
+  document.body.style.overflow = 'hidden'
 })
 </script>
 
 <template>
   <Teleport to="body">
-    <Transition name="popup">
-      <div
-        v-if="show"
-        class="fixed inset-0 z-[100] flex items-center justify-center p-4"
-        style="background: rgba(26,26,46,0.55); backdrop-filter: blur(6px)"
-        role="dialog"
-        aria-modal="true"
+      <dialog
+        ref="dialogRef"
+        class="welcome-dialog"
         aria-labelledby="welcome-popup-title"
+        @cancel.prevent="close"
+        @keydown.tab="trapFocus"
         @click.self="close"
       >
         <div
@@ -60,7 +79,8 @@ watch(show, (value) => {
           <!-- Кнопка закрыть -->
           <button
             type="button"
-            class="absolute top-4 right-4 z-10 w-9 h-9 rounded-full flex items-center justify-center text-[#B08898] hover:text-[#E91E8C] hover:bg-[#FDE8F2] transition-all duration-200"
+            class="absolute top-3 right-3 z-20 w-11 h-11 rounded-full flex items-center justify-center text-[#6B4F5A] hover:text-accent hover:bg-[#FDE8F2] transition-all duration-200"
+            autofocus
             aria-label="Закрыть"
             @click.stop="close"
           >
@@ -70,7 +90,7 @@ watch(show, (value) => {
           </button>
 
           <!-- Контент -->
-          <div class="relative z-10 p-8 pt-10 text-center">
+          <div class="relative z-10 p-5 sm:p-8 pt-14 sm:pt-14 text-center">
             <!-- Иконка -->
             <div
               class="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6 text-3xl"
@@ -80,11 +100,11 @@ watch(show, (value) => {
             </div>
 
             <!-- Заголовок -->
-            <p class="label text-[11px] text-[#E91E8C] mb-2">Для новых гостей</p>
+            <p class="label text-[11px] text-accent mb-2">Для новых гостей</p>
             <h2 id="welcome-popup-title" class="headline text-3xl text-[#1A1A2E] mb-2">
               Скидка <span class="text-pink-shimmer">−20%</span>
             </h2>
-            <p class="headline text-base text-[#B08898] mb-6">на услуги при первом визите</p>
+            <p class="headline text-base text-muted mb-6">на услуги при первом визите</p>
 
             <div class="pink-divider mx-auto mb-6" />
 
@@ -92,7 +112,7 @@ watch(show, (value) => {
               Выберите любимую услугу и познакомьтесь с Камшук Бьюти.
               Работаем ежедневно&nbsp;10:00–22:00.
             </p>
-            <p class="body text-xs text-[#B08898] mb-8 opacity-70">
+            <p class="body text-xs text-muted mb-8">
               * Скидки и предложения не суммируются.
             </p>
 
@@ -107,32 +127,38 @@ watch(show, (value) => {
               Записаться со скидкой
             </a>
 
-            <a href="/#offers" class="body text-xs text-[#E91E8C] hover:text-[#C2185B] transition-colors duration-200" @click="close">
+            <NuxtLink to="/#offers" class="body inline-flex min-h-11 items-center text-xs text-accent hover:text-[#C2185B] transition-colors duration-200" @click="close">
               Смотреть все акции и предложения
-            </a>
+            </NuxtLink>
 
             <button
               type="button"
-              class="body block mx-auto mt-3 text-xs text-[#B08898] hover:text-[#E91E8C] transition-colors duration-200"
+              class="body block min-h-11 mx-auto mt-3 text-xs text-[#6B4F5A] hover:text-accent transition-colors duration-200"
               @click.stop="close"
             >
               Нет, спасибо
             </button>
           </div>
         </div>
-      </div>
-    </Transition>
+      </dialog>
   </Teleport>
 </template>
 
 <style scoped>
-.popup-enter-active,
-.popup-leave-active {
-  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+.welcome-dialog {
+  width: calc(100% - 32px);
+  max-width: 28rem;
+  max-height: calc(100dvh - 32px);
+  margin: auto;
+  padding: 0;
+  border: 0;
+  border-radius: 24px;
+  background: #fff4f9;
+  overflow-y: auto;
+  overscroll-behavior: contain;
 }
-.popup-enter-from,
-.popup-leave-to {
-  opacity: 0;
-  transform: scale(0.93) translateY(12px);
+.welcome-dialog::backdrop {
+  background: rgba(26, 26, 46, 0.55);
+  backdrop-filter: blur(6px);
 }
 </style>

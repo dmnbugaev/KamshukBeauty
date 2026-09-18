@@ -1,9 +1,9 @@
 <script setup lang="ts">
 const images = [
-  { image: '/images/new_foto/20260511_234339.jpg', title: 'Рабочее место' },
-  { image: '/images/new_foto/20260511_233301.jpg', title: 'Процедурная' },
-  { image: '/images/new_foto/20260425_075215.jpg', title: 'Вход в студию' },
-  { image: '/images/new_foto/20260511_233725.jpg', title: 'Зона отдыха' },
+  { image: '/images/studio/workstation.jpg', title: 'Рабочее место' },
+  { image: '/images/studio/treatment-room.jpg', title: 'Процедурная' },
+  { image: '/images/studio/entrance.jpg', title: 'Вход в студию' },
+  { image: '/images/studio/lounge.jpg', title: 'Зона отдыха' },
 ]
 </script>
 
@@ -17,16 +17,16 @@ const images = [
           <div class="section-label mb-5">Пространство</div>
           <h2 class="display text-4xl lg:text-5xl text-[#1A1A2E]">Наша студия</h2>
         </div>
-        <p class="body text-base text-[#B08898] max-w-xs lg:text-right">
+        <p class="body text-base text-muted max-w-xs lg:text-right">
           Уютное пространство с душой — здание SoiSoul, Коммунарка.
         </p>
       </div>
 
       <!-- Главное фото -->
-      <div class="relative aspect-[21/9] overflow-hidden rounded-3xl mb-4"
+      <div class="relative aspect-[4/3] sm:aspect-[21/9] overflow-hidden rounded-3xl mb-4"
         style="box-shadow: 0 24px 80px rgba(233,30,140,0.12), 0 8px 32px rgba(0,0,0,0.08)">
         <img
-          src="/images/new_foto/20260511_232100.jpg"
+          src="/images/studio/main.jpg"
           alt="Студия красоты Камшук Бьюти — главный зал"
           class="w-full h-full object-cover hover:scale-105 transition-transform duration-1000"
           loading="lazy"
@@ -37,9 +37,9 @@ const images = [
           class="absolute inset-0 rounded-3xl"
           style="background: linear-gradient(to right, rgba(194,24,91,0.25) 0%, transparent 50%)"
         />
-        <div class="absolute bottom-8 left-8">
+        <div class="absolute bottom-5 left-5 right-5 sm:bottom-8 sm:left-8 sm:right-8">
           <p class="label text-[11px] text-[#F9C5DA] mb-1">Камшук Бьюти</p>
-          <p class="headline text-2xl text-white">Студия красоты</p>
+          <p class="headline text-xl sm:text-2xl text-white">Студия красоты</p>
         </div>
       </div>
 
@@ -88,7 +88,7 @@ const images = [
             здание SoiSoul, 1 этаж
           </p>
           <div class="pink-divider mx-auto mb-5" />
-          <p class="label text-[11px] text-[#E91E8C]">Ежедневно: 10:00 — 22:00</p>
+          <p class="label text-[11px] text-accent">Ежедневно: 10:00 — 22:00</p>
         </div>
       </div>
 

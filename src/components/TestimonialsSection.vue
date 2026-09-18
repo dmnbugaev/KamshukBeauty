@@ -16,18 +16,32 @@ const testimonials = [
 ]
 
 const current = ref(0)
+const paused = ref(false)
+const reducedMotion = ref(false)
+const interacting = ref(false)
 let timer: ReturnType<typeof setInterval> | null = null
+let motionQuery: MediaQueryList | null = null
 
 const prev = () => { current.value = (current.value - 1 + testimonials.length) % testimonials.length }
 const next = () => { current.value = (current.value + 1) % testimonials.length }
 
 const resetTimer = () => {
-  if (timer) clearInterval(timer)
-  timer = setInterval(next, 5500)
+  paused.value = true
 }
 
-onMounted(() => { timer = setInterval(next, 5500) })
-onUnmounted(() => { if (timer) clearInterval(timer) })
+const updateMotion = () => { reducedMotion.value = !!motionQuery?.matches }
+onMounted(() => {
+  motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
+  updateMotion()
+  motionQuery.addEventListener('change', updateMotion)
+  timer = setInterval(() => {
+    if (!paused.value && !reducedMotion.value && !interacting.value && !document.hidden) next()
+  }, 5500)
+})
+onUnmounted(() => {
+  if (timer) clearInterval(timer)
+  motionQuery?.removeEventListener('change', updateMotion)
+})
 </script>
 
 <template>
@@ -47,7 +61,7 @@ onUnmounted(() => { if (timer) clearInterval(timer) })
       </div>
 
       <!-- Карточка отзыва -->
-      <div class="max-w-3xl mx-auto">
+      <div class="max-w-3xl mx-auto" @mouseenter="interacting = true" @mouseleave="interacting = false" @focusin="paused = true">
         <!-- Навигация -->
         <div class="relative">
           <button
@@ -70,25 +84,25 @@ onUnmounted(() => { if (timer) clearInterval(timer) })
           </button>
 
           <!-- Содержимое отзыва -->
-          <Transition name="testimonial" mode="out-in">
-            <div :key="current" class="text-center px-12 sm:px-14 lg:px-20 py-10 sm:py-12">
+          <div class="grid" :aria-live="paused || reducedMotion ? 'polite' : 'off'">
+            <div v-for="(testimonial, index) in testimonials" :key="index" class="col-start-1 row-start-1 text-center px-12 sm:px-14 lg:px-20 py-10 sm:py-12" :class="{ invisible: index !== current }" :aria-hidden="index !== current">
               <!-- Звёзды -->
               <div class="flex justify-center gap-1 mb-8">
-                <span v-for="i in 5" :key="i" class="text-[#E91E8C] text-lg">★</span>
+                <span v-for="i in 5" :key="i" class="text-accent text-lg">★</span>
               </div>
 
               <blockquote class="quote-text text-xl lg:text-2xl text-[#1A1A2E] leading-relaxed mb-10">
-                {{ testimonials[current].text }}
+                {{ testimonial.text }}
               </blockquote>
 
               <!-- Автор -->
               <div class="flex items-center justify-center gap-3">
                 <div class="w-10 h-px bg-[#E91E8C]/35" />
-                <p class="label text-[11px] text-[#E91E8C]">{{ testimonials[current].author }}</p>
+                <p class="label text-[11px] text-accent">{{ testimonial.author }}</p>
                 <div class="w-10 h-px bg-[#E91E8C]/35" />
               </div>
             </div>
-          </Transition>
+          </div>
         </div>
 
         <!-- Точки -->
@@ -97,15 +111,19 @@ onUnmounted(() => { if (timer) clearInterval(timer) })
             v-for="(_, idx) in testimonials"
             :key="idx"
             :class="[
-              'transition-all duration-300 rounded-full',
+              'testimonial-dot transition-all duration-300 rounded-full',
               idx === current
-                ? 'w-8 h-2 bg-[#E91E8C]'
-                : 'w-2 h-2 bg-[#E91E8C]/20 hover:bg-[#E91E8C]/45',
+                ? 'testimonial-dot--active'
+                : '',
             ]"
             :aria-label="`Отзыв ${idx + 1}`"
+            :aria-pressed="idx === current"
             @click="current = idx; resetTimer()"
           />
         </div>
+        <button v-if="!reducedMotion" type="button" class="body block min-h-11 mx-auto mt-3 text-sm text-[#6B4F5A] underline underline-offset-4" :aria-pressed="paused" @focusin.stop @click="paused = !paused">
+          {{ paused ? 'Продолжить смену отзывов' : 'Приостановить смену отзывов' }}
+        </button>
       </div>
 
     </div>
@@ -113,16 +131,22 @@ onUnmounted(() => { if (timer) clearInterval(timer) })
 </template>
 
 <style scoped>
-.testimonial-enter-active,
-.testimonial-leave-active {
-  transition: all 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+.testimonial-dot {
+  width: 24px;
+  height: 24px;
+  display: grid;
+  place-items: center;
 }
-.testimonial-enter-from {
-  opacity: 0;
-  transform: translateX(24px);
+.testimonial-dot::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #e91e8c55;
 }
-.testimonial-leave-to {
-  opacity: 0;
-  transform: translateX(-24px);
+.testimonial-dot--active::before {
+  width: 24px;
+  background: #c2185b;
 }
+
 </style>

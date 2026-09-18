@@ -21,7 +21,7 @@
             <div class="relative aspect-[3/4] overflow-hidden rounded-3xl"
               style="box-shadow: 0 24px 80px rgba(233,30,140,0.15), 0 8px 32px rgba(0,0,0,0.08)">
               <img
-                src="/images/anastasiya.jpg"
+                src="/images/team/anastasiya.jpg"
                 alt="Анастасия Камшук — основатель студии Камшук Бьюти"
                 class="w-full h-full object-cover"
                 loading="lazy"
@@ -49,7 +49,7 @@
           <h2 class="display text-4xl lg:text-5xl text-[#1A1A2E] mb-4">
             Анастасия<br /><span class="text-pink-shimmer">Камшук</span>
           </h2>
-          <p class="headline text-base text-[#B08898] mb-8">
+          <p class="headline text-base text-muted mb-8">
             Мастер высшей категории, преподаватель и основатель Камшук Бьюти
           </p>
 
@@ -68,19 +68,19 @@
           </div>
 
           <!-- Статистика — iOS glass карточки -->
-          <div class="grid grid-cols-2 gap-6 mb-14 max-w-sm">
+          <div class="founder-stats grid grid-cols-2 gap-3 sm:gap-6 mb-14 max-w-sm">
             <div class="glass-pink rounded-2xl p-5">
-              <div class="headline text-4xl text-[#E91E8C] mb-1">9+</div>
-              <p class="body text-xs text-[#B08898]">Лет в индустрии красоты</p>
+              <div class="headline text-4xl text-accent mb-1">9+</div>
+              <p class="body text-xs text-muted">Лет в индустрии красоты</p>
             </div>
             <div class="glass-pink rounded-2xl p-5">
               <div class="headline text-4xl text-[#C2185B] mb-1">1000+</div>
-              <p class="body text-xs text-[#B08898]">Довольных гостей</p>
+              <p class="body text-xs text-muted">Довольных гостей</p>
             </div>
           </div>
 
           <!-- Философия — iOS иконки -->
-          <div class="grid grid-cols-3 gap-4">
+          <div class="grid sm:grid-cols-3 gap-4">
             <div
               v-for="item in [
                 { title: 'Качество', icon: '💎', iconClass: 'ios-pink', text: 'Только премиальные материалы' },
@@ -93,8 +93,8 @@
               <div :class="['ios-icon mx-auto mb-3', item.iconClass]" style="width:52px; height:52px; border-radius:16px; font-size:1.5rem">
                 {{ item.icon }}
               </div>
-              <p class="headline text-sm text-[#E91E8C] mb-1">{{ item.title }}</p>
-              <p class="body text-xs text-[#B08898]">{{ item.text }}</p>
+              <p class="headline text-sm text-accent mb-1">{{ item.title }}</p>
+              <p class="body text-xs text-muted">{{ item.text }}</p>
             </div>
           </div>
         </div>
@@ -107,24 +107,24 @@
         </div>
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl">
           <article class="card-luxury rounded-3xl overflow-hidden bg-white">
-            <img src="/images/photo_2026-07-31_19-35-01.jpg" alt="Валерия — мастер ногтевого сервиса Камшук Бьюти" class="w-full aspect-[4/5] object-cover" loading="lazy" width="720" height="1280" />
+            <img src="/images/team/valeria.jpg" alt="Валерия — мастер ногтевого сервиса Камшук Бьюти" class="w-full aspect-[4/5] object-cover" loading="lazy" width="720" height="1280" />
             <div class="p-6">
               <h3 class="headline text-2xl text-[#1A1A2E] mb-2">Валерия</h3>
-              <p class="body text-sm text-[#B08898]">Мастер ногтевого сервиса</p>
+              <p class="body text-sm text-muted">Мастер ногтевого сервиса</p>
             </div>
           </article>
           <article class="card-luxury rounded-3xl overflow-hidden bg-white">
-            <img src="/images/photo_2026-07-31_19-34-26.jpg" alt="Ника — бровист-визажист и ламимейкер Камшук Бьюти" class="w-full aspect-[4/5] object-cover" loading="lazy" width="1280" height="1280" />
+            <img src="/images/team/nika.jpg" alt="Ника — бровист-визажист и ламимейкер Камшук Бьюти" class="w-full aspect-[4/5] object-cover" loading="lazy" width="1280" height="1280" />
             <div class="p-6">
               <h3 class="headline text-2xl text-[#1A1A2E] mb-2">Ника</h3>
-              <p class="body text-sm text-[#B08898]">Бровист-визажист, ламимейкер</p>
+              <p class="body text-sm text-muted">Бровист-визажист, ламимейкер</p>
             </div>
           </article>
           <article class="card-luxury rounded-3xl overflow-hidden bg-white">
-            <img src="/images/new_foto/photo_2026-08-09_15-45-52.jpg" alt="Оксана — мастер по перманентному макияжу Камшук Бьюти" class="w-full aspect-[4/5] object-cover" loading="lazy" width="960" height="1280" />
+            <img src="/images/team/oksana.jpg" alt="Оксана — мастер по перманентному макияжу Камшук Бьюти" class="w-full aspect-[4/5] object-cover" loading="lazy" width="960" height="1280" />
             <div class="p-6">
               <h3 class="headline text-2xl text-[#1A1A2E] mb-2">Оксана</h3>
-              <p class="body text-sm text-[#B08898]">Мастер по перманентному макияжу</p>
+              <p class="body text-sm text-muted">Мастер по перманентному макияжу</p>
             </div>
           </article>
         </div>
@@ -133,3 +133,9 @@
     </div>
   </section>
 </template>
+
+<style scoped>
+.founder-stats .headline {
+  font-size: clamp(1.25rem, 5vw, 2rem);
+}
+</style>

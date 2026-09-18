@@ -10,6 +10,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        muted: '#80616F',
+        accent: '#C2185B',
         // Основная палитра
         pink: {
           deep: '#C2185B',

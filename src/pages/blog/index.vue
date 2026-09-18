@@ -18,7 +18,7 @@ const posts = [
     excerpt: 'Что сделать перед маникюром, бровями, ресницами или макияжем, чтобы процедура прошла спокойно, а результат держался дольше.',
     tag: 'Советы',
     date: '18 июля 2026',
-    img: '/images/studio/1.jpg',
+    img: '/images/studio/gallery-01.jpg',
   },
   {
     slug: 'skolko-derzhitsya-gel-lak',
@@ -26,7 +26,7 @@ const posts = [
     excerpt: 'Рассказываем, почему одним покрытие держится 4 недели, а другим — две, и как продлить срок носки.',
     tag: 'Маникюр',
     date: '12 мая 2026',
-    img: '/images/4_foto/manik.jpg',
+    img: '/images/services/manicure.jpg',
   },
   {
     slug: 'naraschivanie-resnic-vidy-i-uhod',
@@ -34,7 +34,7 @@ const posts = [
     excerpt: 'Классика, 2D, объём — чем они отличаются и как выбрать подходящую технику. Советы по уходу после процедуры.',
     tag: 'Ресницы',
     date: '5 мая 2026',
-    img: '/images/4_foto/resnici_i_brovi.jpg',
+    img: '/images/services/lashes-brows.jpg',
   },
   {
     slug: 'arkhitektura-brovej',
@@ -42,7 +42,7 @@ const posts = [
     excerpt: 'Объясняем разницу между коррекцией и архитектурой, и почему правильная форма меняет всё лицо.',
     tag: 'Брови',
     date: '28 апреля 2026',
-    img: '/images/4_foto/resnici_i_brovi.jpg',
+    img: '/images/services/lashes-brows.jpg',
   },
   {
     slug: 'uhod-za-nogtami-doma',
@@ -50,7 +50,7 @@ const posts = [
     excerpt: 'Простые привычки, которые сохранят ногтевую пластину здоровой и продлят жизнь маникюру.',
     tag: 'Маникюр',
     date: '20 апреля 2026',
-    img: '/images/new_foto/20260511_232100.jpg',
+    img: '/images/studio/main.jpg',
   },
   {
     slug: 'permanentnyj-makiyazh-brovej',
@@ -58,7 +58,7 @@ const posts = [
     excerpt: 'Разбираемся, что такое пудровые брови, как проходит процедура, заживление и уход.',
     tag: 'Перманент',
     date: '14 апреля 2026',
-    img: '/images/4_foto/make.jpg',
+    img: '/images/services/makeup.jpg',
   },
 ]
 
@@ -72,7 +72,7 @@ const tagColors: Record<string, string> = {
 </script>
 
 <template>
-  <div class="pt-20">
+  <div>
     <section class="py-20 bg-white">
       <div class="container">
         <Breadcrumb :items="[{ label: 'Блог' }]" />
@@ -80,7 +80,7 @@ const tagColors: Record<string, string> = {
         <div class="max-w-xl mb-16">
           <div class="section-label mb-5">Советы мастера</div>
           <h1 class="display text-4xl lg:text-5xl text-[#1A1A2E] mb-4">Блог о красоте</h1>
-          <p class="body text-base text-[#B08898]">
+          <p class="body text-base text-muted">
             Полезные статьи от Анастасии Камшук — мастера с 9-летним опытом
           </p>
         </div>
@@ -89,7 +89,7 @@ const tagColors: Record<string, string> = {
           <NuxtLink
             v-for="post in posts" :key="post.slug"
             :to="`/blog/${post.slug}`"
-            class="group card-luxury rounded-3xl overflow-hidden block focus:outline-none"
+            class="group card-luxury rounded-3xl overflow-hidden block"
           >
             <div class="aspect-[4/3] overflow-hidden">
               <img
@@ -99,16 +99,16 @@ const tagColors: Record<string, string> = {
               />
             </div>
             <div class="p-6">
-              <div class="flex items-center justify-between mb-3">
-                <span class="label text-[10px] px-3 py-1 rounded-full text-[#E91E8C]" :style="`background: ${tagColors[post.tag] || 'rgba(233,30,140,0.08)'}`">
+              <div class="flex flex-wrap gap-2 items-center justify-between mb-3">
+                <span class="label text-[10px] px-3 py-1 rounded-full text-accent" :style="`background: ${tagColors[post.tag] || 'rgba(233,30,140,0.08)'}`">
                   {{ post.tag }}
                 </span>
-                <span class="body text-xs text-[#B08898]">{{ post.date }}</span>
+                <span class="body text-xs text-muted">{{ post.date }}</span>
               </div>
-              <h2 class="headline text-base text-[#1A1A2E] mb-3 group-hover:text-[#E91E8C] transition-colors duration-300 leading-snug">
+              <h2 class="headline text-base text-[#1A1A2E] mb-3 group-hover:text-accent transition-colors duration-300 leading-snug">
                 {{ post.title }}
               </h2>
-              <p class="body text-sm text-[#B08898] leading-relaxed">{{ post.excerpt }}</p>
+              <p class="body text-sm text-muted leading-relaxed">{{ post.excerpt }}</p>
               <div class="mt-4 h-px w-0 group-hover:w-full transition-all duration-500" style="background: linear-gradient(90deg, #E91E8C, #F48DB4)" />
             </div>
           </NuxtLink>

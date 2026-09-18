@@ -51,7 +51,7 @@ const toggle = (i: number) => {
         <h2 class="display text-4xl lg:text-5xl text-[#1A1A2E] mb-4">
           Частые вопросы
         </h2>
-        <p class="body text-base text-[#B08898]">
+        <p class="body text-base text-muted">
           Если не нашли ответ — напишите нам в мессенджер, ответим за несколько минут
         </p>
       </div>
@@ -93,7 +93,7 @@ const toggle = (i: number) => {
 
           <!-- Ответ -->
           <Transition name="faq">
-            <div v-if="open === i" :id="`faq-answer-${i}`" class="px-6 pb-5">
+            <div v-show="open === i" :id="`faq-answer-${i}`" class="px-6 pb-5">
               <div class="pink-divider mb-4" />
               <p class="body text-sm text-[#6B4F5A] leading-relaxed">{{ faq.a }}</p>
             </div>
@@ -128,17 +128,14 @@ const toggle = (i: number) => {
 <style scoped>
 .faq-enter-active,
 .faq-leave-active {
-  transition: all 0.3s ease;
-  overflow: hidden;
+  transition: opacity 0.2s ease;
 }
 .faq-enter-from,
 .faq-leave-to {
   opacity: 0;
-  max-height: 0;
 }
 .faq-enter-to,
 .faq-leave-from {
   opacity: 1;
-  max-height: 200px;
 }
 </style>

@@ -19,7 +19,7 @@ useHead({
       author: { '@type': 'Person', name: 'Анастасия Камшук' },
       publisher: { '@type': 'Organization', name: 'Камшук Бьюти', url: 'https://kamshukbeauty.ru' },
       datePublished: '2026-07-18',
-      image: 'https://kamshukbeauty.ru/images/studio/1.jpg',
+      image: 'https://kamshukbeauty.ru/images/studio/gallery-01.jpg',
       mainEntityOfPage: 'https://kamshukbeauty.ru/blog/kak-podgotovitsya-k-vizitu-v-studiyu',
     }),
   }],
@@ -46,7 +46,7 @@ const checklist = [
 </script>
 
 <template>
-  <div class="pt-20">
+  <div>
     <article class="py-20 bg-white">
       <div class="container">
         <div class="max-w-3xl mx-auto">
@@ -54,8 +54,8 @@ const checklist = [
 
           <header class="mb-12">
             <div class="flex flex-wrap items-center gap-3 mb-6">
-              <span class="label text-[10px] px-3 py-1 rounded-full text-[#E91E8C]" style="background: rgba(76,117,163,0.12)">Советы</span>
-              <span class="body text-xs text-[#B08898]">18 июля 2026 · Анастасия Камшук</span>
+              <span class="label text-[10px] px-3 py-1 rounded-full text-accent" style="background: rgba(76,117,163,0.12)">Советы</span>
+              <span class="body text-xs text-muted">18 июля 2026 · Анастасия Камшук</span>
             </div>
             <h1 class="display text-4xl lg:text-5xl text-[#1A1A2E] mb-6 leading-tight">
               Как подготовиться к визиту в студию красоты
@@ -66,7 +66,7 @@ const checklist = [
           </header>
 
           <div class="aspect-[16/9] overflow-hidden rounded-3xl mb-12" style="box-shadow: 0 16px 60px rgba(233,30,140,0.1)">
-            <img src="/images/studio/1.jpg" alt="Интерьер студии Камшук Бьюти" class="w-full h-full object-cover" width="900" height="506" loading="lazy" />
+            <img src="/images/studio/gallery-01.jpg" alt="Интерьер студии Камшук Бьюти" class="w-full h-full object-cover" width="900" height="506" loading="lazy" />
           </div>
 
           <div class="space-y-4">
@@ -103,7 +103,7 @@ const checklist = [
           </div>
 
           <div class="mt-10 pt-8 border-t border-[#F5F5F5]">
-            <NuxtLink to="/blog" class="body text-sm text-[#E91E8C] hover:underline">← Все статьи блога</NuxtLink>
+            <NuxtLink to="/blog" class="body text-sm text-accent hover:underline">← Все статьи блога</NuxtLink>
           </div>
         </div>
       </div>

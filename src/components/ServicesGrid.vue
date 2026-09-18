@@ -3,7 +3,7 @@ const services = [
   {
     title: 'Ногтевой сервис',
     description: 'Маникюр и педикюр гель-лак, наращивание. Покрытие держится до следующего визита — гарантируем качество',
-    image: '/images/4_foto/manik.jpg',
+    image: '/images/services/manicure.jpg',
     oldPrice: '',
     price: 'от 1 400 ₽',
     tag: 'Популярно',
@@ -13,8 +13,8 @@ const services = [
   },
   {
     title: 'Ресницы & Брови',
-    description: 'Наращивание, ламинирование, коррекция бровей — выразительный взгляд без ежедневного макияжа',
-    image: '/images/4_foto/resnici_i_brovi.jpg',
+    description: 'Наращивание и ламинирование ресниц, архитектура и окрашивание бровей, выразительный взгляд без ежедневного макияжа',
+    image: '/images/services/lashes-brows.jpg',
     oldPrice: '',
     price: 'от 1 500 ₽',
     tag: '',
@@ -25,7 +25,7 @@ const services = [
   {
     title: 'Макияж',
     description: 'Дневной, вечерний, свадебный. Подчеркнём вашу красоту для любого события — от деловой встречи до торжества',
-    image: '/images/4_foto/make.jpg',
+    image: '/images/services/makeup.jpg',
     oldPrice: '',
     price: 'от 3 500 ₽',
     tag: '',
@@ -36,7 +36,7 @@ const services = [
   {
     title: 'Перманентный макияж',
     description: 'Пудровые брови, напыление губ, стрелка и межресничка — стойкий и выразительный результат',
-    image: '/images/new_foto/photo_2026-08-09_15-45-48.jpg',
+    image: '/images/portfolio/permanent-makeup/lips.jpg',
     oldPrice: '',
     price: 'от 12 000 ₽',
     tag: 'Новая услуга',
@@ -47,7 +47,7 @@ const services = [
   {
     title: 'Обучение',
     description: 'Особенные знания, авторские техники и профессиональные приёмы, которые невозможно получить где-либо ещё',
-    image: '/images/4_foto/obychenie.jpg',
+    image: '/images/services/training.jpg',
     oldPrice: '',
     price: 'Узнать стоимость',
     tag: 'Новые группы',
@@ -63,20 +63,22 @@ const services = [
     <div class="container">
 
       <!-- Заголовок секции -->
-      <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-20">
+      <div class="grid lg:grid-cols-[1.3fr_1fr] lg:items-end gap-8 mb-20">
         <div class="max-w-xl">
           <div class="section-label mb-5">Наши услуги</div>
           <h2 class="display text-4xl lg:text-5xl text-[#1A1A2E] leading-tight">
             Что мы<br />предлагаем
           </h2>
         </div>
-        <p class="body text-base text-[#B08898] max-w-sm lg:text-right">
+        <div class="lg:justify-self-end max-w-sm lg:text-right">
+        <p class="body text-base text-muted">
           Новым гостям дарим скидку 20% на первый визит. Используем только
           премиальные материалы, авторские и проверенные техники
         </p>
-        <p class="body text-xs text-[#B08898] max-w-sm lg:text-right">
+        <p class="body text-xs text-muted mt-3">
           * Скидки и предложения не суммируются.
         </p>
+        </div>
       </div>
 
       <!-- Сетка услуг -->
@@ -86,7 +88,7 @@ const services = [
           :key="service.href"
           :to="service.href"
           :aria-label="`Услуга: ${service.title}`"
-          class="group card-luxury overflow-hidden block focus:outline-none"
+          class="group card-luxury overflow-hidden block"
         >
           <!-- Фото -->
           <div class="relative aspect-[4/3] overflow-hidden">
@@ -128,8 +130,8 @@ const services = [
 
           <!-- Контент -->
           <div class="p-6 lg:p-8">
-            <div class="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between sm:gap-4 mb-3">
-              <h3 class="headline text-xl text-[#1A1A2E] group-hover:text-[#E91E8C] transition-colors duration-300">
+            <div class="flex flex-wrap items-start justify-between gap-3 mb-3">
+              <h3 class="headline flex-[1_1_15rem] text-xl text-[#1A1A2E] group-hover:text-accent transition-colors duration-300">
                 {{ service.title }}
               </h3>
               <PromoPrice
@@ -139,9 +141,9 @@ const services = [
                 :new-price="service.price"
                 size="sm"
               />
-              <span v-else class="label text-[11px] text-[#E91E8C] shrink-0 sm:mt-1">{{ service.price }}</span>
+              <span v-else class="label text-[11px] text-accent shrink-0 sm:mt-1">{{ service.price }}</span>
             </div>
-            <p class="body text-sm text-[#B08898]">{{ service.description }}</p>
+            <p class="body text-sm text-muted">{{ service.description }}</p>
 
             <!-- Розовый разделитель при наведении -->
             <div class="mt-5 h-px w-0 group-hover:w-full transition-all duration-500"

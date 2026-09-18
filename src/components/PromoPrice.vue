@@ -23,7 +23,7 @@ const keepTogether = (value: string) => value.replace(/\s+/g, '\u00A0')
   >
     <span
       :class="[
-        'label text-[#B08898] line-through decoration-[#E91E8C]/70',
+        'label text-muted line-through decoration-[#E91E8C]/70',
         size === 'lg' ? 'text-sm' : 'text-[11px]',
       ]"
     >
@@ -31,13 +31,13 @@ const keepTogether = (value: string) => value.replace(/\s+/g, '\u00A0')
     </span>
     <span
       :class="[
-        'label text-[#E91E8C]',
+        'label text-accent',
         size === 'lg' ? 'text-3xl headline text-pink-gradient' : size === 'sm' ? 'text-xs' : 'text-sm',
       ]"
     >
       {{ keepTogether(newPrice) }}
     </span>
-    <span v-if="note" class="body text-[10px] text-[#B08898] leading-tight">
+    <span v-if="note" class="body text-[10px] text-muted leading-tight">
       {{ note }}
     </span>
   </span>

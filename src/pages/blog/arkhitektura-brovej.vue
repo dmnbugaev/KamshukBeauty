@@ -19,7 +19,7 @@ useHead({
       author: { '@type': 'Person', name: 'Анастасия Камшук' },
       publisher: { '@type': 'Organization', name: 'Камшук Бьюти', url: 'https://kamshukbeauty.ru' },
       datePublished: '2026-04-28',
-      image: 'https://kamshukbeauty.ru/images/4_foto/resnici_i_brovi.jpg',
+      image: 'https://kamshukbeauty.ru/images/services/lashes-brows.jpg',
       mainEntityOfPage: 'https://kamshukbeauty.ru/blog/arkhitektura-brovej',
     }),
   }],
@@ -27,7 +27,7 @@ useHead({
 </script>
 
 <template>
-  <div class="pt-20">
+  <div>
     <article class="py-20 bg-white">
       <div class="container">
         <div class="max-w-3xl mx-auto">
@@ -35,8 +35,8 @@ useHead({
 
           <header class="mb-12">
             <div class="flex items-center gap-3 mb-6">
-              <span class="label text-[10px] px-3 py-1 rounded-full text-[#E91E8C]" style="background: rgba(200,164,65,0.12)">Брови</span>
-              <span class="body text-xs text-[#B08898]">28 апреля 2026 · Анастасия Камшук</span>
+              <span class="label text-[10px] px-3 py-1 rounded-full text-accent" style="background: rgba(200,164,65,0.12)">Брови</span>
+              <span class="body text-xs text-muted">28 апреля 2026 · Анастасия Камшук</span>
             </div>
             <h1 class="display text-4xl lg:text-5xl text-[#1A1A2E] mb-6 leading-tight">
               Архитектура бровей: что это такое и чем отличается от коррекции
@@ -47,7 +47,7 @@ useHead({
           </header>
 
           <div class="aspect-[16/9] overflow-hidden rounded-3xl mb-12" style="box-shadow: 0 16px 60px rgba(233,30,140,0.1)">
-            <img src="/images/4_foto/resnici_i_brovi.jpg" alt="Архитектура бровей — Камшук Бьюти" class="w-full h-full object-cover" width="900" height="506" loading="lazy" />
+            <img src="/images/services/lashes-brows.jpg" alt="Архитектура бровей — Камшук Бьюти" class="w-full h-full object-cover" width="900" height="506" loading="lazy" />
           </div>
 
           <div class="space-y-8 body text-base text-[#424242] leading-relaxed">
@@ -61,7 +61,7 @@ useHead({
               <h2 class="headline text-2xl text-[#1A1A2E] mb-4">Чем архитектура отличается от коррекции</h2>
               <div class="grid md:grid-cols-2 gap-4">
                 <div class="glass-pink rounded-2xl p-5">
-                  <h3 class="headline text-base text-[#E91E8C] mb-3">Коррекция бровей</h3>
+                  <h3 class="headline text-base text-accent mb-3">Коррекция бровей</h3>
                   <ul class="body text-sm text-[#6B4F5A] space-y-2">
                     <li>✓ Поддержание уже заданной формы</li>
                     <li>✓ Удаление отросших волосков</li>
@@ -70,7 +70,7 @@ useHead({
                   </ul>
                 </div>
                 <div class="rounded-2xl p-5" style="background: rgba(233,30,140,0.06); border: 1.5px solid rgba(233,30,140,0.2)">
-                  <h3 class="headline text-base text-[#E91E8C] mb-3">Архитектура бровей</h3>
+                  <h3 class="headline text-base text-accent mb-3">Архитектура бровей</h3>
                   <ul class="body text-sm text-[#6B4F5A] space-y-2">
                     <li>✓ Создание новой формы с нуля</li>
                     <li>✓ Разметка и проработка симметрии</li>
@@ -91,7 +91,7 @@ useHead({
                   { face: 'Квадратное лицо', brow: 'Мягкая дуга смягчает угловатые черты' },
                   { face: 'Вытянутое лицо', brow: 'Прямая горизонтальная бровь — визуально расширяет' },
                 ]" :key="t.face" class="flex gap-3 items-start">
-                  <span class="text-[#E91E8C] shrink-0 mt-0.5">●</span>
+                  <span class="text-accent shrink-0 mt-0.5">●</span>
                   <p class="body text-sm text-[#424242]"><strong>{{ t.face }}:</strong> {{ t.brow }}</p>
                 </li>
               </ul>
@@ -113,7 +113,7 @@ useHead({
           </div>
 
           <div class="mt-10 pt-8 border-t border-[#F5F5F5]">
-            <NuxtLink to="/blog" class="body text-sm text-[#E91E8C] hover:underline">← Все статьи блога</NuxtLink>
+            <NuxtLink to="/blog" class="body text-sm text-accent hover:underline">← Все статьи блога</NuxtLink>
           </div>
         </div>
       </div>

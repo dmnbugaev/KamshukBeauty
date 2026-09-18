@@ -27,7 +27,7 @@
   --bg-soft: #FFF8FC;
   --text-dark: #1A1A2E;
   --text-mid: #6B4F5A;
-  --text-light: #B08898;
+  --text-light: #80616F;
   --surface: #FFFFFF;
   --surface-soft: #FFF4F9;
   --border-soft: rgba(233, 30, 140, 0.12);
@@ -70,7 +70,7 @@
   --page-gutter-left: max(var(--container-pad), env(safe-area-inset-left));
   --page-gutter-right: max(var(--container-pad), env(safe-area-inset-right));
   --section-y: clamp(64px, 9vw, 112px);
-  --header-height: 80px;
+  --header-height: 64px;
 }
 
 /* ===== БАЗОВЫЕ СТИЛИ ===== */
@@ -172,6 +172,32 @@ a[href^="tel"] {
   line-height: 1.22;
 }
 
+/* Long words must stay inside their card, including at increased text zoom. */
+.display, .headline, .body,
+.display *, .headline *, .body * {
+  overflow-wrap: anywhere;
+}
+
+.service-page > section:first-child .container > .grid > div:first-child {
+  container-type: inline-size;
+}
+
+.service-page h1.display {
+  font-size: clamp(1.5rem, 9.5cqi, 3.5rem);
+}
+
+.service-page .service-stats {
+  grid-template-columns: minmax(0, 1.5fr) repeat(2, minmax(0, 1fr));
+}
+
+.service-page .service-stats .headline {
+  font-size: clamp(1rem, 4.5cqi, 1.65rem);
+}
+
+@media (min-width: 1024px) {
+  :root { --header-height: 80px; }
+}
+
 .body {
   font-family: var(--font-family-body);
   font-weight: var(--font-weight-regular);
@@ -194,18 +220,18 @@ a[href^="tel"] {
 
 /* ===== РОЗОВЫЙ ТЕКСТ (основной) ===== */
 .text-pink {
-  color: var(--pink-main);
+  color: var(--pink-deep);
 }
 
 .text-pink-gradient {
-  background: linear-gradient(135deg, var(--pink-deep) 0%, var(--pink-main) 50%, var(--pink-soft) 100%);
+  background: linear-gradient(135deg, var(--pink-deep) 0%, #D0186B 50%, var(--pink-deep) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .text-pink-shimmer {
-  background: linear-gradient(90deg, var(--pink-deep), var(--pink-soft), var(--pink-main), var(--pink-soft), var(--pink-deep));
+  background: linear-gradient(90deg, var(--pink-deep), #D0186B, var(--pink-deep), #D0186B, var(--pink-deep));
   background-size: 300% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -324,7 +350,7 @@ a[href^="tel"] {
 /* ===== КНОПКИ ===== */
 /* Розовая — основная */
 .btn-pink {
-  background: linear-gradient(135deg, var(--pink-deep) 0%, var(--pink-main) 60%, #F06292 100%);
+  background: linear-gradient(135deg, var(--pink-deep) 0%, #D0186B 60%, var(--pink-deep) 100%);
   color: #fff;
   font-family: var(--font-family-body);
   font-weight: var(--font-weight-bold);
@@ -363,7 +389,7 @@ a[href^="tel"] {
 
 /* Золотая — вторичная */
 .btn-gold {
-  background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold-main) 50%, var(--gold-mid) 100%);
+  background: linear-gradient(135deg, var(--gold-dark) 0%, #947018 50%, var(--gold-dark) 100%);
   color: #fff;
   font-family: var(--font-family-body);
   font-weight: var(--font-weight-bold);
@@ -477,7 +503,7 @@ a[href^="tel"] {
   font-size: 0.7rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--pink-main);
+  color: var(--pink-deep);
 }
 
 .section-label::before {
@@ -486,6 +512,7 @@ a[href^="tel"] {
   width: 24px;
   height: 1.5px;
   background: linear-gradient(90deg, var(--pink-main), var(--pink-soft));
+  flex-shrink: 0;
 }
 
 /* ===== КАРТОЧКИ ===== */
@@ -723,7 +750,19 @@ iframe {
   .display.text-4xl,
   .display.text-5xl,
   .display.lg\:text-5xl {
-    font-size: clamp(1.85rem, 9vw, 2.35rem);
+    font-size: clamp(1.6rem, 8vw, 2.35rem);
+  }
+
+  .display.text-3xl {
+    font-size: clamp(1.4rem, 5.5vw, 1.875rem);
+  }
+
+  .display.text-2xl {
+    font-size: clamp(1.25rem, 5vw, 1.5rem);
+  }
+
+  .headline.text-2xl {
+    font-size: clamp(1.25rem, 5.5vw, 1.5rem);
   }
 
   .headline.text-4xl,

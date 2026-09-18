@@ -6,7 +6,7 @@ useHead({
     { name: 'keywords', content: 'маникюр Коммунарка, маникюр гель-лак Коммунарка, маникюр Новая Москва, студия маникюра Коммунарка, маникюр ТиНАО, маникюр без выходных Москва' },
     { property: 'og:title', content: 'Маникюр в Коммунарке — Камшук Бьюти от 1 400 ₽' },
     { property: 'og:description', content: 'Маникюр и покрытие гель-лак в Коммунарке. Скидка 20% новым гостям на первый визит.' },
-    { property: 'og:image', content: 'https://kamshukbeauty.ru/images/4_foto/manik.jpg' },
+    { property: 'og:image', content: 'https://kamshukbeauty.ru/images/services/manicure.jpg' },
     { property: 'og:url', content: 'https://kamshukbeauty.ru/manikyur' },
   ],
   link: [{ rel: 'canonical', href: 'https://kamshukbeauty.ru/manikyur' }],
@@ -57,7 +57,7 @@ const open = ref<number | null>(null)
 </script>
 
 <template>
-  <div class="pt-20">
+  <div class="service-page">
     <!-- Hero -->
     <section
       class="py-20 relative overflow-hidden"
@@ -88,25 +88,25 @@ const open = ref<number | null>(null)
                 +7 (977) 107-50-05
               </a>
             </div>
-            <div class="grid grid-cols-3 gap-6">
+            <div class="service-stats grid grid-cols-3 gap-3 sm:gap-6">
               <div class="text-center sm:text-left">
-                <div class="headline text-3xl text-pink-gradient mb-1">от 1 400 ₽</div>
-                <p class="body text-xs text-[#B08898]">стоимость</p>
+                <div class="headline text-3xl text-pink-gradient mb-1">от <span class="service-stat-price whitespace-nowrap">1 400 ₽</span></div>
+                <p class="body text-xs text-muted">стоимость</p>
               </div>
               <div class="text-center sm:text-left">
                 <div class="headline text-3xl text-pink-gradient mb-1">3–4 нед.</div>
-                <p class="body text-xs text-[#B08898]">держится покрытие</p>
+                <p class="body text-xs text-muted">держится покрытие</p>
               </div>
               <div class="text-center sm:text-left">
                 <div class="headline text-3xl text-pink-gradient mb-1">−20%</div>
-                <p class="body text-xs text-[#B08898]">первый визит</p>
+                <p class="body text-xs text-muted">первый визит</p>
               </div>
             </div>
           </div>
           <div class="relative">
             <div class="aspect-[4/3] overflow-hidden rounded-3xl" style="box-shadow: 0 24px 80px rgba(233,30,140,0.15)">
               <img
-                src="/images/4_foto/manik.jpg"
+                src="/images/services/manicure.jpg"
                 alt="Маникюр гель-лак в Коммунарке — студия Камшук Бьюти"
                 class="w-full h-full object-cover"
                 width="600" height="450"
@@ -114,7 +114,7 @@ const open = ref<number | null>(null)
             </div>
             <div class="absolute -bottom-4 -left-4 glass-pink rounded-2xl px-5 py-3" style="box-shadow: 0 8px 32px rgba(233,30,140,0.2)">
               <p class="label text-[10px] text-[#C2185B] mb-0.5">Первый визит</p>
-              <p class="headline text-2xl text-[#E91E8C]">−20%</p>
+              <p class="headline text-2xl text-accent">−20%</p>
             </div>
           </div>
         </div>
@@ -135,12 +135,12 @@ const open = ref<number | null>(null)
           >
             <div class="flex flex-col gap-2 sm:flex-row sm:justify-between sm:items-start mb-2">
               <h3 class="headline text-base text-[#1A1A2E]">{{ item.name }}</h3>
-              <span class="label text-sm text-[#E91E8C] sm:ml-4 shrink-0">{{ item.price }}</span>
+              <span class="label text-sm text-accent sm:ml-4 shrink-0">{{ item.price }}</span>
             </div>
-            <p class="body text-xs text-[#B08898]">{{ item.desc }}</p>
+            <p class="body text-xs text-muted">{{ item.desc }}</p>
           </div>
         </div>
-        <p class="body text-xs text-[#B08898] mt-6">
+        <p class="body text-xs text-muted mt-6">
           * Скидки и предложения не суммируются. Стоимость уточняйте при записи.
         </p>
       </div>
@@ -160,7 +160,7 @@ const open = ref<number | null>(null)
             { icon: '🕙', title: 'Ежедневно 10:00–22:00', text: 'Записывайтесь в удобное время — без выходных, в том числе в праздники.' },
           ]" :key="item.title" class="text-center p-6 rounded-2xl card-pink">
             <div class="ios-icon ios-pink mx-auto mb-4" style="width:56px;height:56px;border-radius:16px;font-size:1.6rem">{{ item.icon }}</div>
-            <p class="headline text-base text-[#E91E8C] mb-2">{{ item.title }}</p>
+            <p class="headline text-base text-accent mb-2">{{ item.title }}</p>
             <p class="body text-sm text-[#6B4F5A]">{{ item.text }}</p>
           </div>
         </div>
@@ -180,14 +180,14 @@ const open = ref<number | null>(null)
             class="rounded-2xl overflow-hidden transition-all duration-300"
             :style="open === i ? 'border: 1.5px solid rgba(233,30,140,0.25); background: linear-gradient(135deg,#FFF4F9,#FFF)' : 'border: 1.5px solid rgba(233,30,140,0.1); background: #FFF'"
           >
-            <button class="w-full flex items-center justify-between gap-4 px-6 py-5 text-left" @click="open = open === i ? null : i">
+            <button type="button" :aria-expanded="open === i" :aria-controls="`service-faq-${i}`" class="w-full flex items-center justify-between gap-4 px-6 py-5 text-left" @click="open = open === i ? null : i">
               <span class="headline text-base text-[#1A1A2E]">{{ faq.q }}</span>
               <span class="shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300" :style="open === i ? 'background:linear-gradient(135deg,#E91E8C,#C2185B);transform:rotate(45deg)' : 'background:rgba(233,30,140,0.08)'">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" :stroke="open === i ? '#fff' : '#E91E8C'" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
               </span>
             </button>
             <Transition name="faq">
-              <div v-if="open === i" class="px-6 pb-5">
+              <div v-show="open === i" :id="`service-faq-${i}`" class="px-6 pb-5">
                 <div class="pink-divider mb-4"/>
                 <p class="body text-sm text-[#6B4F5A] leading-relaxed">{{ faq.a }}</p>
               </div>
@@ -214,7 +214,6 @@ const open = ref<number | null>(null)
 </template>
 
 <style scoped>
-.faq-enter-active,.faq-leave-active{transition:all .3s ease;overflow:hidden}
-.faq-enter-from,.faq-leave-to{opacity:0;max-height:0}
-.faq-enter-to,.faq-leave-from{opacity:1;max-height:200px}
+.faq-enter-active,.faq-leave-active{transition:opacity .2s ease}
+.faq-enter-from,.faq-leave-to{opacity:0}
 </style>

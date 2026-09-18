@@ -41,14 +41,14 @@ const socialChannels = [
       <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center max-w-[1320px] mx-auto">
 
         <!-- Левая часть — форма -->
-        <div>
+        <div class="booking-copy">
           <div class="section-label mb-6">Запись</div>
-          <h2 class="display text-4xl lg:text-5xl text-[#1A1A2E] mb-4">
+          <h2 class="booking-title display text-[#1A1A2E] mb-4">
             Готовы<br /><span class="text-pink-shimmer">преобразиться?</span>
           </h2>
-          <p class="body text-lg text-[#B08898] mb-10">
-            Запишитесь онлайн за 2 минуты или оставьте номер —
-            мы перезвоним и подберём удобное время. Работаем ежедневно 10:00–22:00
+          <p class="body text-lg text-muted mb-10">
+            Запишитесь онлайн за 2 минуты или свяжитесь с нами —
+            поможем подобрать удобное время. Работаем ежедневно 10:00–22:00
           </p>
 
           <!-- Акция — iOS glass стиль -->
@@ -57,11 +57,11 @@ const socialChannels = [
               <div class="ios-icon ios-pink" style="width:48px; height:48px; border-radius:14px; font-size:1.375rem">🎀</div>
               <p class="label text-[11px] text-[#C2185B]">Специальное предложение</p>
             </div>
-            <p class="headline text-4xl text-[#E91E8C] mb-2">−20%</p>
+            <p class="headline text-4xl text-accent mb-2">−20%</p>
             <p class="body text-sm text-[#6B4F5A]">
               Скидка новым гостям на первый визит
             </p>
-            <p class="body text-xs text-[#B08898] mt-3">
+            <p class="body text-xs text-muted mt-3">
               * Скидки и предложения не суммируются.
             </p>
           </div>
@@ -77,15 +77,15 @@ const socialChannels = [
           </a>
 
           <!-- Контакты -->
-          <div class="flex flex-col sm:flex-row gap-6 mb-10">
+          <div class="flex flex-wrap gap-6 mb-10">
             <div>
-              <p class="label text-[10px] text-[#B08898] mb-1">Телефон</p>
-              <a href="tel:+79771075005" class="headline text-lg text-[#1A1A2E] hover:text-[#E91E8C] transition-colors">
+              <p class="label text-[10px] text-muted mb-1">Телефон</p>
+              <a href="tel:+79771075005" class="headline text-lg text-[#1A1A2E] hover:text-accent transition-colors">
                 +7 (977) 107-50-05
               </a>
             </div>
             <div>
-              <p class="label text-[10px] text-[#B08898] mb-1">Режим работы</p>
+              <p class="label text-[10px] text-muted mb-1">Режим работы</p>
               <p class="headline text-lg text-[#1A1A2E]">Ежедневно: 10:00 — 22:00</p>
             </div>
           </div>
@@ -96,15 +96,15 @@ const socialChannels = [
             style="border: 1.5px solid rgba(233,30,140,0.12); background: rgba(255,240,250,0.4)"
           >
             <h3 class="headline text-lg text-[#1A1A2E] mb-2">Наши каналы</h3>
-            <p class="body text-sm text-[#B08898] mb-6">Акции, вдохновение и работы мастеров — подписывайтесь, чтобы не пропустить</p>
-            <div class="grid sm:grid-cols-2 gap-3">
+            <p class="body text-sm text-muted mb-6">Акции, вдохновение и работы мастеров — подписывайтесь, чтобы не пропустить</p>
+            <div class="booking-channels grid gap-3">
               <a
                 v-for="channel in socialChannels"
                 :key="channel.label"
                 :href="channel.href"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="flex items-center gap-4 px-5 py-4 rounded-2xl text-white transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
+                class="flex items-center gap-3 px-4 py-4 rounded-2xl text-white transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
                 :style="`background: ${channel.bg}; box-shadow: ${channel.shadow}`"
               >
                 <span class="shrink-0" v-html="channel.icon" />
@@ -131,7 +131,7 @@ const socialChannels = [
             <div class="aspect-[3/4] overflow-hidden rounded-3xl"
               style="box-shadow: 0 24px 80px rgba(233,30,140,0.12), 0 8px 32px rgba(0,0,0,0.08)">
               <img
-                src="/images/book.jpg"
+                src="/images/booking/appointment.jpg"
                 alt="Запись в Камшук Бьюти"
                 class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
               />
@@ -143,3 +143,17 @@ const socialChannels = [
     </div>
   </section>
 </template>
+
+<style scoped>
+.booking-copy {
+  container-type: inline-size;
+}
+
+.booking-title {
+  font-size: clamp(1.5rem, 8.9cqi, 3.1rem);
+}
+
+.booking-channels {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+}
+</style>

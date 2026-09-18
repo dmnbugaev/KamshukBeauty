@@ -67,7 +67,7 @@ const contacts = [
           <div class="section-label mb-5">Контакты</div>
           <h2 class="display text-4xl lg:text-5xl text-[#1A1A2E]">Свяжитесь с нами</h2>
         </div>
-        <p class="body text-base text-[#B08898] max-w-xs lg:text-right">
+        <p class="body text-base text-muted max-w-xs lg:text-right">
           Выберите удобный способ связи — ответим быстро
         </p>
       </div>
@@ -87,10 +87,10 @@ const contacts = [
       </div>
 
       <!-- Сетка контактов — iOS стиль -->
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4 mb-12">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-12">
         <a
           v-for="contact in contacts"
-          :key="contact.href"
+          :key="contact.label"
           :href="contact.href"
           :target="contact.external ? '_blank' : undefined"
           :rel="contact.external ? 'noopener noreferrer' : undefined"
@@ -103,13 +103,13 @@ const contacts = [
             v-html="contact.icon"
           />
           <p class="label text-[11px] text-[#1A1A2E] mb-1">{{ contact.label }}</p>
-          <p class="body text-xs text-[#B08898]">{{ contact.value }}</p>
+          <p class="body text-xs text-muted">{{ contact.value }}</p>
         </a>
       </div>
 
       <!-- Адрес -->
       <div class="text-center">
-        <p class="body text-sm text-[#B08898]">
+        <p class="body text-sm text-muted">
           г. Москва, Коммунарка, ул. Александры Монаховой д. 43/1 · Здание SoiSoul, 1 этаж
         </p>
       </div>

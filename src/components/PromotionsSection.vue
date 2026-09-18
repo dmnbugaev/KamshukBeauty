@@ -16,13 +16,13 @@ const offers = [
           <h2 class="display text-4xl lg:text-5xl text-[#1A1A2E] mb-4">Акции для наших гостей</h2>
           <p class="body text-base text-[#6B4F5A]">Выберите подходящее предложение и сообщите о нём администратору при записи.</p>
         </div>
-        <p class="body text-sm text-[#B08898] lg:text-right">Скидки и предложения не суммируются.</p>
+        <p class="body text-sm text-muted lg:text-right">Скидки и предложения не суммируются.</p>
       </div>
 
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
         <article v-for="offer in offers" :key="offer.title" class="card-luxury rounded-3xl p-6">
-          <p class="label text-[10px] text-[#B08898] mb-3">{{ offer.title }}</p>
-          <p class="headline text-3xl text-[#E91E8C] mb-3">{{ offer.value }}</p>
+          <p class="label text-[10px] text-muted mb-3">{{ offer.title }}</p>
+          <p class="headline text-3xl text-accent mb-3">{{ offer.value }}</p>
           <p class="body text-sm leading-relaxed text-[#6B4F5A]">{{ offer.text }}</p>
         </article>
       </div>
@@ -45,7 +45,7 @@ const offers = [
         </article>
       </div>
 
-      <p class="body text-xs text-[#B08898] mt-6">* Скидки действуют на услуги студии и не распространяются на обучение, абонементы и покупку подарочных сертификатов.</p>
+      <p class="body text-xs text-muted mt-6">* Скидки действуют на услуги студии и не распространяются на обучение, абонементы и покупку подарочных сертификатов.</p>
     </div>
   </section>
 </template>

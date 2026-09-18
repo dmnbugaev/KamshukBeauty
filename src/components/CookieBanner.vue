@@ -1,24 +1,26 @@
 <script setup lang="ts">
 const { decided, accept, reject } = useCookieConsent()
+const menuOpen = useState('mobile-menu-open', () => false)
 </script>
 
 <template>
   <Transition name="cookie-banner">
     <div
       v-if="!decided"
-      class="fixed bottom-4 left-4 right-4 md:bottom-6 md:left-6 md:right-6 z-[9999]"
+      class="cookie-notice fixed bottom-4 left-4 right-4 md:bottom-6 md:left-6 md:right-6 z-[90]"
+      :inert="menuOpen"
       role="dialog"
       aria-label="Уведомление об использовании файлов cookie"
     >
       <div
-        class="max-w-3xl mx-auto rounded-2xl p-6 md:p-8 shadow-luxury"
+        class="max-w-3xl mx-auto rounded-2xl p-4 sm:p-6 shadow-luxury"
         style="background: rgba(26,13,46,0.88); backdrop-filter: blur(24px); border: 1px solid rgba(200,164,65,0.2)"
       >
-        <div class="flex flex-col md:flex-row gap-6 items-start md:items-center">
+        <div class="flex flex-col lg:flex-row gap-4 items-start lg:items-center">
 
           <!-- Иконка -->
           <div
-            class="w-12 h-12 rounded-xl flex items-center justify-center shrink-0 text-xl"
+            class="hidden sm:flex w-12 h-12 rounded-xl items-center justify-center shrink-0 text-xl"
             style="background: rgba(200,164,65,0.15); border: 1px solid rgba(200,164,65,0.25)"
           >
             🍪
@@ -29,7 +31,7 @@ const { decided, accept, reject } = useCookieConsent()
             <h3 class="headline text-sm text-white mb-1.5">
               Мы используем файлы cookie
             </h3>
-            <p class="body text-xs text-white/55 leading-relaxed">
+            <p class="body text-xs text-white/85 leading-relaxed">
               Этот сайт использует cookie для улучшения работы и аналитики (Яндекс Метрика).
               При отказе аналитика не собирается.
               <NuxtLink to="/privacy" class="text-[#C8A441] hover:underline">Подробнее</NuxtLink>
@@ -37,16 +39,18 @@ const { decided, accept, reject } = useCookieConsent()
           </div>
 
           <!-- Кнопки -->
-          <div class="flex gap-3 shrink-0 w-full md:w-auto">
+          <div class="flex flex-wrap gap-3 shrink-0 w-full lg:w-auto">
             <button
-              class="flex-1 md:flex-none btn-gold py-2.5 px-5 text-[11px]"
+              type="button"
+              class="flex-1 lg:flex-none btn-gold py-2.5 px-5 text-[11px]"
               style="padding: 0.625rem 1.25rem"
               @click="accept"
             >
               Принять все
             </button>
             <button
-              class="flex-1 md:flex-none label text-[11px] text-white/50 hover:text-white px-5 py-2.5 rounded-lg transition-all duration-300"
+              type="button"
+              class="flex-1 lg:flex-none min-h-11 label text-[11px] text-white/85 hover:text-white px-5 py-2.5 rounded-lg transition-all duration-300"
               style="border: 1px solid rgba(255,255,255,0.1); background: transparent"
               @click="reject"
             >
@@ -60,6 +64,13 @@ const { decided, accept, reject } = useCookieConsent()
 </template>
 
 <style scoped>
+.cookie-notice {
+  max-height: calc(100dvh - var(--header-height) - 32px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  bottom: max(16px, env(safe-area-inset-bottom));
+}
+
 .cookie-banner-enter-active,
 .cookie-banner-leave-active {
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);

@@ -116,7 +116,7 @@ const contactLinks = [
 </script>
 
 <template>
-  <div class="pt-20">
+  <div>
     <section id="obuchenie" class="py-20 lg:py-28 overflow-hidden" style="background: linear-gradient(160deg, #FFF8FC 0%, #FFFFFF 48%, #FFF4F9 100%)">
       <div class="container">
         <div class="max-w-4xl">
@@ -136,15 +136,15 @@ const contactLinks = [
             </div>
             <div class="grid sm:grid-cols-3 gap-3 mb-8">
               <div class="glass-pink rounded-2xl p-4">
-                <p class="headline text-2xl text-[#E91E8C]">5-9</p>
+                <p class="headline text-2xl text-accent">5-9</p>
                 <p class="body text-xs text-[#6B4F5A] leading-snug">дней интенсивной практики</p>
               </div>
               <div class="glass-pink rounded-2xl p-4">
-                <p class="headline text-2xl text-[#E91E8C]">6+</p>
+                <p class="headline text-2xl text-accent">6+</p>
                 <p class="body text-xs text-[#6B4F5A] leading-snug">лет опыта инструктора</p>
               </div>
               <div class="glass-pink rounded-2xl p-4">
-                <p class="headline text-2xl text-[#E91E8C]">100%</p>
+                <p class="headline text-2xl text-accent">100%</p>
                 <p class="body text-xs text-[#6B4F5A] leading-snug">материалы включены</p>
               </div>
             </div>
@@ -163,16 +163,16 @@ const contactLinks = [
         <div class="max-w-2xl mb-12">
           <p class="section-label mb-5">Программы</p>
           <h2 class="display text-4xl lg:text-5xl text-[#1A1A2E] mb-4">Курсы обучения</h2>
-          <p class="body text-base text-[#B08898]">
+          <p class="body text-base text-muted">
             Основной фокус — практика, постановка руки, стерилизация, работа с материалами и уверенное выполнение процедур на моделях.
           </p>
         </div>
 
         <div class="grid lg:grid-cols-2 gap-6 lg:gap-8">
           <div class="card-luxury rounded-3xl p-6 sm:p-8">
-            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-6">
+            <div class="flex flex-col gap-4 mb-6">
               <div>
-                <p class="label text-[10px] text-[#E91E8C] mb-2">3 дня</p>
+                <p class="label text-[10px] text-accent mb-2">3 дня</p>
                 <h3 class="headline text-2xl text-[#1A1A2E]">Мастер маникюра</h3>
               </div>
               <PromoPrice old-price="35 000 ₽" new-price="30 000 ₽" align="left" note="при записи в текущем месяце" />
@@ -180,7 +180,7 @@ const contactLinks = [
             <p class="body text-sm text-[#6B4F5A] mb-6">
               Авторский ровный срез, аппаратная техника, выравнивание ногтевой пластины, покрытие под кутикулу и работа с дизайнами.
             </p>
-            <div class="grid gap-3 max-h-[520px] overflow-y-auto pr-1">
+            <div class="grid gap-3 lg:max-h-[520px] lg:overflow-y-auto pr-1" tabindex="0" role="region" aria-label="Программа курса маникюра">
               <div v-for="(item, idx) in manikurProgram" :key="idx" class="flex gap-3 rounded-2xl bg-[#FFF8FC] px-4 py-3">
                 <span class="label text-xs text-[#D81B60] shrink-0 w-6">{{ idx + 1 }}.</span>
                 <p class="body text-sm leading-relaxed text-[#424242]">{{ item }}</p>
@@ -189,9 +189,9 @@ const contactLinks = [
           </div>
 
           <div class="card-luxury rounded-3xl p-6 sm:p-8">
-            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-6">
+            <div class="flex flex-col gap-4 mb-6">
               <div>
-                <p class="label text-[10px] text-[#E91E8C] mb-2">2 дня</p>
+                <p class="label text-[10px] text-accent mb-2">2 дня</p>
                 <h3 class="headline text-2xl text-[#1A1A2E]">Мастер педикюра</h3>
               </div>
               <PromoPrice old-price="28 000 ₽" new-price="25 000 ₽" align="left" note="при записи в текущем месяце" />
@@ -223,12 +223,12 @@ const contactLinks = [
             <p class="section-label mb-5">Пакеты</p>
             <h2 class="display text-4xl lg:text-5xl text-[#1A1A2E]">Пакетное предложение</h2>
           </div>
-          <p class="body text-sm text-[#B08898] max-w-md lg:text-right">
+          <p class="body text-sm text-muted max-w-md lg:text-right">
             Выберите глубину обучения: базовая профессия, усиление моделированием или расширенная VIP-программа.
           </p>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
+        <div class="grid lg:grid-cols-3 gap-6 lg:gap-8">
           <div
             v-for="pkg in packages"
             :key="pkg.title"
@@ -242,7 +242,7 @@ const contactLinks = [
             <div v-if="pkg.popular" class="absolute -top-4 left-6 rounded-full bg-[#D81B60] px-4 py-1 text-white">
               <span class="label text-xs">Популярный</span>
             </div>
-            <p class="label text-[10px] text-[#B08898] mb-2">{{ pkg.duration }}</p>
+            <p class="label text-[10px] text-muted mb-2">{{ pkg.duration }}</p>
             <h3 class="headline text-xl text-[#1A1A2E] mb-4">{{ pkg.displayTitle }}</h3>
             <PromoPrice :old-price="pkg.oldPrice" :new-price="pkg.price" size="lg" align="left" note="скидка 5 000 ₽ при записи в текущем месяце" />
             <p class="body text-sm text-[#6B4F5A] mt-5">{{ pkg.includes }}</p>
@@ -253,16 +253,16 @@ const contactLinks = [
 
     <section class="py-20 bg-white">
       <div class="container">
-        <div class="grid lg:grid-cols-[0.8fr_1.2fr] gap-10 lg:gap-16 items-start">
+        <div class="grid gap-10 lg:gap-16 items-start">
           <div>
             <p class="section-label mb-5">Преимущества</p>
             <h2 class="display text-4xl lg:text-5xl text-[#1A1A2E] mb-5">Что вы получаете</h2>
-            <p class="body text-base text-[#B08898]">
+            <p class="body text-base text-muted">
               Обучение построено вокруг практики и понятной системы: от постановки руки до портфолио и первых гостей.
             </p>
           </div>
-          <div class="grid sm:grid-cols-2 gap-4">
-            <div v-for="benefit in benefits" :key="benefit.title" class="flex gap-4 rounded-3xl border border-[#E91E8C]/10 bg-white p-5 transition-all duration-300 hover:shadow-md">
+          <div class="grid md:grid-cols-2 gap-4">
+            <div v-for="benefit in benefits" :key="benefit.title" class="flex flex-col sm:flex-row gap-4 rounded-3xl border border-[#E91E8C]/10 bg-white p-5 transition-all duration-300 hover:shadow-md">
               <div class="ios-icon ios-pink" style="width:48px;height:48px;border-radius:14px;font-size:1.25rem">{{ benefit.icon }}</div>
               <div>
                 <h3 class="headline text-base text-[#1A1A2E] mb-2">{{ benefit.title }}</h3>
@@ -279,7 +279,7 @@ const contactLinks = [
         <div class="max-w-4xl mx-auto text-center">
           <p class="section-label mb-5 justify-center">Результат</p>
           <h2 class="display text-4xl lg:text-5xl text-[#1A1A2E] mb-10">После обучения вас ждут</h2>
-          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+          <div class="grid sm:grid-cols-2 gap-4 mb-12">
             <div v-for="item in afterTraining" :key="item" class="rounded-2xl bg-white px-5 py-5 shadow-[0_8px_28px_rgba(233,30,140,0.06)]">
               <span class="mx-auto mb-3 flex h-9 w-9 items-center justify-center rounded-full bg-[#FDE8F2] text-[#D81B60]">✓</span>
               <p class="headline text-base text-[#1A1A2E]">{{ item }}</p>
@@ -298,7 +298,7 @@ const contactLinks = [
                 :href="link.href"
                 :target="link.href.startsWith('http') ? '_blank' : undefined"
                 :rel="link.href.startsWith('http') ? 'noopener noreferrer' : undefined"
-                :class="[link.className, 'text-center']"
+                :class="[link.className, 'flex-col gap-2 text-center']"
               >
                 {{ link.label }}<span class="block text-[11px] opacity-80">{{ link.value }}</span>
               </a>

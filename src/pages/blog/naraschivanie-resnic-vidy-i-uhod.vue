@@ -6,7 +6,7 @@ useHead({
     { name: 'keywords', content: 'наращивание ресниц виды, какое наращивание ресниц лучше, классика объём наращивание, уход за наращёнными ресницами' },
     { property: 'og:title', content: 'Наращивание ресниц: виды и уход — советы мастера' },
     { property: 'og:description', content: 'Разбираемся в техниках наращивания ресниц и правилах ухода после процедуры.' },
-    { property: 'og:image', content: 'https://kamshukbeauty.ru/images/4_foto/resnici_i_brovi.jpg' },
+    { property: 'og:image', content: 'https://kamshukbeauty.ru/images/services/lashes-brows.jpg' },
     { property: 'og:url', content: 'https://kamshukbeauty.ru/blog/naraschivanie-resnic-vidy-i-uhod' },
     { property: 'og:type', content: 'article' },
   ],
@@ -20,7 +20,7 @@ useHead({
       author: { '@type': 'Person', name: 'Анастасия Камшук' },
       publisher: { '@type': 'Organization', name: 'Камшук Бьюти', url: 'https://kamshukbeauty.ru' },
       datePublished: '2026-05-05',
-      image: 'https://kamshukbeauty.ru/images/4_foto/resnici_i_brovi.jpg',
+      image: 'https://kamshukbeauty.ru/images/services/lashes-brows.jpg',
       mainEntityOfPage: 'https://kamshukbeauty.ru/blog/naraschivanie-resnic-vidy-i-uhod',
     }),
   }],
@@ -28,7 +28,7 @@ useHead({
 </script>
 
 <template>
-  <div class="pt-20">
+  <div>
     <article class="py-20 bg-white">
       <div class="container">
         <div class="max-w-3xl mx-auto">
@@ -36,8 +36,8 @@ useHead({
 
           <header class="mb-12">
             <div class="flex items-center gap-3 mb-6">
-              <span class="label text-[10px] px-3 py-1 rounded-full text-[#E91E8C]" style="background: rgba(126,207,222,0.15)">Ресницы</span>
-              <span class="body text-xs text-[#B08898]">5 мая 2026 · Анастасия Камшук</span>
+              <span class="label text-[10px] px-3 py-1 rounded-full text-accent" style="background: rgba(126,207,222,0.15)">Ресницы</span>
+              <span class="body text-xs text-muted">5 мая 2026 · Анастасия Камшук</span>
             </div>
             <h1 class="display text-4xl lg:text-5xl text-[#1A1A2E] mb-6 leading-tight">
               Наращивание ресниц: виды техник и правила ухода
@@ -48,7 +48,7 @@ useHead({
           </header>
 
           <div class="aspect-[16/9] overflow-hidden rounded-3xl mb-12" style="box-shadow: 0 16px 60px rgba(233,30,140,0.1)">
-            <img src="/images/4_foto/resnici_i_brovi.jpg" alt="Наращивание ресниц — Камшук Бьюти" class="w-full h-full object-cover" width="900" height="506" loading="lazy" />
+            <img src="/images/services/lashes-brows.jpg" alt="Наращивание ресниц — Камшук Бьюти" class="w-full h-full object-cover" width="900" height="506" loading="lazy" />
           </div>
 
           <div class="space-y-8 body text-base text-[#424242] leading-relaxed">
@@ -60,7 +60,7 @@ useHead({
                   { name: '2D / Лёгкий объём', desc: '2 искусственных ресницы на одну натуральную. Больше пышности при сохранении лёгкости. Универсальный вариант.', tag: 'Баланс' },
                   { name: 'Мега-объём (5D+)', desc: 'От 5 ресниц на одну натуральную. Эффектно, выразительно — для тех, кто хочет максимальную густоту.', tag: 'Максимум' },
                 ]" :key="t.name" class="glass-pink rounded-2xl p-5">
-                  <span class="label text-[10px] text-[#E91E8C] mb-2 block">{{ t.tag }}</span>
+                  <span class="label text-[10px] text-accent mb-2 block">{{ t.tag }}</span>
                   <h3 class="headline text-base text-[#1A1A2E] mb-2">{{ t.name }}</h3>
                   <p class="body text-sm text-[#6B4F5A]">{{ t.desc }}</p>
                 </div>
@@ -89,7 +89,7 @@ useHead({
                   'Не используйте жирные средства для снятия макияжа — они разрушают клей.',
                   'Расчёсывайте ресницы щёточкой каждое утро — это сохраняет форму и опрятный вид.',
                 ]" :key="i" class="flex gap-4 p-4 rounded-xl" style="background: rgba(233,30,140,0.04); border: 1px solid rgba(233,30,140,0.1)">
-                  <span class="headline text-lg text-[#E91E8C] shrink-0">{{ i + 1 }}.</span>
+                  <span class="headline text-lg text-accent shrink-0">{{ i + 1 }}.</span>
                   <p class="body text-sm text-[#424242]">{{ r }}</p>
                 </li>
               </ol>
@@ -106,7 +106,7 @@ useHead({
           </div>
 
           <div class="mt-10 pt-8 border-t border-[#F5F5F5]">
-            <NuxtLink to="/blog" class="body text-sm text-[#E91E8C] hover:underline">← Все статьи блога</NuxtLink>
+            <NuxtLink to="/blog" class="body text-sm text-accent hover:underline">← Все статьи блога</NuxtLink>
           </div>
         </div>
       </div>

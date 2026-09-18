@@ -16,7 +16,7 @@ const handleError = () => clearError({ redirect: '/' })
     >
       <div class="container">
         <div class="max-w-2xl mx-auto text-center">
-          <p class="label text-[12px] text-[#E91E8C] mb-4">
+          <p class="label text-[12px] text-accent mb-4">
             {{ error.statusCode || 500 }}
           </p>
           <h1 class="display text-4xl sm:text-5xl text-[#1A1A2E] mb-6">

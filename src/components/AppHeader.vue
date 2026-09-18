@@ -6,7 +6,8 @@ type HeaderLink = {
 }
 
 const scrolled = ref(false)
-const menuOpen = ref(false)
+const mounted = ref(false)
+const menuOpen = useState('mobile-menu-open', () => false)
 const menuButtonRef = ref<HTMLButtonElement | null>(null)
 const menuPanelRef = ref<HTMLElement | null>(null)
 const route = useRoute()
@@ -83,7 +84,10 @@ const handleKeydown = (event: KeyboardEvent) => {
   const firstItem = focusableItems[0]
   const lastItem = focusableItems[focusableItems.length - 1]
 
-  if (event.shiftKey && document.activeElement === firstItem) {
+  if (!menuPanelRef.value?.contains(document.activeElement)) {
+    event.preventDefault()
+    ;(event.shiftKey ? lastItem : firstItem).focus()
+  } else if (event.shiftKey && document.activeElement === firstItem) {
     event.preventDefault()
     lastItem.focus()
   } else if (!event.shiftKey && document.activeElement === lastItem) {
@@ -99,6 +103,7 @@ const handleDesktopChange = (event: MediaQueryListEvent | MediaQueryList) => {
 }
 
 onMounted(() => {
+  mounted.value = true
   handleScroll()
   window.addEventListener('scroll', handleScroll, { passive: true })
   window.addEventListener('keydown', handleKeydown)
@@ -138,7 +143,7 @@ watch(
 <template>
   <header
     :class="[
-      'fixed inset-x-0 top-0 z-[80] transition-all duration-300',
+      'site-header fixed inset-x-0 top-0 z-[80] transition-all duration-300',
       scrolled || menuOpen
         ? 'glass-white shadow-[0_2px_24px_rgba(233,30,140,0.08)]'
         : 'bg-white/75 backdrop-blur-md',
@@ -154,7 +159,7 @@ watch(
         >
           <span class="relative shrink-0">
             <img
-              src="/images/logo.jpg"
+              src="/images/brand/logo.jpg"
               alt="Логотип Камшук Бьюти"
               class="h-11 w-11 rounded-full object-cover shadow-[0_4px_20px_rgba(233,30,140,0.22)] ring-2 ring-[#E91E8C]/25 transition-all duration-300 group-hover:ring-[#E91E8C]/50 sm:h-12 sm:w-12"
               width="56"
@@ -163,7 +168,7 @@ watch(
           </span>
           <span class="hidden min-w-0 sm:block">
             <span class="headline block truncate text-sm leading-none text-pink-gradient md:text-base">Камшук Бьюти</span>
-            <span class="body mt-1 block truncate text-[10px] text-[#B08898]">Студия красоты · Москва</span>
+            <span class="body mt-1 block truncate text-[10px] text-muted">Студия красоты · Москва</span>
           </span>
         </NuxtLink>
 
@@ -172,7 +177,7 @@ watch(
             v-for="link in links"
             :key="link.href"
             :to="link.href"
-            class="label group relative max-w-28 truncate text-[11px] text-[#6B4F5A] transition-colors duration-300 hover:text-[#E91E8C] xl:max-w-none"
+            class="label group relative max-w-28 truncate text-[11px] text-[#6B4F5A] transition-colors duration-300 hover:text-accent xl:max-w-none"
           >
             {{ link.label }}
             <span class="absolute -bottom-0.5 left-0 h-px w-0 bg-gradient-to-r from-[#E91E8C] to-[#F48DB4] transition-all duration-300 group-hover:w-full" />
@@ -191,6 +196,7 @@ watch(
         <button
           ref="menuButtonRef"
           type="button"
+          :disabled="!mounted"
           class="burger-button lg:hidden"
           :class="{ 'burger-button--open': menuOpen }"
           :aria-label="menuOpen ? 'Закрыть меню' : 'Открыть меню'"
@@ -227,7 +233,7 @@ watch(
           <div class="mobile-menu-panel__header flex items-center justify-between gap-4 px-5 py-4">
             <NuxtLink to="/" class="flex min-w-0 items-center gap-3" @click="closeMenu(false)">
               <img
-                src="/images/logo.jpg"
+                src="/images/brand/logo.jpg"
                 alt="Логотип Камшук Бьюти"
                 class="h-11 w-11 shrink-0 rounded-full object-cover ring-2 ring-[#E91E8C]/25"
                 width="44"
@@ -235,7 +241,7 @@ watch(
               />
               <span class="min-w-0">
                 <span class="headline block truncate text-sm text-pink-gradient">Камшук Бьюти</span>
-                <span class="label mt-1 block truncate text-[10px] text-[#B08898]">Меню и запись</span>
+                <span class="label mt-1 block truncate text-[10px] text-muted">Меню и запись</span>
               </span>
             </NuxtLink>
             <button
@@ -263,16 +269,16 @@ watch(
               >
                 <span class="min-w-0">
                   <span class="headline block text-base text-[#1A1A2E]">{{ link.label }}</span>
-                  <span v-if="link.note" class="body block text-xs leading-snug text-[#B08898]">{{ link.note }}</span>
+                  <span v-if="link.note" class="body block text-xs leading-snug text-muted">{{ link.note }}</span>
                 </span>
-                <svg class="shrink-0 text-[#E91E8C]" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <svg class="shrink-0 text-accent" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path d="M9 18l6-6-6-6" />
                 </svg>
               </NuxtLink>
             </div>
 
             <div class="mobile-menu-card mt-6 rounded-2xl px-4 py-4">
-              <p class="label mb-2 text-[10px] text-[#E91E8C]">Адрес и время</p>
+              <p class="label mb-2 text-[10px] text-accent">Адрес и время</p>
               <p class="body text-sm leading-relaxed text-[#6B4F5A]">
                 Москва, Коммунарка<br />
                 Ежедневно 10:00-22:00
@@ -302,6 +308,10 @@ watch(
 </template>
 
 <style scoped>
+.site-header {
+  border: 0;
+}
+
 .burger-button {
   position: relative;
   display: flex;
@@ -414,6 +424,7 @@ watch(
 }
 
 .mobile-menu-panel__header {
+  flex-shrink: 0;
   border-bottom: 1px solid rgba(233, 30, 140, 0.1);
   background:
     linear-gradient(135deg, rgba(255, 248, 252, 0.98), rgba(255, 255, 255, 0.98)),
@@ -421,6 +432,7 @@ watch(
 }
 
 .mobile-menu-panel__body {
+  min-height: 0;
   overscroll-behavior: contain;
   scrollbar-gutter: stable;
   background: #ffffff;
@@ -487,6 +499,7 @@ watch(
 }
 
 .mobile-menu-panel__footer {
+  flex-shrink: 0;
   display: grid;
   gap: 8px;
   border-top: 1px solid rgba(233, 30, 140, 0.1);
@@ -505,6 +518,8 @@ watch(
 }
 
 .mobile-menu-cta {
+  padding: 10px 12px;
+  flex-wrap: wrap;
   gap: 10px;
   background: linear-gradient(135deg, #c2185b 0%, #e91e8c 62%, #f06292 100%);
   box-shadow: 0 14px 32px rgba(233, 30, 140, 0.24);
@@ -538,11 +553,12 @@ watch(
 }
 
 .mobile-menu-phone {
+  padding: 8px;
   border: 1px solid rgba(233, 30, 140, 0.14);
   background: #ffffff;
   color: #6b4f5a;
   font-family: var(--font-family-heading);
-  font-size: 0.9rem;
+  font-size: clamp(0.7rem, 3vw, 0.9rem);
   font-weight: var(--font-weight-medium);
   transition:
     border-color 0.2s ease,
@@ -559,6 +575,17 @@ watch(
 @media (min-width: 1024px) {
   .burger-button {
     display: none;
+  }
+}
+
+@media (max-height: 500px) {
+  .mobile-menu-panel__header {
+    display: none;
+  }
+
+  .mobile-menu-panel__body,
+  .mobile-menu-panel__footer {
+    padding: 12px;
   }
 }
 

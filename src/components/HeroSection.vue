@@ -41,7 +41,7 @@ const bookingCount = computed(() => {
           <div class="section-label mb-8">Студия красоты · Москва</div>
 
           <!-- Заголовок -->
-          <h1 class="display mb-6" style="font-size: clamp(2.35rem, 12vw, 5.5rem)">
+          <h1 class="hero-title display mb-6">
             <span class="block text-[#1A1A2E]">Камшук</span>
             <span class="block text-pink-shimmer" style="line-height:1.1">Бьюти</span>
           </h1>
@@ -49,9 +49,9 @@ const bookingCount = computed(() => {
           <p class="body text-lg lg:text-xl text-[#6B4F5A] mb-10 max-w-md leading-relaxed">
             Маникюр, педикюр, брови, ресницы, макияж и перманентный макияж — результат, который
             радует и держится. Работаем ежедневно с 10:00 до 22:00.
-            Новым гостям дарим <span class="text-[#E91E8C] font-semibold">скидку 20%</span> на первый визит.
+            Новым гостям дарим <span class="text-accent font-semibold">скидку 20%</span> на первый визит.
           </p>
-          <p class="body text-xs text-[#B08898] -mt-6 mb-10 max-w-md">
+          <p class="body text-xs text-muted -mt-6 mb-10 max-w-md">
             * Скидки и предложения не суммируются.
           </p>
 
@@ -81,38 +81,38 @@ const bookingCount = computed(() => {
             <span class="w-2 h-2 rounded-full bg-[#E91E8C] animate-pulse" />
             <span class="body text-sm text-[#6B4F5A]">
               Сегодня уже записались
-              <span class="headline text-[#E91E8C]">{{ bookingCount }}</span>
+              <span class="headline text-accent">{{ bookingCount }}</span>
               человек 🔥
             </span>
           </div>
 
           <!-- Статистика -->
-          <div class="grid grid-cols-2 sm:grid-cols-4 gap-6">
+          <div class="hero-stats grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4 gap-6">
             <div class="text-center sm:text-left">
               <div class="headline text-4xl text-pink-gradient mb-1">9+</div>
-              <p class="body text-sm text-[#B08898]">лет опыта</p>
+              <p class="body text-sm text-muted">лет опыта</p>
             </div>
             <div class="text-center sm:text-left">
               <div class="headline text-4xl text-pink-gradient mb-1">1000+</div>
-              <p class="body text-sm text-[#B08898]">гостей</p>
+              <p class="body text-sm text-muted">гостей</p>
             </div>
             <div class="text-center sm:text-left">
               <div class="headline text-4xl text-pink-gradient mb-1">−20%</div>
-              <p class="body text-sm text-[#B08898]">на первый визит</p>
+              <p class="body text-sm text-muted">на первый визит</p>
             </div>
             <div class="text-center sm:text-left">
               <div class="flex items-center justify-center sm:justify-start gap-1 mb-1">
-                <span class="text-[#E91E8C] text-lg leading-none">★</span>
-                <span class="headline text-xl text-pink-gradient">Яндекс</span>
+                <span class="shrink-0 text-accent text-lg leading-none">★</span>
+                <span class="headline hero-rating text-pink-gradient">Яндекс</span>
               </div>
-              <p class="body text-sm text-[#B08898]">Хорошее место 2026</p>
+              <p class="body text-sm text-muted">Хорошее место 2026</p>
             </div>
           </div>
 
           <!-- Доверие -->
           <div class="flex items-center gap-2 mt-6">
-            <span class="text-[#E91E8C] text-sm leading-none">✓</span>
-            <p class="body text-sm text-[#B08898]">В Камшук Бьюти работают только высококвалифицированные специалисты</p>
+            <span class="shrink-0 text-accent text-sm leading-none">✓</span>
+            <p class="body text-sm text-muted">В Камшук Бьюти работают только высококвалифицированные специалисты</p>
           </div>
         </div>
 
@@ -137,13 +137,13 @@ const bookingCount = computed(() => {
           />
 
           <!-- Сам логотип -->
-          <div class="relative z-10">
+          <div class="relative z-10 w-[min(100%-2rem,300px)] lg:w-[min(100%-2rem,390px)]">
             <div
-              class="w-[min(100%,300px)] aspect-square lg:w-[390px] rounded-full overflow-hidden animate-float"
+              class="w-full aspect-square rounded-full overflow-hidden animate-float"
               style="box-shadow: 0 0 70px rgba(233,30,140,0.25), 0 0 30px rgba(244,141,180,0.2), 0 24px 80px rgba(0,0,0,0.1); ring: 3px solid rgba(233,30,140,0.2)"
             >
               <img
-                src="/images/logo.jpg"
+                src="/images/brand/logo.jpg"
                 alt="Камшук Бьюти — Студия красоты"
                 class="w-full h-full object-cover"
               />
@@ -155,7 +155,7 @@ const bookingCount = computed(() => {
               style="box-shadow: 0 8px 32px rgba(233,30,140,0.2)"
             >
               <p class="label text-[10px] text-[#C2185B] mb-0.5">Первый визит</p>
-              <p class="headline text-2xl text-[#E91E8C]">−20%</p>
+              <p class="headline text-2xl text-accent">−20%</p>
             </div>
 
             <!-- Бейдж звёзд — iOS стиль -->
@@ -167,7 +167,7 @@ const bookingCount = computed(() => {
                 <span
                   v-for="i in 5"
                   :key="i"
-                  class="text-[#E91E8C] text-sm"
+                  class="text-accent text-sm"
                 >★</span>
               </div>
             </div>
@@ -191,6 +191,19 @@ const bookingCount = computed(() => {
 .hero-copy {
   width: 100%;
   max-width: min(100%, 38rem);
+  container-type: inline-size;
+}
+
+.hero-title {
+  font-size: clamp(2.35rem, 15cqi, 5.5rem);
+}
+
+.hero-stats .headline {
+  font-size: clamp(1.2rem, 5.2cqi, 1.75rem);
+}
+
+.hero-stats .hero-rating {
+  font-size: 1.15rem;
 }
 
 @media (max-width: 1023px) {
