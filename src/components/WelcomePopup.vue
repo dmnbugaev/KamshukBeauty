@@ -2,15 +2,15 @@
 const dialogRef = ref<HTMLDialogElement | null>(null)
 const ready = ref(false)
 const dismissed = ref(false)
-const { decided } = useCookieConsent()
 const menuOpen = useState('mobile-menu-open', () => false)
+const socialLinks = useSocialLinks()
 let timer: ReturnType<typeof setTimeout> | undefined
 let previousOverflow = ''
 
 onMounted(() => {
   dismissed.value = !!sessionStorage.getItem('welcome_popup_shown')
   if (!dismissed.value) {
-    timer = setTimeout(() => { ready.value = true }, 10000)
+    timer = setTimeout(() => { ready.value = true }, 700)
   }
 })
 
@@ -43,8 +43,8 @@ const trapFocus = (event: KeyboardEvent) => {
   }
 }
 
-watch([ready, decided, menuOpen], async () => {
-  if (!import.meta.client || !ready.value || !decided.value || menuOpen.value || dismissed.value) return
+watch([ready, menuOpen], async () => {
+  if (!import.meta.client || !ready.value || menuOpen.value || dismissed.value) return
   await nextTick()
   if (!dialogRef.value || dialogRef.value.open) return
   previousOverflow = document.body.style.overflow
@@ -96,47 +96,58 @@ watch([ready, decided, menuOpen], async () => {
               class="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6 text-3xl"
               style="background: linear-gradient(145deg, #F48DB4, #E91E8C); box-shadow: 0 8px 24px rgba(233,30,140,0.35)"
             >
-              🎀
+              🚚
             </div>
 
             <!-- Заголовок -->
-            <p class="label text-[11px] text-accent mb-2">Для новых гостей</p>
+            <p class="label text-[11px] text-accent mb-2">Важная новость</p>
             <h2 id="welcome-popup-title" class="headline text-3xl text-[#1A1A2E] mb-2">
-              Скидка <span class="text-pink-shimmer">−20%</span>
+              Мы <span class="text-pink-shimmer">переезжаем!</span>
             </h2>
-            <p class="headline text-base text-muted mb-6">на услуги при первом визите</p>
+            <p class="headline text-base text-muted mb-6">скоро откроемся по новому адресу</p>
 
             <div class="pink-divider mx-auto mb-6" />
 
-            <p class="body text-sm text-[#6B4F5A] mb-4 leading-relaxed">
-              Выберите любимую услугу и познакомьтесь с Камшук Бьюти.
-              Работаем ежедневно&nbsp;10:00–22:00.
+            <p class="body text-sm text-[#6B4F5A] mb-6 leading-relaxed">
+              Дорогие гости, салон Камшук Бьюти переезжает.
+              Новый адрес объявим совсем скоро — первыми расскажем
+              в наших каналах. Запись онлайн уже открыта!
             </p>
-            <p class="body text-xs text-muted mb-8">
-              * Скидки и предложения не суммируются.
-            </p>
+
+            <!-- Соцсети в фирменных стилях -->
+            <div class="grid grid-cols-2 gap-3 mb-5">
+              <a
+                v-for="social in socialLinks"
+                :key="social.name"
+                :href="social.href"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex min-h-[52px] flex-col items-center justify-center gap-1 rounded-2xl px-2 py-3 text-white transition-transform duration-200 hover:scale-[1.03] active:scale-[0.98]"
+                :style="`background: ${social.gradient}; box-shadow: ${social.shadow}`"
+                @click="close"
+              >
+                <span class="leading-none" v-html="social.icon" />
+                <span class="label text-[10px]">{{ social.name }}</span>
+              </a>
+            </div>
 
             <!-- CTA -->
             <a
               href="https://n1407035.yclients.com/company/1274992/personal/select-services?o="
               target="_blank"
               rel="noopener noreferrer"
-              class="btn-pink block text-center mb-4"
+              class="btn-pink block text-center"
               @click="close"
             >
-              Записаться со скидкой
+              Записаться онлайн
             </a>
-
-            <NuxtLink to="/#offers" class="body inline-flex min-h-11 items-center text-xs text-accent hover:text-[#C2185B] transition-colors duration-200" @click="close">
-              Смотреть все акции и предложения
-            </NuxtLink>
 
             <button
               type="button"
               class="body block min-h-11 mx-auto mt-3 text-xs text-[#6B4F5A] hover:text-accent transition-colors duration-200"
               @click.stop="close"
             >
-              Нет, спасибо
+              Понятно, жду новостей
             </button>
           </div>
         </div>

@@ -218,7 +218,7 @@ test.describe('burger menu', () => {
       await burger.click()
       await expect(getMobileMenu(page)).toBeVisible()
       await page.keyboard.press('Tab')
-      await expect(getMobileMenu(page)).toContainText('Адрес и время')
+      await expect(getMobileMenu(page)).toContainText('Мы переезжаем')
       await getMobileMenu(page).click({ position: { x: 2, y: 2 } })
       await expect(getMobileMenu(page)).toBeHidden()
       await expect(page.locator('body')).not.toHaveCSS('overflow', 'hidden')
@@ -297,6 +297,59 @@ test.describe('updated studio content', () => {
     await expect(page.getByText('25 000 ₽', { exact: true })).toBeVisible()
     await expect(page.locator('main')).not.toContainText('23 000 ₽')
     await expect(page.locator('main')).toContainText('мы раскрываем авторские техники и профессиональные приёмы')
+  })
+})
+
+test.describe('relocation announcement', () => {
+  const maxJoinUrl = 'https://max.ru/join/OqwFZ6CLctjBV93r4HJEsQ8v28Kxw_67U3eqSrwDRdg'
+  const telegramUrl = 'https://t.me/offi_nesquik'
+
+  test('header, contacts and FAQ communicate the move', async ({ page }) => {
+    await page.setViewportSize(desktopViewport)
+    await page.goto('/', { waitUntil: 'domcontentloaded' })
+    await page.locator('dialog.welcome-dialog').waitFor({ state: 'attached' })
+
+    await expect(page.locator('header')).toContainText('переезжаем')
+    await expect(page.locator('#contact')).toContainText('Салон переезжает')
+    await expect(page.locator('main')).toContainText('Правда ли, что вы переезжаете?')
+  })
+
+  test('only Telegram and MAX social links remain, branded buttons included', async ({ page }) => {
+    await page.setViewportSize(desktopViewport)
+    await page.goto('/', { waitUntil: 'domcontentloaded' })
+    await page.locator('dialog.welcome-dialog').waitFor({ state: 'attached' })
+
+    await expect(page.locator(`a[href="${telegramUrl}"]`).first()).toBeVisible()
+    await expect(page.locator(`a[href="${maxJoinUrl}"]`).first()).toBeVisible()
+    expect(await page.locator('a[href*="vk.com"], a[href*="wa.me"], a[href*="max.ru/u/"]').count()).toBe(0)
+  })
+
+  test('mobile menu shows relocation notice and social buttons', async ({ page }) => {
+    await page.setViewportSize(mobileViewport)
+    await page.goto('/', { waitUntil: 'domcontentloaded' })
+    await page.locator('dialog.welcome-dialog').waitFor({ state: 'attached' })
+
+    await getBurgerButton(page).click()
+    const menu = getMobileMenu(page)
+    await expect(menu).toBeVisible()
+    await expect(menu).toContainText('Мы переезжаем')
+    await expect(menu.locator(`a[href="${telegramUrl}"]`)).toBeVisible()
+    await expect(menu.locator(`a[href="${maxJoinUrl}"]`)).toBeVisible()
+  })
+
+  test('relocation popup appears on first open with branded social buttons', async ({ page }) => {
+    await page.addInitScript(() => window.sessionStorage.removeItem('welcome_popup_shown'))
+    await page.setViewportSize(desktopViewport)
+    await page.goto('/', { waitUntil: 'domcontentloaded' })
+
+    const popup = page.getByRole('dialog', { name: /переезжа/i })
+    await expect(popup).toBeVisible()
+    await expect(popup).toContainText('новом адресу')
+    await expect(popup.locator(`a[href="${telegramUrl}"]`)).toBeVisible()
+    await expect(popup.locator(`a[href="${maxJoinUrl}"]`)).toBeVisible()
+    await popup.getByRole('button', { name: 'Закрыть', exact: true }).click()
+    await expect(popup).toBeHidden()
+    expect(await page.evaluate(() => sessionStorage.getItem('welcome_popup_shown'))).toBe('1')
   })
 })
 

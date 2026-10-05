@@ -140,9 +140,11 @@ useHead({
               ИП Камшук Анастасия Сергеевна<br />
               ОГРНИП: 324237500477725<br />
               ИНН: 234106350800<br />
-              Адрес: г. Москва, Коммунарка, ул. Александры Монаховой 43/1<br />
+              Адрес: салон переезжает — новый адрес будет опубликован
+              на Сайте после открытия<br />
               Телефон: <a href="tel:+79771075005" class="text-[#D81B60] hover:underline">+7 (977) 107-50-05</a><br />
-              Telegram: <a href="https://t.me/offi_nesquik" target="_blank" rel="noopener noreferrer" class="text-[#D81B60] hover:underline">@offi_nesquik</a>
+              Telegram: <a href="https://t.me/offi_nesquik" target="_blank" rel="noopener noreferrer" class="text-[#D81B60] hover:underline">@offi_nesquik</a><br />
+              MAX: <a href="https://max.ru/join/OqwFZ6CLctjBV93r4HJEsQ8v28Kxw_67U3eqSrwDRdg" target="_blank" rel="noopener noreferrer" class="text-[#D81B60] hover:underline">написать в мессенджере</a>
             </p>
           </section>
 

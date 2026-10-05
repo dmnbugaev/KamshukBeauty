@@ -23,7 +23,6 @@ useHead({
         telephone: '+79771075005',
         address: {
           '@type': 'PostalAddress',
-          streetAddress: 'ул. Александры Монаховой д. 43/1',
           addressLocality: 'Москва',
           addressCountry: 'RU',
         },
@@ -110,7 +109,7 @@ const afterTraining = ['Сертификаты', 'Трудоустройство
 
 const contactLinks = [
   { label: 'Позвонить', value: '+7 (977) 107-50-05', href: 'tel:+79771075005', className: 'btn-pink' },
-  { label: 'WhatsApp', value: 'Написать', href: 'https://wa.me/message/GAZGRNJFGZWUC1', className: 'btn-outline-pink' },
+  { label: 'MAX', value: 'Написать', href: 'https://max.ru/join/OqwFZ6CLctjBV93r4HJEsQ8v28Kxw_67U3eqSrwDRdg', className: 'btn-outline-pink' },
   { label: 'Telegram', value: 'Написать', href: 'https://t.me/offi_nesquik', className: 'btn-outline-pink' },
 ]
 </script>

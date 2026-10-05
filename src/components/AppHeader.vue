@@ -11,6 +11,7 @@ const menuOpen = useState('mobile-menu-open', () => false)
 const menuButtonRef = ref<HTMLButtonElement | null>(null)
 const menuPanelRef = ref<HTMLElement | null>(null)
 const route = useRoute()
+const socialLinks = useSocialLinks()
 
 let previousBodyOverflow = ''
 let desktopQuery: MediaQueryList | null = null
@@ -149,6 +150,18 @@ watch(
         : 'bg-white/75 backdrop-blur-md',
     ]"
   >
+    <!-- Плашка о переезде -->
+    <div class="relocation-bar">
+      <p class="container relocation-bar__inner label">
+        <span class="relocation-bar__icon" aria-hidden="true">🚚</span>
+        <span class="relocation-bar__text">
+          <span class="sm:hidden">Мы переезжаем — скоро новый адрес</span>
+          <span class="hidden sm:inline lg:hidden">Камшук Бьюти переезжает — скоро откроемся по новому адресу</span>
+          <span class="hidden lg:inline">Камшук Бьюти переезжает — скоро откроемся по новому адресу и расскажем о нём первыми в наших каналах</span>
+        </span>
+      </p>
+    </div>
+
     <div class="container">
       <nav class="flex h-16 items-center justify-between gap-4 lg:h-20" aria-label="Основная навигация">
         <NuxtLink
@@ -278,11 +291,26 @@ watch(
             </div>
 
             <div class="mobile-menu-card mt-6 rounded-2xl px-4 py-4">
-              <p class="label mb-2 text-[10px] text-accent">Адрес и время</p>
+              <p class="label mb-2 text-[10px] text-accent">🚚 Мы переезжаем</p>
               <p class="body text-sm leading-relaxed text-[#6B4F5A]">
-                Москва, Коммунарка<br />
-                Ежедневно 10:00-22:00
+                Салон переезжает — скоро откроемся<br />
+                по новому адресу. Ежедневно 10:00-22:00
               </p>
+            </div>
+
+            <div class="mt-4 grid grid-cols-2 gap-2">
+              <a
+                v-for="social in socialLinks"
+                :key="social.name"
+                :href="social.href"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="mobile-menu-social label flex min-h-[42px] items-center justify-center gap-2 rounded-2xl text-[11px] text-white transition-transform duration-200 hover:scale-[1.02] active:scale-[0.98]"
+                :style="`background: ${social.gradient}; box-shadow: ${social.shadow}`"
+              >
+                <span class="leading-none" v-html="social.icon" />
+                {{ social.name }}
+              </a>
             </div>
           </div>
 
@@ -310,6 +338,52 @@ watch(
 <style scoped>
 .site-header {
   border: 0;
+}
+
+.relocation-bar {
+  height: var(--announce-bar-height);
+  display: flex;
+  align-items: center;
+  background: linear-gradient(90deg, #C2185B 0%, #E91E8C 55%, #F06292 100%);
+  color: #ffffff;
+}
+
+.relocation-bar__inner {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 0;
+  margin: 0;
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.relocation-bar__icon {
+  font-size: 13px;
+  line-height: 1;
+}
+
+.relocation-bar__text {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (min-width: 640px) {
+  .relocation-bar__inner {
+    font-size: 11.5px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mobile-menu-social {
+    transition: none;
+  }
 }
 
 .burger-button {

@@ -18,7 +18,7 @@ const images = [
           <h2 class="display text-4xl lg:text-5xl text-[#1A1A2E]">Наша студия</h2>
         </div>
         <p class="body text-base text-muted max-w-xs lg:text-right">
-          Уютное пространство с душой — здание SoiSoul, Коммунарка.
+          Уютное пространство с душой — совсем скоро по новому адресу.
         </p>
       </div>
 
@@ -71,21 +71,21 @@ const images = [
         </div>
       </div>
 
-      <!-- Адрес — iOS glass card -->
+      <!-- Переезд — iOS glass card -->
       <div class="max-w-2xl mx-auto">
         <div
           class="rounded-3xl p-8 lg:p-12 text-center glass-pink"
         >
-          <!-- iOS иконка адреса -->
+          <!-- iOS иконка -->
           <div
             class="ios-icon mx-auto mb-6"
             style="background: linear-gradient(145deg, #F48DB4, #E91E8C); box-shadow: 0 6px 24px rgba(233,30,140,0.35), inset 0 1px 0 rgba(255,255,255,0.5)"
-          >📍</div>
-          <p class="headline text-xl text-[#1A1A2E] mb-3">Адрес студии</p>
+          >🚚</div>
+          <p class="headline text-xl text-[#1A1A2E] mb-3">Мы переезжаем</p>
           <p class="body text-base text-[#6B4F5A] mb-6 leading-relaxed">
-            г. Москва, Коммунарка<br />
-            ул. Александры Монаховой д. 43/1,<br />
-            здание SoiSoul, 1 этаж
+            Салон Камшук Бьюти скоро откроется<br />
+            по новому адресу — следите за новостями<br />
+            в наших каналах MAX и Telegram
           </p>
           <div class="pink-divider mx-auto mb-5" />
           <p class="label text-[11px] text-accent">Ежедневно: 10:00 — 22:00</p>

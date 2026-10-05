@@ -4,7 +4,7 @@ useHead({
   meta: [
     {
       name: 'description',
-      content: 'Студия красоты Камшук Бьюти в Коммунарке (Москва, ул. Александры Монаховой 43/1). Маникюр от 1 400 ₽. Скидка 20% на первый визит. Ежедневно 10:00–22:00.',
+      content: 'Студия красоты Камшук Бьюти (Москва) переезжает — скоро откроемся по новому адресу, следите за новостями. Маникюр от 1 400 ₽. Скидка 20% на первый визит. Ежедневно 10:00–22:00.',
     },
     {
       name: 'keywords',
@@ -13,9 +13,6 @@ useHead({
     { name: 'robots', content: 'index, follow' },
     { name: 'author', content: 'Камшук Бьюти' },
     { name: 'geo.region', content: 'RU-MOW' },
-    { name: 'geo.placename', content: 'Москва, Коммунарка' },
-    { name: 'geo.position', content: '55.565;37.215' },
-    { name: 'ICBM', content: '55.565, 37.215' },
     { property: 'og:type', content: 'website' },
     { property: 'og:site_name', content: 'Камшук Бьюти' },
     {
@@ -24,7 +21,7 @@ useHead({
     },
     {
       property: 'og:description',
-      content: 'Маникюр от 1 400 ₽, педикюр, ресницы, брови и макияж в Коммунарке. Скидка 20% новым гостям на первый визит.',
+      content: 'Мы переезжаем — скоро откроемся по новому адресу! Маникюр от 1 400 ₽, педикюр, ресницы, брови и макияж. Скидка 20% новым гостям.',
     },
     {
       property: 'og:image',
@@ -36,7 +33,7 @@ useHead({
     { name: 'twitter:title', content: 'Камшук Бьюти — Студия красоты в Коммунарке' },
     {
       name: 'twitter:description',
-      content: 'Маникюр, педикюр, ресницы, брови и макияж в Москве (Коммунарка). Скидка 20% новым гостям.',
+      content: 'Студия Камшук Бьюти переезжает — скоро откроемся по новому адресу. Скидка 20% новым гостям.',
     },
     {
       name: 'twitter:image',
@@ -54,22 +51,15 @@ useHead({
         '@type': 'BeautySalon',
         name: 'Камшук Бьюти',
         alternateName: 'Kamshuk Beauty',
-        description: 'Студия красоты в Коммунарке (Москва). Маникюр, смарт-педикюр, наращивание ресниц, архитектура бровей, макияж, перманентный макияж, обучение мастеров.',
+        description: 'Студия красоты в Москве. Мы переезжаем — скоро откроемся по новому адресу. Маникюр, смарт-педикюр, наращивание ресниц, архитектура бровей, макияж, перманентный макияж, обучение мастеров.',
         url: 'https://kamshukbeauty.ru',
         telephone: '+79771075005',
         email: 'info@kamshukbeauty.ru',
         address: {
           '@type': 'PostalAddress',
-          streetAddress: 'ул. Александры Монаховой д. 43/1, здание SoiSoul, 1 этаж',
           addressLocality: 'Москва',
           addressRegion: 'Москва',
-          postalCode: '108811',
           addressCountry: 'RU',
-        },
-        geo: {
-          '@type': 'GeoCoordinates',
-          latitude: '55.565',
-          longitude: '37.215',
         },
         openingHoursSpecification: [
           {
@@ -100,9 +90,8 @@ useHead({
           worstRating: '1',
         },
         sameAs: [
-          'https://vk.com/kamshuk_beauty',
           'https://t.me/offi_nesquik',
-          'https://max.ru/u/f9LHodD0cOJhZWcjFtzBOFNlcS0w2RVemO55MmCDgD_nHgsPEPAhlJp3i2M',
+          'https://max.ru/join/OqwFZ6CLctjBV93r4HJEsQ8v28Kxw_67U3eqSrwDRdg',
         ],
         hasOfferCatalog: {
           '@type': 'OfferCatalog',
@@ -144,8 +133,13 @@ useHead({
           },
           {
             '@type': 'Question',
+            name: 'Правда ли, что студия переезжает?',
+            acceptedAnswer: { '@type': 'Answer', text: 'Да, мы переезжаем и совсем скоро откроемся по новому адресу. Новый адрес первыми расскажем в наших каналах MAX и Telegram.' },
+          },
+          {
+            '@type': 'Question',
             name: 'Как записаться в студию?',
-            acceptedAnswer: { '@type': 'Answer', text: 'Запись онлайн через сайт, по телефону +7 (977) 107-50-05 или через мессенджер MAX/WhatsApp/Telegram.' },
+            acceptedAnswer: { '@type': 'Answer', text: 'Запись онлайн через сайт, по телефону +7 (977) 107-50-05 или в мессенджерах MAX и Telegram.' },
           },
         ],
       }),

@@ -127,7 +127,7 @@ const open = ref<number | null>(null)
       <div class="container">
         <div class="max-w-2xl mx-auto text-center glass-pink rounded-3xl p-6 sm:p-8 lg:p-12">
           <h2 class="display text-3xl text-[#1A1A2E] mb-4">Запишитесь на брови</h2>
-          <p class="body text-base text-[#6B4F5A] mb-8">г. Москва, Коммунарка, ул. Александры Монаховой 43/1 · SoiSoul, 1 этаж · Ежедневно 10:00–22:00</p>
+          <p class="body text-base text-[#6B4F5A] mb-8">🚚 Салон переезжает — скоро откроемся по новому адресу · Ежедневно 10:00–22:00</p>
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
             <a href="https://n1407035.yclients.com/company/1274992/personal/select-services?o=" target="_blank" rel="noopener noreferrer" class="btn-pink inline-block text-center">Записаться онлайн</a>
             <NuxtLink to="/naraschivanie-resnic" class="btn-outline-pink inline-block text-center">Ещё: ресницы →</NuxtLink>
