@@ -107,7 +107,7 @@ useHead({
             <p class="headline text-xl text-[#1A1A2E] mb-2">Запишитесь на архитектуру бровей</p>
             <p class="body text-sm text-[#6B4F5A] mb-6">Мы переезжаем — скоро откроемся по новому адресу · Скидка 20% новым гостям</p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="https://n1407035.yclients.com/company/1274992/personal/select-services?o=" target="_blank" rel="noopener noreferrer" class="btn-pink inline-block text-center">Записаться онлайн</a>
+              <BookingButton />
               <NuxtLink to="/brovi" class="btn-outline-pink inline-block text-center">Брови в Коммунарке →</NuxtLink>
             </div>
           </div>

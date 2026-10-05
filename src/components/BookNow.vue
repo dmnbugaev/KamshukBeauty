@@ -14,8 +14,9 @@ const socialChannels = useSocialLinks()
             Готовы<br /><span class="text-pink-shimmer">преобразиться?</span>
           </h2>
           <p class="body text-lg text-muted mb-10">
-            Запишитесь онлайн за 2 минуты или свяжитесь с нами —
-            поможем подобрать удобное время. Работаем ежедневно 10:00–22:00
+            Онлайн-запись временно недоступна — салон закрыт на переезд.
+            Новый адрес объявим совсем скоро, а пока пишите нам в мессенджеры —
+            всегда на связи и ответим на любые вопросы
           </p>
 
           <!-- Акция — iOS glass стиль -->
@@ -34,14 +35,7 @@ const socialChannels = useSocialLinks()
           </div>
 
           <!-- Кнопка онлайн-записи -->
-          <a
-            href="https://n1407035.yclients.com/company/1274992/personal/select-services?o="
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn-pink inline-block w-full text-center mb-10"
-          >
-            Записаться онлайн
-          </a>
+          <BookingButton block class="mb-10" />
 
           <!-- Контакты -->
           <div class="flex flex-wrap gap-6 mb-10">

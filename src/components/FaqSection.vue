@@ -10,7 +10,7 @@ const faqs = [
   },
   {
     q: 'Нужна ли предварительная запись?',
-    a: 'Да, рекомендуем записываться заранее онлайн или по телефону — мастера заняты, и свободные слоты разбирают быстро. Запись онлайн занимает 2 минуты.',
+    a: 'Обычно да — мастера заняты, свободные слоты разбирают быстро. Сейчас онлайн-запись временно недоступна: салон закрыт на переезд. О начале записи и новом адресе расскажем первыми в наших каналах в MAX и Telegram.',
   },
   {
     q: 'Есть ли сейчас скидка?',
@@ -103,14 +103,7 @@ const toggle = (i: number) => {
 
       <!-- CTA под FAQ -->
       <div class="mt-12 flex flex-col sm:flex-row gap-4 items-start">
-        <a
-          href="https://n1407035.yclients.com/company/1274992/personal/select-services?o="
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn-pink inline-block"
-        >
-          Записаться онлайн
-        </a>
+        <BookingButton />
         <a
           href="https://max.ru/join/OqwFZ6CLctjBV93r4HJEsQ8v28Kxw_67U3eqSrwDRdg"
           target="_blank"

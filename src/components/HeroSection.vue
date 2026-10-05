@@ -1,4 +1,6 @@
 <script setup lang="ts">
+const { enabled: bookingEnabled } = useBookingStatus()
+
 const bookingCount = computed(() => {
   const d = new Date()
   const seed = d.getFullYear() * 10000 + (d.getMonth() + 1) * 100 + d.getDate()
@@ -57,14 +59,7 @@ const bookingCount = computed(() => {
 
           <!-- Кнопки -->
           <div class="flex flex-col sm:flex-row gap-4 mb-16">
-            <a
-              href="https://n1407035.yclients.com/company/1274992/personal/select-services?o="
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn-pink inline-block text-center"
-            >
-              Записаться на процедуру
-            </a>
+            <BookingButton />
             <NuxtLink
               to="/#services"
               class="btn-outline-pink inline-block text-center"
@@ -75,6 +70,7 @@ const bookingCount = computed(() => {
 
           <!-- Счётчик записавшихся -->
           <div
+            v-if="bookingEnabled"
             class="inline-flex items-center gap-2 mb-8 px-4 py-2 rounded-full"
             style="background: rgba(233,30,140,0.07); border: 1px solid rgba(233,30,140,0.15)"
           >

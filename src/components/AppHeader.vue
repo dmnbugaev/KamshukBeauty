@@ -198,6 +198,7 @@ watch(
         </div>
 
         <a
+          v-if="BOOKING_ENABLED"
           href="https://n1407035.yclients.com/company/1274992/personal/select-services?o="
           target="_blank"
           rel="noopener noreferrer"
@@ -315,7 +316,12 @@ watch(
           </div>
 
           <div class="mobile-menu-panel__footer px-5 pb-5 pt-4">
+            <div v-if="!BOOKING_ENABLED" class="mobile-menu-notice">
+              <span class="mobile-menu-notice__title">Онлайн-запись временно недоступна</span>
+              <span class="mobile-menu-notice__text">салон временно закрыт — скоро откроемся по новому адресу</span>
+            </div>
             <a
+              v-else
               href="https://n1407035.yclients.com/company/1274992/personal/select-services?o="
               target="_blank"
               rel="noopener noreferrer"
@@ -624,6 +630,36 @@ watch(
   background: rgba(255, 255, 255, 0.18);
   padding: 0 9px;
   font-size: 0.76rem;
+}
+
+.mobile-menu-notice {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-height: 56px;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px dashed rgba(233, 30, 140, 0.32);
+  border-radius: 16px;
+  background: rgba(233, 30, 140, 0.06);
+  padding: 10px 12px;
+  text-align: center;
+}
+
+.mobile-menu-notice__title {
+  color: #80616f;
+  font-family: var(--font-family-heading);
+  font-size: 0.72rem;
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.mobile-menu-notice__text {
+  color: #80616f;
+  font-family: var(--font-family-body);
+  font-size: 0.72rem;
+  line-height: 1.35;
 }
 
 .mobile-menu-phone {

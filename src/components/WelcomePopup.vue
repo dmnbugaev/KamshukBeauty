@@ -111,7 +111,7 @@ watch([ready, menuOpen], async () => {
             <p class="body text-sm text-[#6B4F5A] mb-6 leading-relaxed">
               Дорогие гости, салон Камшук Бьюти переезжает.
               Новый адрес объявим совсем скоро — первыми расскажем
-              в наших каналах. Запись онлайн уже открыта!
+              в наших каналах и там же откроем запись.
             </p>
 
             <!-- Соцсети в фирменных стилях -->
@@ -132,15 +132,7 @@ watch([ready, menuOpen], async () => {
             </div>
 
             <!-- CTA -->
-            <a
-              href="https://n1407035.yclients.com/company/1274992/personal/select-services?o="
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn-pink block text-center"
-              @click="close"
-            >
-              Записаться онлайн
-            </a>
+            <BookingButton block />
 
             <button
               type="button"

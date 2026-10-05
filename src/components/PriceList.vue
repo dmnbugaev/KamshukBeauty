@@ -50,7 +50,7 @@ const prices = [
   },
 ]
 
-const yclientsUrl = 'https://n1407035.yclients.com/company/1274992/personal/select-services?o='
+const { enabled: bookingEnabled, url: yclientsUrl } = useBookingStatus()
 </script>
 
 <template>
@@ -111,6 +111,7 @@ const yclientsUrl = 'https://n1407035.yclients.com/company/1274992/personal/sele
           </div>
 
           <a
+            v-if="bookingEnabled"
             :href="yclientsUrl"
             target="_blank"
             rel="noopener noreferrer"
@@ -123,14 +124,7 @@ const yclientsUrl = 'https://n1407035.yclients.com/company/1274992/personal/sele
 
       <!-- CTA -->
       <div class="text-center mt-16">
-        <a
-          :href="yclientsUrl"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn-pink inline-block"
-        >
-          Записаться онлайн
-        </a>
+        <BookingButton />
         <p class="body text-xs text-muted mt-4">
           Скидки и предложения не суммируются. Итоговую стоимость уточняйте при записи.
         </p>

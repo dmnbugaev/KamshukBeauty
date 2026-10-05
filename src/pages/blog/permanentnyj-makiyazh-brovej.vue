@@ -113,7 +113,7 @@ useHead({
               · Скидка 20% новым гостям
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="https://n1407035.yclients.com/company/1274992/personal/select-services?o=" target="_blank" rel="noopener noreferrer" class="btn-pink inline-block text-center">Записаться онлайн</a>
+              <BookingButton />
               <NuxtLink to="/#перманентный-макияж" class="btn-outline-pink inline-block text-center">Прайс-лист →</NuxtLink>
             </div>
           </div>
