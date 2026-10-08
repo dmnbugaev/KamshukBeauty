@@ -90,39 +90,37 @@ watch([ready, menuOpen], async () => {
           </button>
 
           <!-- Контент -->
-          <div class="relative z-10 p-5 sm:p-8 pt-14 sm:pt-14 text-center">
+          <div class="relative z-10 p-5 pt-12 text-center">
             <!-- Иконка -->
             <div
-              class="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6 text-3xl"
+              class="w-12 h-12 rounded-2xl flex items-center justify-center mx-auto mb-3 text-2xl"
               style="background: linear-gradient(145deg, #F48DB4, #E91E8C); box-shadow: 0 8px 24px rgba(233,30,140,0.35)"
             >
               🚚
             </div>
 
             <!-- Заголовок -->
-            <p class="label text-[11px] text-accent mb-2">Важная новость</p>
-            <h2 id="welcome-popup-title" class="headline text-3xl text-[#1A1A2E] mb-2">
+            <p class="label text-[11px] text-accent mb-1.5">Важная новость</p>
+            <h2 id="welcome-popup-title" class="headline text-2xl text-[#1A1A2E] mb-1">
               Мы <span class="text-pink-shimmer">переезжаем!</span>
             </h2>
-            <p class="headline text-base text-muted mb-6">скоро откроемся по новому адресу</p>
+            <p class="headline text-sm text-muted mb-4">скоро откроемся по новому адресу</p>
 
-            <div class="pink-divider mx-auto mb-6" />
-
-            <p class="body text-sm text-[#6B4F5A] mb-6 leading-relaxed">
+            <p class="body text-sm text-[#6B4F5A] mb-4 leading-relaxed">
               Дорогие гости, салон Камшук Бьюти переезжает.
               Новый адрес объявим совсем скоро — первыми расскажем
               в наших каналах и там же откроем запись.
             </p>
 
             <!-- Соцсети в фирменных стилях -->
-            <div class="grid grid-cols-2 gap-3 mb-5">
+            <div class="grid grid-cols-2 gap-2.5">
               <a
                 v-for="social in socialLinks"
                 :key="social.name"
                 :href="social.href"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="flex min-h-[52px] flex-col items-center justify-center gap-1 rounded-2xl px-2 py-3 text-white transition-transform duration-200 hover:scale-[1.03] active:scale-[0.98]"
+                class="flex min-h-[48px] flex-col items-center justify-center gap-0.5 rounded-2xl px-2 py-2 text-white transition-transform duration-200 hover:scale-[1.03] active:scale-[0.98]"
                 :style="`background: ${social.gradient}; box-shadow: ${social.shadow}`"
                 @click="close"
               >
@@ -131,12 +129,9 @@ watch([ready, menuOpen], async () => {
               </a>
             </div>
 
-            <!-- CTA -->
-            <BookingButton block />
-
             <button
               type="button"
-              class="body block min-h-11 mx-auto mt-3 text-xs text-[#6B4F5A] hover:text-accent transition-colors duration-200"
+              class="body block min-h-11 mx-auto mt-1 text-xs text-[#6B4F5A] hover:text-accent transition-colors duration-200"
               @click.stop="close"
             >
               Понятно, жду новостей
