@@ -87,10 +87,11 @@ const socialLinks = useSocialLinks()
             </a>
           </div>
           <div class="mt-5 rounded-2xl px-4 py-3.5" style="background: rgba(233,30,140,0.06); border: 1px dashed rgba(233,30,140,0.35)">
-            <p class="label text-[10px] text-accent mb-1.5">🚚 Мы переезжаем</p>
+            <p class="label text-[10px] text-accent mb-1.5">📍 Наш адрес</p>
             <p class="body text-xs leading-relaxed text-[#6B4F5A]">
-              Салон переезжает — скоро откроемся по новому адресу
-              и первыми расскажем о нём в наших каналах.
+              г. Москва, Коммунарка, квартал 2,<br />
+              д. 5, стр. 6, к. 3 — м. Румянцево,<br />
+              ЖК «Тропарёво Парк»
             </p>
           </div>
         </div>

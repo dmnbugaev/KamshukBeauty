@@ -105,7 +105,7 @@ useHead({
 
           <div class="mt-16 glass-pink rounded-3xl p-6 sm:p-8 text-center">
             <p class="headline text-xl text-[#1A1A2E] mb-2">Запишитесь на архитектуру бровей</p>
-            <p class="body text-sm text-[#6B4F5A] mb-6">Мы переезжаем — скоро откроемся по новому адресу · Скидка 20% новым гостям</p>
+            <p class="body text-sm text-[#6B4F5A] mb-6">м. Румянцево, ЖК «Тропарёво Парк» · Ежедневно 10:00–22:00 · Скидка 20% новым гостям</p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
               <BookingButton />
               <NuxtLink to="/brovi" class="btn-outline-pink inline-block text-center">Брови в Коммунарке →</NuxtLink>

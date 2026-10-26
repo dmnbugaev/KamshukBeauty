@@ -41,7 +41,7 @@ for (const viewport of [{ width: 320, height: 480 }, { width: 640, height: 360 }
   })
 }
 
-test('relocation popup opens with the page and stays usable on a short screen', async ({ page }) => {
+test('welcome popup opens with the page and stays usable on a short screen', async ({ page }) => {
   await page.clock.install()
   await page.setViewportSize({ width: 320, height: 480 })
   await page.goto('/')
@@ -49,15 +49,15 @@ test('relocation popup opens with the page and stays usable on a short screen', 
   const cookie = page.getByRole('dialog', { name: /cookie/ })
   await expect(cookie).toBeVisible()
   await page.clock.fastForward(1_000)
-  const relocation = page.getByRole('dialog', { name: /переезжа/i })
-  await expect(relocation).toBeVisible()
+  const welcome = page.getByRole('dialog', { name: /перееха/i })
+  await expect(welcome).toBeVisible()
   await expect(page.locator('body')).toHaveCSS('overflow', 'hidden')
-  const close = relocation.getByRole('button', { name: 'Закрыть', exact: true })
+  const close = welcome.getByRole('button', { name: 'Закрыть', exact: true })
   await expect(close).toBeFocused()
-  const rect = await relocation.boundingBox()
+  const rect = await welcome.boundingBox()
   expect(rect!.y).toBeGreaterThanOrEqual(0)
   expect(rect!.y + rect!.height).toBeLessThanOrEqual(480)
-  const dismiss = relocation.getByRole('button', { name: /понятно/i })
+  const dismiss = welcome.getByRole('button', { name: /понятно/i })
   await dismiss.focus()
   await page.keyboard.press('Tab')
   // The browser may focus the document between native-dialog tab cycles; the
@@ -65,7 +65,7 @@ test('relocation popup opens with the page and stays usable on a short screen', 
   if (!(await close.evaluate(e => e === document.activeElement))) await page.keyboard.press('Tab')
   await expect(close).toBeFocused()
   await page.keyboard.press('Escape')
-  await expect(relocation).toBeHidden()
+  await expect(welcome).toBeHidden()
   await expect(page.locator('body')).not.toHaveCSS('overflow', 'hidden')
   expect(await page.evaluate(() => sessionStorage.getItem('welcome_popup_shown'))).toBe('1')
 })

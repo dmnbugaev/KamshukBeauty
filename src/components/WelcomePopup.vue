@@ -3,7 +3,7 @@ const dialogRef = ref<HTMLDialogElement | null>(null)
 const ready = ref(false)
 const dismissed = ref(false)
 const menuOpen = useState('mobile-menu-open', () => false)
-const socialLinks = useSocialLinks()
+const { enabled: bookingEnabled, url: bookingUrl } = useBookingStatus()
 let timer: ReturnType<typeof setTimeout> | undefined
 let previousOverflow = ''
 
@@ -96,45 +96,39 @@ watch([ready, menuOpen], async () => {
               class="w-12 h-12 rounded-2xl flex items-center justify-center mx-auto mb-3 text-2xl"
               style="background: linear-gradient(145deg, #F48DB4, #E91E8C); box-shadow: 0 8px 24px rgba(233,30,140,0.35)"
             >
-              🚚
+              📍
             </div>
 
             <!-- Заголовок -->
             <p class="label text-[11px] text-accent mb-1.5">Важная новость</p>
             <h2 id="welcome-popup-title" class="headline text-2xl text-[#1A1A2E] mb-1">
-              Мы <span class="text-pink-shimmer">переезжаем!</span>
+              Мы <span class="text-pink-shimmer">переехали!</span>
             </h2>
-            <p class="headline text-sm text-muted mb-4">скоро откроемся по новому адресу</p>
+            <p class="headline text-sm text-muted mb-4">новый адрес — м. Румянцево</p>
 
             <p class="body text-sm text-[#6B4F5A] mb-4 leading-relaxed">
-              Дорогие гости, салон Камшук Бьюти переезжает.
-              Новый адрес объявим совсем скоро — первыми расскажем
-              в наших каналах и там же откроем запись.
+              Дорогие гости, теперь ждём вас по новому адресу:
+              Москва, Коммунарка, квартал 2, дом 5, стр. 6, к. 3 —
+              ЖК «Тропарёво Парк», метро Румянцево.
             </p>
 
-            <!-- Соцсети в фирменных стилях -->
-            <div class="grid grid-cols-2 gap-2.5">
-              <a
-                v-for="social in socialLinks"
-                :key="social.name"
-                :href="social.href"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="flex min-h-[48px] flex-col items-center justify-center gap-0.5 rounded-2xl px-2 py-2 text-white transition-transform duration-200 hover:scale-[1.03] active:scale-[0.98]"
-                :style="`background: ${social.gradient}; box-shadow: ${social.shadow}`"
-                @click="close"
-              >
-                <span class="leading-none" v-html="social.icon" />
-                <span class="label text-[10px]">{{ social.name }}</span>
-              </a>
-            </div>
+            <a
+              v-if="bookingEnabled"
+              :href="bookingUrl"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-pink block text-center mb-2"
+              @click="close"
+            >
+              Записаться онлайн
+            </a>
 
             <button
               type="button"
               class="body block min-h-11 mx-auto mt-1 text-xs text-[#6B4F5A] hover:text-accent transition-colors duration-200"
               @click.stop="close"
             >
-              Понятно, жду новостей
+              Понятно, увидимся!
             </button>
           </div>
         </div>

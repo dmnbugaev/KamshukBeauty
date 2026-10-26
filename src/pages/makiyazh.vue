@@ -132,7 +132,7 @@ const open = ref<number | null>(null)
       <div class="container">
         <div class="max-w-2xl mx-auto text-center glass-pink rounded-3xl p-6 sm:p-8 lg:p-12">
           <h2 class="display text-3xl text-[#1A1A2E] mb-4">Запишитесь на макияж</h2>
-          <p class="body text-base text-[#6B4F5A] mb-8">🚚 Салон переезжает — скоро откроемся по новому адресу · Ежедневно 10:00–22:00</p>
+          <p class="body text-base text-[#6B4F5A] mb-8">г. Москва, Коммунарка, квартал 2, д. 5, стр. 6, к. 3 · м. Румянцево, ЖК «Тропарёво Парк» · Ежедневно 10:00–22:00</p>
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
             <BookingButton />
             <NuxtLink to="/brovi" class="btn-outline-pink inline-block text-center">Ещё: брови →</NuxtLink>

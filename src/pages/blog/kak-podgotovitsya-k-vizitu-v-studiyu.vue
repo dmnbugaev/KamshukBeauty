@@ -95,7 +95,7 @@ const checklist = [
 
           <div class="mt-16 glass-pink rounded-3xl p-6 sm:p-8 text-center">
             <p class="headline text-xl text-[#1A1A2E] mb-2">Запланируйте визит заранее</p>
-            <p class="body text-sm text-[#6B4F5A] mb-6">Онлайн-запись временно недоступна · Салон переезжает — скоро откроемся по новому адресу</p>
+            <p class="body text-sm text-[#6B4F5A] mb-6">Онлайн-запись открыта ежедневно · Коммунарка, м. Румянцево, ЖК «Тропарёво Парк»</p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
               <BookingButton />
               <NuxtLink to="/blog" class="btn-outline-pink inline-block text-center">Все статьи блога</NuxtLink>

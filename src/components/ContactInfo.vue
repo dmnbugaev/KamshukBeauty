@@ -38,43 +38,18 @@ const contacts = [
         </p>
       </div>
 
-      <!-- Анонс переезда вместо карты -->
-      <div class="mb-10 overflow-hidden rounded-3xl relocation-card"
-        style="box-shadow: 0 8px 40px rgba(233,30,140,0.08), 0 2px 12px rgba(0,0,0,0.06)"
-      >
-        <div class="relocation-card__glow" aria-hidden="true" />
-        <div class="relative flex flex-col items-center text-center px-6 py-14 sm:py-20">
-          <div
-            class="w-20 h-20 rounded-3xl flex items-center justify-center mx-auto mb-6 text-4xl"
-            style="background: linear-gradient(145deg, #F48DB4, #E91E8C); box-shadow: 0 10px 32px rgba(233,30,140,0.35)"
-          >
-            🚚
-          </div>
-          <p class="label text-[11px] text-accent mb-3">Важная новость</p>
-          <h3 class="display text-3xl lg:text-4xl text-[#1A1A2E] mb-4">Салон переезжает</h3>
-          <p class="body text-base text-[#6B4F5A] max-w-xl leading-relaxed mb-8">
-            Совсем скоро мы откроем двери по новому адресу и станем ещё ближе к вам.
-            Новый адрес объявим первыми в наших каналах — подписывайтесь,
-            чтобы не пропустить новости и подарки к открытию.
-          </p>
-          <div class="flex flex-wrap justify-center gap-3 mb-6">
-            <a
-              v-for="social in socialLinks"
-              :key="social.name"
-              :href="social.href"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="label inline-flex min-h-11 items-center gap-2.5 rounded-2xl px-6 py-3 text-xs text-white transition-transform duration-300 hover:scale-[1.04]"
-              :style="`background: ${social.gradient}; box-shadow: ${social.shadow}`"
-            >
-              <span class="leading-none" v-html="social.icon" />
-              {{ social.cta }}
-            </a>
-          </div>
-          <p class="body text-xs text-muted">
-            Онлайн-запись временно недоступна — салон временно закрыт. Отвечаем на звонки ежедневно 10:00–22:00
-          </p>
-        </div>
+      <!-- Карта -->
+      <div class="mb-10 overflow-hidden rounded-3xl"
+        style="box-shadow: 0 8px 40px rgba(233,30,140,0.08), 0 2px 12px rgba(0,0,0,0.06)">
+        <iframe
+          src="https://yandex.ru/map-widget/v1/?ll=37.456494%2C55.632066&amp;z=17&amp;pt=37.456494,55.632066,pm2rdm"
+          width="100%"
+          height="460"
+          frameborder="0"
+          title="Карта проезда к студии Камшук Бьюти — ЖК «Тропарёво Парк»"
+          loading="lazy"
+          style="display: block"
+        />
       </div>
 
       <!-- Сетка контактов -->
@@ -97,10 +72,10 @@ const contacts = [
         </a>
       </div>
 
-      <!-- Переезд -->
+      <!-- Адрес -->
       <div class="text-center">
         <p class="body text-sm text-muted">
-          🚚 Салон переезжает — скоро откроемся по новому адресу · Ежедневно 10:00–22:00
+          г. Москва, Коммунарка, квартал 2, д. 5, стр. 6, к. 3 · м. Румянцево, ЖК «Тропарёво Парк» · Ежедневно 10:00–22:00
         </p>
       </div>
 
@@ -108,22 +83,3 @@ const contacts = [
   </section>
 </template>
 
-<style scoped>
-.relocation-card {
-  position: relative;
-  background: linear-gradient(160deg, #FFF6FA 0%, #FFFFFF 45%, #FFF0F7 100%);
-  border: 1px solid rgba(233, 30, 140, 0.1);
-}
-
-.relocation-card__glow {
-  position: absolute;
-  top: -80px;
-  right: -80px;
-  width: 260px;
-  height: 260px;
-  border-radius: 999px;
-  background: radial-gradient(circle, rgba(233, 30, 140, 0.18), transparent 70%);
-  filter: blur(48px);
-  pointer-events: none;
-}
-</style>

@@ -1,6 +1,7 @@
 <script setup lang="ts">
-// Кнопка онлайн-записи. Пока BOOKING_ENABLED = false, вместо ссылки
-// на YClients показывает подпись, что запись временно недоступна.
+// Кнопка онлайн-записи — ссылка на YClients.
+// Пока BOOKING_ENABLED = false, вместо ссылки показывает подпись,
+// что запись временно недоступна.
 defineOptions({ inheritAttrs: false })
 
 withDefaults(

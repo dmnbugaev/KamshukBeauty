@@ -70,9 +70,7 @@
   --page-gutter-left: max(var(--container-pad), env(safe-area-inset-left));
   --page-gutter-right: max(var(--container-pad), env(safe-area-inset-right));
   --section-y: clamp(64px, 9vw, 112px);
-  --header-nav-height: 64px;
-  --announce-bar-height: 34px;
-  --header-height: calc(var(--header-nav-height) + var(--announce-bar-height));
+  --header-height: 64px;
 }
 
 /* ===== БАЗОВЫЕ СТИЛИ ===== */
@@ -197,7 +195,7 @@ a[href^="tel"] {
 }
 
 @media (min-width: 1024px) {
-  :root { --header-nav-height: 80px; }
+  :root { --header-height: 80px; }
 }
 
 .body {
@@ -693,7 +691,7 @@ iframe {
   :root {
     --container-pad: 20px;
     --section-y: 56px;
-    --header-nav-height: 64px;
+    --header-height: 64px;
   }
 
   .container {

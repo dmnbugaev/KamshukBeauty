@@ -1,14 +1,14 @@
 // Онлайн-запись через YClients.
-// Салон временно закрыт на переезд — запись отключена по всему сайту.
-// Когда салон откроется, верни BOOKING_ENABLED в true: все кнопки
-// записи снова станут активными ссылками на YClients.
-export const BOOKING_ENABLED = false
+// Салон открыт по новому адресу (м. Румянцево, ЖК «Тропарёво Парк») — запись включена.
+// Чтобы временно отключить запись по всему сайту, поставь BOOKING_ENABLED = false:
+// все кнопки записи покажут подпись «Онлайн-запись временно недоступна».
+export const BOOKING_ENABLED = true
 
 export const BOOKING_URL = 'https://n1407035.yclients.com/company/1274992/personal/select-services?o='
 
 export const BOOKING_CLOSED_TITLE = 'Онлайн-запись временно недоступна'
 
-export const BOOKING_CLOSED_NOTE = 'Салон временно закрыт — мы переезжаем. О начале записи расскажем первыми в наших каналах'
+export const BOOKING_CLOSED_NOTE = 'Онлайн-запись временно недоступна — позвоните нам или напишите в мессенджер'
 
 export function useBookingStatus() {
   return {
