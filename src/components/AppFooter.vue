@@ -90,7 +90,7 @@ const socialLinks = useSocialLinks()
             <p class="label text-[10px] text-accent mb-1.5">📍 Наш адрес</p>
             <p class="body text-xs leading-relaxed text-[#6B4F5A]">
               г. Москва, Коммунарка, квартал 2,<br />
-              д. 5, стр. 6, к. 3 — м. Румянцево,<br />
+              д. 5, стр. 6 — м. Румянцево,<br />
               ЖК «Тропарёво Парк»
             </p>
           </div>

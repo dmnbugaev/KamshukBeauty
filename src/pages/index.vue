@@ -60,7 +60,7 @@ useHead({
         email: 'info@kamshukbeauty.ru',
         address: {
           '@type': 'PostalAddress',
-          streetAddress: 'квартал 2, д. 5, стр. 6, к. 3, ЖК «Тропарёво Парк»',
+          streetAddress: 'квартал 2, д. 5, стр. 6, ЖК «Тропарёво Парк»',
           addressLocality: 'Москва',
           addressRegion: 'Москва',
           postalCode: '108820',
@@ -144,7 +144,7 @@ useHead({
           {
             '@type': 'Question',
             name: 'Где находится студия?',
-            acceptedAnswer: { '@type': 'Answer', text: 'г. Москва, Коммунарка, квартал 2, дом 5, стр. 6, к. 3 — ЖК «Тропарёво Парк» рядом с метро Румянцево.' },
+            acceptedAnswer: { '@type': 'Answer', text: 'г. Москва, Коммунарка, квартал 2, дом 5, стр. 6 — ЖК «Тропарёво Парк» рядом с метро Румянцево.' },
           },
           {
             '@type': 'Question',

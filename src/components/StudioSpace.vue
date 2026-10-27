@@ -84,7 +84,7 @@ const images = [
           <p class="headline text-xl text-[#1A1A2E] mb-3">Адрес студии</p>
           <p class="body text-base text-[#6B4F5A] mb-6 leading-relaxed">
             г. Москва, Коммунарка,<br />
-            квартал 2, дом 5, стр. 6, к. 3,<br />
+            квартал 2, дом 5, стр. 6,<br />
             м. Румянцево, ЖК «Тропарёво Парк»
           </p>
           <div class="pink-divider mx-auto mb-5" />

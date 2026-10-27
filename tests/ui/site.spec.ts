@@ -311,7 +311,7 @@ test.describe('new address and social links', () => {
     await page.locator('dialog.welcome-dialog').waitFor({ state: 'attached' })
 
     await expect(page.locator('header')).not.toContainText('переезжаем')
-    await expect(page.locator('#contact')).toContainText('г. Москва, Коммунарка, квартал 2, д. 5, стр. 6, к. 3')
+    await expect(page.locator('#contact')).toContainText('г. Москва, Коммунарка, квартал 2, д. 5, стр. 6')
     await expect(page.locator('#contact')).toContainText('м. Румянцево, ЖК «Тропарёво Парк»')
     await expect(page.locator('#contact iframe[title*="Тропарёво Парк"]')).toBeVisible()
     await expect(page.locator('main')).toContainText('Где вы находитесь?')
