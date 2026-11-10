@@ -78,7 +78,7 @@ const tips = [
 
           <div class="mt-16 glass-pink rounded-3xl p-6 sm:p-8 text-center">
             <p class="headline text-xl text-[#1A1A2E] mb-2">Профессиональный маникюр в Коммунарке</p>
-            <p class="body text-sm text-[#6B4F5A] mb-6">Мастер с 9-летним опытом · Скидка 20% новым гостям</p>
+            <p class="body text-sm text-[#6B4F5A] mb-6">Мастер с 9-летним опытом · Скидка 15% новым гостям</p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
               <BookingButton />
               <NuxtLink to="/manikyur" class="btn-outline-pink inline-block text-center">Маникюр в Коммунарке →</NuxtLink>

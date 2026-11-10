@@ -282,8 +282,8 @@ watch(
             <div class="mobile-menu-card mt-6 rounded-2xl px-4 py-4">
               <p class="label mb-2 text-[10px] text-accent">Адрес и время</p>
               <p class="body text-sm leading-relaxed text-[#6B4F5A]">
-                Москва, Коммунарка, м. Румянцево<br />
-                Ежедневно 10:00-22:00
+                м. Румянцево, ЖК «Тропарёво Парк»<br />
+                Ежедневно 9:00-22:00
               </p>
             </div>
 
@@ -316,7 +316,7 @@ watch(
               class="mobile-menu-cta"
             >
               <span>Записаться онлайн</span>
-              <span class="mobile-menu-cta__badge">−20%</span>
+              <span class="mobile-menu-cta__badge">−15%</span>
             </a>
             <a href="tel:+79771075005" class="mobile-menu-phone">
               +7 (977) 107-50-05

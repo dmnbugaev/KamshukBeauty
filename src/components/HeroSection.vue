@@ -50,8 +50,8 @@ const bookingCount = computed(() => {
 
           <p class="body text-lg lg:text-xl text-[#6B4F5A] mb-10 max-w-md leading-relaxed">
             Маникюр, педикюр, брови, ресницы, макияж и перманентный макияж — результат, который
-            радует и держится. Работаем ежедневно с 10:00 до 22:00.
-            Новым гостям дарим <span class="text-accent font-semibold">скидку 20%</span> на первый визит.
+            радует и держится. Работаем ежедневно с 9:00 до 22:00.
+            Новым гостям дарим <span class="text-accent font-semibold">скидку 15%</span> на первый визит.
           </p>
           <p class="body text-xs text-muted -mt-6 mb-10 max-w-md">
             * Скидки и предложения не суммируются.
@@ -93,7 +93,7 @@ const bookingCount = computed(() => {
               <p class="body text-sm text-muted">гостей</p>
             </div>
             <div class="text-center sm:text-left">
-              <div class="headline text-4xl text-pink-gradient mb-1">−20%</div>
+              <div class="headline text-4xl text-pink-gradient mb-1">−15%</div>
               <p class="body text-sm text-muted">на первый визит</p>
             </div>
             <div class="text-center sm:text-left">
@@ -151,7 +151,7 @@ const bookingCount = computed(() => {
               style="box-shadow: 0 8px 32px rgba(233,30,140,0.2)"
             >
               <p class="label text-[10px] text-[#C2185B] mb-0.5">Первый визит</p>
-              <p class="headline text-2xl text-accent">−20%</p>
+              <p class="headline text-2xl text-accent">−15%</p>
             </div>
 
             <!-- Бейдж звёзд — iOS стиль -->

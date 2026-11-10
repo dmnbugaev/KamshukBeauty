@@ -82,13 +82,15 @@ const images = [
             style="background: linear-gradient(145deg, #F48DB4, #E91E8C); box-shadow: 0 6px 24px rgba(233,30,140,0.35), inset 0 1px 0 rgba(255,255,255,0.5)"
           >📍</div>
           <p class="headline text-xl text-[#1A1A2E] mb-3">Адрес студии</p>
-          <p class="body text-base text-[#6B4F5A] mb-6 leading-relaxed">
-            г. Москва, Коммунарка,<br />
-            квартал 2, дом 5, стр. 6,<br />
-            м. Румянцево, ЖК «Тропарёво Парк»
+          <p class="body text-base text-[#6B4F5A] mb-4 leading-relaxed">
+            м. Румянцево, ЖК «Тропарёво Парк»<br />
+            г. Москва, Коммунарка, квартал 2, дом 5, стр. 6
+          </p>
+          <p class="body text-sm text-[#6B4F5A] mb-6 leading-relaxed">
+            Мы внутри двора, рядом с детской площадкой. Ориентир — кофейня «Кофе Принт». Вход по коду.
           </p>
           <div class="pink-divider mx-auto mb-5" />
-          <p class="label text-[11px] text-accent">Ежедневно: 10:00 — 22:00</p>
+          <p class="label text-[11px] text-accent">Ежедневно: 9:00 — 22:00</p>
         </div>
       </div>
 

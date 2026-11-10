@@ -72,7 +72,7 @@ const services = [
         </div>
         <div class="lg:justify-self-end max-w-sm lg:text-right">
         <p class="body text-base text-muted">
-          Новым гостям дарим скидку 20% на первый визит. Используем только
+          Новым гостям дарим скидку 15% на первый визит. Используем только
           премиальные материалы, авторские и проверенные техники
         </p>
         <p class="body text-xs text-muted mt-3">

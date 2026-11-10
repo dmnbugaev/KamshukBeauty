@@ -2,7 +2,7 @@
 useHead({
   title: 'Перманентный макияж в Коммунарке — от 12 000 ₽ | Камшук Бьюти',
   meta: [
-    { name: 'description', content: 'Перманентный макияж в Коммунарке: пудровые брови, напыление губ, стрелка и межресничка от 12 000 ₽. Скидка 20% на первый визит.' },
+    { name: 'description', content: 'Перманентный макияж в Коммунарке: пудровые брови, напыление губ, стрелка и межресничка от 12 000 ₽. Скидка 15% на первый визит.' },
     { name: 'keywords', content: 'перманентный макияж Коммунарка, пудровые брови Коммунарка, напыление губ Коммунарка, межресничка Коммунарка, перманентный макияж Новая Москва' },
     { property: 'og:title', content: 'Перманентный макияж в Коммунарке — Камшук Бьюти' },
     { property: 'og:description', content: 'Пудровые брови, напыление губ, стрелка и межресничка. Стойкий результат и бережная работа мастера.' },
@@ -63,7 +63,7 @@ const open = ref<number | null>(null)
         <Breadcrumb :items="[{ label: 'Перманентный макияж' }]" />
         <div class="grid lg:grid-cols-2 gap-12 items-center max-w-[1320px] mx-auto">
           <div>
-            <div class="section-label mb-6">Скидка 20% на первый визит</div>
+            <div class="section-label mb-6">Скидка 15% на первый визит</div>
             <h1 class="display text-4xl lg:text-5xl text-[#1A1A2E] mb-6 leading-tight">
               Перманентный<br /><span class="text-pink-shimmer">макияж</span><br />в Коммунарке
             </h1>
@@ -78,7 +78,7 @@ const open = ref<number | null>(null)
             <div class="service-stats grid grid-cols-3 gap-3 sm:gap-6">
               <div><div class="headline text-3xl text-pink-gradient mb-1">от <span class="service-stat-price whitespace-nowrap">12 000 ₽</span></div><p class="body text-xs text-muted">стоимость</p></div>
               <div><div class="headline text-3xl text-pink-gradient mb-1">1–3 года</div><p class="body text-xs text-muted">держится эффект</p></div>
-              <div><div class="headline text-3xl text-pink-gradient mb-1">−20%</div><p class="body text-xs text-muted">первый визит</p></div>
+              <div><div class="headline text-3xl text-pink-gradient mb-1">−15%</div><p class="body text-xs text-muted">первый визит</p></div>
             </div>
             <p class="body text-xs text-muted mt-5">* Предложение действует только на первый визит. Скидки и акции не суммируются.</p>
           </div>
@@ -145,7 +145,7 @@ const open = ref<number | null>(null)
       <div class="container">
         <div class="max-w-2xl mx-auto text-center glass-pink rounded-3xl p-6 sm:p-8 lg:p-12">
           <h2 class="display text-3xl text-[#1A1A2E] mb-4">Запишитесь на перманентный макияж</h2>
-          <p class="body text-base text-[#6B4F5A] mb-8">г. Москва, Коммунарка, квартал 2, д. 5, стр. 6 · м. Румянцево, ЖК «Тропарёво Парк» · Ежедневно 10:00–22:00</p>
+          <p class="body text-base text-[#6B4F5A] mb-8">г. Москва, Коммунарка, квартал 2, д. 5, стр. 6 · м. Румянцево, ЖК «Тропарёво Парк» · Ежедневно 9:00–22:00</p>
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
             <BookingButton />
             <NuxtLink to="/#work" class="btn-outline-pink inline-block text-center">Посмотреть работы →</NuxtLink>

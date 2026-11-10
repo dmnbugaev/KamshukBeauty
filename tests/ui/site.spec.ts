@@ -272,9 +272,10 @@ test.describe('updated studio content', () => {
     await page.locator('dialog.welcome-dialog').waitFor({ state: 'attached' })
 
     const offers = page.locator('#offers')
-    await expect(offers).toContainText('Скидка 20% на услуги студии при первом посещении')
-    await expect(offers).toContainText('5 визитов со скидкой 20%')
-    await expect(offers).toContainText('10-й маникюр или педикюр-комплекс в подарок')
+    await expect(offers).toContainText('Скидка 15% на услуги студии при первом посещении')
+    await expect(offers).toContainText('5 визитов со скидкой 15%')
+    await expect(offers).not.toContainText('Студентам')
+    await expect(offers).not.toContainText('День рождения')
     await expect(page.locator('#about')).toContainText('Валерия')
     await expect(page.locator('#about')).toContainText('Ника')
     await expect(page.locator('#about')).toContainText('Оксана')
@@ -289,13 +290,15 @@ test.describe('updated studio content', () => {
     await expect(page.locator('#ресницы-брови')).not.toContainText('Межресничка')
   })
 
-  test('shows the updated pedicure training price and unique course message', async ({ page }) => {
+  test('hides training prices behind a request prompt', async ({ page }) => {
     await page.goto('/obuchenie', { waitUntil: 'domcontentloaded' })
     await page.locator('dialog.welcome-dialog').waitFor({ state: 'attached' })
 
     await expect(page.getByText('Мастер педикюра', { exact: true })).toBeVisible()
-    await expect(page.getByText('25 000 ₽', { exact: true })).toBeVisible()
-    await expect(page.locator('main')).not.toContainText('23 000 ₽')
+    await expect(page.locator('main')).toContainText('Стоимость по запросу')
+    await expect(page.locator('main')).not.toContainText('25 000 ₽')
+    await expect(page.locator('main')).not.toContainText('30 000 ₽')
+    await expect(page.locator('main')).not.toContainText('45 000 ₽')
     await expect(page.locator('main')).toContainText('мы раскрываем авторские техники и профессиональные приёмы')
   })
 })
@@ -313,6 +316,9 @@ test.describe('new address and social links', () => {
     await expect(page.locator('header')).not.toContainText('переезжаем')
     await expect(page.locator('#contact')).toContainText('г. Москва, Коммунарка, квартал 2, д. 5, стр. 6')
     await expect(page.locator('#contact')).toContainText('м. Румянцево, ЖК «Тропарёво Парк»')
+    await expect(page.locator('#contact')).toContainText('рядом с детской площадкой')
+    await expect(page.locator('#contact')).toContainText('«Кофе Принт»')
+    await expect(page.locator('#contact')).toContainText('Ежедневно 9:00–22:00')
     await expect(page.locator('#contact iframe[title*="Тропарёво Парк"]')).toBeVisible()
     await expect(page.locator('main')).toContainText('Где вы находитесь?')
   })

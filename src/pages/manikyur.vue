@@ -2,10 +2,10 @@
 useHead({
   title: 'Маникюр в Коммунарке — от 1 400 ₽ | Камшук Бьюти',
   meta: [
-    { name: 'description', content: 'Маникюр и покрытие гель-лак в Коммунарке (Москва) от 1 400 ₽. Скидка 20% на первый визит. Запись онлайн. Ежедневно 10:00–22:00.' },
+    { name: 'description', content: 'Маникюр и покрытие гель-лак в Коммунарке (Москва) от 1 400 ₽. Скидка 15% на первый визит. Запись онлайн. Ежедневно 9:00–22:00.' },
     { name: 'keywords', content: 'маникюр Коммунарка, маникюр гель-лак Коммунарка, маникюр Новая Москва, студия маникюра Коммунарка, маникюр ТиНАО, маникюр без выходных Москва' },
     { property: 'og:title', content: 'Маникюр в Коммунарке — Камшук Бьюти от 1 400 ₽' },
-    { property: 'og:description', content: 'Маникюр и покрытие гель-лак в Коммунарке. Скидка 20% новым гостям на первый визит.' },
+    { property: 'og:description', content: 'Маникюр и покрытие гель-лак в Коммунарке. Скидка 15% новым гостям на первый визит.' },
     { property: 'og:image', content: 'https://kamshukbeauty.ru/images/services/manicure.jpg' },
     { property: 'og:url', content: 'https://kamshukbeauty.ru/manikyur' },
   ],
@@ -68,7 +68,7 @@ const open = ref<number | null>(null)
 
         <div class="grid lg:grid-cols-2 gap-12 items-center max-w-[1320px] mx-auto">
           <div>
-            <div class="section-label mb-6">Скидка 20% на первый визит</div>
+            <div class="section-label mb-6">Скидка 15% на первый визит</div>
             <h1 class="display text-4xl lg:text-5xl text-[#1A1A2E] mb-6 leading-tight">
               Маникюр<br />
               <span class="text-pink-shimmer">в Коммунарке</span>
@@ -76,7 +76,7 @@ const open = ref<number | null>(null)
             <p class="body text-lg text-[#6B4F5A] mb-8 max-w-lg leading-relaxed">
               Маникюр гель-лак, классический и наращивание ногтей в студии Камшук Бьюти.
               Покрытие держится <strong>3–4 недели</strong> без сколов.
-              Ежедневно&nbsp;10:00–22:00.
+              Ежедневно&nbsp;9:00–22:00.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 mb-10">
               <BookingButton />
@@ -94,7 +94,7 @@ const open = ref<number | null>(null)
                 <p class="body text-xs text-muted">держится покрытие</p>
               </div>
               <div class="text-center sm:text-left">
-                <div class="headline text-3xl text-pink-gradient mb-1">−20%</div>
+                <div class="headline text-3xl text-pink-gradient mb-1">−15%</div>
                 <p class="body text-xs text-muted">первый визит</p>
               </div>
             </div>
@@ -110,7 +110,7 @@ const open = ref<number | null>(null)
             </div>
             <div class="absolute -bottom-4 -left-4 glass-pink rounded-2xl px-5 py-3" style="box-shadow: 0 8px 32px rgba(233,30,140,0.2)">
               <p class="label text-[10px] text-[#C2185B] mb-0.5">Первый визит</p>
-              <p class="headline text-2xl text-accent">−20%</p>
+              <p class="headline text-2xl text-accent">−15%</p>
             </div>
           </div>
         </div>
@@ -153,7 +153,7 @@ const open = ref<number | null>(null)
           <div v-for="item in [
             { icon: '💎', title: 'Держится 3–4 недели', text: 'Используем только профессиональные материалы. Покрытие не скалывается и не отслаивается.' },
             { icon: '✋', title: 'Бережная работа', text: 'Без порезов и болезненных ощущений. Мастер работает аккуратно, учитывает состояние вашей кутикулы.' },
-            { icon: '🕙', title: 'Ежедневно 10:00–22:00', text: 'Записывайтесь в удобное время — без выходных, в том числе в праздники.' },
+            { icon: '🕘', title: 'Ежедневно 9:00–22:00', text: 'Записывайтесь в удобное время — без выходных, в том числе в праздники.' },
           ]" :key="item.title" class="text-center p-6 rounded-2xl card-pink">
             <div class="ios-icon ios-pink mx-auto mb-4" style="width:56px;height:56px;border-radius:16px;font-size:1.6rem">{{ item.icon }}</div>
             <p class="headline text-base text-accent mb-2">{{ item.title }}</p>
@@ -198,7 +198,7 @@ const open = ref<number | null>(null)
       <div class="container">
         <div class="max-w-2xl mx-auto text-center glass-pink rounded-3xl p-6 sm:p-8 lg:p-12">
           <h2 class="display text-3xl text-[#1A1A2E] mb-4">Запишитесь на маникюр</h2>
-          <p class="body text-base text-[#6B4F5A] mb-8">г. Москва, Коммунарка, квартал 2, д. 5, стр. 6 · м. Румянцево, ЖК «Тропарёво Парк» · Ежедневно 10:00–22:00</p>
+          <p class="body text-base text-[#6B4F5A] mb-8">г. Москва, Коммунарка, квартал 2, д. 5, стр. 6 · м. Румянцево, ЖК «Тропарёво Парк» · Ежедневно 9:00–22:00</p>
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
             <BookingButton />
             <NuxtLink to="/#price-list" class="btn-outline-pink inline-block text-center">Все цены</NuxtLink>

@@ -2,10 +2,10 @@
 useHead({
   title: 'Наращивание ресниц в Коммунарке — от 3 300 ₽ | Камшук Бьюти',
   meta: [
-    { name: 'description', content: 'Наращивание и ламинирование ресниц в Коммунарке (Москва) от 3 000 ₽. Скидка 20% на первый визит. Запись онлайн.' },
+    { name: 'description', content: 'Наращивание и ламинирование ресниц в Коммунарке (Москва) от 3 000 ₽. Скидка 15% на первый визит. Запись онлайн.' },
     { name: 'keywords', content: 'наращивание ресниц Коммунарка, ламинирование ресниц Коммунарка, ресницы Новая Москва, наращивание ресниц ТиНАО, объёмное наращивание ресниц Коммунарка' },
     { property: 'og:title', content: 'Наращивание ресниц в Коммунарке — Камшук Бьюти от 3 300 ₽' },
-    { property: 'og:description', content: 'Наращивание ресниц классика, 2D и объём в Коммунарке. Скидка 20% новым гостям.' },
+    { property: 'og:description', content: 'Наращивание ресниц классика, 2D и объём в Коммунарке. Скидка 15% новым гостям.' },
     { property: 'og:image', content: 'https://kamshukbeauty.ru/images/services/lashes-brows.jpg' },
     { property: 'og:url', content: 'https://kamshukbeauty.ru/naraschivanie-resnic' },
   ],
@@ -62,7 +62,7 @@ const open = ref<number | null>(null)
         <Breadcrumb :items="[{ label: 'Наращивание ресниц в Коммунарке' }]" />
         <div class="grid lg:grid-cols-2 gap-12 items-center max-w-[1320px] mx-auto">
           <div>
-            <div class="section-label mb-6">Скидка 20% на первый визит</div>
+            <div class="section-label mb-6">Скидка 15% на первый визит</div>
             <h1 class="display text-4xl lg:text-5xl text-[#1A1A2E] mb-6 leading-tight">
               Наращивание<br /><span class="text-pink-shimmer">ресниц</span><br />в Коммунарке
             </h1>
@@ -77,7 +77,7 @@ const open = ref<number | null>(null)
             <div class="service-stats grid grid-cols-3 gap-3 sm:gap-6">
               <div><div class="headline text-3xl text-pink-gradient mb-1">от <span class="service-stat-price whitespace-nowrap">3 000 ₽</span></div><p class="body text-xs text-muted">стоимость</p></div>
               <div><div class="headline text-3xl text-pink-gradient mb-1">3–4 нед.</div><p class="body text-xs text-muted">держится эффект</p></div>
-              <div><div class="headline text-3xl text-pink-gradient mb-1">−20%</div><p class="body text-xs text-muted">первый визит</p></div>
+              <div><div class="headline text-3xl text-pink-gradient mb-1">−15%</div><p class="body text-xs text-muted">первый визит</p></div>
             </div>
             <p class="body text-xs text-muted mt-5">
               * Предложение действует только на первый визит. Скидки и акции не суммируются.
@@ -89,7 +89,7 @@ const open = ref<number | null>(null)
             </div>
             <div class="absolute -bottom-4 -left-4 glass-pink rounded-2xl px-5 py-3" style="box-shadow: 0 8px 32px rgba(233,30,140,0.2)">
               <p class="label text-[10px] text-[#C2185B] mb-0.5">Первый визит</p>
-              <p class="headline text-2xl text-accent">−20%</p>
+              <p class="headline text-2xl text-accent">−15%</p>
             </div>
           </div>
         </div>
@@ -132,7 +132,7 @@ const open = ref<number | null>(null)
       <div class="container">
         <div class="max-w-2xl mx-auto text-center glass-pink rounded-3xl p-6 sm:p-8 lg:p-12">
           <h2 class="display text-3xl text-[#1A1A2E] mb-4">Запишитесь на ресницы</h2>
-          <p class="body text-base text-[#6B4F5A] mb-8">г. Москва, Коммунарка, квартал 2, д. 5, стр. 6 · м. Румянцево, ЖК «Тропарёво Парк» · Ежедневно 10:00–22:00</p>
+          <p class="body text-base text-[#6B4F5A] mb-8">г. Москва, Коммунарка, квартал 2, д. 5, стр. 6 · м. Румянцево, ЖК «Тропарёво Парк» · Ежедневно 9:00–22:00</p>
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
             <BookingButton />
             <NuxtLink to="/brovi" class="btn-outline-pink inline-block text-center">Ещё: брови →</NuxtLink>

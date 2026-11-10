@@ -2,10 +2,10 @@
 useHead({
   title: 'Педикюр в Коммунарке — от 3 200 ₽ | Камшук Бьюти',
   meta: [
-    { name: 'description', content: 'Смарт-педикюр и аппаратный педикюр в Коммунарке (Москва) от 3 200 ₽. Скидка 20% на первый визит. Ежедневно 10:00–22:00.' },
+    { name: 'description', content: 'Смарт-педикюр и аппаратный педикюр в Коммунарке (Москва) от 3 200 ₽. Скидка 15% на первый визит. Ежедневно 9:00–22:00.' },
     { name: 'keywords', content: 'педикюр Коммунарка, смарт педикюр Коммунарка, аппаратный педикюр Коммунарка, педикюр Новая Москва, педикюр ТиНАО' },
     { property: 'og:title', content: 'Педикюр в Коммунарке — Камшук Бьюти от 3 200 ₽' },
-    { property: 'og:description', content: 'Смарт-педикюр и аппаратный педикюр в Коммунарке. Скидка 20% новым гостям на первый визит.' },
+    { property: 'og:description', content: 'Смарт-педикюр и аппаратный педикюр в Коммунарке. Скидка 15% новым гостям на первый визит.' },
     { property: 'og:image', content: 'https://kamshukbeauty.ru/images/services/manicure.jpg' },
     { property: 'og:url', content: 'https://kamshukbeauty.ru/pedikyur' },
   ],
@@ -60,13 +60,13 @@ const open = ref<number | null>(null)
         <Breadcrumb :items="[{ label: 'Педикюр в Коммунарке' }]" />
         <div class="grid lg:grid-cols-2 gap-12 items-center max-w-[1320px] mx-auto">
           <div>
-            <div class="section-label mb-6">Скидка 20% на первый визит</div>
+            <div class="section-label mb-6">Скидка 15% на первый визит</div>
             <h1 class="display text-4xl lg:text-5xl text-[#1A1A2E] mb-6 leading-tight">
               Педикюр<br /><span class="text-pink-shimmer">в Коммунарке</span>
             </h1>
             <p class="body text-lg text-[#6B4F5A] mb-8 max-w-lg leading-relaxed">
               Смарт-педикюр и аппаратный педикюр — современные техники ухода за стопами.
-              Покрытие держится <strong>4–6 недель</strong>. Ежедневно 10:00–22:00.
+              Покрытие держится <strong>4–6 недель</strong>. Ежедневно 9:00–22:00.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 mb-10">
               <BookingButton />
@@ -75,7 +75,7 @@ const open = ref<number | null>(null)
             <div class="service-stats grid grid-cols-3 gap-3 sm:gap-6">
               <div><div class="headline text-3xl text-pink-gradient mb-1">от <span class="service-stat-price whitespace-nowrap">3 200 ₽</span></div><p class="body text-xs text-muted">стоимость</p></div>
               <div><div class="headline text-3xl text-pink-gradient mb-1">4–6 нед.</div><p class="body text-xs text-muted">держится покрытие</p></div>
-              <div><div class="headline text-3xl text-pink-gradient mb-1">−20%</div><p class="body text-xs text-muted">первый визит</p></div>
+              <div><div class="headline text-3xl text-pink-gradient mb-1">−15%</div><p class="body text-xs text-muted">первый визит</p></div>
             </div>
             <p class="body text-xs text-muted mt-5">
               * Предложение действует только на первый визит. Скидки и акции не суммируются.
@@ -126,7 +126,7 @@ const open = ref<number | null>(null)
       <div class="container">
         <div class="max-w-2xl mx-auto text-center glass-pink rounded-3xl p-6 sm:p-8 lg:p-12">
           <h2 class="display text-3xl text-[#1A1A2E] mb-4">Запишитесь на педикюр</h2>
-          <p class="body text-base text-[#6B4F5A] mb-8">г. Москва, Коммунарка, квартал 2, д. 5, стр. 6 · м. Румянцево, ЖК «Тропарёво Парк» · Ежедневно 10:00–22:00</p>
+          <p class="body text-base text-[#6B4F5A] mb-8">г. Москва, Коммунарка, квартал 2, д. 5, стр. 6 · м. Румянцево, ЖК «Тропарёво Парк» · Ежедневно 9:00–22:00</p>
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
             <BookingButton />
             <NuxtLink to="/manikyur" class="btn-outline-pink inline-block text-center">Маникюр + педикюр</NuxtLink>

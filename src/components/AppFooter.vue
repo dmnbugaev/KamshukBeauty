@@ -89,9 +89,10 @@ const socialLinks = useSocialLinks()
           <div class="mt-5 rounded-2xl px-4 py-3.5" style="background: rgba(233,30,140,0.06); border: 1px dashed rgba(233,30,140,0.35)">
             <p class="label text-[10px] text-accent mb-1.5">📍 Наш адрес</p>
             <p class="body text-xs leading-relaxed text-[#6B4F5A]">
+              м. Румянцево, ЖК «Тропарёво Парк»<br />
               г. Москва, Коммунарка, квартал 2,<br />
-              д. 5, стр. 6 — м. Румянцево,<br />
-              ЖК «Тропарёво Парк»
+              д. 5, стр. 6 — внутри двора,<br />
+              рядом с детской площадкой
             </p>
           </div>
         </div>
@@ -100,7 +101,7 @@ const socialLinks = useSocialLinks()
         <div>
           <h4 class="label text-[10px] text-accent mb-5">Режим работы</h4>
           <p class="body text-sm text-[#6B4F5A] mb-2">Ежедневно</p>
-          <p class="headline text-2xl text-[#1A1A2E] mb-8">10:00 — 22:00</p>
+          <p class="headline text-2xl text-[#1A1A2E] mb-8">9:00 — 22:00</p>
 
           <!-- Кнопки соцсетей — фирменные стили -->
           <div class="flex flex-col gap-2.5">

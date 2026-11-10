@@ -25,7 +25,7 @@ const socialChannels = useSocialLinks()
               <div class="ios-icon ios-pink" style="width:48px; height:48px; border-radius:14px; font-size:1.375rem">🎀</div>
               <p class="label text-[11px] text-[#C2185B]">Специальное предложение</p>
             </div>
-            <p class="headline text-4xl text-accent mb-2">−20%</p>
+            <p class="headline text-4xl text-accent mb-2">−15%</p>
             <p class="body text-sm text-[#6B4F5A]">
               Скидка новым гостям на первый визит
             </p>
@@ -47,7 +47,7 @@ const socialChannels = useSocialLinks()
             </div>
             <div>
               <p class="label text-[10px] text-muted mb-1">Режим работы</p>
-              <p class="headline text-lg text-[#1A1A2E]">Ежедневно: 10:00 — 22:00</p>
+              <p class="headline text-lg text-[#1A1A2E]">Ежедневно: 9:00 — 22:00</p>
             </div>
           </div>
 

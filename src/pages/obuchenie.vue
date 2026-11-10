@@ -4,7 +4,7 @@ useHead({
   meta: [
     {
       name: 'description',
-      content: 'Школа-студия Анастасии Камшук. Специальные цены при записи в текущем месяце: курс мастера маникюра 30 000 ₽ вместо 35 000 ₽, мастера педикюра 25 000 ₽ вместо 28 000 ₽.',
+      content: 'Школа-студия Анастасии Камшук. Практические курсы маникюра и smart-педикюра для будущих мастеров. Стоимость и даты ближайших групп — по запросу.',
     },
     {
       property: 'og:title',
@@ -30,8 +30,8 @@ useHead({
           '@type': 'OfferCatalog',
           name: 'Курсы обучения',
           itemListElement: [
-            { '@type': 'Offer', itemOffered: { '@type': 'Course', name: 'Мастер маникюра', timeRequired: 'P3D' }, price: '30000', priceCurrency: 'RUB' },
-            { '@type': 'Offer', itemOffered: { '@type': 'Course', name: 'Мастер педикюра', timeRequired: 'P2D' }, price: '25000', priceCurrency: 'RUB' },
+            { '@type': 'Offer', itemOffered: { '@type': 'Course', name: 'Мастер маникюра', timeRequired: 'P3D' } },
+            { '@type': 'Offer', itemOffered: { '@type': 'Course', name: 'Мастер педикюра', timeRequired: 'P2D' } },
           ],
         },
       }),
@@ -71,8 +71,6 @@ const packages = [
     title: 'Эксперт',
     displayTitle: 'Мастер ногтевого сервиса',
     duration: '5 дней',
-    oldPrice: '50 000 ₽',
-    price: '45 000 ₽',
     includes: '3 дня маникюр + 2 дня педикюр',
     popular: false,
   },
@@ -80,8 +78,6 @@ const packages = [
     title: 'Топ',
     displayTitle: 'Топ-мастер ногтевого сервиса',
     duration: '7 дней',
-    oldPrice: '60 000 ₽',
-    price: '55 000 ₽',
     includes: '3 дня маникюр + 2 дня педикюр + 2 дня моделирование',
     popular: true,
   },
@@ -89,8 +85,6 @@ const packages = [
     title: 'VIP',
     displayTitle: 'VIP-мастер ногтевого сервиса',
     duration: '9 дней',
-    oldPrice: '70 000 ₽',
-    price: '65 000 ₽',
     includes: '3 дня маникюр + 2 дня педикюр + 2 дня моделирование + 2 дня верхние формы',
     popular: false,
   },
@@ -100,7 +94,7 @@ const benefits = [
   { icon: '👩‍🏫', title: 'Профессиональный инструктор', text: 'Обучение от мастера с 6+ летним опытом' },
   { icon: '📒', title: 'Рабочие тетради', text: 'Готовые тетради с иллюстрациями и пояснениями' },
   { icon: '📈', title: 'Максимум практики', text: 'Работа на моделях под контролем преподавателя' },
-  { icon: '🎁', title: 'Набор мастера в подарок', text: 'Стартовый набор мастера стоимостью 5000 ₽ в подарок' },
+  { icon: '🎁', title: 'Набор мастера в подарок', text: 'Стартовый набор мастера для работы — в подарок каждому ученику' },
   { icon: '🏆', title: 'Портфолио работ', text: 'В процессе обучения показываем, как фотографировать работы для успешного портфолио' },
   { icon: '✅', title: 'Материалы включены', text: 'Все материалы, расходники и оборудование выдаются школой' },
 ]
@@ -131,7 +125,7 @@ const contactLinks = [
               Обучение в Камшук Бьюти даёт особенные знания: мы раскрываем авторские техники и профессиональные приёмы, которые невозможно получить где-либо ещё.
             </p>
             <div class="inline-flex max-w-full rounded-full bg-[#D81B60] px-5 py-2 label text-[11px] text-white mb-8">
-              Специальные цены при записи в текущем месяце
+              Набор в новые группы открыт
             </div>
             <div class="grid sm:grid-cols-3 gap-3 mb-8">
               <div class="glass-pink rounded-2xl p-4">
@@ -174,7 +168,10 @@ const contactLinks = [
                 <p class="label text-[10px] text-accent mb-2">3 дня</p>
                 <h3 class="headline text-2xl text-[#1A1A2E]">Мастер маникюра</h3>
               </div>
-              <PromoPrice old-price="35 000 ₽" new-price="30 000 ₽" align="left" note="при записи в текущем месяце" />
+              <div>
+                <p class="headline text-2xl text-pink-gradient">Стоимость по запросу</p>
+                <p class="body text-[11px] text-muted mt-1">актуальную цену уточняйте по телефону или в мессенджере</p>
+              </div>
             </div>
             <p class="body text-sm text-[#6B4F5A] mb-6">
               Авторский ровный срез, аппаратная техника, выравнивание ногтевой пластины, покрытие под кутикулу и работа с дизайнами.
@@ -193,7 +190,10 @@ const contactLinks = [
                 <p class="label text-[10px] text-accent mb-2">2 дня</p>
                 <h3 class="headline text-2xl text-[#1A1A2E]">Мастер педикюра</h3>
               </div>
-              <PromoPrice old-price="28 000 ₽" new-price="25 000 ₽" align="left" note="при записи в текущем месяце" />
+              <div>
+                <p class="headline text-2xl text-pink-gradient">Стоимость по запросу</p>
+                <p class="body text-[11px] text-muted mt-1">актуальную цену уточняйте по телефону или в мессенджере</p>
+              </div>
             </div>
             <p class="body text-sm text-[#6B4F5A] mb-6">
               Современные техники ухода за стопами, аппаратный, COMBI и smart-педикюр с профессиональным оборудованием.
@@ -243,7 +243,10 @@ const contactLinks = [
             </div>
             <p class="label text-[10px] text-muted mb-2">{{ pkg.duration }}</p>
             <h3 class="headline text-xl text-[#1A1A2E] mb-4">{{ pkg.displayTitle }}</h3>
-            <PromoPrice :old-price="pkg.oldPrice" :new-price="pkg.price" size="lg" align="left" note="скидка 5 000 ₽ при записи в текущем месяце" />
+            <div>
+              <p class="headline text-2xl text-pink-gradient">Стоимость по запросу</p>
+              <p class="body text-[11px] text-muted mt-1">даты стартов и условия оплаты — у администратора</p>
+            </div>
             <p class="body text-sm text-[#6B4F5A] mt-5">{{ pkg.includes }}</p>
           </div>
         </div>

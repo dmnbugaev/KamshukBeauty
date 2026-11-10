@@ -110,7 +110,7 @@ useHead({
             <p class="body text-sm text-[#6B4F5A] mb-6">
               Пудровые брови
               <span class="label text-accent">16 000 ₽</span>
-              · Скидка 20% новым гостям
+              · Скидка 15% новым гостям
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
               <BookingButton />

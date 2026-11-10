@@ -120,7 +120,7 @@ const tagColors: Record<string, string> = {
       <div class="container">
         <div class="max-w-2xl mx-auto text-center glass-pink rounded-3xl p-6 sm:p-10">
           <h2 class="display text-2xl text-[#1A1A2E] mb-4">Готовы к преображению?</h2>
-          <p class="body text-sm text-[#6B4F5A] mb-6">Записывайтесь онлайн — новым гостям скидка 20% на первый визит</p>
+          <p class="body text-sm text-[#6B4F5A] mb-6">Записывайтесь онлайн — новым гостям скидка 15% на первый визит</p>
           <BookingButton />
         </div>
       </div>
