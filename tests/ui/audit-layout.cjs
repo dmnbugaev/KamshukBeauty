@@ -63,7 +63,6 @@ async function main() {
   const browser = await browsers[browserName].launch()
   const context = await browser.newContext({ reducedMotion: 'reduce' })
   await context.addInitScript(() => {
-    sessionStorage.setItem('welcome_popup_shown', '1')
     document.cookie = 'cookie_consent=rejected; path=/'
   })
   await context.route(/https:\/\/(mc\.yandex|yandex\.ru\/map-widget)/, route => route.fulfill({ status: 200, body: '' }))

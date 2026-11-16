@@ -7,7 +7,6 @@ test.beforeEach(async ({ page }) => {
 
 const dismissNotices = async (page: import('@playwright/test').Page) => {
   await page.addInitScript(() => {
-    sessionStorage.setItem('welcome_popup_shown', '1')
     document.cookie = 'cookie_consent=rejected; path=/'
   })
 }
@@ -17,7 +16,6 @@ for (const viewport of [{ width: 320, height: 480 }, { width: 640, height: 360 }
     await dismissNotices(page)
     await page.setViewportSize(viewport)
     await page.goto('/')
-    await page.locator('dialog.welcome-dialog').waitFor({ state: 'attached' })
     const burger = page.locator('button[aria-controls="mobile-menu"]')
     await burger.click()
     const menu = page.getByRole('dialog', { name: 'Мобильное меню', exact: true })
@@ -41,41 +39,11 @@ for (const viewport of [{ width: 320, height: 480 }, { width: 640, height: 360 }
   })
 }
 
-test('welcome popup opens with the page and stays usable on a short screen', async ({ page }) => {
-  await page.clock.install()
-  await page.setViewportSize({ width: 320, height: 480 })
-  await page.goto('/')
-  await page.locator('dialog.welcome-dialog').waitFor({ state: 'attached' })
-  const cookie = page.getByRole('dialog', { name: /cookie/ })
-  await expect(cookie).toBeVisible()
-  await page.clock.fastForward(1_000)
-  const welcome = page.getByRole('dialog', { name: /перееха/i })
-  await expect(welcome).toBeVisible()
-  await expect(page.locator('body')).toHaveCSS('overflow', 'hidden')
-  const close = welcome.getByRole('button', { name: 'Закрыть', exact: true })
-  await expect(close).toBeFocused()
-  const rect = await welcome.boundingBox()
-  expect(rect!.y).toBeGreaterThanOrEqual(0)
-  expect(rect!.y + rect!.height).toBeLessThanOrEqual(480)
-  const dismiss = welcome.getByRole('button', { name: /понятно/i })
-  await dismiss.focus()
-  await page.keyboard.press('Tab')
-  // The browser may focus the document between native-dialog tab cycles; the
-  // next tab must always return inside, never to background controls.
-  if (!(await close.evaluate(e => e === document.activeElement))) await page.keyboard.press('Tab')
-  await expect(close).toBeFocused()
-  await page.keyboard.press('Escape')
-  await expect(welcome).toBeHidden()
-  await expect(page.locator('body')).not.toHaveCSS('overflow', 'hidden')
-  expect(await page.evaluate(() => sessionStorage.getItem('welcome_popup_shown'))).toBe('1')
-})
-
 for (const route of ['/', '/manikyur', '/pedikyur', '/brovi', '/makiyazh', '/naraschivanie-resnic', '/permanentnyj-makiyazh']) {
   test(`FAQ exposes full answers on ${route}`, async ({ page }) => {
     await dismissNotices(page)
     await page.setViewportSize({ width: 320, height: 568 })
     await page.goto(route)
-    await page.locator('dialog.welcome-dialog').waitFor({ state: 'attached' })
     const buttons = page.locator('main button[aria-controls*="faq-"]')
     for (const button of await buttons.all()) {
       await button.click()
@@ -90,7 +58,6 @@ for (const route of ['/', '/manikyur', '/pedikyur', '/brovi', '/makiyazh', '/nar
 test('portfolio filters work and every home image loads', async ({ page }) => {
   await dismissNotices(page)
   await page.goto('/')
-  await page.locator('dialog.welcome-dialog').waitFor({ state: 'attached' })
   await page.locator('img').evaluateAll(images => images.forEach(img => { (img as HTMLImageElement).loading = 'eager' }))
   await expect.poll(() => page.locator('img').evaluateAll(images => images.filter(img => !(img as HTMLImageElement).complete || !(img as HTMLImageElement).naturalWidth).map(img => img.getAttribute('src')))).toEqual([])
   const filter = page.locator('#work').getByRole('button', { name: 'Перманентный макияж', exact: true })
@@ -105,7 +72,6 @@ test('service prices and discounts remain unbroken at narrow widths', async ({ p
   await dismissNotices(page)
   for (const route of ['/manikyur', '/pedikyur', '/brovi', '/makiyazh', '/naraschivanie-resnic', '/permanentnyj-makiyazh']) {
     await page.goto(route)
-    await page.locator('dialog.welcome-dialog').waitFor({ state: 'attached' })
     await page.waitForFunction(() => [...document.fonts].some(f => f.family.replaceAll('"', '') === 'Unbounded' && f.status === 'loaded'))
     for (const width of [320, 390, 1024]) {
       await page.setViewportSize({ width, height: 900 })
@@ -130,7 +96,6 @@ test('reviews respect reduced motion and do not move following content', async (
   await page.emulateMedia({ reducedMotion: 'reduce' })
   await page.clock.install()
   await page.goto('/')
-  await page.locator('dialog.welcome-dialog').waitFor({ state: 'attached' })
   const dot = page.getByRole('button', { name: 'Отзыв 1', exact: true })
   await page.clock.fastForward(12_000)
   await expect(dot).toHaveAttribute('aria-pressed', 'true')
@@ -146,7 +111,6 @@ for (const route of ['/', '/obuchenie', '/privacy', '/blog', '/permanentnyj-maki
     await dismissNotices(page)
     await page.setViewportSize({ width: 390, height: 844 })
     await page.goto(route)
-    await page.locator('dialog.welcome-dialog').waitFor({ state: 'attached' })
     await page.evaluate(() => document.fonts.ready)
     const results = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa']).analyze()
     await testInfo.attach('axe.json', { body: JSON.stringify(results.violations, null, 2), contentType: 'application/json' })

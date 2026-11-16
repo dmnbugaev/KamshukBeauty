@@ -10,7 +10,6 @@ async function main() {
   try {
     const page = await browser.newPage({ reducedMotion: 'reduce' })
     await page.addInitScript(() => {
-      sessionStorage.setItem('welcome_popup_shown', '1')
       document.cookie = 'cookie_consent=rejected; path=/'
     })
     await page.route(/https:\/\/(mc\.yandex|yandex\.ru\/map-widget)/, route => route.fulfill({ status: 200, body: '' }))

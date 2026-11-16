@@ -19,18 +19,18 @@ const socialChannels = useSocialLinks()
             всегда на связи и ответим на любые вопросы
           </p>
 
-          <!-- Акция — iOS glass стиль -->
+          <!-- Скидка — iOS glass стиль -->
           <div class="glass-pink rounded-2xl px-8 py-6 mb-8">
             <div class="flex items-center gap-3 mb-3">
               <div class="ios-icon ios-pink" style="width:48px; height:48px; border-radius:14px; font-size:1.375rem">🎀</div>
-              <p class="label text-[11px] text-[#C2185B]">Специальное предложение</p>
+              <p class="label text-[11px] text-[#C2185B]">Первый визит</p>
             </div>
             <p class="headline text-4xl text-accent mb-2">−15%</p>
             <p class="body text-sm text-[#6B4F5A]">
               Скидка новым гостям на первый визит
             </p>
             <p class="body text-xs text-muted mt-3">
-              * Скидки и предложения не суммируются.
+              * Скидки не суммируются.
             </p>
           </div>
 
@@ -57,7 +57,7 @@ const socialChannels = useSocialLinks()
             style="border: 1.5px solid rgba(233,30,140,0.12); background: rgba(255,240,250,0.4)"
           >
             <h3 class="headline text-lg text-[#1A1A2E] mb-2">Наши каналы</h3>
-            <p class="body text-sm text-muted mb-6">Акции, вдохновение и работы мастеров — подписывайтесь, чтобы не пропустить</p>
+            <p class="body text-sm text-muted mb-6">Новости, вдохновение и работы мастеров — подписывайтесь, чтобы не пропустить</p>
             <div class="booking-channels grid gap-3">
               <a
                 v-for="channel in socialChannels"

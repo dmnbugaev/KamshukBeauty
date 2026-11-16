@@ -18,7 +18,7 @@ let desktopQuery: MediaQueryList | null = null
 
 const links: HeaderLink[] = [
   { label: 'Услуги', href: '/#services', note: 'Маникюр, брови, ресницы, макияж' },
-  { label: 'Акции', href: '/#offers', note: 'Скидки, абонементы и подарки' },
+  { label: 'Скидки', href: '/#offers', note: 'Абонементы и подарочные сертификаты' },
   { label: 'Работы', href: '/#work', note: 'Портфолио мастеров' },
   { label: 'О нас', href: '/#about', note: 'Студия и команда' },
   { label: 'Обучение', href: '/obuchenie', note: 'Курсы для мастеров' },

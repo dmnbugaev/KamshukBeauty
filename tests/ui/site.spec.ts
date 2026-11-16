@@ -64,7 +64,6 @@ test.beforeEach(async ({ page, baseURL }) => {
   const localOrigin = new URL(baseURL || 'http://127.0.0.1').origin
 
   await page.addInitScript(() => {
-    window.sessionStorage.setItem('welcome_popup_shown', '1')
     window.localStorage.setItem('cookie_consent', 'accepted')
     document.cookie = 'cookie_consent=accepted; path=/'
   })
@@ -143,7 +142,6 @@ test.describe('header', () => {
     const errors = collectConsoleErrors(page)
     await page.setViewportSize(desktopViewport)
     await page.goto('/', { waitUntil: 'domcontentloaded' })
-    await page.locator('dialog.welcome-dialog').waitFor({ state: 'attached' })
 
     await expect(getHeader(page)).toBeVisible()
     await expect(page.getByRole('link', { name: /камшук бьюти/i }).first()).toBeVisible()
@@ -159,7 +157,6 @@ test.describe('header', () => {
     const errors = collectConsoleErrors(page)
     await page.setViewportSize(mobileViewport)
     await page.goto('/', { waitUntil: 'domcontentloaded' })
-    await page.locator('dialog.welcome-dialog').waitFor({ state: 'attached' })
 
     await expect(getHeader(page)).toBeVisible()
     await expect(getBurgerButton(page)).toBeVisible()
@@ -175,7 +172,7 @@ test.describe('burger menu', () => {
   test.beforeEach(async ({ page }) => {
     await page.setViewportSize(mobileViewport)
     await page.goto('/', { waitUntil: 'domcontentloaded' })
-    await page.locator('dialog.welcome-dialog').waitFor({ state: 'attached' })
+
   })
 
   test('opens and closes with button, Escape and link click', async ({ page }) => {
@@ -244,7 +241,6 @@ test.describe('responsive layout', () => {
       const errors = collectConsoleErrors(page)
       await page.setViewportSize({ width, height })
       await page.goto('/', { waitUntil: 'domcontentloaded' })
-      await page.locator('dialog.welcome-dialog').waitFor({ state: 'attached' })
 
       await expectNoHorizontalOverflow(page)
       await expect(page.locator('img').first()).toBeVisible()
@@ -269,13 +265,16 @@ test.describe('updated studio content', () => {
   test('shows current offers, team and complete portfolio', async ({ page }) => {
     await page.setViewportSize(desktopViewport)
     await page.goto('/', { waitUntil: 'domcontentloaded' })
-    await page.locator('dialog.welcome-dialog').waitFor({ state: 'attached' })
 
     const offers = page.locator('#offers')
     await expect(offers).toContainText('Скидка 15% на услуги студии при первом посещении')
-    await expect(offers).toContainText('5 визитов со скидкой 15%')
+    await expect(offers).toContainText('Подарочные сертификаты')
+    await expect(offers).toContainText('Абонементы')
+    await expect(offers).toContainText('На любой номинал')
     await expect(offers).not.toContainText('Студентам')
     await expect(offers).not.toContainText('День рождения')
+    await expect(page.locator('body')).not.toContainText('переез', { ignoreCase: true })
+    await expect(page.locator('body')).not.toContainText('кофейня', { ignoreCase: true })
     await expect(page.locator('#about')).toContainText('Валерия')
     await expect(page.locator('#about')).toContainText('Ника')
     await expect(page.locator('#about')).toContainText('Оксана')
@@ -292,7 +291,6 @@ test.describe('updated studio content', () => {
 
   test('hides training prices behind a request prompt', async ({ page }) => {
     await page.goto('/obuchenie', { waitUntil: 'domcontentloaded' })
-    await page.locator('dialog.welcome-dialog').waitFor({ state: 'attached' })
 
     await expect(page.getByText('Мастер педикюра', { exact: true })).toBeVisible()
     await expect(page.locator('main')).toContainText('Стоимость по запросу')
@@ -303,30 +301,30 @@ test.describe('updated studio content', () => {
   })
 })
 
-test.describe('new address and social links', () => {
+test.describe('address and social links', () => {
   const maxJoinUrl = 'https://max.ru/join/OqwFZ6CLctjBV93r4HJEsQ8v28Kxw_67U3eqSrwDRdg'
   const telegramUrl = 'https://t.me/offi_nesquik'
   const bookingUrl = 'https://n1407035.yclients.com/company/1274992/personal/select-services?o='
 
-  test('contacts, map and FAQ show the new address, relocation banner is gone', async ({ page }) => {
+  test('contacts, map and FAQ show the address, relocation mentions are gone', async ({ page }) => {
     await page.setViewportSize(desktopViewport)
     await page.goto('/', { waitUntil: 'domcontentloaded' })
-    await page.locator('dialog.welcome-dialog').waitFor({ state: 'attached' })
 
-    await expect(page.locator('header')).not.toContainText('переезжаем')
+    await expect(page.locator('body')).not.toContainText('переез', { ignoreCase: true })
     await expect(page.locator('#contact')).toContainText('г. Москва, Коммунарка, квартал 2, д. 5, стр. 6')
     await expect(page.locator('#contact')).toContainText('м. Румянцево, ЖК «Тропарёво Парк»')
+    await expect(page.locator('#contact')).toContainText('Вход со стороны внутреннего двора')
     await expect(page.locator('#contact')).toContainText('рядом с детской площадкой')
     await expect(page.locator('#contact')).toContainText('«Кофе Принт»')
+    await expect(page.locator('#contact')).not.toContainText('кофейня')
     await expect(page.locator('#contact')).toContainText('Ежедневно 9:00–22:00')
     await expect(page.locator('#contact iframe[title*="Тропарёво Парк"]')).toBeVisible()
     await expect(page.locator('main')).toContainText('Где вы находитесь?')
   })
 
-  test('online booking is enabled again', async ({ page }) => {
+  test('online booking is enabled', async ({ page }) => {
     await page.setViewportSize(desktopViewport)
     await page.goto('/', { waitUntil: 'domcontentloaded' })
-    await page.locator('dialog.welcome-dialog').waitFor({ state: 'attached' })
 
     await expect(page.locator('header').getByRole('link', { name: 'Записаться' })).toBeVisible()
     await expect(page.locator(`#book a[href="${bookingUrl}"]`).first()).toBeVisible()
@@ -336,7 +334,6 @@ test.describe('new address and social links', () => {
   test('only Telegram and MAX social links remain, branded buttons included', async ({ page }) => {
     await page.setViewportSize(desktopViewport)
     await page.goto('/', { waitUntil: 'domcontentloaded' })
-    await page.locator('dialog.welcome-dialog').waitFor({ state: 'attached' })
 
     await expect(page.locator(`a[href="${telegramUrl}"]`).first()).toBeVisible()
     await expect(page.locator(`a[href="${maxJoinUrl}"]`).first()).toBeVisible()
@@ -346,7 +343,6 @@ test.describe('new address and social links', () => {
   test('mobile menu shows the address card and social buttons', async ({ page }) => {
     await page.setViewportSize(mobileViewport)
     await page.goto('/', { waitUntil: 'domcontentloaded' })
-    await page.locator('dialog.welcome-dialog').waitFor({ state: 'attached' })
 
     await getBurgerButton(page).click()
     const menu = getMobileMenu(page)
@@ -356,20 +352,6 @@ test.describe('new address and social links', () => {
     await expect(menu.locator(`a[href="${telegramUrl}"]`)).toBeVisible()
     await expect(menu.locator(`a[href="${maxJoinUrl}"]`)).toBeVisible()
   })
-
-  test('welcome popup announces the new address with booking CTA', async ({ page }) => {
-    await page.addInitScript(() => window.sessionStorage.removeItem('welcome_popup_shown'))
-    await page.setViewportSize(desktopViewport)
-    await page.goto('/', { waitUntil: 'domcontentloaded' })
-
-    const popup = page.getByRole('dialog', { name: /перееха/i })
-    await expect(popup).toBeVisible()
-    await expect(popup).toContainText('ЖК «Тропарёво Парк»')
-    await expect(popup.getByRole('link', { name: 'Записаться онлайн' })).toBeVisible()
-    await popup.getByRole('button', { name: 'Закрыть', exact: true }).click()
-    await expect(popup).toBeHidden()
-    expect(await page.evaluate(() => sessionStorage.getItem('welcome_popup_shown'))).toBe('1')
-  })
 })
 
 test.describe('navigation', () => {
@@ -377,7 +359,6 @@ test.describe('navigation', () => {
     test(`route ${route} opens without 404`, async ({ page }) => {
       const errors = collectConsoleErrors(page)
       const response = await page.goto(route, { waitUntil: 'domcontentloaded' })
-      await page.locator('dialog.welcome-dialog').waitFor({ state: 'attached' })
 
       expect(response?.status()).toBeLessThan(400)
       await expect(page.locator('main')).toBeVisible()
@@ -392,7 +373,6 @@ test.describe('accessibility', () => {
   for (const route of ['/', '/blog', '/manikyur', '/permanentnyj-makiyazh']) {
     test(`has no critical axe violations on ${route}`, async ({ page }) => {
       await page.goto(route, { waitUntil: 'domcontentloaded' })
-      await page.locator('dialog.welcome-dialog').waitFor({ state: 'attached' })
 
       const results = await new AxeBuilder({ page })
         .withTags(['wcag2a', 'wcag2aa'])
@@ -409,7 +389,6 @@ test.describe('visual states', () => {
     test(`captures ${state.name}`, async ({ page }, testInfo) => {
       await page.setViewportSize(state.viewport)
       await page.goto(state.path, { waitUntil: 'domcontentloaded' })
-      await page.locator('dialog.welcome-dialog').waitFor({ state: 'attached' })
 
       if (state.openMenu) {
         await getBurgerButton(page).click()

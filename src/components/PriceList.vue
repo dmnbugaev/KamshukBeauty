@@ -73,10 +73,10 @@ const { enabled: bookingEnabled, url: yclientsUrl } = useBookingStatus()
         <div class="section-label mb-5">Стоимость услуг</div>
         <h2 class="display text-4xl lg:text-5xl text-[#1A1A2E] mb-4">Прайс-лист</h2>
         <p class="body text-muted">
-          Прозрачное ценообразование без скрытых доплат. Актуальные акции собраны в разделе предложений
+          Прозрачное ценообразование без скрытых доплат. Актуальные скидки собраны в разделе предложений
         </p>
         <p class="body text-xs text-muted mt-3">
-          * Предложение действует только на первый визит. Скидки и акции не суммируются.
+          * Скидка действует только на первый визит. Скидки не суммируются.
         </p>
       </div>
 
@@ -126,7 +126,7 @@ const { enabled: bookingEnabled, url: yclientsUrl } = useBookingStatus()
       <div class="text-center mt-16">
         <BookingButton />
         <p class="body text-xs text-muted mt-4">
-          Скидки и предложения не суммируются. Итоговую стоимость уточняйте при записи.
+          Скидки не суммируются. Итоговую стоимость уточняйте при записи.
         </p>
       </div>
 

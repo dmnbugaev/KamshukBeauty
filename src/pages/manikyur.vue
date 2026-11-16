@@ -137,7 +137,7 @@ const open = ref<number | null>(null)
           </div>
         </div>
         <p class="body text-xs text-muted mt-6">
-          * Скидки и предложения не суммируются. Стоимость уточняйте при записи.
+          * Скидки не суммируются. Стоимость уточняйте при записи.
         </p>
       </div>
     </section>

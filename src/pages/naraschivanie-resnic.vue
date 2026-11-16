@@ -80,7 +80,7 @@ const open = ref<number | null>(null)
               <div><div class="headline text-3xl text-pink-gradient mb-1">−15%</div><p class="body text-xs text-muted">первый визит</p></div>
             </div>
             <p class="body text-xs text-muted mt-5">
-              * Предложение действует только на первый визит. Скидки и акции не суммируются.
+              * Скидка действует только на первый визит. Скидки не суммируются.
             </p>
           </div>
           <div class="relative">

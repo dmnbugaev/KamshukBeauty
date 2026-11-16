@@ -11,7 +11,6 @@ const menuOpen = useState('mobile-menu-open', () => false)
     <AppFooter :inert="menuOpen" />
     <ClientOnly>
       <CookieBanner />
-      <WelcomePopup />
       <MessengerFloat />
     </ClientOnly>
   </div>

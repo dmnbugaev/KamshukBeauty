@@ -54,7 +54,7 @@ const bookingCount = computed(() => {
             Новым гостям дарим <span class="text-accent font-semibold">скидку 15%</span> на первый визит.
           </p>
           <p class="body text-xs text-muted -mt-6 mb-10 max-w-md">
-            * Скидки и предложения не суммируются.
+            * Скидки не суммируются.
           </p>
 
           <!-- Кнопки -->
